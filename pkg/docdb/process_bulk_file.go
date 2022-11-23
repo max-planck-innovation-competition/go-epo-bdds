@@ -9,8 +9,14 @@ import (
 	log "github.com/sirupsen/logrus"
 	"io"
 	"io/fs"
+	"os"
+	"regexp"
 	"strings"
+	"sync"
 )
+
+// regexFileName is used to extract the filename from the xml file
+var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
 
 func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 	logger := log.WithField("bulkZipFile", bulkZipFile)
@@ -29,13 +35,22 @@ func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 		}
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
-			f, _ := reader.Open(path)
+			f, errOpen := reader.Open(path)
+			if errOpen != nil {
+				err = errOpen
+				logger.WithError(err).Error("failed to open file")
+				return err
+			}
 			logger.WithField("zipFile", path).Info("found zip file")
 			processZipFile(logger, f)
 		}
 		// default (other files)
 		return nil
 	})
+	if err != nil {
+		logger.WithError(err).Error("failed to walk dir")
+		return err
+	}
 	// close
 	err = reader.Close()
 	if err != nil {
@@ -64,7 +79,11 @@ func processZipFile(logger *log.Entry, f fs.File) {
 	// Read all the files from zip archive
 	for _, zipFile := range zipReader.File {
 		logger.WithField("xmlFile", zipFile.Name).Info("child found")
-		processZipFileContent(logger, zipFile)
+		err = processZipFileContent(logger, zipFile)
+		if err != nil {
+			logger.WithError(err).Error("failed to process zip file content")
+			return
+		}
 	}
 
 }
@@ -88,25 +107,167 @@ func processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
 		}
 	}()
 	// init channels and sync
+	// init channels and sync
+	var wg sync.WaitGroup
+	chContent := make(chan string)
+	chFilename := make(chan string)
+	chFileEnd := make(chan bool)
+	// start 2nd process
+	go fileWriter(ctx, "./test-data", &wg, chContent, chFilename, chFileEnd)
 	// scan file
-	reader := bufio.NewReader(fc)
-	for {
-		line, _, err := reader.ReadLine()
-		if err == io.EOF {
-			break
+	// scan file
+	scanner := bufio.NewScanner(fc)
+	buf := make([]byte, 0, 64*1024)
+	scanner.Buffer(buf, 1024*1024) // 1MB
+	// custom line break
+	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
+		if atEOF && len(data) == 0 {
+			return 0, nil, nil
 		}
-		fmt.Println(string(line))
+		// regex for line break
+		var regexLineBreak = regexp.MustCompile(`[\r\n]+`)
+		loc := regexLineBreak.FindIndex(data)
+		if len(loc) == 0 {
+			return 0, nil, nil
+		}
+		i := loc[0]
+		if i >= 0 {
+			// We have a full newline-terminated line.
+			return i + 1, data[0:i], nil
+		}
+		// If we're at EOF, we have a final, non-terminated line. Return it.
+		if atEOF {
+			return len(data), data, nil
+		}
+		// Request more data.
+		return 0, nil, nil
+	})
+
+	for scanner.Scan() {
+		line := scanner.Text()
 		// last line
-		if strings.Contains(string(line), "</exch:exchange-document>") {
-
-		}
+		const docStart = "<exch:exchange-document "
 		// start of file e.g. first line
-		if strings.Contains(string(line), "<exch:exchange-document") {
-
+		if strings.Contains(line, docStart) {
+			// split the line
+			split := strings.Split(line, docStart)
+			if len(split) == 2 {
+				line = docStart + split[1]
+				// extract the filename
+				regexExtractionResults := regexFileName.FindAllStringSubmatch(line, -1)
+				if len(regexExtractionResults) != 1 && len(regexExtractionResults[0]) != 1 {
+					msg := "failed extract filename"
+					err = fmt.Errorf(msg)
+					logger.Error(err)
+					return
+				}
+				filename := regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + "_" + regexExtractionResults[0][4] + ".xml"
+				wg.Add(1)
+				chFilename <- filename
+				// add the content
+				wg.Add(1)
+				chContent <- line
+			} else {
+				log.WithField("line", line).Error("failed to split line")
+			}
+		} else {
+			if strings.Contains(line, "</exch:exchange-document>") {
+				// end of the file
+				wg.Add(1)
+				chContent <- line
+				wg.Add(1)
+				chFileEnd <- true
+				continue
+			}
+			// normal line
+			wg.Add(1)
+			chContent <- line
 		}
 	}
 
 	logger.Info("done with file")
 
 	return
+}
+
+func fileWriter(
+	ctx context.Context,
+	destinationFolder string,
+	wg *sync.WaitGroup,
+	chContent <-chan string,
+	chFilename <-chan string,
+	chFileEnd <-chan bool,
+) {
+	logger := log.WithField("routine", "writer")
+	logger.Trace("started")
+	filename := ""
+	var buf strings.Builder
+
+	for {
+		select {
+		case <-ctx.Done():
+			logger.Info("received context done")
+			return
+		case end := <-chFileEnd:
+			if end {
+				// if the last string was transmitted
+				logger.Trace("last stuff was transmitted")
+				// create a new file based on the filename
+				if len(filename) == 0 {
+					msg := "failed to extract filename: %s"
+					logger.Fatalf(msg, filename)
+					return
+				}
+				file, err := os.Create(destinationFolder + "/" + filename)
+				if err != nil {
+					logger.Error(err)
+					return
+				}
+				// write the data to the file
+				_, errWrite := file.WriteString(buf.String())
+				if errWrite != nil {
+					ctx.Done()
+					msg := "failed to write to buffer: %s"
+					logger.Fatalf(msg, errWrite)
+					return
+				}
+				// close the file
+				errClose := file.Close()
+				if errClose != nil {
+					ctx.Done()
+					msg := "failed to write close file: %s"
+					logger.Fatalf(msg, errClose)
+					return
+				}
+				// clear the string builder
+				buf.Reset()
+				// clear the filename
+				filename = ""
+				break
+			}
+		case content := <-chContent:
+			logger.
+				// WithField("content", content).
+				Trace("received data")
+			// skip the empty line if there is nothing in the buffer
+			if buf.Len() == 0 && len(content) == 0 {
+				break
+			}
+			// if there is content write it to the buffer
+			_, errWrite := buf.WriteString(content + "\n")
+			if errWrite != nil {
+				ctx.Done()
+				msg := "failed to write to buffer: %s"
+				logger.Fatalf(msg, errWrite)
+				return
+			}
+			break
+		case filename = <-chFilename:
+			logger.WithField("filename", filename).Debug("Set filename")
+			break
+		}
+		log.Trace("done")
+		wg.Done()
+	}
+
 }
