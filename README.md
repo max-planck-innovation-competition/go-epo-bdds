@@ -10,3 +10,10 @@ Alpha Version
 
 ## Author
 Sebastian Erhardt
+
+## Environment Variables
+
+```
+EPO_USERNAME=XYZ
+EPO_PASSWORD=XXXXXX
+```
