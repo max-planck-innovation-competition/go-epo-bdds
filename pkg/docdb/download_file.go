@@ -26,7 +26,7 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 	}
 	defer out.Close()
 	// download file
-	req, err := http.NewRequestWithContext(context.TODO(), "POST", endpoint, strings.NewReader(""))
+	req, err := http.NewRequestWithContext(context.TODO(), "GET", endpoint, strings.NewReader(""))
 	if err != nil {
 		log.WithError(err).Error("failed to create new request")
 		return
