@@ -10,5 +10,4 @@ func TestGetAuthorization(t *testing.T) {
 	res, err := GetAuthorizationToken()
 	ass.NoError(err)
 	ass.NotEmpty(res)
-	ass.NotEmpty(res.AccessToken)
 }

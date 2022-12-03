@@ -31,7 +31,7 @@ type TokenResponse struct {
 var ErrNoAccessToken = errors.New("no access token")
 
 // GetAuthorizationToken returns the authorization token for the EPO API
-func GetAuthorizationToken() (response TokenResponse, err error) {
+func GetAuthorizationToken() (token string, err error) {
 	payload := fmt.Sprintf("grant_type=password&username=%s&password=%s&scope=openid", os.Getenv("EPO_USERNAME"), os.Getenv("EPO_PASSWORD"))
 
 	// create new http request with header and payload
@@ -61,6 +61,7 @@ func GetAuthorizationToken() (response TokenResponse, err error) {
 	}
 	// close response body
 	defer resp.Body.Close()
+	var response TokenResponse
 	// parse response
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
@@ -73,5 +74,24 @@ func GetAuthorizationToken() (response TokenResponse, err error) {
 		log.WithError(err).Error("no access token in response")
 		return
 	}
+	return buildAuthToken(response)
+}
+
+// buildAuthToken builds the authorization token for the EPO API
+func buildAuthToken(tokenResponse TokenResponse) (token string, err error) {
+	// check if not empty
+	if tokenResponse.TokenType == "" {
+		err = ErrNoAccessToken
+		log.WithError(err).Error("no token type in response")
+		return
+	}
+	// check if not empty
+	if tokenResponse.AccessToken == "" {
+		err = ErrNoAccessToken
+		log.WithError(err).Error("no access token in response")
+		return
+	}
+	// build token
+	token = fmt.Sprintf("%s %s", tokenResponse.TokenType, tokenResponse.AccessToken)
 	return
 }

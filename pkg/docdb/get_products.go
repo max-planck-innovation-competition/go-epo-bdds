@@ -3,7 +3,6 @@ package docdb
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"strings"
@@ -20,9 +19,7 @@ type EpoProductItem struct {
 	Description string `json:"description"`
 }
 
-func GetProducts(tokenResponse TokenResponse) (response []EpoProductItem, err error) {
-	// build token
-	token := fmt.Sprintf("%s %s", tokenResponse.TokenType, tokenResponse.AccessToken)
+func GetProducts(token string) (response []EpoProductItem, err error) {
 	// create new http request with header and payload
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
 	defer cancel()
