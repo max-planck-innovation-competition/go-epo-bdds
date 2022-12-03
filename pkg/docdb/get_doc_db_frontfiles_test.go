@@ -11,7 +11,7 @@ func TestGetDocDbFrontFiles(t *testing.T) {
 	resToken, err := GetAuthorizationToken()
 	ass.NoError(err)
 
-	resFrontFiles, err := GetDocDbFrontFiles(resToken)
+	resFrontFiles, err := GetDocDbFrontFileLinks(resToken)
 	ass.NoError(err)
 	fmt.Println(resFrontFiles)
 }

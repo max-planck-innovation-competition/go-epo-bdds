@@ -29,14 +29,18 @@ type EpoDocDbResponse struct {
 	} `json:"deliveries"`
 }
 
-func GetDocDbFrontFiles(tokenResponse TokenResponse) (response EpoDocDbResponse, err error) {
+// EpoDocDBProductEndpoint is the endpoint for the doc db product
+var EpoDocDBProductEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/3"
+
+// GetDocDbFrontFileLinks returns the links to the front files of the doc db
+func GetDocDbFrontFileLinks(tokenResponse TokenResponse) (response EpoDocDbResponse, err error) {
 	// build token
 	token := fmt.Sprintf("%s %s", tokenResponse.TokenType, tokenResponse.AccessToken)
 	// create new http request with header and payload
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
 	defer cancel()
 
-	req, err := http.NewRequestWithContext(ctx, "GET", EpoProductsEndpoint, strings.NewReader(""))
+	req, err := http.NewRequestWithContext(ctx, "GET", EpoDocDBProductEndpoint, strings.NewReader(""))
 	if err != nil {
 		log.WithError(err).Error("failed to create new request")
 		return
