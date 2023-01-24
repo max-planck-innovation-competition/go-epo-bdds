@@ -2,6 +2,7 @@ package go_epo_bdds
 
 import (
 	"encoding/xml"
+	"fmt"
 	"github.com/max-planck-innovation-competition/go-epo-docdb/pkg/docdb"
 	"io/ioutil"
 	"strings"
@@ -24,4 +25,5 @@ func TestReadFile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+	fmt.Println(exchangeObject)
 }
