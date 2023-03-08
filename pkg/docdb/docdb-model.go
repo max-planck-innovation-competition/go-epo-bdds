@@ -10,46 +10,46 @@ type Yesorno string
 
 // Exchangedocument ...
 type Exchangedocument struct {
-	// XMLName                    xml.Name               `xml:"exchange-document"`
-	CorrectioncodeAttr         string                 `xml:"correction-code,attr,omitempty"`
-	CountryAttr                string                 `xml:"country,attr"`
-	DateproducedAttr           int                    `xml:"date-produced,attr,omitempty"`
-	DateaddeddocdbAttr         int                    `xml:"date-added-docdb,attr,omitempty"`
-	DateofpreviousexchangeAttr int                    `xml:"date-of-previous-exchange,attr,omitempty"`
-	DateoflastexchangeAttr     int                    `xml:"date-of-last-exchange,attr,omitempty"`
-	DatepublAttr               int                    `xml:"date-publ,attr,omitempty"`
-	DocnumberAttr              string                 `xml:"doc-number,attr,omitempty"`
-	DtdversionAttr             string                 `xml:"dtd-version,attr,omitempty"`
-	FileAttr                   string                 `xml:"file,attr,omitempty"`
-	FilereferenceidAttr        string                 `xml:"file-reference-id,attr,omitempty"`
-	IdAttr                     string                 `xml:"id,attr,omitempty"`
-	FamilyidAttr               string                 `xml:"family-id,attr,omitempty"`
-	DocidAttr                  string                 `xml:"doc-id,attr,omitempty"`
-	IsrepresentativeAttr       string                 `xml:"is-representative,attr,omitempty"`
-	KindAttr                   string                 `xml:"kind,attr,omitempty"`
-	LangAttr                   string                 `xml:"lang,attr,omitempty"`
-	OriginatingofficeAttr      string                 `xml:"originating-office,attr,omitempty"`
-	StatusAttr                 string                 `xml:"status,attr,omitempty"`
-	SystemAttr                 string                 `xml:"system,attr,omitempty"`
-	ExchBibliographicdata      *BibliographicdataType `xml:"bibliographic-data"`
-	ExchAbstract               []*AbstractType        `xml:"abstract"`
-	ExchPatentfamily           *PatentfamilyType      `xml:"patent-family"`
-	Exchangedocument           string                 `xml:"exchange-document"`
+	// XMLName                    xml.Name `json:"-" xml:"exchange-document"`
+	CorrectioncodeAttr         string                 `json:",omitempty" xml:"correction-code,attr,omitempty"`
+	CountryAttr                string                 `json:",omitempty" xml:"country,attr"`
+	DateproducedAttr           int                    `json:",omitempty" xml:"date-produced,attr,omitempty"`
+	DateaddeddocdbAttr         int                    `json:",omitempty" xml:"date-added-docdb,attr,omitempty"`
+	DateofpreviousexchangeAttr int                    `json:",omitempty" xml:"date-of-previous-exchange,attr,omitempty"`
+	DateoflastexchangeAttr     int                    `json:",omitempty" xml:"date-of-last-exchange,attr,omitempty"`
+	DatepublAttr               int                    `json:",omitempty" xml:"date-publ,attr,omitempty"`
+	DocnumberAttr              string                 `json:",omitempty" xml:"doc-number,attr,omitempty"`
+	DtdversionAttr             string                 `json:",omitempty" xml:"dtd-version,attr,omitempty"`
+	FileAttr                   string                 `json:",omitempty" xml:"file,attr,omitempty"`
+	FilereferenceidAttr        string                 `json:",omitempty" xml:"file-reference-id,attr,omitempty"`
+	IdAttr                     string                 `json:",omitempty" xml:"id,attr,omitempty"`
+	FamilyidAttr               string                 `json:",omitempty" xml:"family-id,attr,omitempty"`
+	DocidAttr                  string                 `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	IsrepresentativeAttr       string                 `json:",omitempty" xml:"is-representative,attr,omitempty"`
+	KindAttr                   string                 `json:",omitempty" xml:"kind,attr,omitempty"`
+	LangAttr                   string                 `json:",omitempty" xml:"lang,attr,omitempty"`
+	OriginatingofficeAttr      string                 `json:",omitempty" xml:"originating-office,attr,omitempty"`
+	StatusAttr                 string                 `json:",omitempty" xml:"status,attr,omitempty"`
+	SystemAttr                 string                 `json:",omitempty" xml:"system,attr,omitempty"`
+	ExchBibliographicdata      *BibliographicdataType `json:",omitempty" xml:"bibliographic-data"`
+	ExchAbstract               []*AbstractType        `json:",omitempty" xml:"abstract"`
+	ExchPatentfamily           *PatentfamilyType      `json:",omitempty" xml:"patent-family"`
+	Exchangedocument           string                 `json:",omitempty" xml:"exchange-document"`
 }
 
 // SearchreportdataType ...
 type SearchreportdataType struct {
-	XMLName                xml.Name                `xml:"search-report-data"`
-	IdAttr                 string                  `xml:"id,attr,omitempty"`
-	LangAttr               string                  `xml:"lang,attr,omitempty"`
-	SrepofficeAttr         string                  `xml:"srep-office,attr"`
-	DateproducedAttr       string                  `xml:"date-produced,attr"`
-	SreptypeAttr           string                  `xml:"srep-type,attr,omitempty"`
-	StatusAttr             string                  `xml:"status,attr,omitempty"`
-	Docpage                []*DocpageType          `xml:"doc-page"`
-	ExchSrepinfo           *SrepinfoType           `xml:"srep-info"`
-	ExchSrepforpub         *SrepforpubType         `xml:"srep-for-pub"`
-	ExchSrepwrittenopinion *SrepwrittenopinionType `xml:"srep-written-opinion"`
+	XMLName                xml.Name                `json:"-" xml:"search-report-data"`
+	IdAttr                 string                  `json:",omitempty" xml:"id,attr,omitempty"`
+	LangAttr               string                  `json:",omitempty" xml:"lang,attr,omitempty"`
+	SrepofficeAttr         string                  `json:",omitempty" xml:"srep-office,attr"`
+	DateproducedAttr       string                  `json:",omitempty" xml:"date-produced,attr"`
+	SreptypeAttr           string                  `json:",omitempty" xml:"srep-type,attr,omitempty"`
+	StatusAttr             string                  `json:",omitempty" xml:"status,attr,omitempty"`
+	Docpage                []*DocpageType          `json:",omitempty" xml:"doc-page"`
+	ExchSrepinfo           *SrepinfoType           `json:",omitempty" xml:"srep-info"`
+	ExchSrepforpub         *SrepforpubType         `json:",omitempty" xml:"srep-for-pub"`
+	ExchSrepwrittenopinion *SrepwrittenopinionType `json:",omitempty" xml:"srep-written-opinion"`
 }
 
 // Searchreportdata is Attributes :
@@ -62,9 +62,9 @@ type Searchreportdata *SearchreportdataType
 
 // PrioritydateType ...
 type PrioritydateType struct {
-	XMLName           xml.Name `xml:"priority-date"`
-	PriorityvalidAttr string   `xml:"priority-valid,attr,omitempty"`
-	Value             string   `xml:",chardata"`
+	XMLName           xml.Name `json:"-" xml:"priority-date"`
+	PriorityvalidAttr string   `json:",omitempty" xml:"priority-valid,attr,omitempty"`
+	Value             string   `json:",omitempty" xml:",chardata"`
 }
 
 // Prioritydate is Rule 70.10: Any published application ... shall be accompanied by ...
@@ -77,9 +77,9 @@ type Prioritydate *PrioritydateType
 
 // ComplianceunityinventionType ...
 type ComplianceunityinventionType struct {
-	XMLName           xml.Name `xml:"compliance-unity-invention"`
-	UnitycompliedAttr string   `xml:"unity-complied,attr"`
-	P                 []*PType `xml:"p"`
+	XMLName           xml.Name `json:"-" xml:"compliance-unity-invention"`
+	UnitycompliedAttr string   `json:",omitempty" xml:"unity-complied,attr"`
+	P                 []*PType `json:",omitempty" xml:"p"`
 }
 
 // Complianceunityinvention is (PCT/ISA/237 ) - Box No. IV Lack of unity of invention
@@ -93,8 +93,8 @@ type Complianceunityinvention *ComplianceunityinventionType
 
 // InvitationpayadditionalfeesType ...
 type InvitationpayadditionalfeesType struct {
-	XMLName          xml.Name `xml:"invitation-pay-additional-fees"`
-	UnityfeecodeAttr *IntType `xml:"unity-fee-code,attr"`
+	XMLName          xml.Name `json:"-" xml:"invitation-pay-additional-fees"`
+	UnityfeecodeAttr *IntType `json:",omitempty" xml:"unity-fee-code,attr"`
 }
 
 // Invitationpayadditionalfees is In response to the invitation (Form PCT/ISA/206) to pay additional fees the
@@ -118,8 +118,8 @@ type Invitationpayadditionalfees *InvitationpayadditionalfeesType
 
 // SequencelistingcomputerreadableformType ...
 type SequencelistingcomputerreadableformType struct {
-	XMLName          xml.Name `xml:"sequence-listing-computer-readable-form"`
-	NotcompliantAttr string   `xml:"not-compliant,attr"`
+	XMLName          xml.Name `json:"-" xml:"sequence-listing-computer-readable-form"`
+	NotcompliantAttr string   `json:",omitempty" xml:"not-compliant,attr"`
 }
 
 // Sequencelistingcomputerreadableform is The computer readable form
@@ -130,8 +130,8 @@ type Sequencelistingcomputerreadableform *SequencelistingcomputerreadableformTyp
 
 // SequencelistingwrittenformType ...
 type SequencelistingwrittenformType struct {
-	XMLName          xml.Name `xml:"sequence-listing-written-form"`
-	NotcompliantAttr string   `xml:"not-compliant,attr"`
+	XMLName          xml.Name `json:"-" xml:"sequence-listing-written-form"`
+	NotcompliantAttr string   `json:",omitempty" xml:"not-compliant,attr"`
 }
 
 // Sequencelistingwrittenform is The written form
@@ -142,11 +142,11 @@ type Sequencelistingwrittenform *SequencelistingwrittenformType
 
 // PriorityopinionType ...
 type PriorityopinionType struct {
-	XMLName        xml.Name            `xml:"priority-opinion"`
-	VaridAttr      string              `xml:"varid,attr,omitempty"`
-	Earlierappl    *EarlierapplType    `xml:"earlier-appl"`
-	Claiminvalid   *ClaiminvalidType   `xml:"claim-invalid"`
-	Additionalinfo *AdditionalinfoType `xml:"additional-info"`
+	XMLName        xml.Name            `json:"-" xml:"priority-opinion"`
+	VaridAttr      string              `json:",omitempty" xml:"varid,attr,omitempty"`
+	Earlierappl    *EarlierapplType    `json:",omitempty" xml:"earlier-appl"`
+	Claiminvalid   *ClaiminvalidType   `json:",omitempty" xml:"claim-invalid"`
+	Additionalinfo *AdditionalinfoType `json:",omitempty" xml:"additional-info"`
 }
 
 // Priorityopinion is (PCT/ISA/237 - Box II) - Priority
@@ -154,8 +154,8 @@ type Priorityopinion *PriorityopinionType
 
 // EarlierapplType ...
 type EarlierapplType struct {
-	XMLName      xml.Name `xml:"earlier-appl"`
-	PriocodeAttr *IntType `xml:"prio-code,attr"`
+	XMLName      xml.Name `json:"-" xml:"earlier-appl"`
+	PriocodeAttr *IntType `json:",omitempty" xml:"prio-code,attr"`
 }
 
 // Earlierappl is (PCT/ISA/237 - Box II)
@@ -178,8 +178,8 @@ type Earlierappl *EarlierapplType
 
 // TranslationofapplType ...
 type TranslationofapplType struct {
-	XMLName  xml.Name `xml:"translation-of-appl"`
-	LangAttr string   `xml:"lang,attr"`
+	XMLName  xml.Name `json:"-" xml:"translation-of-appl"`
+	LangAttr string   `json:",omitempty" xml:"lang,attr"`
 }
 
 // Translationofappl is 1. With regard to the language, this opinion has been established on the basis of
@@ -195,11 +195,11 @@ type Translationofappl *TranslationofapplType
 
 // SreppatentfamilyType ...
 type SreppatentfamilyType struct {
-	XMLName              xml.Name                 `xml:"srep-patent-family"`
-	IdAttr               string                   `xml:"id,attr,omitempty"`
-	Priorityapplication  *PriorityapplicationType `xml:"priority-application"`
-	ExchSrepfamilymember []*SrepfamilymemberType  `xml:"srep-family-member"`
-	Text                 *TextType                `xml:"text"`
+	XMLName              xml.Name                 `json:"-" xml:"srep-patent-family"`
+	IdAttr               string                   `json:",omitempty" xml:"id,attr,omitempty"`
+	Priorityapplication  *PriorityapplicationType `json:",omitempty" xml:"priority-application"`
+	ExchSrepfamilymember []*SrepfamilymemberType  `json:",omitempty" xml:"srep-family-member"`
+	Text                 *TextType                `json:",omitempty" xml:"text"`
 }
 
 // Sreppatentfamily is Patent family member.
@@ -209,49 +209,49 @@ type Sreppatentfamily *SreppatentfamilyType
 
 // SrepinfoType ...
 type SrepinfoType struct {
-	XMLName                  xml.Name                    `xml:"srep-info"`
-	TotalpagecountAttr       string                      `xml:"total-page-count,attr,omitempty"`
-	Docpage                  []*DocpageType              `xml:"doc-page"`
-	Correspondenceaddress    *CorrespondenceaddressType  `xml:"correspondence-address"`
-	Filereferenceid          *FilereferenceidType        `xml:"file-reference-id"`
-	ExchApplicationreference []*ApplicationreferenceType `xml:"application-reference"`
-	Dateofearliestpriority   *DateofearliestpriorityType `xml:"date-of-earliest-priority"`
-	Applicantname            *ApplicantnameType          `xml:"applicant-name"`
-	Srepestablished          *SrepestablishedType        `xml:"srep-established"`
-	Srepprotestfees          *SrepprotestfeesType        `xml:"srep-protest-fees"`
-	Sreprequestdate          *SreprequestdateType        `xml:"srep-request-date"`
-	Sreprequestnumber        *SreprequestnumberType      `xml:"srep-request-number"`
-	Sreppriorartdocs         []*SreppriorartdocsType     `xml:"srep-prior-art-docs"`
-	Srepbasis                *SrepbasisType              `xml:"srep-basis"`
-	Srepclaimsinfo           *SrepclaimsinfoType         `xml:"srep-claims-info"`
-	ExchSrepunityofinvention *SrepunityofinventionType   `xml:"srep-unity-of-invention"`
-	ExchSrepinventiontitle   *SrepinventiontitleType     `xml:"srep-invention-title"`
-	Srepabstract             *SrepabstractType           `xml:"srep-abstract"`
-	Srepfiguretopublish      *SrepfiguretopublishType    `xml:"srep-figure-to-publish"`
-	Srepinfoadmin            *SrepinfoadminType          `xml:"srep-info-admin"`
-	Srepotherinfo            *SrepotherinfoType          `xml:"srep-other-info"`
-	Text                     []*TextType                 `xml:"text"`
+	XMLName                  xml.Name                    `json:"-" xml:"srep-info"`
+	TotalpagecountAttr       string                      `json:",omitempty" xml:"total-page-count,attr,omitempty"`
+	Docpage                  []*DocpageType              `json:",omitempty" xml:"doc-page"`
+	Correspondenceaddress    *CorrespondenceaddressType  `json:",omitempty" xml:"correspondence-address"`
+	Filereferenceid          *FilereferenceidType        `json:",omitempty" xml:"file-reference-id"`
+	ExchApplicationreference []*ApplicationreferenceType `json:",omitempty" xml:"application-reference"`
+	Dateofearliestpriority   *DateofearliestpriorityType `json:",omitempty" xml:"date-of-earliest-priority"`
+	Applicantname            *ApplicantnameType          `json:",omitempty" xml:"applicant-name"`
+	Srepestablished          *SrepestablishedType        `json:",omitempty" xml:"srep-established"`
+	Srepprotestfees          *SrepprotestfeesType        `json:",omitempty" xml:"srep-protest-fees"`
+	Sreprequestdate          *SreprequestdateType        `json:",omitempty" xml:"srep-request-date"`
+	Sreprequestnumber        *SreprequestnumberType      `json:",omitempty" xml:"srep-request-number"`
+	Sreppriorartdocs         []*SreppriorartdocsType     `json:",omitempty" xml:"srep-prior-art-docs"`
+	Srepbasis                *SrepbasisType              `json:",omitempty" xml:"srep-basis"`
+	Srepclaimsinfo           *SrepclaimsinfoType         `json:",omitempty" xml:"srep-claims-info"`
+	ExchSrepunityofinvention *SrepunityofinventionType   `json:",omitempty" xml:"srep-unity-of-invention"`
+	ExchSrepinventiontitle   *SrepinventiontitleType     `json:",omitempty" xml:"srep-invention-title"`
+	Srepabstract             *SrepabstractType           `json:",omitempty" xml:"srep-abstract"`
+	Srepfiguretopublish      *SrepfiguretopublishType    `json:",omitempty" xml:"srep-figure-to-publish"`
+	Srepinfoadmin            *SrepinfoadminType          `json:",omitempty" xml:"srep-info-admin"`
+	Srepotherinfo            *SrepotherinfoType          `json:",omitempty" xml:"srep-other-info"`
+	Text                     []*TextType                 `json:",omitempty" xml:"text"`
 }
 
 // SrepabstractType ...
 type SrepabstractType struct {
-	XMLName         xml.Name      `xml:"srep-abstract"`
-	AbsapprovalAttr string        `xml:"abs-approval,attr,omitempty"`
-	Abstract        *AbstractType `xml:"abstract"`
+	XMLName         xml.Name      `json:"-" xml:"srep-abstract"`
+	AbsapprovalAttr string        `json:",omitempty" xml:"abs-approval,attr,omitempty"`
+	Abstract        *AbstractType `json:",omitempty" xml:"abstract"`
 }
 
 // SrepinventiontitleType ...
 type SrepinventiontitleType struct {
-	XMLName            xml.Name            `xml:"srep-invention-title"`
-	TitleapprovalAttr  string              `xml:"title-approval,attr,omitempty"`
-	ExchInventiontitle *InventiontitleType `xml:"invention-title"`
+	XMLName            xml.Name            `json:"-" xml:"srep-invention-title"`
+	TitleapprovalAttr  string              `json:",omitempty" xml:"title-approval,attr,omitempty"`
+	ExchInventiontitle *InventiontitleType `json:",omitempty" xml:"invention-title"`
 }
 
 // SrepinformationType ...
 type SrepinformationType struct {
-	XMLName      xml.Name `xml:"srep-information"`
-	SrepcodeAttr string   `xml:"srep-code,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"srep-information"`
+	SrepcodeAttr string   `json:",omitempty" xml:"srep-code,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Srepinformation ...
@@ -259,11 +259,11 @@ type Srepinformation *SrepinformationType
 
 // ElectronicsignatureType ...
 type ElectronicsignatureType struct {
-	XMLName           xml.Name               `xml:"electronic-signature"`
-	DateAttr          int                    `xml:"date,attr"`
-	PlacesignedAttr   string                 `xml:"place-signed,attr,omitempty"`
-	Basicsignature    *BasicsignatureType    `xml:"basic-signature"`
-	Enhancedsignature *EnhancedsignatureType `xml:"enhanced-signature"`
+	XMLName           xml.Name               `json:"-" xml:"electronic-signature"`
+	DateAttr          int                    `json:",omitempty" xml:"date,attr"`
+	PlacesignedAttr   string                 `json:",omitempty" xml:"place-signed,attr,omitempty"`
+	Basicsignature    *BasicsignatureType    `json:",omitempty" xml:"basic-signature"`
+	Enhancedsignature *EnhancedsignatureType `json:",omitempty" xml:"enhanced-signature"`
 }
 
 // Electronicsignature is ***
@@ -273,8 +273,8 @@ type Electronicsignature *ElectronicsignatureType
 
 // FaximageType ...
 type FaximageType struct {
-	XMLName  xml.Name `xml:"fax-image"`
-	FileAttr string   `xml:"file,attr"`
+	XMLName  xml.Name `json:"-" xml:"fax-image"`
+	FileAttr string   `json:",omitempty" xml:"file,attr"`
 }
 
 // Faximage is A TIFF image of a signature
@@ -282,9 +282,9 @@ type Faximage *FaximageType
 
 // SrepfiguretopublishType ...
 type SrepfiguretopublishType struct {
-	XMLName         xml.Name             `xml:"srep-figure-to-publish"`
-	FiginfoAttr     string               `xml:"figinfo,attr,omitempty"`
-	Figuretopublish *FiguretopublishType `xml:"figure-to-publish"`
+	XMLName         xml.Name             `json:"-" xml:"srep-figure-to-publish"`
+	FiginfoAttr     string               `json:",omitempty" xml:"figinfo,attr,omitempty"`
+	Figuretopublish *FiguretopublishType `json:",omitempty" xml:"figure-to-publish"`
 }
 
 // Srepfiguretopublish is Attribute "figinfo" might in other sources be represented as
@@ -303,8 +303,8 @@ type Srepfiguretopublish *SrepfiguretopublishType
 
 // SearchfeeprotestType ...
 type SearchfeeprotestType struct {
-	XMLName     xml.Name `xml:"search-fee-protest"`
-	ProtestAttr string   `xml:"protest,attr,omitempty"`
+	XMLName     xml.Name `json:"-" xml:"search-fee-protest"`
+	ProtestAttr string   `json:",omitempty" xml:"protest,attr,omitempty"`
 }
 
 // Searchfeeprotest is Remark on protest
@@ -316,9 +316,9 @@ type Searchfeeprotest *SearchfeeprotestType
 
 // SequencelistingfilingtimeType ...
 type SequencelistingfilingtimeType struct {
-	XMLName          xml.Name `xml:"sequence-listing-filing-time"`
-	TimeoffilingAttr string   `xml:"time-of-filing,attr,omitempty"`
-	Value            string   `xml:",chardata"`
+	XMLName          xml.Name `json:"-" xml:"sequence-listing-filing-time"`
+	TimeoffilingAttr string   `json:",omitempty" xml:"time-of-filing,attr,omitempty"`
+	Value            string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sequencelistingfilingtime is c. time of filing/furnishing
@@ -326,8 +326,8 @@ type Sequencelistingfilingtime *SequencelistingfilingtimeType
 
 // SequencelistingmaterialformatType ...
 type SequencelistingmaterialformatType struct {
-	XMLName            xml.Name `xml:"sequence-listing-material-format"`
-	MaterialformatAttr string   `xml:"material-format,attr,omitempty"`
+	XMLName            xml.Name `json:"-" xml:"sequence-listing-material-format"`
+	MaterialformatAttr string   `json:",omitempty" xml:"material-format,attr,omitempty"`
 }
 
 // Sequencelistingmaterialformat is b. format of material
@@ -335,8 +335,8 @@ type Sequencelistingmaterialformat *SequencelistingmaterialformatType
 
 // SequencelistingmaterialtypeType ...
 type SequencelistingmaterialtypeType struct {
-	XMLName          xml.Name `xml:"sequence-listing-material-type"`
-	MaterialtypeAttr string   `xml:"material-type,attr,omitempty"`
+	XMLName          xml.Name `json:"-" xml:"sequence-listing-material-type"`
+	MaterialtypeAttr string   `json:",omitempty" xml:"material-type,attr,omitempty"`
 }
 
 // Sequencelistingmaterialtype is a. type of material
@@ -344,8 +344,8 @@ type Sequencelistingmaterialtype *SequencelistingmaterialtypeType
 
 // BasislanguageforsearchType ...
 type BasislanguageforsearchType struct {
-	XMLName         xml.Name `xml:"basis-language-for-search"`
-	TranslationAttr string   `xml:"translation,attr,omitempty"`
+	XMLName         xml.Name `json:"-" xml:"basis-language-for-search"`
+	TranslationAttr string   `json:",omitempty" xml:"translation,attr,omitempty"`
 }
 
 // Basislanguageforsearch is +++++++++++++++++++++++++++++++++++++++
@@ -367,10 +367,10 @@ type Basislanguageforsearch *BasislanguageforsearchType
 
 // SreppriorartdocsType ...
 type SreppriorartdocsType struct {
-	XMLName        xml.Name              `xml:"srep-prior-art-docs"`
-	PriorartAttr   string                `xml:"prior-art,attr"`
-	Docpage        []*DocpageType        `xml:"doc-page"`
-	Priorartxmldoc []*PriorartxmldocType `xml:"prior-art-xml-doc"`
+	XMLName        xml.Name              `json:"-" xml:"srep-prior-art-docs"`
+	PriorartAttr   string                `json:",omitempty" xml:"prior-art,attr"`
+	Docpage        []*DocpageType        `json:",omitempty" xml:"doc-page"`
+	Priorartxmldoc []*PriorartxmldocType `json:",omitempty" xml:"prior-art-xml-doc"`
 }
 
 // Sreppriorartdocs is This part preceded by - on old PCT/ISA/210 :
@@ -390,12 +390,12 @@ type Sreppriorartdocs *SreppriorartdocsType
 
 // PriorartxmldocType ...
 type PriorartxmldocType struct {
-	XMLName      xml.Name `xml:"prior-art-xml-doc"`
-	IdAttr       string   `xml:"id,attr,omitempty"`
-	FileAttr     string   `xml:"file,attr"`
-	LangAttr     string   `xml:"lang,attr,omitempty"`
-	CarriersAttr string   `xml:"carriers,attr,omitempty"`
-	StatusAttr   string   `xml:"status,attr,omitempty"`
+	XMLName      xml.Name `json:"-" xml:"prior-art-xml-doc"`
+	IdAttr       string   `json:",omitempty" xml:"id,attr,omitempty"`
+	FileAttr     string   `json:",omitempty" xml:"file,attr"`
+	LangAttr     string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	CarriersAttr string   `json:",omitempty" xml:"carriers,attr,omitempty"`
+	StatusAttr   string   `json:",omitempty" xml:"status,attr,omitempty"`
 }
 
 // Priorartxmldoc is XML version prior art document, if any
@@ -406,8 +406,8 @@ type Priorartxmldoc *PriorartxmldocType
 
 // SrepprotestfeesType ...
 type SrepprotestfeesType struct {
-	XMLName         xml.Name `xml:"srep-protest-fees"`
-	SrepprotestAttr string   `xml:"srep-protest,attr,omitempty"`
+	XMLName         xml.Name `json:"-" xml:"srep-protest-fees"`
+	SrepprotestAttr string   `json:",omitempty" xml:"srep-protest,attr,omitempty"`
 }
 
 // Srepprotestfees is +++++++++++++++++++++++++++++++++++++++
@@ -436,8 +436,8 @@ type Srepprotestfees *SrepprotestfeesType
 
 // SrepestablishedType ...
 type SrepestablishedType struct {
-	XMLName             xml.Name `xml:"srep-established"`
-	SrepestablishedAttr string   `xml:"srep-established,attr,omitempty"`
+	XMLName             xml.Name `json:"-" xml:"srep-established"`
+	SrepestablishedAttr string   `json:",omitempty" xml:"srep-established,attr,omitempty"`
 }
 
 // Srepestablished is *******************************************************************************
@@ -478,30 +478,30 @@ type Srepestablished *SrepestablishedType
 
 // BibliographicdataType is IFD tag = 132; ST.30 tag = 151
 type BibliographicdataType struct {
-	// XMLName                       xml.Name                      `xml:"bibliographic-data"`
-	IdAttr                        string                        `xml:"id,attr,omitempty"`
-	LangAttr                      string                        `xml:"lang,attr,omitempty"`
-	CountryAttr                   string                        `xml:"country,attr,omitempty"`
-	StatusAttr                    string                        `xml:"status,attr,omitempty"`
-	ExchPublicationreference      []*PublicationreferenceType   `xml:"publication-reference"`
-	ExchPreviouslyfiledapp        *PreviouslyfiledappType       `xml:"previously-filed-app"`
-	ExchPrecedingpublicationdate  *PrecedingpublicationdateType `xml:"preceding-publication-date"`
-	ExchDateofcomingintoforce     *DateofcomingintoforceType    `xml:"date-of-coming-into-force"`
-	ExchExtendedkindcode          *Extendedkindcode             `xml:"extended-kind-code"`
-	ExchClassificationipc         *ClassificationipcType        `xml:"classification-ipc"`
-	ExchClassificationsipcr       *ClassificationsipcrType      `xml:"classifications-ipcr"`
-	ExchClassificationnational    *ClassificationnationalType   `xml:"classification-national"`
-	ExchPatentclassifications     *PatentclassificationsType    `xml:"patent-classifications"`
-	ExchApplicationreference      []*ApplicationreferenceType   `xml:"application-reference"`
-	ExchLanguageoffiling          *LanguageoffilingType         `xml:"language-of-filing"`
-	ExchLanguageofpublication     *LanguageofpublicationType    `xml:"language-of-publication"`
-	ExchPriorityclaims            *PriorityclaimsType           `xml:"priority-claims"`
-	ExchParties                   *PartiesType                  `xml:"parties"`
-	ExchDesignationofstates       *DesignationofstatesType      `xml:"designation-of-states"`
-	ExchInventiontitle            []*InventiontitleType         `xml:"invention-title"`
-	ExchDatesofpublicavailability *Datesofpublicavailability    `xml:"dates-of-public-availability"`
-	ExchSt50republication         *St50republicationType        `xml:"st50-republication"`
-	ExchReferencescited           *ReferencescitedType          `xml:"references-cited"`
+	// XMLName                       xml.Name `json:"-" xml:"bibliographic-data"`
+	IdAttr                        string                        `json:",omitempty" xml:"id,attr,omitempty"`
+	LangAttr                      string                        `json:",omitempty" xml:"lang,attr,omitempty"`
+	CountryAttr                   string                        `json:",omitempty" xml:"country,attr,omitempty"`
+	StatusAttr                    string                        `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchPublicationreference      []*PublicationreferenceType   `json:",omitempty" xml:"publication-reference"`
+	ExchPreviouslyfiledapp        *PreviouslyfiledappType       `json:",omitempty" xml:"previously-filed-app"`
+	ExchPrecedingpublicationdate  *PrecedingpublicationdateType `json:",omitempty" xml:"preceding-publication-date"`
+	ExchDateofcomingintoforce     *DateofcomingintoforceType    `json:",omitempty" xml:"date-of-coming-into-force"`
+	ExchExtendedkindcode          *Extendedkindcode             `json:",omitempty" xml:"extended-kind-code"`
+	ExchClassificationipc         *ClassificationipcType        `json:",omitempty" xml:"classification-ipc"`
+	ExchClassificationsipcr       *ClassificationsipcrType      `json:",omitempty" xml:"classifications-ipcr"`
+	ExchClassificationnational    *ClassificationnationalType   `json:",omitempty" xml:"classification-national"`
+	ExchPatentclassifications     *PatentclassificationsType    `json:",omitempty" xml:"patent-classifications"`
+	ExchApplicationreference      []*ApplicationreferenceType   `json:",omitempty" xml:"application-reference"`
+	ExchLanguageoffiling          *LanguageoffilingType         `json:",omitempty" xml:"language-of-filing"`
+	ExchLanguageofpublication     *LanguageofpublicationType    `json:",omitempty" xml:"language-of-publication"`
+	ExchPriorityclaims            *PriorityclaimsType           `json:",omitempty" xml:"priority-claims"`
+	ExchParties                   *PartiesType                  `json:",omitempty" xml:"parties"`
+	ExchDesignationofstates       *DesignationofstatesType      `json:",omitempty" xml:"designation-of-states"`
+	ExchInventiontitle            []*InventiontitleType         `json:",omitempty" xml:"invention-title"`
+	ExchDatesofpublicavailability *Datesofpublicavailability    `json:",omitempty" xml:"dates-of-public-availability"`
+	ExchSt50republication         *St50republicationType        `json:",omitempty" xml:"st50-republication"`
+	ExchReferencescited           *ReferencescitedType          `json:",omitempty" xml:"references-cited"`
 }
 
 // Bibliographicdata is Bibliographic data covers all information printed on the first page, excluding abstracts.
@@ -509,14 +509,14 @@ type Bibliographicdata *BibliographicdataType
 
 // St50republicationType ...
 type St50republicationType struct {
-	XMLName              xml.Name                `xml:"st50-republication"`
-	StatusAttr           string                  `xml:"status,attr,omitempty"`
-	Typeofcorrection     *TypeofcorrectionType   `xml:"type-of-correction"`
-	Republicationcode    *RepublicationcodeType  `xml:"republication-code"`
-	Cancellationdate     *CancellationdateType   `xml:"cancellation-date"`
-	Modifications        *ModificationsType      `xml:"modifications"`
-	Republicationnotes   *RepublicationnotesType `xml:"republication-notes"`
-	ExchCorrectionnotice *CorrectionnoticeType   `xml:"correction-notice"`
+	XMLName              xml.Name                `json:"-" xml:"st50-republication"`
+	StatusAttr           string                  `json:",omitempty" xml:"status,attr,omitempty"`
+	Typeofcorrection     *TypeofcorrectionType   `json:",omitempty" xml:"type-of-correction"`
+	Republicationcode    *RepublicationcodeType  `json:",omitempty" xml:"republication-code"`
+	Cancellationdate     *CancellationdateType   `json:",omitempty" xml:"cancellation-date"`
+	Modifications        *ModificationsType      `json:",omitempty" xml:"modifications"`
+	Republicationnotes   *RepublicationnotesType `json:",omitempty" xml:"republication-notes"`
+	ExchCorrectionnotice *CorrectionnoticeType   `json:",omitempty" xml:"correction-notice"`
 }
 
 // St50republication ...
@@ -524,10 +524,10 @@ type St50republication *St50republicationType
 
 // RepublicationnoteType ...
 type RepublicationnoteType struct {
-	XMLName      xml.Name `xml:"republication-note"`
-	SequenceAttr string   `xml:"sequence,attr,omitempty"`
-	LangAttr     string   `xml:"lang,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"republication-note"`
+	SequenceAttr string   `json:",omitempty" xml:"sequence,attr,omitempty"`
+	LangAttr     string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Republicationnote ...
@@ -535,11 +535,11 @@ type Republicationnote *RepublicationnoteType
 
 // ModifiedpartType ...
 type ModifiedpartType struct {
-	XMLName          xml.Name              `xml:"modified-part"`
-	SequenceAttr     string                `xml:"sequence,attr,omitempty"`
-	LangAttr         string                `xml:"lang,attr,omitempty"`
-	Modifiedpartname *ModifiedpartnameType `xml:"modified-part-name"`
-	Modifieditem     []*ModifieditemType   `xml:"modified-item"`
+	XMLName          xml.Name              `json:"-" xml:"modified-part"`
+	SequenceAttr     string                `json:",omitempty" xml:"sequence,attr,omitempty"`
+	LangAttr         string                `json:",omitempty" xml:"lang,attr,omitempty"`
+	Modifiedpartname *ModifiedpartnameType `json:",omitempty" xml:"modified-part-name"`
+	Modifieditem     []*ModifieditemType   `json:",omitempty" xml:"modified-item"`
 }
 
 // Modifiedpart is Part of the document other than bibliography affected by the correction information (ST.32 : B155EP)
@@ -547,9 +547,9 @@ type Modifiedpart *ModifiedpartType
 
 // ModifieditemType ...
 type ModifieditemType struct {
-	XMLName      xml.Name `xml:"modified-item"`
-	SequenceAttr string   `xml:"sequence,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"modified-item"`
+	SequenceAttr string   `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Modifieditem ...
@@ -557,9 +557,9 @@ type Modifieditem *ModifieditemType
 
 // InidcodeType ...
 type InidcodeType struct {
-	XMLName      xml.Name `xml:"inid-code"`
-	SequenceAttr string   `xml:"sequence,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"inid-code"`
+	SequenceAttr string   `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Inidcode is INID-codes affected by the correction information (ST.32 : B153)
@@ -567,10 +567,10 @@ type Inidcode *InidcodeType
 
 // ReferencescitedType ...
 type ReferencescitedType struct {
-	XMLName      xml.Name        `xml:"references-cited"`
-	StatusAttr   string          `xml:"status,attr,omitempty"`
-	Text         *TextType       `xml:"text"`
-	ExchCitation []*CitationType `xml:"citation"`
+	XMLName      xml.Name        `json:"-" xml:"references-cited"`
+	StatusAttr   string          `json:",omitempty" xml:"status,attr,omitempty"`
+	Text         *TextType       `json:",omitempty" xml:"text"`
+	ExchCitation []*CitationType `json:",omitempty" xml:"citation"`
 }
 
 // Referencescited is Origin of the citation is indicated as follows
@@ -595,20 +595,20 @@ type Referencescited *ReferencescitedType
 
 // CitationType ...
 type CitationType struct {
-	XMLName               xml.Name                 `xml:"citation"`
-	IdAttr                string                   `xml:"id,attr,omitempty"`
-	CitedphaseAttr        string                   `xml:"cited-phase,attr,omitempty"`
-	NameAttr              string                   `xml:"name,attr,omitempty"`
-	CiteddateAttr         int                      `xml:"cited-date,attr,omitempty"`
-	CitedbyAttr           string                   `xml:"cited-by,attr,omitempty"`
-	SrepofficeAttr        string                   `xml:"srep-office,attr,omitempty"`
-	SequenceAttr          string                   `xml:"sequence,attr,omitempty"`
-	Patcit                *PatcitType              `xml:"patcit"`
-	Nplcit                *NplcitType              `xml:"nplcit"`
-	Relpassage            []*RelpassageType        `xml:"rel-passage"`
-	Category              []*CategoryType          `xml:"category"`
-	Relclaims             []*RelclaimsType         `xml:"rel-claims"`
-	ExchCorrespondingdocs []*CorrespondingdocsType `xml:"corresponding-docs"`
+	XMLName               xml.Name                 `json:"-" xml:"citation"`
+	IdAttr                string                   `json:",omitempty" xml:"id,attr,omitempty"`
+	CitedphaseAttr        string                   `json:",omitempty" xml:"cited-phase,attr,omitempty"`
+	NameAttr              string                   `json:",omitempty" xml:"name,attr,omitempty"`
+	CiteddateAttr         int                      `json:",omitempty" xml:"cited-date,attr,omitempty"`
+	CitedbyAttr           string                   `json:",omitempty" xml:"cited-by,attr,omitempty"`
+	SrepofficeAttr        string                   `json:",omitempty" xml:"srep-office,attr,omitempty"`
+	SequenceAttr          string                   `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Patcit                *PatcitType              `json:",omitempty" xml:"patcit"`
+	Nplcit                *NplcitType              `json:",omitempty" xml:"nplcit"`
+	Relpassage            []*RelpassageType        `json:",omitempty" xml:"rel-passage"`
+	Category              []*CategoryType          `json:",omitempty" xml:"category"`
+	Relclaims             []*RelclaimsType         `json:",omitempty" xml:"rel-claims"`
+	ExchCorrespondingdocs []*CorrespondingdocsType `json:",omitempty" xml:"corresponding-docs"`
 }
 
 // Citation is *******************************
@@ -621,17 +621,17 @@ type Citation *CitationType
 
 // PriorityclaimType ...
 type PriorityclaimType struct {
-	XMLName                     xml.Name                  `xml:"priority-claim"`
-	IdAttr                      string                    `xml:"id,attr,omitempty"`
-	DataformatAttr              string                    `xml:"data-format,attr,omitempty"`
-	StatusAttr                  string                    `xml:"status,attr,omitempty"`
-	SequenceAttr                string                    `xml:"sequence,attr,omitempty"`
-	Documentid                  *DocumentidType           `xml:"document-id"`
-	Officeoffiling              *OfficeoffilingType       `xml:"office-of-filing"`
-	Prioritydocrequested        *PrioritydocrequestedType `xml:"priority-doc-requested"`
-	Prioritydocattached         *PrioritydocattachedType  `xml:"priority-doc-attached"`
-	ExchPrioritylinkagetype     string                    `xml:"priority-linkage-type"`
-	ExchPriorityactiveindicator string                    `xml:"priority-active-indicator"`
+	XMLName                     xml.Name                  `json:"-" xml:"priority-claim"`
+	IdAttr                      string                    `json:",omitempty" xml:"id,attr,omitempty"`
+	DataformatAttr              string                    `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr                  string                    `json:",omitempty" xml:"status,attr,omitempty"`
+	SequenceAttr                string                    `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Documentid                  *DocumentidType           `json:",omitempty" xml:"document-id"`
+	Officeoffiling              *OfficeoffilingType       `json:",omitempty" xml:"office-of-filing"`
+	Prioritydocrequested        *PrioritydocrequestedType `json:",omitempty" xml:"priority-doc-requested"`
+	Prioritydocattached         *PrioritydocattachedType  `json:",omitempty" xml:"priority-doc-attached"`
+	ExchPrioritylinkagetype     string                    `json:",omitempty" xml:"priority-linkage-type"`
+	ExchPriorityactiveindicator string                    `json:",omitempty" xml:"priority-active-indicator"`
 }
 
 // Priorityclaim is Priority-claim, IFD tags :
@@ -673,10 +673,10 @@ type Priorityclaim *PriorityclaimType
 
 // AgentType ...
 type AgentType struct {
-	XMLName      xml.Name           `xml:"agent"`
-	SequenceAttr string             `xml:"sequence,attr"`
-	ReptypeAttr  string             `xml:"rep-type,attr"`
-	Addressbook  []*AddressbookType `xml:"addressbook"`
+	XMLName      xml.Name           `json:"-" xml:"agent"`
+	SequenceAttr string             `json:",omitempty" xml:"sequence,attr"`
+	ReptypeAttr  string             `json:",omitempty" xml:"rep-type,attr"`
+	Addressbook  []*AddressbookType `json:",omitempty" xml:"addressbook"`
 }
 
 // Agent is Agent or common representative (Rules 90.1, 90.2)
@@ -684,11 +684,11 @@ type Agent *AgentType
 
 // DeceasedinventorType ...
 type DeceasedinventorType struct {
-	XMLName          xml.Name          `xml:"deceased-inventor"`
-	SequenceAttr     string            `xml:"sequence,attr"`
-	LangAttr         string            `xml:"lang,attr,omitempty"`
-	DataformatAttr   string            `xml:"data-format,attr,omitempty"`
-	ExchInventorname *InventornameType `xml:"inventor-name"`
+	XMLName          xml.Name          `json:"-" xml:"deceased-inventor"`
+	SequenceAttr     string            `json:",omitempty" xml:"sequence,attr"`
+	LangAttr         string            `json:",omitempty" xml:"lang,attr,omitempty"`
+	DataformatAttr   string            `json:",omitempty" xml:"data-format,attr,omitempty"`
+	ExchInventorname *InventornameType `json:",omitempty" xml:"inventor-name"`
 }
 
 // Deceasedinventor is Deceased inventor name
@@ -696,22 +696,22 @@ type Deceasedinventor *DeceasedinventorType
 
 // InventorType ...
 type InventorType struct {
-	XMLName          xml.Name              `xml:"inventor"`
-	SequenceAttr     string                `xml:"sequence,attr,omitempty"`
-	DesignationAttr  string                `xml:"designation,attr,omitempty"`
-	DataformatAttr   string                `xml:"data-format,attr,omitempty"`
-	StatusAttr       string                `xml:"status,attr,omitempty"`
-	ExchInventorname []*InventornameType   `xml:"inventor-name"`
-	Address          *AddressType          `xml:"address"`
-	Residence        *ResidenceType        `xml:"residence"`
-	Designatedstates *DesignatedstatesType `xml:"designated-states"`
+	XMLName          xml.Name              `json:"-" xml:"inventor"`
+	SequenceAttr     string                `json:",omitempty" xml:"sequence,attr,omitempty"`
+	DesignationAttr  string                `json:",omitempty" xml:"designation,attr,omitempty"`
+	DataformatAttr   string                `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr       string                `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchInventorname []*InventornameType   `json:",omitempty" xml:"inventor-name"`
+	Address          *AddressType          `json:",omitempty" xml:"address"`
+	Residence        *ResidenceType        `json:",omitempty" xml:"residence"`
+	Designatedstates *DesignatedstatesType `json:",omitempty" xml:"designated-states"`
 }
 
 // InventornameType ...
 type InventornameType struct {
-	XMLName        xml.Name `xml:"inventor-name"`
-	LangAttr       string   `xml:"lang,attr,omitempty"`
-	DataformatAttr string   `xml:"data-format,attr,omitempty"`
+	XMLName        xml.Name `json:"-" xml:"inventor-name"`
+	LangAttr       string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	DataformatAttr string   `json:",omitempty" xml:"data-format,attr,omitempty"`
 	ExchNameGroup  *NameGroup
 }
 
@@ -720,19 +720,19 @@ type Inventorname *InventornameType
 
 // ApplicantType ...
 type ApplicantType struct {
-	XMLName                    xml.Name                        `xml:"applicant"`
-	SequenceAttr               string                          `xml:"sequence,attr,omitempty"`
-	ApptypeAttr                string                          `xml:"app-type,attr,omitempty"`
-	DesignationAttr            string                          `xml:"designation,attr,omitempty"`
-	DataformatAttr             string                          `xml:"data-format,attr,omitempty"`
-	StatusAttr                 string                          `xml:"status,attr,omitempty"`
-	ExchApplicantname          []*ApplicantnameType            `xml:"applicant-name"`
-	Address                    *AddressType                    `xml:"address"`
-	Nationality                *NationalityType                `xml:"nationality"`
-	Residence                  *ResidenceType                  `xml:"residence"`
-	Usrights                   []*UsrightsType                 `xml:"us-rights"`
-	Designatedstates           *DesignatedstatesType           `xml:"designated-states"`
-	Designatedstatesasinventor *DesignatedstatesasinventorType `xml:"designated-states-as-inventor"`
+	XMLName                    xml.Name                        `json:"-" xml:"applicant"`
+	SequenceAttr               string                          `json:",omitempty" xml:"sequence,attr,omitempty"`
+	ApptypeAttr                string                          `json:",omitempty" xml:"app-type,attr,omitempty"`
+	DesignationAttr            string                          `json:",omitempty" xml:"designation,attr,omitempty"`
+	DataformatAttr             string                          `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr                 string                          `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchApplicantname          []*ApplicantnameType            `json:",omitempty" xml:"applicant-name"`
+	Address                    *AddressType                    `json:",omitempty" xml:"address"`
+	Nationality                *NationalityType                `json:",omitempty" xml:"nationality"`
+	Residence                  *ResidenceType                  `json:",omitempty" xml:"residence"`
+	Usrights                   []*UsrightsType                 `json:",omitempty" xml:"us-rights"`
+	Designatedstates           *DesignatedstatesType           `json:",omitempty" xml:"designated-states"`
+	Designatedstatesasinventor *DesignatedstatesasinventorType `json:",omitempty" xml:"designated-states-as-inventor"`
 }
 
 // Applicant is DOCDB only keeps a record of applicant-name and country of residence; address is only available
@@ -762,10 +762,10 @@ type Applicant *ApplicantType
 
 // UsrightsType ...
 type UsrightsType struct {
-	XMLName            xml.Name `xml:"us-rights"`
-	TodeadinventorAttr string   `xml:"to-dead-inventor,attr"`
-	KindAttr           string   `xml:"kind,attr"`
-	Value              string   `xml:",chardata"`
+	XMLName            xml.Name `json:"-" xml:"us-rights"`
+	TodeadinventorAttr string   `json:",omitempty" xml:"to-dead-inventor,attr"`
+	KindAttr           string   `json:",omitempty" xml:"kind,attr"`
+	Value              string   `json:",omitempty" xml:",chardata"`
 }
 
 // Usrights is ***
@@ -777,9 +777,9 @@ type Usrights *UsrightsType
 
 // ApplicantnameType ...
 type ApplicantnameType struct {
-	XMLName        xml.Name `xml:"applicant-name"`
-	LangAttr       string   `xml:"lang,attr,omitempty"`
-	DataformatAttr string   `xml:"data-format,attr,omitempty"`
+	XMLName        xml.Name `json:"-" xml:"applicant-name"`
+	LangAttr       string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	DataformatAttr string   `json:",omitempty" xml:"data-format,attr,omitempty"`
 	Name           *NameType
 }
 
@@ -788,16 +788,16 @@ type Applicantname *ApplicantnameType
 
 // InventiontitleType ...
 type InventiontitleType struct {
-	XMLName        xml.Name   `xml:"invention-title"`
-	IdAttr         string     `xml:"id,attr,omitempty"`
-	LangAttr       string     `xml:"lang,attr,omitempty"`
-	DataformatAttr string     `xml:"data-format,attr,omitempty"`
-	StatusAttr     string     `xml:"status,attr,omitempty"`
-	B              []*BType   `xml:"b"`
-	I              []*IType   `xml:"i"`
-	U              []*UType   `xml:"u"`
-	Sup            []*SupType `xml:"sup"`
-	Sub            []*SubType `xml:"sub"`
+	XMLName        xml.Name   `json:"-" xml:"invention-title"`
+	IdAttr         string     `json:",omitempty" xml:"id,attr,omitempty"`
+	LangAttr       string     `json:",omitempty" xml:"lang,attr,omitempty"`
+	DataformatAttr string     `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr     string     `json:",omitempty" xml:"status,attr,omitempty"`
+	B              []*BType   `json:",omitempty" xml:"b"`
+	I              []*IType   `json:",omitempty" xml:"i"`
+	U              []*UType   `json:",omitempty" xml:"u"`
+	Sup            []*SupType `json:",omitempty" xml:"sup"`
+	Sub            []*SubType `json:",omitempty" xml:"sub"`
 }
 
 // Inventiontitle is Invention title, text embedded in tag itself,
@@ -817,20 +817,20 @@ type Inventiontitle *InventiontitleType
 
 // Extendedkindcode ...
 type Extendedkindcode struct {
-	XMLName    xml.Name `xml:"extended-kind-code"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Value      string   `xml:",chardata"`
+	XMLName    xml.Name `json:"-" xml:"extended-kind-code"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Value      string   `json:",omitempty" xml:",chardata"`
 }
 
 // DesignationofstatesType ...
 type DesignationofstatesType struct {
-	XMLName                           xml.Name                               `xml:"designation-of-states"`
-	StatusAttr                        string                                 `xml:"status,attr,omitempty"`
-	ExchDesignationpct                *DesignationpctType                    `xml:"designation-pct"`
-	ExchDesignationepc                *DesignationepcType                    `xml:"designation-epc"`
-	ExchContractingstates             *ContractingstatesType                 `xml:"contracting-states"`
-	Precautionarydesignationstatement *PrecautionarydesignationstatementType `xml:"precautionary-designation-statement"`
-	ExchExclusionfromdesignation      *ExclusionfromdesignationType          `xml:"exclusion-from-designation"`
+	XMLName                           xml.Name                               `json:"-" xml:"designation-of-states"`
+	StatusAttr                        string                                 `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchDesignationpct                *DesignationpctType                    `json:",omitempty" xml:"designation-pct"`
+	ExchDesignationepc                *DesignationepcType                    `json:",omitempty" xml:"designation-epc"`
+	ExchContractingstates             *ContractingstatesType                 `json:",omitempty" xml:"contracting-states"`
+	Precautionarydesignationstatement *PrecautionarydesignationstatementType `json:",omitempty" xml:"precautionary-designation-statement"`
+	ExchExclusionfromdesignation      *ExclusionfromdesignationType          `json:",omitempty" xml:"exclusion-from-designation"`
 }
 
 // Designationofstates is Desigation PCT, IFD tags :
@@ -847,32 +847,32 @@ type Designationofstates *DesignationofstatesType
 
 // Datesofpublicavailability ...
 type Datesofpublicavailability struct {
-	XMLName                              xml.Name                              `xml:"dates-of-public-availability"`
-	StatusAttr                           string                                `xml:"status,attr,omitempty"`
-	ExchGazettereference                 *ExchangegazettereferenceType         `xml:"gazette-reference"`
-	ExchAbstractreference                *AbstractreferenceType                `xml:"abstract-reference"`
-	ExchSupplementalsreppub              *Supplementalsreppub                  `xml:"supplemental-srep-pub"`
-	ExchGazettepubannouncement           *Gazettepubannouncement               `xml:"gazette-pub-announcement"`
-	ExchModifiedfirstpagepub             *ModifiedfirstpagepubType             `xml:"modified-first-page-pub"`
-	ExchModifiedcompletespecpub          *ModifiedcompletespecpubType          `xml:"modified-complete-spec-pub"`
-	ExchUnexaminednotprintedwithoutgrant *UnexaminednotprintedwithoutgrantType `xml:"unexamined-not-printed-without-grant"`
-	ExchExaminednotprintedwithoutgrant   *ExaminednotprintedwithoutgrantType   `xml:"examined-not-printed-without-grant"`
-	ExchUnexaminedprintedwithoutgrant    *UnexaminedprintedwithoutgrantType    `xml:"unexamined-printed-without-grant"`
-	ExchExaminedprintedwithoutgrant      *ExaminedprintedwithoutgrantType      `xml:"examined-printed-without-grant"`
-	ExchPrintedwithgrant                 *PrintedwithgrantType                 `xml:"printed-with-grant"`
-	ExchClaimsonlyavailable              *ClaimsonlyavailableType              `xml:"claims-only-available"`
-	ExchNotprintedwithgrant              *NotprintedwithgrantType              `xml:"not-printed-with-grant"`
-	Termofgrant                          *TermofgrantType                      `xml:"term-of-grant"`
-	ExchInvalidationofpatent             *InvalidationofpatentType             `xml:"invalidation-of-patent"`
-	ExchPrintedasamended                 *PrintedasamendedType                 `xml:"printed-as-amended"`
+	XMLName                              xml.Name                              `json:"-" xml:"dates-of-public-availability"`
+	StatusAttr                           string                                `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchGazettereference                 *ExchangegazettereferenceType         `json:",omitempty" xml:"gazette-reference"`
+	ExchAbstractreference                *AbstractreferenceType                `json:",omitempty" xml:"abstract-reference"`
+	ExchSupplementalsreppub              *Supplementalsreppub                  `json:",omitempty" xml:"supplemental-srep-pub"`
+	ExchGazettepubannouncement           *Gazettepubannouncement               `json:",omitempty" xml:"gazette-pub-announcement"`
+	ExchModifiedfirstpagepub             *ModifiedfirstpagepubType             `json:",omitempty" xml:"modified-first-page-pub"`
+	ExchModifiedcompletespecpub          *ModifiedcompletespecpubType          `json:",omitempty" xml:"modified-complete-spec-pub"`
+	ExchUnexaminednotprintedwithoutgrant *UnexaminednotprintedwithoutgrantType `json:",omitempty" xml:"unexamined-not-printed-without-grant"`
+	ExchExaminednotprintedwithoutgrant   *ExaminednotprintedwithoutgrantType   `json:",omitempty" xml:"examined-not-printed-without-grant"`
+	ExchUnexaminedprintedwithoutgrant    *UnexaminedprintedwithoutgrantType    `json:",omitempty" xml:"unexamined-printed-without-grant"`
+	ExchExaminedprintedwithoutgrant      *ExaminedprintedwithoutgrantType      `json:",omitempty" xml:"examined-printed-without-grant"`
+	ExchPrintedwithgrant                 *PrintedwithgrantType                 `json:",omitempty" xml:"printed-with-grant"`
+	ExchClaimsonlyavailable              *ClaimsonlyavailableType              `json:",omitempty" xml:"claims-only-available"`
+	ExchNotprintedwithgrant              *NotprintedwithgrantType              `json:",omitempty" xml:"not-printed-with-grant"`
+	Termofgrant                          *TermofgrantType                      `json:",omitempty" xml:"term-of-grant"`
+	ExchInvalidationofpatent             *InvalidationofpatentType             `json:",omitempty" xml:"invalidation-of-patent"`
+	ExchPrintedasamended                 *PrintedasamendedType                 `json:",omitempty" xml:"printed-as-amended"`
 }
 
 // PrintedwithgrantType ...
 type PrintedwithgrantType struct {
-	XMLName    xml.Name             `xml:"printed-with-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"printed-with-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Printedwithgrant is Date of publication by printing or similar process of a document, on which grant has taken place on or
@@ -883,34 +883,34 @@ type Printedwithgrant *PrintedwithgrantType
 
 // AbstractreferenceType ...
 type AbstractreferenceType struct {
-	XMLName    xml.Name             `xml:"abstract-reference"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"abstract-reference"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // ModifiedcompletespecpubType ...
 type ModifiedcompletespecpubType struct {
-	XMLName    xml.Name             `xml:"modified-complete-spec-pub"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"modified-complete-spec-pub"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // ModifiedfirstpagepubType ...
 type ModifiedfirstpagepubType struct {
-	XMLName    xml.Name             `xml:"modified-first-page-pub"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"modified-first-page-pub"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // NotprintedwithgrantType ...
 type NotprintedwithgrantType struct {
-	XMLName    xml.Name             `xml:"not-printed-with-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"not-printed-with-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Notprintedwithgrant is Not printed document with grant
@@ -920,10 +920,10 @@ type Notprintedwithgrant *NotprintedwithgrantType
 
 // ClaimsonlyavailableType ...
 type ClaimsonlyavailableType struct {
-	XMLName    xml.Name             `xml:"claims-only-available"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"claims-only-available"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Claimsonlyavailable is Document claims only available. (INID 46, ST.32 B460)
@@ -931,10 +931,10 @@ type Claimsonlyavailable *ClaimsonlyavailableType
 
 // ExaminedprintedwithoutgrantType ...
 type ExaminedprintedwithoutgrantType struct {
-	XMLName    xml.Name             `xml:"examined-printed-without-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"examined-printed-without-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Examinedprintedwithoutgrant is Examined, printed document without grant.
@@ -944,10 +944,10 @@ type Examinedprintedwithoutgrant *ExaminedprintedwithoutgrantType
 
 // UnexaminedprintedwithoutgrantType ...
 type UnexaminedprintedwithoutgrantType struct {
-	XMLName    xml.Name             `xml:"unexamined-printed-without-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"unexamined-printed-without-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Unexaminedprintedwithoutgrant is Unexamined, printed document without grant.
@@ -957,10 +957,10 @@ type Unexaminedprintedwithoutgrant *UnexaminedprintedwithoutgrantType
 
 // ExaminednotprintedwithoutgrantType ...
 type ExaminednotprintedwithoutgrantType struct {
-	XMLName    xml.Name             `xml:"examined-not-printed-without-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"examined-not-printed-without-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Examinednotprintedwithoutgrant is Examined, not printed document without grant.
@@ -970,10 +970,10 @@ type Examinednotprintedwithoutgrant *ExaminednotprintedwithoutgrantType
 
 // UnexaminednotprintedwithoutgrantType ...
 type UnexaminednotprintedwithoutgrantType struct {
-	XMLName    xml.Name             `xml:"unexamined-not-printed-without-grant"`
-	LangAttr   string               `xml:"lang,attr,omitempty"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"unexamined-not-printed-without-grant"`
+	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Unexaminednotprintedwithoutgrant is Unexamined, not printed document without grant.
@@ -983,13 +983,13 @@ type Unexaminednotprintedwithoutgrant *UnexaminednotprintedwithoutgrantType
 
 // ExchangegazettereferenceType ...
 type ExchangegazettereferenceType struct {
-	XMLName     xml.Name        `xml:"gazette-reference"`
-	IdAttr      string          `xml:"id,attr,omitempty"`
-	CountryAttr string          `xml:"country,attr,omitempty"`
-	LangAttr    string          `xml:"lang,attr,omitempty"`
-	Gazettenum  *GazettenumType `xml:"gazette-num"`
-	Date        int             `xml:"date"`
-	Text        *TextType       `xml:"text"`
+	XMLName     xml.Name        `json:"-" xml:"gazette-reference"`
+	IdAttr      string          `json:",omitempty" xml:"id,attr,omitempty"`
+	CountryAttr string          `json:",omitempty" xml:"country,attr,omitempty"`
+	LangAttr    string          `json:",omitempty" xml:"lang,attr,omitempty"`
+	Gazettenum  *GazettenumType `json:",omitempty" xml:"gazette-num"`
+	Date        int             `json:",omitempty" xml:"date"`
+	Text        *TextType       `json:",omitempty" xml:"text"`
 }
 
 // Gazettereference is Information about an office's gazette or bulletin - paper, electronic, etc.
@@ -1001,10 +1001,10 @@ type Gazettereference *ExchangegazettereferenceType
 
 // PatentclassificationsType ...
 type PatentclassificationsType struct {
-	XMLName              xml.Name                    `xml:"patent-classifications"`
-	IDAttr               string                      `xml:"ID,attr,omitempty"`
-	Patentclassification []*PatentclassificationType `xml:"patent-classification"`
-	Combinationset       []*CombinationsetType       `xml:"combination-set"`
+	XMLName              xml.Name                    `json:"-" xml:"patent-classifications"`
+	IDAttr               string                      `json:",omitempty" xml:"ID,attr,omitempty"`
+	Patentclassification []*PatentclassificationType `json:",omitempty" xml:"patent-classification"`
+	Combinationset       []*CombinationsetType       `json:",omitempty" xml:"combination-set"`
 }
 
 // Patentclassifications is This sequence will contain at least one of patent-classification or one of combination-set
@@ -1015,12 +1015,12 @@ type Patentclassifications *PatentclassificationsType
 
 // CombinationsetType ...
 type CombinationsetType struct {
-	XMLName         xml.Name               `xml:"combination-set"`
-	IDAttr          string                 `xml:"ID,attr,omitempty"`
-	StatusAttr      string                 `xml:"status,attr,omitempty"`
-	SequenceAttr    string                 `xml:"sequence,attr"`
-	Groupnumber     string                 `xml:"group-number"`
-	Combinationrank []*CombinationrankType `xml:"combination-rank"`
+	XMLName         xml.Name               `json:"-" xml:"combination-set"`
+	IDAttr          string                 `json:",omitempty" xml:"ID,attr,omitempty"`
+	StatusAttr      string                 `json:",omitempty" xml:"status,attr,omitempty"`
+	SequenceAttr    string                 `json:",omitempty" xml:"sequence,attr"`
+	Groupnumber     string                 `json:",omitempty" xml:"group-number"`
+	Combinationrank []*CombinationrankType `json:",omitempty" xml:"combination-rank"`
 }
 
 // Combinationset ...
@@ -1028,45 +1028,45 @@ type Combinationset *CombinationsetType
 
 // Classificationscheme ...
 type Classificationscheme struct {
-	XMLName    xml.Name `xml:"classification-scheme"`
-	OfficeAttr string   `xml:"office,attr"`
-	SchemeAttr string   `xml:"scheme,attr"`
-	Edition    string   `xml:"edition"`
-	Date       string   `xml:"date"`
+	XMLName    xml.Name `json:"-" xml:"classification-scheme"`
+	OfficeAttr string   `json:",omitempty" xml:"office,attr"`
+	SchemeAttr string   `json:",omitempty" xml:"scheme,attr"`
+	Edition    string   `json:",omitempty" xml:"edition"`
+	Date       string   `json:",omitempty" xml:"date"`
 }
 
 // Class ...
 type Class struct {
-	XMLName       xml.Name `xml:"class"`
-	ClasstypeAttr string   `xml:"class-type,attr,omitempty"`
+	XMLName       xml.Name `json:"-" xml:"class"`
+	ClasstypeAttr string   `json:",omitempty" xml:"class-type,attr,omitempty"`
 }
 
 // Actiondate ...
 type Actiondate struct {
-	XMLName xml.Name `xml:"action-date"`
-	Date    string   `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"action-date"`
+	Date    string   `json:",omitempty" xml:"date"`
 }
 
 // PatentclassificationType ...
 type PatentclassificationType struct {
-	XMLName                  xml.Name              `xml:"patent-classification"`
-	IDAttr                   string                `xml:"ID,attr,omitempty"`
-	StatusAttr               string                `xml:"status,attr,omitempty"`
-	SequenceAttr             string                `xml:"sequence,attr,omitempty"`
-	Classificationscheme     *Classificationscheme `xml:"classification-scheme"`
-	Classificationsymbol     string                `xml:"classification-symbol"`
-	Section                  string                `xml:"section"`
-	Class                    *ClassType            `xml:"class"`
-	Subclass                 string                `xml:"subclass"`
-	Maingroup                string                `xml:"main-group"`
-	Subgroup                 string                `xml:"subgroup"`
-	Classificationlevel      string                `xml:"classification-level"`
-	Symbolposition           string                `xml:"symbol-position"`
-	Classificationvalue      string                `xml:"classification-value"`
-	Classificationstatus     string                `xml:"classification-status"`
-	Classificationdatasource string                `xml:"classification-data-source"`
-	Generatingoffice         string                `xml:"generating-office"`
-	Actiondate               *ActiondateType       `xml:"action-date"`
+	XMLName                  xml.Name              `json:"-" xml:"patent-classification"`
+	IDAttr                   string                `json:",omitempty" xml:"ID,attr,omitempty"`
+	StatusAttr               string                `json:",omitempty" xml:"status,attr,omitempty"`
+	SequenceAttr             string                `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Classificationscheme     *Classificationscheme `json:",omitempty" xml:"classification-scheme"`
+	Classificationsymbol     string                `json:",omitempty" xml:"classification-symbol"`
+	Section                  string                `json:",omitempty" xml:"section"`
+	Class                    *ClassType            `json:",omitempty" xml:"class"`
+	Subclass                 string                `json:",omitempty" xml:"subclass"`
+	Maingroup                string                `json:",omitempty" xml:"main-group"`
+	Subgroup                 string                `json:",omitempty" xml:"subgroup"`
+	Classificationlevel      string                `json:",omitempty" xml:"classification-level"`
+	Symbolposition           string                `json:",omitempty" xml:"symbol-position"`
+	Classificationvalue      string                `json:",omitempty" xml:"classification-value"`
+	Classificationstatus     string                `json:",omitempty" xml:"classification-status"`
+	Classificationdatasource string                `json:",omitempty" xml:"classification-data-source"`
+	Generatingoffice         string                `json:",omitempty" xml:"generating-office"`
+	Actiondate               *ActiondateType       `json:",omitempty" xml:"action-date"`
 }
 
 // Patentclassification is Notes on Contents
@@ -1085,16 +1085,16 @@ type Patentclassification *PatentclassificationType
 
 // ClassificationipcType ...
 type ClassificationipcType struct {
-	XMLName                 xml.Name                       `xml:"classification-ipc"`
-	IdAttr                  string                         `xml:"id,attr,omitempty"`
-	StatusAttr              string                         `xml:"status,attr,omitempty"`
-	Edition                 *EditionType                   `xml:"edition"`
-	Mainclassification      []*MainclassificationType      `xml:"main-classification"`
-	Furtherclassification   []*FurtherclassificationType   `xml:"further-classification"`
-	Additionalinfo          []*AdditionalinfoType          `xml:"additional-info"`
-	Linkedindexingcodegroup []*LinkedindexingcodegroupType `xml:"linked-indexing-code-group"`
-	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `xml:"unlinked-indexing-code"`
-	Text                    []*TextType                    `xml:"text"`
+	XMLName                 xml.Name                       `json:"-" xml:"classification-ipc"`
+	IdAttr                  string                         `json:",omitempty" xml:"id,attr,omitempty"`
+	StatusAttr              string                         `json:",omitempty" xml:"status,attr,omitempty"`
+	Edition                 *EditionType                   `json:",omitempty" xml:"edition"`
+	Mainclassification      []*MainclassificationType      `json:",omitempty" xml:"main-classification"`
+	Furtherclassification   []*FurtherclassificationType   `json:",omitempty" xml:"further-classification"`
+	Additionalinfo          []*AdditionalinfoType          `json:",omitempty" xml:"additional-info"`
+	Linkedindexingcodegroup []*LinkedindexingcodegroupType `json:",omitempty" xml:"linked-indexing-code-group"`
+	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `json:",omitempty" xml:"unlinked-indexing-code"`
+	Text                    []*TextType                    `json:",omitempty" xml:"text"`
 }
 
 // Classificationipc is IFD tag = 070
@@ -1118,14 +1118,14 @@ type Classificationipc *ClassificationipcType
 
 // ApplicationreferenceType ...
 type ApplicationreferenceType struct {
-	XMLName              xml.Name        `xml:"application-reference"`
-	IdAttr               string          `xml:"id,attr,omitempty"`
-	DocidAttr            string          `xml:"doc-id,attr,omitempty"`
-	AppltypeAttr         string          `xml:"appl-type,attr,omitempty"`
-	IsrepresentativeAttr string          `xml:"is-representative,attr,omitempty"`
-	DataformatAttr       string          `xml:"data-format,attr,omitempty"`
-	StatusAttr           string          `xml:"status,attr,omitempty"`
-	Documentid           *DocumentidType `xml:"document-id"`
+	XMLName              xml.Name        `json:"-" xml:"application-reference"`
+	IdAttr               string          `json:",omitempty" xml:"id,attr,omitempty"`
+	DocidAttr            string          `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	AppltypeAttr         string          `json:",omitempty" xml:"appl-type,attr,omitempty"`
+	IsrepresentativeAttr string          `json:",omitempty" xml:"is-representative,attr,omitempty"`
+	DataformatAttr       string          `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr           string          `json:",omitempty" xml:"status,attr,omitempty"`
+	Documentid           *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
 // Applicationreference is NOTE - these annotations have no bearance on"application-reference" unless referred to INSIDE element
@@ -1165,9 +1165,9 @@ type Applicationreference *ApplicationreferenceType
 
 // PreviouslyfiledappType ...
 type PreviouslyfiledappType struct {
-	XMLName    xml.Name `xml:"previously-filed-app"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Value      string   `xml:",chardata"`
+	XMLName    xml.Name `json:"-" xml:"previously-filed-app"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Value      string   `json:",omitempty" xml:",chardata"`
 }
 
 // Previouslyfiledapp ...
@@ -1175,9 +1175,9 @@ type Previouslyfiledapp *PreviouslyfiledappType
 
 // DateofcomingintoforceType ...
 type DateofcomingintoforceType struct {
-	XMLName    xml.Name `xml:"date-of-coming-into-force"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Date       int      `xml:"date"`
+	XMLName    xml.Name `json:"-" xml:"date-of-coming-into-force"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Date       int      `json:",omitempty" xml:"date"`
 }
 
 // Dateofcomingintoforce is Date of coming into force of DE utility model = "Eintragungstag"
@@ -1187,9 +1187,9 @@ type Dateofcomingintoforce *DateofcomingintoforceType
 
 // PrecedingpublicationdateType ...
 type PrecedingpublicationdateType struct {
-	XMLName    xml.Name `xml:"preceding-publication-date"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Date       int      `xml:"date"`
+	XMLName    xml.Name `json:"-" xml:"preceding-publication-date"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Date       int      `json:",omitempty" xml:"date"`
 }
 
 // Precedingpublicationdate is IFD tag = 150; not in ST.30
@@ -1197,9 +1197,9 @@ type Precedingpublicationdate *PrecedingpublicationdateType
 
 // LanguageofpublicationType ...
 type LanguageofpublicationType struct {
-	XMLName    xml.Name `xml:"language-of-publication"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Value      string   `xml:",chardata"`
+	XMLName    xml.Name `json:"-" xml:"language-of-publication"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Value      string   `json:",omitempty" xml:",chardata"`
 }
 
 // Languageofpublication is Publication language, ISO639 language code, e.g, en,de,ja, etc.
@@ -1209,9 +1209,9 @@ type Languageofpublication *LanguageofpublicationType
 
 // LanguageoffilingType ...
 type LanguageoffilingType struct {
-	XMLName    xml.Name `xml:"language-of-filing"`
-	StatusAttr string   `xml:"status,attr,omitempty"`
-	Value      string   `xml:",chardata"`
+	XMLName    xml.Name `json:"-" xml:"language-of-filing"`
+	StatusAttr string   `json:",omitempty" xml:"status,attr,omitempty"`
+	Value      string   `json:",omitempty" xml:",chardata"`
 }
 
 // Languageoffiling is Filing language, ISO639 language code, e.g, en,de,ja, etc.
@@ -1221,17 +1221,17 @@ type Languageoffiling *LanguageoffilingType
 
 // ClassificationnationalType ...
 type ClassificationnationalType struct {
-	XMLName                 xml.Name                       `xml:"classification-national"`
-	IdAttr                  string                         `xml:"id,attr,omitempty"`
-	StatusAttr              string                         `xml:"status,attr,omitempty"`
-	Country                 string                         `xml:"country"`
-	Edition                 *EditionType                   `xml:"edition"`
-	Mainclassification      []*MainclassificationType      `xml:"main-classification"`
-	Furtherclassification   []*FurtherclassificationType   `xml:"further-classification"`
-	Additionalinfo          []*AdditionalinfoType          `xml:"additional-info"`
-	Linkedindexingcodegroup []*LinkedindexingcodegroupType `xml:"linked-indexing-code-group"`
-	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `xml:"unlinked-indexing-code"`
-	Text                    []*TextType                    `xml:"text"`
+	XMLName                 xml.Name                       `json:"-" xml:"classification-national"`
+	IdAttr                  string                         `json:",omitempty" xml:"id,attr,omitempty"`
+	StatusAttr              string                         `json:",omitempty" xml:"status,attr,omitempty"`
+	Country                 string                         `json:",omitempty" xml:"country"`
+	Edition                 *EditionType                   `json:",omitempty" xml:"edition"`
+	Mainclassification      []*MainclassificationType      `json:",omitempty" xml:"main-classification"`
+	Furtherclassification   []*FurtherclassificationType   `json:",omitempty" xml:"further-classification"`
+	Additionalinfo          []*AdditionalinfoType          `json:",omitempty" xml:"additional-info"`
+	Linkedindexingcodegroup []*LinkedindexingcodegroupType `json:",omitempty" xml:"linked-indexing-code-group"`
+	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `json:",omitempty" xml:"unlinked-indexing-code"`
+	Text                    []*TextType                    `json:",omitempty" xml:"text"`
 }
 
 // Classificationnational is Domestic or national classification.
@@ -1241,10 +1241,10 @@ type Classificationnational *ClassificationnationalType
 
 // FurtherclassificationType ...
 type FurtherclassificationType struct {
-	XMLName      xml.Name `xml:"further-classification"`
-	IdAttr       string   `xml:"id,attr,omitempty"`
-	SequenceAttr string   `xml:"sequence,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"further-classification"`
+	IdAttr       string   `json:",omitempty" xml:"id,attr,omitempty"`
+	SequenceAttr string   `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Furtherclassification is Further/secondary classification ST.32 equivalency = B512/B522
@@ -1252,11 +1252,11 @@ type Furtherclassification *FurtherclassificationType
 
 // ClassificationsipcrType ...
 type ClassificationsipcrType struct {
-	XMLName            xml.Name                  `xml:"classifications-ipcr"`
-	IdAttr             string                    `xml:"id,attr,omitempty"`
-	StatusAttr         string                    `xml:"status,attr,omitempty"`
-	DataformatAttr     string                    `xml:"data-format,attr,omitempty"`
-	Classificationipcr []*ClassificationipcrType `xml:"classification-ipcr"`
+	XMLName            xml.Name                  `json:"-" xml:"classifications-ipcr"`
+	IdAttr             string                    `json:",omitempty" xml:"id,attr,omitempty"`
+	StatusAttr         string                    `json:",omitempty" xml:"status,attr,omitempty"`
+	DataformatAttr     string                    `json:",omitempty" xml:"data-format,attr,omitempty"`
+	Classificationipcr []*ClassificationipcrType `json:",omitempty" xml:"classification-ipcr"`
 }
 
 // Classificationsipcr is ***********
@@ -1267,23 +1267,23 @@ type Classificationsipcr *ClassificationsipcrType
 
 // ClassificationipcrType ...
 type ClassificationipcrType struct {
-	XMLName                  xml.Name                      `xml:"classification-ipcr"`
-	IdAttr                   string                        `xml:"id,attr,omitempty"`
-	SequenceAttr             string                        `xml:"sequence,attr,omitempty"`
-	Ipcversionindicator      *IpcversionindicatorType      `xml:"ipc-version-indicator"`
-	Classificationlevel      *ClassificationlevelType      `xml:"classification-level"`
-	Section                  *SectionType                  `xml:"section"`
-	Class                    *ClassType                    `xml:"class"`
-	Subclass                 *SubclassType                 `xml:"subclass"`
-	Maingroup                *MaingroupType                `xml:"main-group"`
-	Subgroup                 *SubgroupType                 `xml:"subgroup"`
-	Symbolposition           *SymbolpositionType           `xml:"symbol-position"`
-	Classificationvalue      *ClassificationvalueType      `xml:"classification-value"`
-	Actiondate               *ActiondateType               `xml:"action-date"`
-	Generatingoffice         *GeneratingofficeType         `xml:"generating-office"`
-	Classificationstatus     *ClassificationstatusType     `xml:"classification-status"`
-	Classificationdatasource *ClassificationdatasourceType `xml:"classification-data-source"`
-	Text                     *TextType                     `xml:"text"`
+	XMLName                  xml.Name                      `json:"-" xml:"classification-ipcr"`
+	IdAttr                   string                        `json:",omitempty" xml:"id,attr,omitempty"`
+	SequenceAttr             string                        `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Ipcversionindicator      *IpcversionindicatorType      `json:",omitempty" xml:"ipc-version-indicator"`
+	Classificationlevel      *ClassificationlevelType      `json:",omitempty" xml:"classification-level"`
+	Section                  *SectionType                  `json:",omitempty" xml:"section"`
+	Class                    *ClassType                    `json:",omitempty" xml:"class"`
+	Subclass                 *SubclassType                 `json:",omitempty" xml:"subclass"`
+	Maingroup                *MaingroupType                `json:",omitempty" xml:"main-group"`
+	Subgroup                 *SubgroupType                 `json:",omitempty" xml:"subgroup"`
+	Symbolposition           *SymbolpositionType           `json:",omitempty" xml:"symbol-position"`
+	Classificationvalue      *ClassificationvalueType      `json:",omitempty" xml:"classification-value"`
+	Actiondate               *ActiondateType               `json:",omitempty" xml:"action-date"`
+	Generatingoffice         *GeneratingofficeType         `json:",omitempty" xml:"generating-office"`
+	Classificationstatus     *ClassificationstatusType     `json:",omitempty" xml:"classification-status"`
+	Classificationdatasource *ClassificationdatasourceType `json:",omitempty" xml:"classification-data-source"`
+	Text                     *TextType                     `json:",omitempty" xml:"text"`
 }
 
 // Classificationipcr is *******************************
@@ -1332,13 +1332,13 @@ type Classificationipcr *ClassificationipcrType
 
 // PublicationreferenceType ...
 type PublicationreferenceType struct {
-	XMLName        xml.Name        `xml:"publication-reference"`
-	IdAttr         string          `xml:"id,attr,omitempty"`
-	DocidAttr      string          `xml:"doc-id,attr,omitempty"`
-	DataformatAttr string          `xml:"data-format,attr,omitempty"`
-	StatusAttr     string          `xml:"status,attr,omitempty"`
-	SequenceAttr   string          `xml:"sequence,attr,omitempty"`
-	Documentid     *DocumentidType `xml:"document-id"`
+	XMLName        xml.Name        `json:"-" xml:"publication-reference"`
+	IdAttr         string          `json:",omitempty" xml:"id,attr,omitempty"`
+	DocidAttr      string          `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	DataformatAttr string          `json:",omitempty" xml:"data-format,attr,omitempty"`
+	StatusAttr     string          `json:",omitempty" xml:"status,attr,omitempty"`
+	SequenceAttr   string          `json:",omitempty" xml:"sequence,attr,omitempty"`
+	Documentid     *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
 // Publicationreference is Publication-reference, IFD tags
@@ -1373,20 +1373,20 @@ type Publicationreference *PublicationreferenceType
 
 // AbstractType ...
 type AbstractType struct {
-	XMLName            xml.Name          `xml:"abstract"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	LangAttr           string            `xml:"lang,attr,omitempty"`
-	StatusAttr         string            `xml:"status,attr,omitempty"`
-	CountryAttr        string            `xml:"country,attr,omitempty"`
-	DocnumberAttr      string            `xml:"doc-number,attr,omitempty"`
-	KindAttr           string            `xml:"kind,attr,omitempty"`
-	DateAttr           int               `xml:"date,attr,omitempty"`
-	DataformatAttr     string            `xml:"data-format,attr,omitempty"`
-	AbstractsourceAttr string            `xml:"abstract-source,attr,omitempty"`
-	Docpage            []*DocpageType    `xml:"doc-page"`
-	Abstproblem        *AbstproblemType  `xml:"abst-problem"`
-	Abstsolution       *AbstsolutionType `xml:"abst-solution"`
-	ExchP              []*ExchpType      `xml:"p"`
+	XMLName            xml.Name          `json:"-" xml:"abstract"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	LangAttr           string            `json:",omitempty" xml:"lang,attr,omitempty"`
+	StatusAttr         string            `json:",omitempty" xml:"status,attr,omitempty"`
+	CountryAttr        string            `json:",omitempty" xml:"country,attr,omitempty"`
+	DocnumberAttr      string            `json:",omitempty" xml:"doc-number,attr,omitempty"`
+	KindAttr           string            `json:",omitempty" xml:"kind,attr,omitempty"`
+	DateAttr           int               `json:",omitempty" xml:"date,attr,omitempty"`
+	DataformatAttr     string            `json:",omitempty" xml:"data-format,attr,omitempty"`
+	AbstractsourceAttr string            `json:",omitempty" xml:"abstract-source,attr,omitempty"`
+	Docpage            []*DocpageType    `json:",omitempty" xml:"doc-page"`
+	Abstproblem        *AbstproblemType  `json:",omitempty" xml:"abst-problem"`
+	Abstsolution       *AbstsolutionType `json:",omitempty" xml:"abst-solution"`
+	ExchP              []*ExchpType      `json:",omitempty" xml:"p"`
 }
 
 // Abstract is Abstract, text embedded in "p";
@@ -1417,89 +1417,89 @@ type Abstract *AbstractType
 
 // AbstsolutionType ...
 type AbstsolutionType struct {
-	XMLName xml.Name `xml:"abst-solution"`
-	IdAttr  string   `xml:"id,attr,omitempty"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"abst-solution"`
+	IdAttr  string   `json:",omitempty" xml:"id,attr,omitempty"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // AbstproblemType ...
 type AbstproblemType struct {
-	XMLName xml.Name `xml:"abst-problem"`
-	IdAttr  string   `xml:"id,attr,omitempty"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"abst-problem"`
+	IdAttr  string   `json:",omitempty" xml:"id,attr,omitempty"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // ExchpType ...
 type ExchpType struct {
-	XMLName          xml.Name                `xml:"p"`
-	IdAttr           string                  `xml:"id,attr,omitempty"`
-	NumAttr          string                  `xml:"num,attr,omitempty"`
-	O                []*OType                `xml:"o"`
-	B                []*BType                `xml:"b"`
-	I                []*IType                `xml:"i"`
-	U                []*UType                `xml:"u"`
-	Sup              []*SupType              `xml:"sup"`
-	Sub              []*SubType              `xml:"sub"`
-	Smallcaps        []*SmallcapsType        `xml:"smallcaps"`
-	Br               []*BrType               `xml:"br"`
-	Pre              []*PreType              `xml:"pre"`
-	Dl               []*DlType               `xml:"dl"`
-	Ul               []*UlType               `xml:"ul"`
-	Ol               []*OlType               `xml:"ol"`
-	Crossref         []*CrossrefType         `xml:"crossref"`
-	Figref           []*FigrefType           `xml:"figref"`
-	Patcit           []*PatcitType           `xml:"patcit"`
-	Nplcit           []*NplcitType           `xml:"nplcit"`
-	Biodeposit       []*BiodepositType       `xml:"bio-deposit"`
-	Img              []*ImgType              `xml:"img"`
-	Chemistry        []*ChemistryType        `xml:"chemistry"`
-	Maths            []*MathsType            `xml:"maths"`
-	Tables           []*TablesType           `xml:"tables"`
-	Tableexternaldoc []*TableexternaldocType `xml:"table-external-doc"`
-	Value            string                  `xml:",chardata"`
+	XMLName          xml.Name                `json:"-" xml:"p"`
+	IdAttr           string                  `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr          string                  `json:",omitempty" xml:"num,attr,omitempty"`
+	O                []*OType                `json:",omitempty" xml:"o"`
+	B                []*BType                `json:",omitempty" xml:"b"`
+	I                []*IType                `json:",omitempty" xml:"i"`
+	U                []*UType                `json:",omitempty" xml:"u"`
+	Sup              []*SupType              `json:",omitempty" xml:"sup"`
+	Sub              []*SubType              `json:",omitempty" xml:"sub"`
+	Smallcaps        []*SmallcapsType        `json:",omitempty" xml:"smallcaps"`
+	Br               []*BrType               `json:",omitempty" xml:"br"`
+	Pre              []*PreType              `json:",omitempty" xml:"pre"`
+	Dl               []*DlType               `json:",omitempty" xml:"dl"`
+	Ul               []*UlType               `json:",omitempty" xml:"ul"`
+	Ol               []*OlType               `json:",omitempty" xml:"ol"`
+	Crossref         []*CrossrefType         `json:",omitempty" xml:"crossref"`
+	Figref           []*FigrefType           `json:",omitempty" xml:"figref"`
+	Patcit           []*PatcitType           `json:",omitempty" xml:"patcit"`
+	Nplcit           []*NplcitType           `json:",omitempty" xml:"nplcit"`
+	Biodeposit       []*BiodepositType       `json:",omitempty" xml:"bio-deposit"`
+	Img              []*ImgType              `json:",omitempty" xml:"img"`
+	Chemistry        []*ChemistryType        `json:",omitempty" xml:"chemistry"`
+	Maths            []*MathsType            `json:",omitempty" xml:"maths"`
+	Tables           []*TablesType           `json:",omitempty" xml:"tables"`
+	Tableexternaldoc []*TableexternaldocType `json:",omitempty" xml:"table-external-doc"`
+	Value            string                  `json:",omitempty" xml:",chardata"`
 }
 
 // PType ...
 type PType struct {
-	XMLName          xml.Name                `xml:"p"`
-	IdAttr           string                  `xml:"id,attr,omitempty"`
-	NumAttr          string                  `xml:"num,attr"`
-	B                []*BType                `xml:"b"`
-	I                []*IType                `xml:"i"`
-	U                []*UType                `xml:"u"`
-	Sup              []*SupType              `xml:"sup"`
-	Sub              []*SubType              `xml:"sub"`
-	Smallcaps        []*SmallcapsType        `xml:"smallcaps"`
-	Br               []*BrType               `xml:"br"`
-	Pre              []*PreType              `xml:"pre"`
-	Dl               []*DlType               `xml:"dl"`
-	Ul               []*UlType               `xml:"ul"`
-	Ol               []*OlType               `xml:"ol"`
-	Crossref         []*CrossrefType         `xml:"crossref"`
-	Figref           []*FigrefType           `xml:"figref"`
-	Patcit           []*PatcitType           `xml:"patcit"`
-	Nplcit           []*NplcitType           `xml:"nplcit"`
-	Biodeposit       []*BiodepositType       `xml:"bio-deposit"`
-	Img              []*ImgType              `xml:"img"`
-	Chemistry        []*ChemistryType        `xml:"chemistry"`
-	Maths            []*MathsType            `xml:"maths"`
-	Tables           []*TablesType           `xml:"tables"`
-	Tableexternaldoc []*TableexternaldocType `xml:"table-external-doc"`
-	Value            string                  `xml:",chardata"`
+	XMLName          xml.Name                `json:"-" xml:"p"`
+	IdAttr           string                  `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr          string                  `json:",omitempty" xml:"num,attr"`
+	B                []*BType                `json:",omitempty" xml:"b"`
+	I                []*IType                `json:",omitempty" xml:"i"`
+	U                []*UType                `json:",omitempty" xml:"u"`
+	Sup              []*SupType              `json:",omitempty" xml:"sup"`
+	Sub              []*SubType              `json:",omitempty" xml:"sub"`
+	Smallcaps        []*SmallcapsType        `json:",omitempty" xml:"smallcaps"`
+	Br               []*BrType               `json:",omitempty" xml:"br"`
+	Pre              []*PreType              `json:",omitempty" xml:"pre"`
+	Dl               []*DlType               `json:",omitempty" xml:"dl"`
+	Ul               []*UlType               `json:",omitempty" xml:"ul"`
+	Ol               []*OlType               `json:",omitempty" xml:"ol"`
+	Crossref         []*CrossrefType         `json:",omitempty" xml:"crossref"`
+	Figref           []*FigrefType           `json:",omitempty" xml:"figref"`
+	Patcit           []*PatcitType           `json:",omitempty" xml:"patcit"`
+	Nplcit           []*NplcitType           `json:",omitempty" xml:"nplcit"`
+	Biodeposit       []*BiodepositType       `json:",omitempty" xml:"bio-deposit"`
+	Img              []*ImgType              `json:",omitempty" xml:"img"`
+	Chemistry        []*ChemistryType        `json:",omitempty" xml:"chemistry"`
+	Maths            []*MathsType            `json:",omitempty" xml:"maths"`
+	Tables           []*TablesType           `json:",omitempty" xml:"tables"`
+	Tableexternaldoc []*TableexternaldocType `json:",omitempty" xml:"table-external-doc"`
+	Value            string                  `json:",omitempty" xml:",chardata"`
 }
 
 // TableexternaldocType ...
 type TableexternaldocType struct {
-	XMLName          xml.Name `xml:"table-external-doc"`
-	IdAttr           string   `xml:"id,attr,omitempty"`
-	FileAttr         string   `xml:"file,attr"`
-	LangAttr         string   `xml:"lang,attr,omitempty"`
-	StatusAttr       string   `xml:"status,attr,omitempty"`
-	DoccodeAttr      string   `xml:"doc-code,attr,omitempty"`
-	DateoffilingAttr int      `xml:"date-of-filing,attr,omitempty"`
-	CarriersAttr     string   `xml:"carriers,attr,omitempty"`
-	ExternaltypeAttr string   `xml:"external-type,attr,omitempty"`
-	Value            string   `xml:",chardata"`
+	XMLName          xml.Name `json:"-" xml:"table-external-doc"`
+	IdAttr           string   `json:",omitempty" xml:"id,attr,omitempty"`
+	FileAttr         string   `json:",omitempty" xml:"file,attr"`
+	LangAttr         string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	StatusAttr       string   `json:",omitempty" xml:"status,attr,omitempty"`
+	DoccodeAttr      string   `json:",omitempty" xml:"doc-code,attr,omitempty"`
+	DateoffilingAttr int      `json:",omitempty" xml:"date-of-filing,attr,omitempty"`
+	CarriersAttr     string   `json:",omitempty" xml:"carriers,attr,omitempty"`
+	ExternaltypeAttr string   `json:",omitempty" xml:"external-type,attr,omitempty"`
+	Value            string   `json:",omitempty" xml:",chardata"`
 }
 
 // Tableexternaldoc is *******************************
@@ -1512,11 +1512,11 @@ type Tableexternaldoc *TableexternaldocType
 
 // TablesType ...
 type TablesType struct {
-	XMLName xml.Name   `xml:"tables"`
-	IdAttr  string     `xml:"id,attr,omitempty"`
-	NumAttr string     `xml:"num,attr"`
-	Img     *ImgType   `xml:"img"`
-	Table   *TableType `xml:"table"`
+	XMLName xml.Name   `json:"-" xml:"tables"`
+	IdAttr  string     `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr string     `json:",omitempty" xml:"num,attr"`
+	Img     *ImgType   `json:",omitempty" xml:"img"`
+	Table   *TableType `json:",omitempty" xml:"table"`
 }
 
 // Tables is *********************************
@@ -1535,112 +1535,112 @@ type Tables *TablesType
 
 // TableType ...
 type TableType struct {
-	XMLName      xml.Name `xml:"table"`
+	XMLName      xml.Name `json:"-" xml:"table"`
 	ExchTableAtt *TableAtt
-	FrameAttr    string        `xml:"frame,attr,omitempty"`
-	ColsepAttr   *Yesorno      `xml:"colsep,attr,omitempty"`
-	RowsepAttr   *Yesorno      `xml:"rowsep,attr,omitempty"`
-	PgwideAttr   *Yesorno      `xml:"pgwide,attr,omitempty"`
-	Title        *TitleType    `xml:"title"`
-	Tgroup       []*TgroupType `xml:"tgroup"`
+	FrameAttr    string        `json:",omitempty" xml:"frame,attr,omitempty"`
+	ColsepAttr   *Yesorno      `json:",omitempty" xml:"colsep,attr,omitempty"`
+	RowsepAttr   *Yesorno      `json:",omitempty" xml:"rowsep,attr,omitempty"`
+	PgwideAttr   *Yesorno      `json:",omitempty" xml:"pgwide,attr,omitempty"`
+	Title        *TitleType    `json:",omitempty" xml:"title"`
+	Tgroup       []*TgroupType `json:",omitempty" xml:"tgroup"`
 }
 
 // TitleType ...
 type TitleType struct {
-	XMLName   xml.Name         `xml:"title"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	U         []*UType         `xml:"u"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"title"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // TgroupType ...
 type TgroupType struct {
-	XMLName       xml.Name `xml:"tgroup"`
+	XMLName       xml.Name `json:"-" xml:"tgroup"`
 	ExchTgroupAtt *TgroupAtt
-	ColsAttr      *IntType       `xml:"cols,attr"`
-	ColsepAttr    *Yesorno       `xml:"colsep,attr,omitempty"`
-	RowsepAttr    *Yesorno       `xml:"rowsep,attr,omitempty"`
-	AlignAttr     string         `xml:"align,attr,omitempty"`
-	Colspec       []*ColspecType `xml:"colspec"`
-	Thead         *TheadType     `xml:"thead"`
-	Tbody         *TbodyType     `xml:"tbody"`
+	ColsAttr      *IntType       `json:",omitempty" xml:"cols,attr"`
+	ColsepAttr    *Yesorno       `json:",omitempty" xml:"colsep,attr,omitempty"`
+	RowsepAttr    *Yesorno       `json:",omitempty" xml:"rowsep,attr,omitempty"`
+	AlignAttr     string         `json:",omitempty" xml:"align,attr,omitempty"`
+	Colspec       []*ColspecType `json:",omitempty" xml:"colspec"`
+	Thead         *TheadType     `json:",omitempty" xml:"thead"`
+	Tbody         *TbodyType     `json:",omitempty" xml:"tbody"`
 }
 
 // ColspecType ...
 type ColspecType struct {
-	XMLName        xml.Name `xml:"colspec"`
+	XMLName        xml.Name `json:"-" xml:"colspec"`
 	ExchColspecAtt *ColspecAtt
-	ColnumAttr     *IntType `xml:"colnum,attr,omitempty"`
-	ColnameAttr    string   `xml:"colname,attr,omitempty"`
-	ColwidthAttr   string   `xml:"colwidth,attr,omitempty"`
-	ColsepAttr     *Yesorno `xml:"colsep,attr,omitempty"`
-	RowsepAttr     *Yesorno `xml:"rowsep,attr,omitempty"`
-	AlignAttr      string   `xml:"align,attr,omitempty"`
-	CharAttr       string   `xml:"char,attr,omitempty"`
-	CharoffAttr    string   `xml:"charoff,attr,omitempty"`
+	ColnumAttr     *IntType `json:",omitempty" xml:"colnum,attr,omitempty"`
+	ColnameAttr    string   `json:",omitempty" xml:"colname,attr,omitempty"`
+	ColwidthAttr   string   `json:",omitempty" xml:"colwidth,attr,omitempty"`
+	ColsepAttr     *Yesorno `json:",omitempty" xml:"colsep,attr,omitempty"`
+	RowsepAttr     *Yesorno `json:",omitempty" xml:"rowsep,attr,omitempty"`
+	AlignAttr      string   `json:",omitempty" xml:"align,attr,omitempty"`
+	CharAttr       string   `json:",omitempty" xml:"char,attr,omitempty"`
+	CharoffAttr    string   `json:",omitempty" xml:"charoff,attr,omitempty"`
 }
 
 // TheadType ...
 type TheadType struct {
-	XMLName      xml.Name `xml:"thead"`
+	XMLName      xml.Name `json:"-" xml:"thead"`
 	ExchTheadAtt *TheadAtt
-	ValignAttr   string     `xml:"valign,attr,omitempty"`
-	Row          []*RowType `xml:"row"`
+	ValignAttr   string     `json:",omitempty" xml:"valign,attr,omitempty"`
+	Row          []*RowType `json:",omitempty" xml:"row"`
 }
 
 // TbodyType ...
 type TbodyType struct {
-	XMLName      xml.Name `xml:"tbody"`
+	XMLName      xml.Name `json:"-" xml:"tbody"`
 	ExchTbodyAtt *TbodyAtt
-	ValignAttr   string     `xml:"valign,attr,omitempty"`
-	Row          []*RowType `xml:"row"`
+	ValignAttr   string     `json:",omitempty" xml:"valign,attr,omitempty"`
+	Row          []*RowType `json:",omitempty" xml:"row"`
 }
 
 // RowType ...
 type RowType struct {
-	XMLName    xml.Name `xml:"row"`
+	XMLName    xml.Name `json:"-" xml:"row"`
 	ExchRowAtt *RowAtt
-	RowsepAttr *Yesorno     `xml:"rowsep,attr,omitempty"`
-	ValignAttr string       `xml:"valign,attr,omitempty"`
-	Entry      []*EntryType `xml:"entry"`
+	RowsepAttr *Yesorno     `json:",omitempty" xml:"rowsep,attr,omitempty"`
+	ValignAttr string       `json:",omitempty" xml:"valign,attr,omitempty"`
+	Entry      []*EntryType `json:",omitempty" xml:"entry"`
 }
 
 // EntryType ...
 type EntryType struct {
-	XMLName      xml.Name `xml:"entry"`
+	XMLName      xml.Name `json:"-" xml:"entry"`
 	ExchEntryAtt *EntryAtt
-	ColnameAttr  string            `xml:"colname,attr,omitempty"`
-	NamestAttr   string            `xml:"namest,attr,omitempty"`
-	NameendAttr  string            `xml:"nameend,attr,omitempty"`
-	MorerowsAttr *IntType          `xml:"morerows,attr,omitempty"`
-	ColsepAttr   *Yesorno          `xml:"colsep,attr,omitempty"`
-	RowsepAttr   *Yesorno          `xml:"rowsep,attr,omitempty"`
-	AlignAttr    string            `xml:"align,attr,omitempty"`
-	CharAttr     string            `xml:"char,attr,omitempty"`
-	CharoffAttr  string            `xml:"charoff,attr,omitempty"`
-	ValignAttr   string            `xml:"valign,attr,omitempty"`
-	B            []*BType          `xml:"b"`
-	I            []*IType          `xml:"i"`
-	U            []*UType          `xml:"u"`
-	O            []*OType          `xml:"o"`
-	Sup          []*SupType        `xml:"sup"`
-	Sub          []*SubType        `xml:"sub"`
-	Smallcaps    []*SmallcapsType  `xml:"smallcaps"`
-	Br           []*BrType         `xml:"br"`
-	Patcit       []*PatcitType     `xml:"patcit"`
-	Nplcit       []*NplcitType     `xml:"nplcit"`
-	Biodeposit   []*BiodepositType `xml:"bio-deposit"`
-	Crossref     []*CrossrefType   `xml:"crossref"`
-	Figref       []*FigrefType     `xml:"figref"`
-	Img          []*ImgType        `xml:"img"`
-	Dl           []*DlType         `xml:"dl"`
-	Ul           []*UlType         `xml:"ul"`
-	Ol           []*OlType         `xml:"ol"`
-	Chemistry    []*ChemistryType  `xml:"chemistry"`
-	Maths        []*MathsType      `xml:"maths"`
+	ColnameAttr  string            `json:",omitempty" xml:"colname,attr,omitempty"`
+	NamestAttr   string            `json:",omitempty" xml:"namest,attr,omitempty"`
+	NameendAttr  string            `json:",omitempty" xml:"nameend,attr,omitempty"`
+	MorerowsAttr *IntType          `json:",omitempty" xml:"morerows,attr,omitempty"`
+	ColsepAttr   *Yesorno          `json:",omitempty" xml:"colsep,attr,omitempty"`
+	RowsepAttr   *Yesorno          `json:",omitempty" xml:"rowsep,attr,omitempty"`
+	AlignAttr    string            `json:",omitempty" xml:"align,attr,omitempty"`
+	CharAttr     string            `json:",omitempty" xml:"char,attr,omitempty"`
+	CharoffAttr  string            `json:",omitempty" xml:"charoff,attr,omitempty"`
+	ValignAttr   string            `json:",omitempty" xml:"valign,attr,omitempty"`
+	B            []*BType          `json:",omitempty" xml:"b"`
+	I            []*IType          `json:",omitempty" xml:"i"`
+	U            []*UType          `json:",omitempty" xml:"u"`
+	O            []*OType          `json:",omitempty" xml:"o"`
+	Sup          []*SupType        `json:",omitempty" xml:"sup"`
+	Sub          []*SubType        `json:",omitempty" xml:"sub"`
+	Smallcaps    []*SmallcapsType  `json:",omitempty" xml:"smallcaps"`
+	Br           []*BrType         `json:",omitempty" xml:"br"`
+	Patcit       []*PatcitType     `json:",omitempty" xml:"patcit"`
+	Nplcit       []*NplcitType     `json:",omitempty" xml:"nplcit"`
+	Biodeposit   []*BiodepositType `json:",omitempty" xml:"bio-deposit"`
+	Crossref     []*CrossrefType   `json:",omitempty" xml:"crossref"`
+	Figref       []*FigrefType     `json:",omitempty" xml:"figref"`
+	Img          []*ImgType        `json:",omitempty" xml:"img"`
+	Dl           []*DlType         `json:",omitempty" xml:"dl"`
+	Ul           []*UlType         `json:",omitempty" xml:"ul"`
+	Ol           []*OlType         `json:",omitempty" xml:"ol"`
+	Chemistry    []*ChemistryType  `json:",omitempty" xml:"chemistry"`
+	Maths        []*MathsType      `json:",omitempty" xml:"maths"`
 }
 
 // Title ...
@@ -1669,12 +1669,12 @@ type Table *TableType
 
 // DlType ...
 type DlType struct {
-	XMLName     xml.Name `xml:"dl"`
-	IdAttr      string   `xml:"id,attr,omitempty"`
-	TsizeAttr   string   `xml:"tsize,attr,omitempty"`
-	CompactAttr string   `xml:"compact,attr,omitempty"`
-	Dt          *DtType  `xml:"dt"`
-	Dd          *DdType  `xml:"dd"`
+	XMLName     xml.Name `json:"-" xml:"dl"`
+	IdAttr      string   `json:",omitempty" xml:"id,attr,omitempty"`
+	TsizeAttr   string   `json:",omitempty" xml:"tsize,attr,omitempty"`
+	CompactAttr string   `json:",omitempty" xml:"compact,attr,omitempty"`
+	Dt          *DtType  `json:",omitempty" xml:"dt"`
+	Dd          *DdType  `json:",omitempty" xml:"dd"`
 }
 
 // Dl is *******************************
@@ -1693,11 +1693,11 @@ type Dl *DlType
 
 // UlType ...
 type UlType struct {
-	XMLName       xml.Name  `xml:"ul"`
-	IdAttr        string    `xml:"id,attr,omitempty"`
-	ListstyleAttr string    `xml:"list-style,attr,omitempty"`
-	CompactAttr   string    `xml:"compact,attr,omitempty"`
-	Li            []*LiType `xml:"li"`
+	XMLName       xml.Name  `json:"-" xml:"ul"`
+	IdAttr        string    `json:",omitempty" xml:"id,attr,omitempty"`
+	ListstyleAttr string    `json:",omitempty" xml:"list-style,attr,omitempty"`
+	CompactAttr   string    `json:",omitempty" xml:"compact,attr,omitempty"`
+	Li            []*LiType `json:",omitempty" xml:"li"`
 }
 
 // Ul is *******************************
@@ -1728,29 +1728,29 @@ type Ul *UlType
 
 // LiType ...
 type LiType struct {
-	XMLName    xml.Name          `xml:"li"`
-	IdAttr     string            `xml:"id,attr,omitempty"`
-	NumAttr    string            `xml:"num,attr,omitempty"`
-	B          []*BType          `xml:"b"`
-	I          []*IType          `xml:"i"`
-	U          []*UType          `xml:"u"`
-	O          []*OType          `xml:"o"`
-	Sup        []*SupType        `xml:"sup"`
-	Sub        []*SubType        `xml:"sub"`
-	Smallcaps  []*SmallcapsType  `xml:"smallcaps"`
-	Br         []*BrType         `xml:"br"`
-	Pre        []*PreType        `xml:"pre"`
-	Patcit     []*PatcitType     `xml:"patcit"`
-	Nplcit     []*NplcitType     `xml:"nplcit"`
-	Biodeposit []*BiodepositType `xml:"bio-deposit"`
-	Crossref   []*CrossrefType   `xml:"crossref"`
-	Figref     []*FigrefType     `xml:"figref"`
-	Img        []*ImgType        `xml:"img"`
-	Dl         []*DlType         `xml:"dl"`
-	Ul         []*UlType         `xml:"ul"`
-	Ol         []*OlType         `xml:"ol"`
-	Chemistry  []*ChemistryType  `xml:"chemistry"`
-	Maths      []*MathsType      `xml:"maths"`
+	XMLName    xml.Name          `json:"-" xml:"li"`
+	IdAttr     string            `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr    string            `json:",omitempty" xml:"num,attr,omitempty"`
+	B          []*BType          `json:",omitempty" xml:"b"`
+	I          []*IType          `json:",omitempty" xml:"i"`
+	U          []*UType          `json:",omitempty" xml:"u"`
+	O          []*OType          `json:",omitempty" xml:"o"`
+	Sup        []*SupType        `json:",omitempty" xml:"sup"`
+	Sub        []*SubType        `json:",omitempty" xml:"sub"`
+	Smallcaps  []*SmallcapsType  `json:",omitempty" xml:"smallcaps"`
+	Br         []*BrType         `json:",omitempty" xml:"br"`
+	Pre        []*PreType        `json:",omitempty" xml:"pre"`
+	Patcit     []*PatcitType     `json:",omitempty" xml:"patcit"`
+	Nplcit     []*NplcitType     `json:",omitempty" xml:"nplcit"`
+	Biodeposit []*BiodepositType `json:",omitempty" xml:"bio-deposit"`
+	Crossref   []*CrossrefType   `json:",omitempty" xml:"crossref"`
+	Figref     []*FigrefType     `json:",omitempty" xml:"figref"`
+	Img        []*ImgType        `json:",omitempty" xml:"img"`
+	Dl         []*DlType         `json:",omitempty" xml:"dl"`
+	Ul         []*UlType         `json:",omitempty" xml:"ul"`
+	Ol         []*OlType         `json:",omitempty" xml:"ol"`
+	Chemistry  []*ChemistryType  `json:",omitempty" xml:"chemistry"`
+	Maths      []*MathsType      `json:",omitempty" xml:"maths"`
 }
 
 // Li is LIST ITEM
@@ -1761,11 +1761,11 @@ type Li *LiType
 
 // MathsType ...
 type MathsType struct {
-	XMLName xml.Name  `xml:"maths"`
-	IdAttr  string    `xml:"id,attr,omitempty"`
-	NumAttr string    `xml:"num,attr"`
-	Img     *ImgType  `xml:"img"`
-	Math    *MathType `xml:"math"`
+	XMLName xml.Name  `json:"-" xml:"maths"`
+	IdAttr  string    `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr string    `json:",omitempty" xml:"num,attr"`
+	Img     *ImgType  `json:",omitempty" xml:"img"`
+	Math    *MathType `json:",omitempty" xml:"math"`
 }
 
 // Maths is *******************************************************************************
@@ -1788,8 +1788,8 @@ type Maths *MathsType
 
 // MathType ...
 type MathType struct {
-	XMLName            xml.Name `xml:"math"`
-	DisplayAttr        string   `xml:"display,attr,omitempty"`
+	XMLName            xml.Name `json:"-" xml:"math"`
+	DisplayAttr        string   `json:",omitempty" xml:"display,attr,omitempty"`
 	ExchMathExpression []*MathExpression
 }
 
@@ -1798,25 +1798,25 @@ type Mi *MiType
 
 // MiType ...
 type MiType struct {
-	XMLName            xml.Name          `xml:"mi"`
-	XlinkHrefAttr      interface{}       `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string            `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string            `xml:"class,attr,omitempty"`
-	StyleAttr          string            `xml:"style,attr,omitempty"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	XrefAttr           string            `xml:"xref,attr,omitempty"`
-	OtherAttr          string            `xml:"other,attr,omitempty"`
-	FontsizeAttr       string            `xml:"fontsize,attr,omitempty"`
-	FontweightAttr     string            `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr      string            `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr     string            `xml:"fontfamily,attr,omitempty"`
-	ColorAttr          string            `xml:"color,attr,omitempty"`
-	MathvariantAttr    string            `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr       string            `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr      string            `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr string            `xml:"mathbackground,attr,omitempty"`
-	Mglyph             []*MglyphType     `xml:"mglyph"`
-	Malignmark         []*MalignmarkType `xml:"malignmark"`
+	XMLName            xml.Name          `json:"-" xml:"mi"`
+	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string            `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string            `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string            `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string            `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr       string            `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr     string            `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr      string            `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr     string            `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr          string            `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr    string            `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr       string            `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr      string            `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr string            `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	Mglyph             []*MglyphType     `json:",omitempty" xml:"mglyph"`
+	Malignmark         []*MalignmarkType `json:",omitempty" xml:"malignmark"`
 }
 
 // Mglyph ...
@@ -1824,10 +1824,10 @@ type Mglyph *MglyphType
 
 // MglyphType ...
 type MglyphType struct {
-	XMLName        xml.Name `xml:"mglyph"`
-	AltAttr        string   `xml:"alt,attr,omitempty"`
-	FontfamilyAttr string   `xml:"fontfamily,attr,omitempty"`
-	IndexAttr      string   `xml:"index,attr,omitempty"`
+	XMLName        xml.Name `json:"-" xml:"mglyph"`
+	AltAttr        string   `json:",omitempty" xml:"alt,attr,omitempty"`
+	FontfamilyAttr string   `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	IndexAttr      string   `json:",omitempty" xml:"index,attr,omitempty"`
 }
 
 // Malignmark ...
@@ -1835,8 +1835,8 @@ type Malignmark *MalignmarkType
 
 // MalignmarkType ...
 type MalignmarkType struct {
-	XMLName  xml.Name `xml:"malignmark"`
-	EdgeAttr string   `xml:"edge,attr,omitempty"`
+	XMLName  xml.Name `json:"-" xml:"malignmark"`
+	EdgeAttr string   `json:",omitempty" xml:"edge,attr,omitempty"`
 }
 
 // Mn ...
@@ -1844,25 +1844,25 @@ type Mn *MnType
 
 // MnType ...
 type MnType struct {
-	XMLName            xml.Name          `xml:"mn"`
-	XlinkHrefAttr      interface{}       `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string            `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string            `xml:"class,attr,omitempty"`
-	StyleAttr          string            `xml:"style,attr,omitempty"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	XrefAttr           string            `xml:"xref,attr,omitempty"`
-	OtherAttr          string            `xml:"other,attr,omitempty"`
-	FontsizeAttr       string            `xml:"fontsize,attr,omitempty"`
-	FontweightAttr     string            `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr      string            `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr     string            `xml:"fontfamily,attr,omitempty"`
-	ColorAttr          string            `xml:"color,attr,omitempty"`
-	MathvariantAttr    string            `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr       string            `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr      string            `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr string            `xml:"mathbackground,attr,omitempty"`
-	Mglyph             []*MglyphType     `xml:"mglyph"`
-	Malignmark         []*MalignmarkType `xml:"malignmark"`
+	XMLName            xml.Name          `json:"-" xml:"mn"`
+	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string            `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string            `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string            `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string            `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr       string            `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr     string            `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr      string            `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr     string            `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr          string            `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr    string            `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr       string            `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr      string            `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr string            `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	Mglyph             []*MglyphType     `json:",omitempty" xml:"mglyph"`
+	Malignmark         []*MalignmarkType `json:",omitempty" xml:"malignmark"`
 }
 
 // Mo ...
@@ -1870,37 +1870,37 @@ type Mo *MoType
 
 // MoType ...
 type MoType struct {
-	XMLName            xml.Name          `xml:"mo"`
-	XlinkHrefAttr      interface{}       `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string            `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string            `xml:"class,attr,omitempty"`
-	StyleAttr          string            `xml:"style,attr,omitempty"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	XrefAttr           string            `xml:"xref,attr,omitempty"`
-	OtherAttr          string            `xml:"other,attr,omitempty"`
-	FontsizeAttr       string            `xml:"fontsize,attr,omitempty"`
-	FontweightAttr     string            `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr      string            `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr     string            `xml:"fontfamily,attr,omitempty"`
-	ColorAttr          string            `xml:"color,attr,omitempty"`
-	MathvariantAttr    string            `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr       string            `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr      string            `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr string            `xml:"mathbackground,attr,omitempty"`
-	FormAttr           string            `xml:"form,attr,omitempty"`
-	FenceAttr          string            `xml:"fence,attr,omitempty"`
-	SeparatorAttr      string            `xml:"separator,attr,omitempty"`
-	LspaceAttr         string            `xml:"lspace,attr,omitempty"`
-	RspaceAttr         string            `xml:"rspace,attr,omitempty"`
-	StretchyAttr       string            `xml:"stretchy,attr,omitempty"`
-	SymmetricAttr      string            `xml:"symmetric,attr,omitempty"`
-	MaxsizeAttr        string            `xml:"maxsize,attr,omitempty"`
-	MinsizeAttr        string            `xml:"minsize,attr,omitempty"`
-	LargeopAttr        string            `xml:"largeop,attr,omitempty"`
-	MovablelimitsAttr  string            `xml:"movablelimits,attr,omitempty"`
-	AccentAttr         string            `xml:"accent,attr,omitempty"`
-	Mglyph             []*MglyphType     `xml:"mglyph"`
-	Malignmark         []*MalignmarkType `xml:"malignmark"`
+	XMLName            xml.Name          `json:"-" xml:"mo"`
+	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string            `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string            `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string            `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string            `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr       string            `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr     string            `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr      string            `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr     string            `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr          string            `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr    string            `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr       string            `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr      string            `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr string            `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	FormAttr           string            `json:",omitempty" xml:"form,attr,omitempty"`
+	FenceAttr          string            `json:",omitempty" xml:"fence,attr,omitempty"`
+	SeparatorAttr      string            `json:",omitempty" xml:"separator,attr,omitempty"`
+	LspaceAttr         string            `json:",omitempty" xml:"lspace,attr,omitempty"`
+	RspaceAttr         string            `json:",omitempty" xml:"rspace,attr,omitempty"`
+	StretchyAttr       string            `json:",omitempty" xml:"stretchy,attr,omitempty"`
+	SymmetricAttr      string            `json:",omitempty" xml:"symmetric,attr,omitempty"`
+	MaxsizeAttr        string            `json:",omitempty" xml:"maxsize,attr,omitempty"`
+	MinsizeAttr        string            `json:",omitempty" xml:"minsize,attr,omitempty"`
+	LargeopAttr        string            `json:",omitempty" xml:"largeop,attr,omitempty"`
+	MovablelimitsAttr  string            `json:",omitempty" xml:"movablelimits,attr,omitempty"`
+	AccentAttr         string            `json:",omitempty" xml:"accent,attr,omitempty"`
+	Mglyph             []*MglyphType     `json:",omitempty" xml:"mglyph"`
+	Malignmark         []*MalignmarkType `json:",omitempty" xml:"malignmark"`
 }
 
 // Mtext ...
@@ -1908,25 +1908,25 @@ type Mtext *MtextType
 
 // MtextType ...
 type MtextType struct {
-	XMLName            xml.Name          `xml:"mtext"`
-	XlinkHrefAttr      interface{}       `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string            `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string            `xml:"class,attr,omitempty"`
-	StyleAttr          string            `xml:"style,attr,omitempty"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	XrefAttr           string            `xml:"xref,attr,omitempty"`
-	OtherAttr          string            `xml:"other,attr,omitempty"`
-	FontsizeAttr       string            `xml:"fontsize,attr,omitempty"`
-	FontweightAttr     string            `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr      string            `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr     string            `xml:"fontfamily,attr,omitempty"`
-	ColorAttr          string            `xml:"color,attr,omitempty"`
-	MathvariantAttr    string            `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr       string            `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr      string            `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr string            `xml:"mathbackground,attr,omitempty"`
-	Mglyph             []*MglyphType     `xml:"mglyph"`
-	Malignmark         []*MalignmarkType `xml:"malignmark"`
+	XMLName            xml.Name          `json:"-" xml:"mtext"`
+	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string            `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string            `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string            `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string            `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr       string            `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr     string            `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr      string            `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr     string            `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr          string            `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr    string            `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr       string            `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr      string            `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr string            `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	Mglyph             []*MglyphType     `json:",omitempty" xml:"mglyph"`
+	Malignmark         []*MalignmarkType `json:",omitempty" xml:"malignmark"`
 }
 
 // Ms ...
@@ -1934,27 +1934,27 @@ type Ms *MsType
 
 // MsType ...
 type MsType struct {
-	XMLName            xml.Name          `xml:"ms"`
-	XlinkHrefAttr      interface{}       `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string            `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string            `xml:"class,attr,omitempty"`
-	StyleAttr          string            `xml:"style,attr,omitempty"`
-	IdAttr             string            `xml:"id,attr,omitempty"`
-	XrefAttr           string            `xml:"xref,attr,omitempty"`
-	OtherAttr          string            `xml:"other,attr,omitempty"`
-	FontsizeAttr       string            `xml:"fontsize,attr,omitempty"`
-	FontweightAttr     string            `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr      string            `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr     string            `xml:"fontfamily,attr,omitempty"`
-	ColorAttr          string            `xml:"color,attr,omitempty"`
-	MathvariantAttr    string            `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr       string            `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr      string            `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr string            `xml:"mathbackground,attr,omitempty"`
-	LquoteAttr         string            `xml:"lquote,attr,omitempty"`
-	RquoteAttr         string            `xml:"rquote,attr,omitempty"`
-	Mglyph             []*MglyphType     `xml:"mglyph"`
-	Malignmark         []*MalignmarkType `xml:"malignmark"`
+	XMLName            xml.Name          `json:"-" xml:"ms"`
+	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string            `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string            `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string            `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string            `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string            `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr       string            `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr     string            `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr      string            `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr     string            `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr          string            `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr    string            `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr       string            `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr      string            `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr string            `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	LquoteAttr         string            `json:",omitempty" xml:"lquote,attr,omitempty"`
+	RquoteAttr         string            `json:",omitempty" xml:"rquote,attr,omitempty"`
+	Mglyph             []*MglyphType     `json:",omitempty" xml:"mglyph"`
+	Malignmark         []*MalignmarkType `json:",omitempty" xml:"malignmark"`
 }
 
 // Mspace ...
@@ -1962,18 +1962,18 @@ type Mspace *MspaceType
 
 // MspaceType ...
 type MspaceType struct {
-	XMLName       xml.Name    `xml:"mspace"`
-	WidthAttr     string      `xml:"width,attr,omitempty"`
-	HeightAttr    string      `xml:"height,attr,omitempty"`
-	DepthAttr     string      `xml:"depth,attr,omitempty"`
-	LinebreakAttr string      `xml:"linebreak,attr,omitempty"`
-	XlinkHrefAttr interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr     string      `xml:"class,attr,omitempty"`
-	StyleAttr     string      `xml:"style,attr,omitempty"`
-	IdAttr        string      `xml:"id,attr,omitempty"`
-	XrefAttr      string      `xml:"xref,attr,omitempty"`
-	OtherAttr     string      `xml:"other,attr,omitempty"`
+	XMLName       xml.Name    `json:"-" xml:"mspace"`
+	WidthAttr     string      `json:",omitempty" xml:"width,attr,omitempty"`
+	HeightAttr    string      `json:",omitempty" xml:"height,attr,omitempty"`
+	DepthAttr     string      `json:",omitempty" xml:"depth,attr,omitempty"`
+	LinebreakAttr string      `json:",omitempty" xml:"linebreak,attr,omitempty"`
+	XlinkHrefAttr interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr     string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr     string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr        string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr      string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr     string      `json:",omitempty" xml:"other,attr,omitempty"`
 }
 
 // Mrow ...
@@ -1981,14 +1981,14 @@ type Mrow *MrowType
 
 // MrowType ...
 type MrowType struct {
-	XMLName            xml.Name    `xml:"mrow"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"mrow"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -1997,7 +1997,7 @@ type Mprescripts *MprescriptsType
 
 // MprescriptsType ...
 type MprescriptsType struct {
-	XMLName xml.Name `xml:"mprescripts"`
+	XMLName xml.Name `json:"-" xml:"mprescripts"`
 }
 
 // None ...
@@ -2005,7 +2005,7 @@ type None *NoneType
 
 // NoneType ...
 type NoneType struct {
-	XMLName xml.Name `xml:"none"`
+	XMLName xml.Name `json:"-" xml:"none"`
 }
 
 // Mfrac ...
@@ -2013,18 +2013,18 @@ type Mfrac *MfracType
 
 // MfracType ...
 type MfracType struct {
-	XMLName               xml.Name    `xml:"mfrac"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	BevelledAttr          string      `xml:"bevelled,attr,omitempty"`
-	NumalignAttr          string      `xml:"numalign,attr,omitempty"`
-	DenomalignAttr        string      `xml:"denomalign,attr,omitempty"`
-	LinethicknessAttr     string      `xml:"linethickness,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mfrac"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	BevelledAttr          string      `json:",omitempty" xml:"bevelled,attr,omitempty"`
+	NumalignAttr          string      `json:",omitempty" xml:"numalign,attr,omitempty"`
+	DenomalignAttr        string      `json:",omitempty" xml:"denomalign,attr,omitempty"`
+	LinethicknessAttr     string      `json:",omitempty" xml:"linethickness,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2033,14 +2033,14 @@ type Msqrt *MsqrtType
 
 // MsqrtType ...
 type MsqrtType struct {
-	XMLName            xml.Name    `xml:"msqrt"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"msqrt"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2049,14 +2049,14 @@ type Mroot *MrootType
 
 // MrootType ...
 type MrootType struct {
-	XMLName               xml.Name    `xml:"mroot"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mroot"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2065,15 +2065,15 @@ type Menclose *MencloseType
 
 // MencloseType ...
 type MencloseType struct {
-	XMLName            xml.Name    `xml:"menclose"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
-	NotationAttr       string      `xml:"notation,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"menclose"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
+	NotationAttr       string      `json:",omitempty" xml:"notation,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2082,80 +2082,80 @@ type Mstyle *MstyleType
 
 // MstyleType ...
 type MstyleType struct {
-	XMLName                    xml.Name    `xml:"mstyle"`
-	XlinkHrefAttr              interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr              string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr                  string      `xml:"class,attr,omitempty"`
-	StyleAttr                  string      `xml:"style,attr,omitempty"`
-	IdAttr                     string      `xml:"id,attr,omitempty"`
-	XrefAttr                   string      `xml:"xref,attr,omitempty"`
-	OtherAttr                  string      `xml:"other,attr,omitempty"`
-	FontsizeAttr               string      `xml:"fontsize,attr,omitempty"`
-	FontweightAttr             string      `xml:"fontweight,attr,omitempty"`
-	FontstyleAttr              string      `xml:"fontstyle,attr,omitempty"`
-	FontfamilyAttr             string      `xml:"fontfamily,attr,omitempty"`
-	ColorAttr                  string      `xml:"color,attr,omitempty"`
-	MathvariantAttr            string      `xml:"mathvariant,attr,omitempty"`
-	MathsizeAttr               string      `xml:"mathsize,attr,omitempty"`
-	MathcolorAttr              string      `xml:"mathcolor,attr,omitempty"`
-	MathbackgroundAttr         string      `xml:"mathbackground,attr,omitempty"`
-	FormAttr                   string      `xml:"form,attr,omitempty"`
-	FenceAttr                  string      `xml:"fence,attr,omitempty"`
-	SeparatorAttr              string      `xml:"separator,attr,omitempty"`
-	LspaceAttr                 string      `xml:"lspace,attr,omitempty"`
-	RspaceAttr                 string      `xml:"rspace,attr,omitempty"`
-	StretchyAttr               string      `xml:"stretchy,attr,omitempty"`
-	SymmetricAttr              string      `xml:"symmetric,attr,omitempty"`
-	MaxsizeAttr                string      `xml:"maxsize,attr,omitempty"`
-	MinsizeAttr                string      `xml:"minsize,attr,omitempty"`
-	LargeopAttr                string      `xml:"largeop,attr,omitempty"`
-	MovablelimitsAttr          string      `xml:"movablelimits,attr,omitempty"`
-	AccentAttr                 string      `xml:"accent,attr,omitempty"`
-	LquoteAttr                 string      `xml:"lquote,attr,omitempty"`
-	RquoteAttr                 string      `xml:"rquote,attr,omitempty"`
-	LinethicknessAttr          string      `xml:"linethickness,attr,omitempty"`
-	ScriptlevelAttr            string      `xml:"scriptlevel,attr,omitempty"`
-	ScriptsizemultiplierAttr   string      `xml:"scriptsizemultiplier,attr,omitempty"`
-	ScriptminsizeAttr          string      `xml:"scriptminsize,attr,omitempty"`
-	BackgroundAttr             string      `xml:"background,attr,omitempty"`
-	VeryverythinmathspaceAttr  string      `xml:"veryverythinmathspace,attr,omitempty"`
-	VerythinmathspaceAttr      string      `xml:"verythinmathspace,attr,omitempty"`
-	ThinmathspaceAttr          string      `xml:"thinmathspace,attr,omitempty"`
-	MediummathspaceAttr        string      `xml:"mediummathspace,attr,omitempty"`
-	ThickmathspaceAttr         string      `xml:"thickmathspace,attr,omitempty"`
-	VerythickmathspaceAttr     string      `xml:"verythickmathspace,attr,omitempty"`
-	VeryverythickmathspaceAttr string      `xml:"veryverythickmathspace,attr,omitempty"`
-	OpenAttr                   string      `xml:"open,attr,omitempty"`
-	CloseAttr                  string      `xml:"close,attr,omitempty"`
-	SeparatorsAttr             string      `xml:"separators,attr,omitempty"`
-	SubscriptshiftAttr         string      `xml:"subscriptshift,attr,omitempty"`
-	SuperscriptshiftAttr       string      `xml:"superscriptshift,attr,omitempty"`
-	AccentunderAttr            string      `xml:"accentunder,attr,omitempty"`
-	AlignAttr                  string      `xml:"align,attr,omitempty"`
-	RowalignAttr               string      `xml:"rowalign,attr,omitempty"`
-	ColumnalignAttr            string      `xml:"columnalign,attr,omitempty"`
-	ColumnwidthAttr            string      `xml:"columnwidth,attr,omitempty"`
-	GroupalignAttr             string      `xml:"groupalign,attr,omitempty"`
-	AlignmentscopeAttr         string      `xml:"alignmentscope,attr,omitempty"`
-	SideAttr                   string      `xml:"side,attr,omitempty"`
-	RowspacingAttr             string      `xml:"rowspacing,attr,omitempty"`
-	ColumnspacingAttr          string      `xml:"columnspacing,attr,omitempty"`
-	RowlinesAttr               string      `xml:"rowlines,attr,omitempty"`
-	ColumnlinesAttr            string      `xml:"columnlines,attr,omitempty"`
-	WidthAttr                  string      `xml:"width,attr,omitempty"`
-	FrameAttr                  string      `xml:"frame,attr,omitempty"`
-	FramespacingAttr           string      `xml:"framespacing,attr,omitempty"`
-	MinlabelspacingAttr        string      `xml:"minlabelspacing,attr,omitempty"`
-	EqualrowsAttr              string      `xml:"equalrows,attr,omitempty"`
-	EqualcolumnsAttr           string      `xml:"equalcolumns,attr,omitempty"`
-	DisplaystyleAttr           string      `xml:"displaystyle,attr,omitempty"`
-	RowspanAttr                string      `xml:"rowspan,attr,omitempty"`
-	ColumnspanAttr             string      `xml:"columnspan,attr,omitempty"`
-	EdgeAttr                   string      `xml:"edge,attr,omitempty"`
-	SelectionAttr              string      `xml:"selection,attr,omitempty"`
-	BevelledAttr               string      `xml:"bevelled,attr,omitempty"`
-	HeightAttr                 string      `xml:"height,attr,omitempty"`
-	DepthAttr                  string      `xml:"depth,attr,omitempty"`
+	XMLName                    xml.Name    `json:"-" xml:"mstyle"`
+	XlinkHrefAttr              interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr              string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr                  string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr                  string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                     string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr                   string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr                  string      `json:",omitempty" xml:"other,attr,omitempty"`
+	FontsizeAttr               string      `json:",omitempty" xml:"fontsize,attr,omitempty"`
+	FontweightAttr             string      `json:",omitempty" xml:"fontweight,attr,omitempty"`
+	FontstyleAttr              string      `json:",omitempty" xml:"fontstyle,attr,omitempty"`
+	FontfamilyAttr             string      `json:",omitempty" xml:"fontfamily,attr,omitempty"`
+	ColorAttr                  string      `json:",omitempty" xml:"color,attr,omitempty"`
+	MathvariantAttr            string      `json:",omitempty" xml:"mathvariant,attr,omitempty"`
+	MathsizeAttr               string      `json:",omitempty" xml:"mathsize,attr,omitempty"`
+	MathcolorAttr              string      `json:",omitempty" xml:"mathcolor,attr,omitempty"`
+	MathbackgroundAttr         string      `json:",omitempty" xml:"mathbackground,attr,omitempty"`
+	FormAttr                   string      `json:",omitempty" xml:"form,attr,omitempty"`
+	FenceAttr                  string      `json:",omitempty" xml:"fence,attr,omitempty"`
+	SeparatorAttr              string      `json:",omitempty" xml:"separator,attr,omitempty"`
+	LspaceAttr                 string      `json:",omitempty" xml:"lspace,attr,omitempty"`
+	RspaceAttr                 string      `json:",omitempty" xml:"rspace,attr,omitempty"`
+	StretchyAttr               string      `json:",omitempty" xml:"stretchy,attr,omitempty"`
+	SymmetricAttr              string      `json:",omitempty" xml:"symmetric,attr,omitempty"`
+	MaxsizeAttr                string      `json:",omitempty" xml:"maxsize,attr,omitempty"`
+	MinsizeAttr                string      `json:",omitempty" xml:"minsize,attr,omitempty"`
+	LargeopAttr                string      `json:",omitempty" xml:"largeop,attr,omitempty"`
+	MovablelimitsAttr          string      `json:",omitempty" xml:"movablelimits,attr,omitempty"`
+	AccentAttr                 string      `json:",omitempty" xml:"accent,attr,omitempty"`
+	LquoteAttr                 string      `json:",omitempty" xml:"lquote,attr,omitempty"`
+	RquoteAttr                 string      `json:",omitempty" xml:"rquote,attr,omitempty"`
+	LinethicknessAttr          string      `json:",omitempty" xml:"linethickness,attr,omitempty"`
+	ScriptlevelAttr            string      `json:",omitempty" xml:"scriptlevel,attr,omitempty"`
+	ScriptsizemultiplierAttr   string      `json:",omitempty" xml:"scriptsizemultiplier,attr,omitempty"`
+	ScriptminsizeAttr          string      `json:",omitempty" xml:"scriptminsize,attr,omitempty"`
+	BackgroundAttr             string      `json:",omitempty" xml:"background,attr,omitempty"`
+	VeryverythinmathspaceAttr  string      `json:",omitempty" xml:"veryverythinmathspace,attr,omitempty"`
+	VerythinmathspaceAttr      string      `json:",omitempty" xml:"verythinmathspace,attr,omitempty"`
+	ThinmathspaceAttr          string      `json:",omitempty" xml:"thinmathspace,attr,omitempty"`
+	MediummathspaceAttr        string      `json:",omitempty" xml:"mediummathspace,attr,omitempty"`
+	ThickmathspaceAttr         string      `json:",omitempty" xml:"thickmathspace,attr,omitempty"`
+	VerythickmathspaceAttr     string      `json:",omitempty" xml:"verythickmathspace,attr,omitempty"`
+	VeryverythickmathspaceAttr string      `json:",omitempty" xml:"veryverythickmathspace,attr,omitempty"`
+	OpenAttr                   string      `json:",omitempty" xml:"open,attr,omitempty"`
+	CloseAttr                  string      `json:",omitempty" xml:"close,attr,omitempty"`
+	SeparatorsAttr             string      `json:",omitempty" xml:"separators,attr,omitempty"`
+	SubscriptshiftAttr         string      `json:",omitempty" xml:"subscriptshift,attr,omitempty"`
+	SuperscriptshiftAttr       string      `json:",omitempty" xml:"superscriptshift,attr,omitempty"`
+	AccentunderAttr            string      `json:",omitempty" xml:"accentunder,attr,omitempty"`
+	AlignAttr                  string      `json:",omitempty" xml:"align,attr,omitempty"`
+	RowalignAttr               string      `json:",omitempty" xml:"rowalign,attr,omitempty"`
+	ColumnalignAttr            string      `json:",omitempty" xml:"columnalign,attr,omitempty"`
+	ColumnwidthAttr            string      `json:",omitempty" xml:"columnwidth,attr,omitempty"`
+	GroupalignAttr             string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
+	AlignmentscopeAttr         string      `json:",omitempty" xml:"alignmentscope,attr,omitempty"`
+	SideAttr                   string      `json:",omitempty" xml:"side,attr,omitempty"`
+	RowspacingAttr             string      `json:",omitempty" xml:"rowspacing,attr,omitempty"`
+	ColumnspacingAttr          string      `json:",omitempty" xml:"columnspacing,attr,omitempty"`
+	RowlinesAttr               string      `json:",omitempty" xml:"rowlines,attr,omitempty"`
+	ColumnlinesAttr            string      `json:",omitempty" xml:"columnlines,attr,omitempty"`
+	WidthAttr                  string      `json:",omitempty" xml:"width,attr,omitempty"`
+	FrameAttr                  string      `json:",omitempty" xml:"frame,attr,omitempty"`
+	FramespacingAttr           string      `json:",omitempty" xml:"framespacing,attr,omitempty"`
+	MinlabelspacingAttr        string      `json:",omitempty" xml:"minlabelspacing,attr,omitempty"`
+	EqualrowsAttr              string      `json:",omitempty" xml:"equalrows,attr,omitempty"`
+	EqualcolumnsAttr           string      `json:",omitempty" xml:"equalcolumns,attr,omitempty"`
+	DisplaystyleAttr           string      `json:",omitempty" xml:"displaystyle,attr,omitempty"`
+	RowspanAttr                string      `json:",omitempty" xml:"rowspan,attr,omitempty"`
+	ColumnspanAttr             string      `json:",omitempty" xml:"columnspan,attr,omitempty"`
+	EdgeAttr                   string      `json:",omitempty" xml:"edge,attr,omitempty"`
+	SelectionAttr              string      `json:",omitempty" xml:"selection,attr,omitempty"`
+	BevelledAttr               string      `json:",omitempty" xml:"bevelled,attr,omitempty"`
+	HeightAttr                 string      `json:",omitempty" xml:"height,attr,omitempty"`
+	DepthAttr                  string      `json:",omitempty" xml:"depth,attr,omitempty"`
 	ExchPresExpression         []*PresExpression
 }
 
@@ -2164,14 +2164,14 @@ type Merror *MerrorType
 
 // MerrorType ...
 type MerrorType struct {
-	XMLName            xml.Name    `xml:"merror"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"merror"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2180,18 +2180,18 @@ type Mpadded *MpaddedType
 
 // MpaddedType ...
 type MpaddedType struct {
-	XMLName            xml.Name    `xml:"mpadded"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
-	WidthAttr          string      `xml:"width,attr,omitempty"`
-	HeightAttr         string      `xml:"height,attr,omitempty"`
-	DepthAttr          string      `xml:"depth,attr,omitempty"`
-	LspaceAttr         string      `xml:"lspace,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"mpadded"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
+	WidthAttr          string      `json:",omitempty" xml:"width,attr,omitempty"`
+	HeightAttr         string      `json:",omitempty" xml:"height,attr,omitempty"`
+	DepthAttr          string      `json:",omitempty" xml:"depth,attr,omitempty"`
+	LspaceAttr         string      `json:",omitempty" xml:"lspace,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2200,14 +2200,14 @@ type Mphantom *MphantomType
 
 // MphantomType ...
 type MphantomType struct {
-	XMLName            xml.Name    `xml:"mphantom"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"mphantom"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2216,17 +2216,17 @@ type Mfenced *MfencedType
 
 // MfencedType ...
 type MfencedType struct {
-	XMLName            xml.Name    `xml:"mfenced"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
-	OpenAttr           string      `xml:"open,attr,omitempty"`
-	CloseAttr          string      `xml:"close,attr,omitempty"`
-	SeparatorsAttr     string      `xml:"separators,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"mfenced"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
+	OpenAttr           string      `json:",omitempty" xml:"open,attr,omitempty"`
+	CloseAttr          string      `json:",omitempty" xml:"close,attr,omitempty"`
+	SeparatorsAttr     string      `json:",omitempty" xml:"separators,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2235,15 +2235,15 @@ type Msub *MsubType
 
 // MsubType ...
 type MsubType struct {
-	XMLName               xml.Name    `xml:"msub"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	SubscriptshiftAttr    string      `xml:"subscriptshift,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"msub"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	SubscriptshiftAttr    string      `json:",omitempty" xml:"subscriptshift,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2252,15 +2252,15 @@ type Msup *MsupType
 
 // MsupType ...
 type MsupType struct {
-	XMLName               xml.Name    `xml:"msup"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	SuperscriptshiftAttr  string      `xml:"superscriptshift,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"msup"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	SuperscriptshiftAttr  string      `json:",omitempty" xml:"superscriptshift,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2269,16 +2269,16 @@ type Msubsup *MsubsupType
 
 // MsubsupType ...
 type MsubsupType struct {
-	XMLName                 xml.Name    `xml:"msubsup"`
-	XlinkHrefAttr           interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr           string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr               string      `xml:"class,attr,omitempty"`
-	StyleAttr               string      `xml:"style,attr,omitempty"`
-	IdAttr                  string      `xml:"id,attr,omitempty"`
-	XrefAttr                string      `xml:"xref,attr,omitempty"`
-	OtherAttr               string      `xml:"other,attr,omitempty"`
-	SubscriptshiftAttr      string      `xml:"subscriptshift,attr,omitempty"`
-	SuperscriptshiftAttr    string      `xml:"superscriptshift,attr,omitempty"`
+	XMLName                 xml.Name    `json:"-" xml:"msubsup"`
+	XlinkHrefAttr           interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr           string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr               string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr               string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                  string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr                string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr               string      `json:",omitempty" xml:"other,attr,omitempty"`
+	SubscriptshiftAttr      string      `json:",omitempty" xml:"subscriptshift,attr,omitempty"`
+	SuperscriptshiftAttr    string      `json:",omitempty" xml:"superscriptshift,attr,omitempty"`
 	ExchThreePresExpression []*ThreePresExpression
 }
 
@@ -2287,15 +2287,15 @@ type Munder *MunderType
 
 // MunderType ...
 type MunderType struct {
-	XMLName               xml.Name    `xml:"munder"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	AccentunderAttr       string      `xml:"accentunder,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"munder"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	AccentunderAttr       string      `json:",omitempty" xml:"accentunder,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2304,15 +2304,15 @@ type Mover *MoverType
 
 // MoverType ...
 type MoverType struct {
-	XMLName               xml.Name    `xml:"mover"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	AccentAttr            string      `xml:"accent,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mover"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	AccentAttr            string      `json:",omitempty" xml:"accent,attr,omitempty"`
 	ExchTwoPresExpression []*TwoPresExpression
 }
 
@@ -2321,16 +2321,16 @@ type Munderover *MunderoverType
 
 // MunderoverType ...
 type MunderoverType struct {
-	XMLName                 xml.Name    `xml:"munderover"`
-	XlinkHrefAttr           interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr           string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr               string      `xml:"class,attr,omitempty"`
-	StyleAttr               string      `xml:"style,attr,omitempty"`
-	IdAttr                  string      `xml:"id,attr,omitempty"`
-	XrefAttr                string      `xml:"xref,attr,omitempty"`
-	OtherAttr               string      `xml:"other,attr,omitempty"`
-	AccentAttr              string      `xml:"accent,attr,omitempty"`
-	AccentunderAttr         string      `xml:"accentunder,attr,omitempty"`
+	XMLName                 xml.Name    `json:"-" xml:"munderover"`
+	XlinkHrefAttr           interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr           string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr               string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr               string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                  string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr                string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr               string      `json:",omitempty" xml:"other,attr,omitempty"`
+	AccentAttr              string      `json:",omitempty" xml:"accent,attr,omitempty"`
+	AccentunderAttr         string      `json:",omitempty" xml:"accentunder,attr,omitempty"`
 	ExchThreePresExpression []*ThreePresExpression
 }
 
@@ -2339,16 +2339,16 @@ type Mmultiscripts *MmultiscriptsType
 
 // MmultiscriptsType ...
 type MmultiscriptsType struct {
-	XMLName                 xml.Name    `xml:"mmultiscripts"`
-	XlinkHrefAttr           interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr           string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr               string      `xml:"class,attr,omitempty"`
-	StyleAttr               string      `xml:"style,attr,omitempty"`
-	IdAttr                  string      `xml:"id,attr,omitempty"`
-	XrefAttr                string      `xml:"xref,attr,omitempty"`
-	OtherAttr               string      `xml:"other,attr,omitempty"`
-	SubscriptshiftAttr      string      `xml:"subscriptshift,attr,omitempty"`
-	SuperscriptshiftAttr    string      `xml:"superscriptshift,attr,omitempty"`
+	XMLName                 xml.Name    `json:"-" xml:"mmultiscripts"`
+	XlinkHrefAttr           interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr           string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr               string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr               string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                  string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr                string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr               string      `json:",omitempty" xml:"other,attr,omitempty"`
+	SubscriptshiftAttr      string      `json:",omitempty" xml:"subscriptshift,attr,omitempty"`
+	SuperscriptshiftAttr    string      `json:",omitempty" xml:"superscriptshift,attr,omitempty"`
 	ExchPrscrPresExpression []*PrscrPresExpression
 }
 
@@ -2357,32 +2357,32 @@ type Mtable *MtableType
 
 // MtableType ...
 type MtableType struct {
-	XMLName               xml.Name    `xml:"mtable"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	AlignAttr             string      `xml:"align,attr,omitempty"`
-	RowalignAttr          string      `xml:"rowalign,attr,omitempty"`
-	ColumnalignAttr       string      `xml:"columnalign,attr,omitempty"`
-	ColumnwidthAttr       string      `xml:"columnwidth,attr,omitempty"`
-	GroupalignAttr        string      `xml:"groupalign,attr,omitempty"`
-	AlignmentscopeAttr    string      `xml:"alignmentscope,attr,omitempty"`
-	SideAttr              string      `xml:"side,attr,omitempty"`
-	RowspacingAttr        string      `xml:"rowspacing,attr,omitempty"`
-	ColumnspacingAttr     string      `xml:"columnspacing,attr,omitempty"`
-	RowlinesAttr          string      `xml:"rowlines,attr,omitempty"`
-	ColumnlinesAttr       string      `xml:"columnlines,attr,omitempty"`
-	WidthAttr             string      `xml:"width,attr,omitempty"`
-	FrameAttr             string      `xml:"frame,attr,omitempty"`
-	FramespacingAttr      string      `xml:"framespacing,attr,omitempty"`
-	MinlabelspacingAttr   string      `xml:"minlabelspacing,attr,omitempty"`
-	EqualrowsAttr         string      `xml:"equalrows,attr,omitempty"`
-	EqualcolumnsAttr      string      `xml:"equalcolumns,attr,omitempty"`
-	DisplaystyleAttr      string      `xml:"displaystyle,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mtable"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	AlignAttr             string      `json:",omitempty" xml:"align,attr,omitempty"`
+	RowalignAttr          string      `json:",omitempty" xml:"rowalign,attr,omitempty"`
+	ColumnalignAttr       string      `json:",omitempty" xml:"columnalign,attr,omitempty"`
+	ColumnwidthAttr       string      `json:",omitempty" xml:"columnwidth,attr,omitempty"`
+	GroupalignAttr        string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
+	AlignmentscopeAttr    string      `json:",omitempty" xml:"alignmentscope,attr,omitempty"`
+	SideAttr              string      `json:",omitempty" xml:"side,attr,omitempty"`
+	RowspacingAttr        string      `json:",omitempty" xml:"rowspacing,attr,omitempty"`
+	ColumnspacingAttr     string      `json:",omitempty" xml:"columnspacing,attr,omitempty"`
+	RowlinesAttr          string      `json:",omitempty" xml:"rowlines,attr,omitempty"`
+	ColumnlinesAttr       string      `json:",omitempty" xml:"columnlines,attr,omitempty"`
+	WidthAttr             string      `json:",omitempty" xml:"width,attr,omitempty"`
+	FrameAttr             string      `json:",omitempty" xml:"frame,attr,omitempty"`
+	FramespacingAttr      string      `json:",omitempty" xml:"framespacing,attr,omitempty"`
+	MinlabelspacingAttr   string      `json:",omitempty" xml:"minlabelspacing,attr,omitempty"`
+	EqualrowsAttr         string      `json:",omitempty" xml:"equalrows,attr,omitempty"`
+	EqualcolumnsAttr      string      `json:",omitempty" xml:"equalcolumns,attr,omitempty"`
+	DisplaystyleAttr      string      `json:",omitempty" xml:"displaystyle,attr,omitempty"`
 	ExchMtrPresExpression []*MtrPresExpression
 }
 
@@ -2391,17 +2391,17 @@ type Mtr *MtrType
 
 // MtrType ...
 type MtrType struct {
-	XMLName               xml.Name    `xml:"mtr"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	RowalignAttr          string      `xml:"rowalign,attr,omitempty"`
-	ColumnalignAttr       string      `xml:"columnalign,attr,omitempty"`
-	GroupalignAttr        string      `xml:"groupalign,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mtr"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	RowalignAttr          string      `json:",omitempty" xml:"rowalign,attr,omitempty"`
+	ColumnalignAttr       string      `json:",omitempty" xml:"columnalign,attr,omitempty"`
+	GroupalignAttr        string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
 	ExchMtdPresExpression []*MtdPresExpression
 }
 
@@ -2410,17 +2410,17 @@ type Mlabeledtr *MlabeledtrType
 
 // MlabeledtrType ...
 type MlabeledtrType struct {
-	XMLName               xml.Name    `xml:"mlabeledtr"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	RowalignAttr          string      `xml:"rowalign,attr,omitempty"`
-	ColumnalignAttr       string      `xml:"columnalign,attr,omitempty"`
-	GroupalignAttr        string      `xml:"groupalign,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"mlabeledtr"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	RowalignAttr          string      `json:",omitempty" xml:"rowalign,attr,omitempty"`
+	ColumnalignAttr       string      `json:",omitempty" xml:"columnalign,attr,omitempty"`
+	GroupalignAttr        string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
 	ExchMtdPresExpression []*MtdPresExpression
 }
 
@@ -2429,19 +2429,19 @@ type Mtd *MtdType
 
 // MtdType ...
 type MtdType struct {
-	XMLName            xml.Name    `xml:"mtd"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
-	RowalignAttr       string      `xml:"rowalign,attr,omitempty"`
-	ColumnalignAttr    string      `xml:"columnalign,attr,omitempty"`
-	GroupalignAttr     string      `xml:"groupalign,attr,omitempty"`
-	RowspanAttr        string      `xml:"rowspan,attr,omitempty"`
-	ColumnspanAttr     string      `xml:"columnspan,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"mtd"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
+	RowalignAttr       string      `json:",omitempty" xml:"rowalign,attr,omitempty"`
+	ColumnalignAttr    string      `json:",omitempty" xml:"columnalign,attr,omitempty"`
+	GroupalignAttr     string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
+	RowspanAttr        string      `json:",omitempty" xml:"rowspan,attr,omitempty"`
+	ColumnspanAttr     string      `json:",omitempty" xml:"columnspan,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2450,15 +2450,15 @@ type Maligngroup *MaligngroupType
 
 // MaligngroupType ...
 type MaligngroupType struct {
-	XMLName        xml.Name    `xml:"maligngroup"`
-	XlinkHrefAttr  interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr  string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr      string      `xml:"class,attr,omitempty"`
-	StyleAttr      string      `xml:"style,attr,omitempty"`
-	IdAttr         string      `xml:"id,attr,omitempty"`
-	XrefAttr       string      `xml:"xref,attr,omitempty"`
-	OtherAttr      string      `xml:"other,attr,omitempty"`
-	GroupalignAttr string      `xml:"groupalign,attr,omitempty"`
+	XMLName        xml.Name    `json:"-" xml:"maligngroup"`
+	XlinkHrefAttr  interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr  string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr      string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr      string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr         string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr       string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr      string      `json:",omitempty" xml:"other,attr,omitempty"`
+	GroupalignAttr string      `json:",omitempty" xml:"groupalign,attr,omitempty"`
 }
 
 // Maction ...
@@ -2466,16 +2466,16 @@ type Maction *MactionType
 
 // MactionType ...
 type MactionType struct {
-	XMLName            xml.Name    `xml:"maction"`
-	XlinkHrefAttr      interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr      string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr          string      `xml:"class,attr,omitempty"`
-	StyleAttr          string      `xml:"style,attr,omitempty"`
-	IdAttr             string      `xml:"id,attr,omitempty"`
-	XrefAttr           string      `xml:"xref,attr,omitempty"`
-	OtherAttr          string      `xml:"other,attr,omitempty"`
-	ActiontypeAttr     string      `xml:"actiontype,attr,omitempty"`
-	SelectionAttr      string      `xml:"selection,attr,omitempty"`
+	XMLName            xml.Name    `json:"-" xml:"maction"`
+	XlinkHrefAttr      interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr      string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr          string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr          string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr             string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr           string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr          string      `json:",omitempty" xml:"other,attr,omitempty"`
+	ActiontypeAttr     string      `json:",omitempty" xml:"actiontype,attr,omitempty"`
+	SelectionAttr      string      `json:",omitempty" xml:"selection,attr,omitempty"`
 	ExchPresExpression []*PresExpression
 }
 
@@ -2484,48 +2484,48 @@ type Ci *CiType
 
 // CiType ...
 type CiType struct {
-	XMLName           xml.Name             `xml:"ci"`
-	XlinkHrefAttr     interface{}          `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string               `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string               `xml:"class,attr,omitempty"`
-	StyleAttr         string               `xml:"style,attr,omitempty"`
-	IdAttr            string               `xml:"id,attr,omitempty"`
-	XrefAttr          string               `xml:"xref,attr,omitempty"`
-	OtherAttr         string               `xml:"other,attr,omitempty"`
-	TypeAttr          string               `xml:"type,attr,omitempty"`
-	DefinitionURLAttr string               `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string               `xml:"encoding,attr,omitempty"`
-	Mglyph            []*MglyphType        `xml:"mglyph"`
-	Mi                []*MiType            `xml:"mi"`
-	Mn                []*MnType            `xml:"mn"`
-	Mo                []*MoType            `xml:"mo"`
-	Mtext             []*MtextType         `xml:"mtext"`
-	Ms                []*MsType            `xml:"ms"`
-	Mspace            []*MspaceType        `xml:"mspace"`
-	Mrow              []*MrowType          `xml:"mrow"`
-	Mfrac             []*MfracType         `xml:"mfrac"`
-	Msqrt             []*MsqrtType         `xml:"msqrt"`
-	Mroot             []*MrootType         `xml:"mroot"`
-	Menclose          []*MencloseType      `xml:"menclose"`
-	Mstyle            []*MstyleType        `xml:"mstyle"`
-	Merror            []*MerrorType        `xml:"merror"`
-	Mpadded           []*MpaddedType       `xml:"mpadded"`
-	Mphantom          []*MphantomType      `xml:"mphantom"`
-	Mfenced           []*MfencedType       `xml:"mfenced"`
-	Msub              []*MsubType          `xml:"msub"`
-	Msup              []*MsupType          `xml:"msup"`
-	Msubsup           []*MsubsupType       `xml:"msubsup"`
-	Munder            []*MunderType        `xml:"munder"`
-	Mover             []*MoverType         `xml:"mover"`
-	Munderover        []*MunderoverType    `xml:"munderover"`
-	Mmultiscripts     []*MmultiscriptsType `xml:"mmultiscripts"`
-	Mtable            []*MtableType        `xml:"mtable"`
-	Mtr               []*MtrType           `xml:"mtr"`
-	Mlabeledtr        []*MlabeledtrType    `xml:"mlabeledtr"`
-	Mtd               []*MtdType           `xml:"mtd"`
-	Maligngroup       []*MaligngroupType   `xml:"maligngroup"`
-	Malignmark        []*MalignmarkType    `xml:"malignmark"`
-	Maction           []*MactionType       `xml:"maction"`
+	XMLName           xml.Name             `json:"-" xml:"ci"`
+	XlinkHrefAttr     interface{}          `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string               `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string               `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string               `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string               `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string               `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string               `json:",omitempty" xml:"other,attr,omitempty"`
+	TypeAttr          string               `json:",omitempty" xml:"type,attr,omitempty"`
+	DefinitionURLAttr string               `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string               `json:",omitempty" xml:"encoding,attr,omitempty"`
+	Mglyph            []*MglyphType        `json:",omitempty" xml:"mglyph"`
+	Mi                []*MiType            `json:",omitempty" xml:"mi"`
+	Mn                []*MnType            `json:",omitempty" xml:"mn"`
+	Mo                []*MoType            `json:",omitempty" xml:"mo"`
+	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Ms                []*MsType            `json:",omitempty" xml:"ms"`
+	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
+	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
+	Mfrac             []*MfracType         `json:",omitempty" xml:"mfrac"`
+	Msqrt             []*MsqrtType         `json:",omitempty" xml:"msqrt"`
+	Mroot             []*MrootType         `json:",omitempty" xml:"mroot"`
+	Menclose          []*MencloseType      `json:",omitempty" xml:"menclose"`
+	Mstyle            []*MstyleType        `json:",omitempty" xml:"mstyle"`
+	Merror            []*MerrorType        `json:",omitempty" xml:"merror"`
+	Mpadded           []*MpaddedType       `json:",omitempty" xml:"mpadded"`
+	Mphantom          []*MphantomType      `json:",omitempty" xml:"mphantom"`
+	Mfenced           []*MfencedType       `json:",omitempty" xml:"mfenced"`
+	Msub              []*MsubType          `json:",omitempty" xml:"msub"`
+	Msup              []*MsupType          `json:",omitempty" xml:"msup"`
+	Msubsup           []*MsubsupType       `json:",omitempty" xml:"msubsup"`
+	Munder            []*MunderType        `json:",omitempty" xml:"munder"`
+	Mover             []*MoverType         `json:",omitempty" xml:"mover"`
+	Munderover        []*MunderoverType    `json:",omitempty" xml:"munderover"`
+	Mmultiscripts     []*MmultiscriptsType `json:",omitempty" xml:"mmultiscripts"`
+	Mtable            []*MtableType        `json:",omitempty" xml:"mtable"`
+	Mtr               []*MtrType           `json:",omitempty" xml:"mtr"`
+	Mlabeledtr        []*MlabeledtrType    `json:",omitempty" xml:"mlabeledtr"`
+	Mtd               []*MtdType           `json:",omitempty" xml:"mtd"`
+	Maligngroup       []*MaligngroupType   `json:",omitempty" xml:"maligngroup"`
+	Malignmark        []*MalignmarkType    `json:",omitempty" xml:"malignmark"`
+	Maction           []*MactionType       `json:",omitempty" xml:"maction"`
 }
 
 // Csymbol ...
@@ -2533,48 +2533,48 @@ type Csymbol *CsymbolType
 
 // CsymbolType ...
 type CsymbolType struct {
-	XMLName           xml.Name             `xml:"csymbol"`
-	XlinkHrefAttr     interface{}          `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string               `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string               `xml:"class,attr,omitempty"`
-	StyleAttr         string               `xml:"style,attr,omitempty"`
-	IdAttr            string               `xml:"id,attr,omitempty"`
-	XrefAttr          string               `xml:"xref,attr,omitempty"`
-	OtherAttr         string               `xml:"other,attr,omitempty"`
-	EncodingAttr      string               `xml:"encoding,attr,omitempty"`
-	TypeAttr          string               `xml:"type,attr,omitempty"`
-	DefinitionURLAttr string               `xml:"definitionURL,attr,omitempty"`
-	Mglyph            []*MglyphType        `xml:"mglyph"`
-	Mi                []*MiType            `xml:"mi"`
-	Mn                []*MnType            `xml:"mn"`
-	Mo                []*MoType            `xml:"mo"`
-	Mtext             []*MtextType         `xml:"mtext"`
-	Ms                []*MsType            `xml:"ms"`
-	Mspace            []*MspaceType        `xml:"mspace"`
-	Mrow              []*MrowType          `xml:"mrow"`
-	Mfrac             []*MfracType         `xml:"mfrac"`
-	Msqrt             []*MsqrtType         `xml:"msqrt"`
-	Mroot             []*MrootType         `xml:"mroot"`
-	Menclose          []*MencloseType      `xml:"menclose"`
-	Mstyle            []*MstyleType        `xml:"mstyle"`
-	Merror            []*MerrorType        `xml:"merror"`
-	Mpadded           []*MpaddedType       `xml:"mpadded"`
-	Mphantom          []*MphantomType      `xml:"mphantom"`
-	Mfenced           []*MfencedType       `xml:"mfenced"`
-	Msub              []*MsubType          `xml:"msub"`
-	Msup              []*MsupType          `xml:"msup"`
-	Msubsup           []*MsubsupType       `xml:"msubsup"`
-	Munder            []*MunderType        `xml:"munder"`
-	Mover             []*MoverType         `xml:"mover"`
-	Munderover        []*MunderoverType    `xml:"munderover"`
-	Mmultiscripts     []*MmultiscriptsType `xml:"mmultiscripts"`
-	Mtable            []*MtableType        `xml:"mtable"`
-	Mtr               []*MtrType           `xml:"mtr"`
-	Mlabeledtr        []*MlabeledtrType    `xml:"mlabeledtr"`
-	Mtd               []*MtdType           `xml:"mtd"`
-	Maligngroup       []*MaligngroupType   `xml:"maligngroup"`
-	Malignmark        []*MalignmarkType    `xml:"malignmark"`
-	Maction           []*MactionType       `xml:"maction"`
+	XMLName           xml.Name             `json:"-" xml:"csymbol"`
+	XlinkHrefAttr     interface{}          `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string               `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string               `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string               `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string               `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string               `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string               `json:",omitempty" xml:"other,attr,omitempty"`
+	EncodingAttr      string               `json:",omitempty" xml:"encoding,attr,omitempty"`
+	TypeAttr          string               `json:",omitempty" xml:"type,attr,omitempty"`
+	DefinitionURLAttr string               `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	Mglyph            []*MglyphType        `json:",omitempty" xml:"mglyph"`
+	Mi                []*MiType            `json:",omitempty" xml:"mi"`
+	Mn                []*MnType            `json:",omitempty" xml:"mn"`
+	Mo                []*MoType            `json:",omitempty" xml:"mo"`
+	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Ms                []*MsType            `json:",omitempty" xml:"ms"`
+	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
+	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
+	Mfrac             []*MfracType         `json:",omitempty" xml:"mfrac"`
+	Msqrt             []*MsqrtType         `json:",omitempty" xml:"msqrt"`
+	Mroot             []*MrootType         `json:",omitempty" xml:"mroot"`
+	Menclose          []*MencloseType      `json:",omitempty" xml:"menclose"`
+	Mstyle            []*MstyleType        `json:",omitempty" xml:"mstyle"`
+	Merror            []*MerrorType        `json:",omitempty" xml:"merror"`
+	Mpadded           []*MpaddedType       `json:",omitempty" xml:"mpadded"`
+	Mphantom          []*MphantomType      `json:",omitempty" xml:"mphantom"`
+	Mfenced           []*MfencedType       `json:",omitempty" xml:"mfenced"`
+	Msub              []*MsubType          `json:",omitempty" xml:"msub"`
+	Msup              []*MsupType          `json:",omitempty" xml:"msup"`
+	Msubsup           []*MsubsupType       `json:",omitempty" xml:"msubsup"`
+	Munder            []*MunderType        `json:",omitempty" xml:"munder"`
+	Mover             []*MoverType         `json:",omitempty" xml:"mover"`
+	Munderover        []*MunderoverType    `json:",omitempty" xml:"munderover"`
+	Mmultiscripts     []*MmultiscriptsType `json:",omitempty" xml:"mmultiscripts"`
+	Mtable            []*MtableType        `json:",omitempty" xml:"mtable"`
+	Mtr               []*MtrType           `json:",omitempty" xml:"mtr"`
+	Mlabeledtr        []*MlabeledtrType    `json:",omitempty" xml:"mlabeledtr"`
+	Mtd               []*MtdType           `json:",omitempty" xml:"mtd"`
+	Maligngroup       []*MaligngroupType   `json:",omitempty" xml:"maligngroup"`
+	Malignmark        []*MalignmarkType    `json:",omitempty" xml:"malignmark"`
+	Maction           []*MactionType       `json:",omitempty" xml:"maction"`
 }
 
 // Cn ...
@@ -2582,50 +2582,50 @@ type Cn *CnType
 
 // CnType ...
 type CnType struct {
-	XMLName           xml.Name             `xml:"cn"`
-	XlinkHrefAttr     interface{}          `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string               `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string               `xml:"class,attr,omitempty"`
-	StyleAttr         string               `xml:"style,attr,omitempty"`
-	IdAttr            string               `xml:"id,attr,omitempty"`
-	XrefAttr          string               `xml:"xref,attr,omitempty"`
-	OtherAttr         string               `xml:"other,attr,omitempty"`
-	TypeAttr          string               `xml:"type,attr,omitempty"`
-	BaseAttr          string               `xml:"base,attr,omitempty"`
-	DefinitionURLAttr string               `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string               `xml:"encoding,attr,omitempty"`
-	Mglyph            []*MglyphType        `xml:"mglyph"`
-	Sep               []*SepType           `xml:"sep"`
-	Mi                []*MiType            `xml:"mi"`
-	Mn                []*MnType            `xml:"mn"`
-	Mo                []*MoType            `xml:"mo"`
-	Mtext             []*MtextType         `xml:"mtext"`
-	Ms                []*MsType            `xml:"ms"`
-	Mspace            []*MspaceType        `xml:"mspace"`
-	Mrow              []*MrowType          `xml:"mrow"`
-	Mfrac             []*MfracType         `xml:"mfrac"`
-	Msqrt             []*MsqrtType         `xml:"msqrt"`
-	Mroot             []*MrootType         `xml:"mroot"`
-	Menclose          []*MencloseType      `xml:"menclose"`
-	Mstyle            []*MstyleType        `xml:"mstyle"`
-	Merror            []*MerrorType        `xml:"merror"`
-	Mpadded           []*MpaddedType       `xml:"mpadded"`
-	Mphantom          []*MphantomType      `xml:"mphantom"`
-	Mfenced           []*MfencedType       `xml:"mfenced"`
-	Msub              []*MsubType          `xml:"msub"`
-	Msup              []*MsupType          `xml:"msup"`
-	Msubsup           []*MsubsupType       `xml:"msubsup"`
-	Munder            []*MunderType        `xml:"munder"`
-	Mover             []*MoverType         `xml:"mover"`
-	Munderover        []*MunderoverType    `xml:"munderover"`
-	Mmultiscripts     []*MmultiscriptsType `xml:"mmultiscripts"`
-	Mtable            []*MtableType        `xml:"mtable"`
-	Mtr               []*MtrType           `xml:"mtr"`
-	Mlabeledtr        []*MlabeledtrType    `xml:"mlabeledtr"`
-	Mtd               []*MtdType           `xml:"mtd"`
-	Maligngroup       []*MaligngroupType   `xml:"maligngroup"`
-	Malignmark        []*MalignmarkType    `xml:"malignmark"`
-	Maction           []*MactionType       `xml:"maction"`
+	XMLName           xml.Name             `json:"-" xml:"cn"`
+	XlinkHrefAttr     interface{}          `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string               `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string               `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string               `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string               `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string               `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string               `json:",omitempty" xml:"other,attr,omitempty"`
+	TypeAttr          string               `json:",omitempty" xml:"type,attr,omitempty"`
+	BaseAttr          string               `json:",omitempty" xml:"base,attr,omitempty"`
+	DefinitionURLAttr string               `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string               `json:",omitempty" xml:"encoding,attr,omitempty"`
+	Mglyph            []*MglyphType        `json:",omitempty" xml:"mglyph"`
+	Sep               []*SepType           `json:",omitempty" xml:"sep"`
+	Mi                []*MiType            `json:",omitempty" xml:"mi"`
+	Mn                []*MnType            `json:",omitempty" xml:"mn"`
+	Mo                []*MoType            `json:",omitempty" xml:"mo"`
+	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Ms                []*MsType            `json:",omitempty" xml:"ms"`
+	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
+	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
+	Mfrac             []*MfracType         `json:",omitempty" xml:"mfrac"`
+	Msqrt             []*MsqrtType         `json:",omitempty" xml:"msqrt"`
+	Mroot             []*MrootType         `json:",omitempty" xml:"mroot"`
+	Menclose          []*MencloseType      `json:",omitempty" xml:"menclose"`
+	Mstyle            []*MstyleType        `json:",omitempty" xml:"mstyle"`
+	Merror            []*MerrorType        `json:",omitempty" xml:"merror"`
+	Mpadded           []*MpaddedType       `json:",omitempty" xml:"mpadded"`
+	Mphantom          []*MphantomType      `json:",omitempty" xml:"mphantom"`
+	Mfenced           []*MfencedType       `json:",omitempty" xml:"mfenced"`
+	Msub              []*MsubType          `json:",omitempty" xml:"msub"`
+	Msup              []*MsupType          `json:",omitempty" xml:"msup"`
+	Msubsup           []*MsubsupType       `json:",omitempty" xml:"msubsup"`
+	Munder            []*MunderType        `json:",omitempty" xml:"munder"`
+	Mover             []*MoverType         `json:",omitempty" xml:"mover"`
+	Munderover        []*MunderoverType    `json:",omitempty" xml:"munderover"`
+	Mmultiscripts     []*MmultiscriptsType `json:",omitempty" xml:"mmultiscripts"`
+	Mtable            []*MtableType        `json:",omitempty" xml:"mtable"`
+	Mtr               []*MtrType           `json:",omitempty" xml:"mtr"`
+	Mlabeledtr        []*MlabeledtrType    `json:",omitempty" xml:"mlabeledtr"`
+	Mtd               []*MtdType           `json:",omitempty" xml:"mtd"`
+	Maligngroup       []*MaligngroupType   `json:",omitempty" xml:"maligngroup"`
+	Malignmark        []*MalignmarkType    `json:",omitempty" xml:"malignmark"`
+	Maction           []*MactionType       `json:",omitempty" xml:"maction"`
 }
 
 // Sep ...
@@ -2633,7 +2633,7 @@ type Sep *SepType
 
 // SepType ...
 type SepType struct {
-	XMLName xml.Name `xml:"sep"`
+	XMLName xml.Name `json:"-" xml:"sep"`
 }
 
 // Integers ...
@@ -2641,16 +2641,16 @@ type Integers *IntegersType
 
 // IntegersType ...
 type IntegersType struct {
-	XMLName           xml.Name    `xml:"integers"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"integers"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Reals ...
@@ -2658,16 +2658,16 @@ type Reals *RealsType
 
 // RealsType ...
 type RealsType struct {
-	XMLName           xml.Name    `xml:"reals"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"reals"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Rationals ...
@@ -2675,16 +2675,16 @@ type Rationals *RationalsType
 
 // RationalsType ...
 type RationalsType struct {
-	XMLName           xml.Name    `xml:"rationals"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"rationals"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Naturalnumbers ...
@@ -2692,16 +2692,16 @@ type Naturalnumbers *NaturalnumbersType
 
 // NaturalnumbersType ...
 type NaturalnumbersType struct {
-	XMLName           xml.Name    `xml:"naturalnumbers"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"naturalnumbers"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Complexes ...
@@ -2709,16 +2709,16 @@ type Complexes *ComplexesType
 
 // ComplexesType ...
 type ComplexesType struct {
-	XMLName           xml.Name    `xml:"complexes"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"complexes"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Primes ...
@@ -2726,16 +2726,16 @@ type Primes *PrimesType
 
 // PrimesType ...
 type PrimesType struct {
-	XMLName           xml.Name    `xml:"primes"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"primes"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Exponentiale ...
@@ -2743,16 +2743,16 @@ type Exponentiale *ExponentialeType
 
 // ExponentialeType ...
 type ExponentialeType struct {
-	XMLName           xml.Name    `xml:"exponentiale"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"exponentiale"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Imaginaryi ...
@@ -2760,16 +2760,16 @@ type Imaginaryi *ImaginaryiType
 
 // ImaginaryiType ...
 type ImaginaryiType struct {
-	XMLName           xml.Name    `xml:"imaginaryi"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"imaginaryi"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Notanumber ...
@@ -2777,16 +2777,16 @@ type Notanumber *NotanumberType
 
 // NotanumberType ...
 type NotanumberType struct {
-	XMLName           xml.Name    `xml:"notanumber"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"notanumber"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // True ...
@@ -2794,16 +2794,16 @@ type True *TrueType
 
 // TrueType ...
 type TrueType struct {
-	XMLName           xml.Name    `xml:"true"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"true"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // False ...
@@ -2811,16 +2811,16 @@ type False *FalseType
 
 // FalseType ...
 type FalseType struct {
-	XMLName           xml.Name    `xml:"false"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"false"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Emptyset ...
@@ -2828,16 +2828,16 @@ type Emptyset *EmptysetType
 
 // EmptysetType ...
 type EmptysetType struct {
-	XMLName           xml.Name    `xml:"emptyset"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"emptyset"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Pi ...
@@ -2845,16 +2845,16 @@ type Pi *PiType
 
 // PiType ...
 type PiType struct {
-	XMLName           xml.Name    `xml:"pi"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"pi"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Eulergamma ...
@@ -2862,16 +2862,16 @@ type Eulergamma *EulergammaType
 
 // EulergammaType ...
 type EulergammaType struct {
-	XMLName           xml.Name    `xml:"eulergamma"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"eulergamma"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Infinity ...
@@ -2879,16 +2879,16 @@ type Infinity *InfinityType
 
 // InfinityType ...
 type InfinityType struct {
-	XMLName           xml.Name    `xml:"infinity"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"infinity"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Apply ...
@@ -2896,14 +2896,14 @@ type Apply *ApplyType
 
 // ApplyType ...
 type ApplyType struct {
-	XMLName               xml.Name    `xml:"apply"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"apply"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -2912,14 +2912,14 @@ type Reln *RelnType
 
 // RelnType ...
 type RelnType struct {
-	XMLName               xml.Name    `xml:"reln"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"reln"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -2928,14 +2928,14 @@ type Lambda *LambdaType
 
 // LambdaType ...
 type LambdaType struct {
-	XMLName               xml.Name    `xml:"lambda"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"lambda"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -2944,14 +2944,14 @@ type Condition *ConditionType
 
 // ConditionType ...
 type ConditionType struct {
-	XMLName               xml.Name    `xml:"condition"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"condition"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -2960,20 +2960,20 @@ type Declare *DeclareType
 
 // DeclareType ...
 type DeclareType struct {
-	XMLName               xml.Name    `xml:"declare"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	TypeAttr              string      `xml:"type,attr,omitempty"`
-	ScopeAttr             string      `xml:"scope,attr,omitempty"`
-	NargsAttr             string      `xml:"nargs,attr,omitempty"`
-	OccurrenceAttr        string      `xml:"occurrence,attr,omitempty"`
-	DefinitionURLAttr     string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr          string      `xml:"encoding,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"declare"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	TypeAttr              string      `json:",omitempty" xml:"type,attr,omitempty"`
+	ScopeAttr             string      `json:",omitempty" xml:"scope,attr,omitempty"`
+	NargsAttr             string      `json:",omitempty" xml:"nargs,attr,omitempty"`
+	OccurrenceAttr        string      `json:",omitempty" xml:"occurrence,attr,omitempty"`
+	DefinitionURLAttr     string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr          string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -2982,16 +2982,16 @@ type Semantics *SemanticsType
 
 // SemanticsType ...
 type SemanticsType struct {
-	XMLName                        xml.Name    `xml:"semantics"`
-	XlinkHrefAttr                  interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr                  string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr                      string      `xml:"class,attr,omitempty"`
-	StyleAttr                      string      `xml:"style,attr,omitempty"`
-	IdAttr                         string      `xml:"id,attr,omitempty"`
-	XrefAttr                       string      `xml:"xref,attr,omitempty"`
-	OtherAttr                      string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr              string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr                   string      `xml:"encoding,attr,omitempty"`
+	XMLName                        xml.Name    `json:"-" xml:"semantics"`
+	XlinkHrefAttr                  interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr                  string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr                      string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr                      string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                         string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr                       string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr                      string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr              string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr                   string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 	ExchSemanticsContentExpression []*SemanticsContentExpression
 }
 
@@ -3000,16 +3000,16 @@ type Annotation *AnnotationType
 
 // AnnotationType ...
 type AnnotationType struct {
-	XMLName       xml.Name    `xml:"annotation"`
-	XlinkHrefAttr interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr     string      `xml:"class,attr,omitempty"`
-	StyleAttr     string      `xml:"style,attr,omitempty"`
-	IdAttr        string      `xml:"id,attr,omitempty"`
-	XrefAttr      string      `xml:"xref,attr,omitempty"`
-	OtherAttr     string      `xml:"other,attr,omitempty"`
-	EncodingAttr  string      `xml:"encoding,attr,omitempty"`
-	Value         string      `xml:",chardata"`
+	XMLName       xml.Name    `json:"-" xml:"annotation"`
+	XlinkHrefAttr interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr     string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr     string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr        string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr      string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr     string      `json:",omitempty" xml:"other,attr,omitempty"`
+	EncodingAttr  string      `json:",omitempty" xml:"encoding,attr,omitempty"`
+	Value         string      `json:",omitempty" xml:",chardata"`
 }
 
 // Annotationxml ...
@@ -3017,16 +3017,16 @@ type Annotationxml *AnnotationxmlType
 
 // AnnotationxmlType ...
 type AnnotationxmlType struct {
-	XMLName       xml.Name    `xml:"annotation-xml"`
-	XlinkHrefAttr interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr     string      `xml:"class,attr,omitempty"`
-	StyleAttr     string      `xml:"style,attr,omitempty"`
-	IdAttr        string      `xml:"id,attr,omitempty"`
-	XrefAttr      string      `xml:"xref,attr,omitempty"`
-	OtherAttr     string      `xml:"other,attr,omitempty"`
-	EncodingAttr  string      `xml:"encoding,attr,omitempty"`
-	Value         string      `xml:",chardata"`
+	XMLName       xml.Name    `json:"-" xml:"annotation-xml"`
+	XlinkHrefAttr interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr     string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr     string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr        string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr      string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr     string      `json:",omitempty" xml:"other,attr,omitempty"`
+	EncodingAttr  string      `json:",omitempty" xml:"encoding,attr,omitempty"`
+	Value         string      `json:",omitempty" xml:",chardata"`
 }
 
 // Interval ...
@@ -3034,15 +3034,15 @@ type Interval *IntervalType
 
 // IntervalType ...
 type IntervalType struct {
-	XMLName               xml.Name    `xml:"interval"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	ClosureAttr           string      `xml:"closure,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"interval"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	ClosureAttr           string      `json:",omitempty" xml:"closure,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3051,15 +3051,15 @@ type List *ListType
 
 // ListType ...
 type ListType struct {
-	XMLName               xml.Name    `xml:"list"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	OrderAttr             string      `xml:"order,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"list"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	OrderAttr             string      `json:",omitempty" xml:"order,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3068,14 +3068,14 @@ type Matrix *MatrixType
 
 // MatrixType ...
 type MatrixType struct {
-	XMLName               xml.Name    `xml:"matrix"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"matrix"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3084,14 +3084,14 @@ type Matrixrow *MatrixrowType
 
 // MatrixrowType ...
 type MatrixrowType struct {
-	XMLName               xml.Name    `xml:"matrixrow"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"matrixrow"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3100,15 +3100,15 @@ type Set *SetType
 
 // SetType ...
 type SetType struct {
-	XMLName               xml.Name    `xml:"set"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	TypeAttr              string      `xml:"type,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"set"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	TypeAttr              string      `json:",omitempty" xml:"type,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3117,14 +3117,14 @@ type Vector *VectorType
 
 // VectorType ...
 type VectorType struct {
-	XMLName               xml.Name    `xml:"vector"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"vector"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3133,16 +3133,16 @@ type Piecewise *PiecewiseType
 
 // PiecewiseType ...
 type PiecewiseType struct {
-	XMLName       xml.Name       `xml:"piecewise"`
-	XlinkHrefAttr interface{}    `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr string         `xml:"xlink:type,attr,omitempty"`
-	ClassAttr     string         `xml:"class,attr,omitempty"`
-	StyleAttr     string         `xml:"style,attr,omitempty"`
-	IdAttr        string         `xml:"id,attr,omitempty"`
-	XrefAttr      string         `xml:"xref,attr,omitempty"`
-	OtherAttr     string         `xml:"other,attr,omitempty"`
-	ExchPiece     []*PieceType   `xml:"piece"`
-	ExchOtherwise *OtherwiseType `xml:"otherwise"`
+	XMLName       xml.Name       `json:"-" xml:"piecewise"`
+	XlinkHrefAttr interface{}    `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr string         `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr     string         `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr     string         `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr        string         `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr      string         `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr     string         `json:",omitempty" xml:"other,attr,omitempty"`
+	ExchPiece     []*PieceType   `json:",omitempty" xml:"piece"`
+	ExchOtherwise *OtherwiseType `json:",omitempty" xml:"otherwise"`
 }
 
 // Piece ...
@@ -3150,14 +3150,14 @@ type Piece *PieceType
 
 // PieceType ...
 type PieceType struct {
-	XMLName               xml.Name    `xml:"piece"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"piece"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3166,14 +3166,14 @@ type Otherwise *OtherwiseType
 
 // OtherwiseType ...
 type OtherwiseType struct {
-	XMLName               xml.Name    `xml:"otherwise"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"otherwise"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3182,14 +3182,14 @@ type Lowlimit *LowlimitType
 
 // LowlimitType ...
 type LowlimitType struct {
-	XMLName               xml.Name    `xml:"lowlimit"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"lowlimit"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3198,14 +3198,14 @@ type Uplimit *UplimitType
 
 // UplimitType ...
 type UplimitType struct {
-	XMLName               xml.Name    `xml:"uplimit"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"uplimit"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3214,14 +3214,14 @@ type Bvar *BvarType
 
 // BvarType ...
 type BvarType struct {
-	XMLName               xml.Name    `xml:"bvar"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"bvar"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3230,14 +3230,14 @@ type Degree *DegreeType
 
 // DegreeType ...
 type DegreeType struct {
-	XMLName               xml.Name    `xml:"degree"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"degree"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3246,14 +3246,14 @@ type Logbase *LogbaseType
 
 // LogbaseType ...
 type LogbaseType struct {
-	XMLName               xml.Name    `xml:"logbase"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"logbase"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3262,14 +3262,14 @@ type Momentabout *MomentaboutType
 
 // MomentaboutType ...
 type MomentaboutType struct {
-	XMLName               xml.Name    `xml:"momentabout"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"momentabout"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3278,14 +3278,14 @@ type Domainofapplication *DomainofapplicationType
 
 // DomainofapplicationType ...
 type DomainofapplicationType struct {
-	XMLName               xml.Name    `xml:"domainofapplication"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"domainofapplication"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -3294,16 +3294,16 @@ type Inverse *InverseType
 
 // InverseType ...
 type InverseType struct {
-	XMLName           xml.Name    `xml:"inverse"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"inverse"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Ident ...
@@ -3311,16 +3311,16 @@ type Ident *IdentType
 
 // IdentType ...
 type IdentType struct {
-	XMLName           xml.Name    `xml:"ident"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"ident"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Domain ...
@@ -3328,16 +3328,16 @@ type Domain *DomainType
 
 // DomainType ...
 type DomainType struct {
-	XMLName           xml.Name    `xml:"domain"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"domain"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Codomain ...
@@ -3345,16 +3345,16 @@ type Codomain *CodomainType
 
 // CodomainType ...
 type CodomainType struct {
-	XMLName           xml.Name    `xml:"codomain"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"codomain"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Image ...
@@ -3362,16 +3362,16 @@ type Image *ImageType
 
 // ImageType ...
 type ImageType struct {
-	XMLName           xml.Name    `xml:"image"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"image"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Abs ...
@@ -3379,16 +3379,16 @@ type Abs *AbsType
 
 // AbsType ...
 type AbsType struct {
-	XMLName           xml.Name    `xml:"abs"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"abs"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Conjugate ...
@@ -3396,16 +3396,16 @@ type Conjugate *ConjugateType
 
 // ConjugateType ...
 type ConjugateType struct {
-	XMLName           xml.Name    `xml:"conjugate"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"conjugate"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Exp ...
@@ -3413,16 +3413,16 @@ type Exp *ExpType
 
 // ExpType ...
 type ExpType struct {
-	XMLName           xml.Name    `xml:"exp"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"exp"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Factorial ...
@@ -3430,16 +3430,16 @@ type Factorial *FactorialType
 
 // FactorialType ...
 type FactorialType struct {
-	XMLName           xml.Name    `xml:"factorial"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"factorial"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arg ...
@@ -3447,16 +3447,16 @@ type Arg *ArgType
 
 // ArgType ...
 type ArgType struct {
-	XMLName           xml.Name    `xml:"arg"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arg"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Real ...
@@ -3464,16 +3464,16 @@ type Real *RealType
 
 // RealType ...
 type RealType struct {
-	XMLName           xml.Name    `xml:"real"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"real"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Imaginary ...
@@ -3481,16 +3481,16 @@ type Imaginary *ImaginaryType
 
 // ImaginaryType ...
 type ImaginaryType struct {
-	XMLName           xml.Name    `xml:"imaginary"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"imaginary"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Floor ...
@@ -3498,16 +3498,16 @@ type Floor *FloorType
 
 // FloorType ...
 type FloorType struct {
-	XMLName           xml.Name    `xml:"floor"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"floor"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Ceiling ...
@@ -3515,16 +3515,16 @@ type Ceiling *CeilingType
 
 // CeilingType ...
 type CeilingType struct {
-	XMLName           xml.Name    `xml:"ceiling"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"ceiling"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Not ...
@@ -3532,16 +3532,16 @@ type Not *NotType
 
 // NotType ...
 type NotType struct {
-	XMLName           xml.Name    `xml:"not"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"not"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Ln ...
@@ -3549,16 +3549,16 @@ type Ln *LnType
 
 // LnType ...
 type LnType struct {
-	XMLName           xml.Name    `xml:"ln"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"ln"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sin ...
@@ -3566,16 +3566,16 @@ type Sin *SinType
 
 // SinType ...
 type SinType struct {
-	XMLName           xml.Name    `xml:"sin"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sin"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Cos ...
@@ -3583,16 +3583,16 @@ type Cos *CosType
 
 // CosType ...
 type CosType struct {
-	XMLName           xml.Name    `xml:"cos"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"cos"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Tan ...
@@ -3600,16 +3600,16 @@ type Tan *TanType
 
 // TanType ...
 type TanType struct {
-	XMLName           xml.Name    `xml:"tan"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"tan"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sec ...
@@ -3617,16 +3617,16 @@ type Sec *SecType
 
 // SecType ...
 type SecType struct {
-	XMLName           xml.Name    `xml:"sec"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sec"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Csc ...
@@ -3634,16 +3634,16 @@ type Csc *CscType
 
 // CscType ...
 type CscType struct {
-	XMLName           xml.Name    `xml:"csc"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"csc"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Cot ...
@@ -3651,16 +3651,16 @@ type Cot *CotType
 
 // CotType ...
 type CotType struct {
-	XMLName           xml.Name    `xml:"cot"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"cot"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sinh ...
@@ -3668,16 +3668,16 @@ type Sinh *SinhType
 
 // SinhType ...
 type SinhType struct {
-	XMLName           xml.Name    `xml:"sinh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sinh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Cosh ...
@@ -3685,16 +3685,16 @@ type Cosh *CoshType
 
 // CoshType ...
 type CoshType struct {
-	XMLName           xml.Name    `xml:"cosh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"cosh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Tanh ...
@@ -3702,16 +3702,16 @@ type Tanh *TanhType
 
 // TanhType ...
 type TanhType struct {
-	XMLName           xml.Name    `xml:"tanh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"tanh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sech ...
@@ -3719,16 +3719,16 @@ type Sech *SechType
 
 // SechType ...
 type SechType struct {
-	XMLName           xml.Name    `xml:"sech"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sech"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Csch ...
@@ -3736,16 +3736,16 @@ type Csch *CschType
 
 // CschType ...
 type CschType struct {
-	XMLName           xml.Name    `xml:"csch"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"csch"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Coth ...
@@ -3753,16 +3753,16 @@ type Coth *CothType
 
 // CothType ...
 type CothType struct {
-	XMLName           xml.Name    `xml:"coth"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"coth"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arcsin ...
@@ -3770,16 +3770,16 @@ type Arcsin *ArcsinType
 
 // ArcsinType ...
 type ArcsinType struct {
-	XMLName           xml.Name    `xml:"arcsin"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arcsin"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccos ...
@@ -3787,16 +3787,16 @@ type Arccos *ArccosType
 
 // ArccosType ...
 type ArccosType struct {
-	XMLName           xml.Name    `xml:"arccos"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccos"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arctan ...
@@ -3804,16 +3804,16 @@ type Arctan *ArctanType
 
 // ArctanType ...
 type ArctanType struct {
-	XMLName           xml.Name    `xml:"arctan"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arctan"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccosh ...
@@ -3821,16 +3821,16 @@ type Arccosh *ArccoshType
 
 // ArccoshType ...
 type ArccoshType struct {
-	XMLName           xml.Name    `xml:"arccosh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccosh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccot ...
@@ -3838,16 +3838,16 @@ type Arccot *ArccotType
 
 // ArccotType ...
 type ArccotType struct {
-	XMLName           xml.Name    `xml:"arccot"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccot"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccoth ...
@@ -3855,16 +3855,16 @@ type Arccoth *ArccothType
 
 // ArccothType ...
 type ArccothType struct {
-	XMLName           xml.Name    `xml:"arccoth"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccoth"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccsc ...
@@ -3872,16 +3872,16 @@ type Arccsc *ArccscType
 
 // ArccscType ...
 type ArccscType struct {
-	XMLName           xml.Name    `xml:"arccsc"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccsc"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arccsch ...
@@ -3889,16 +3889,16 @@ type Arccsch *ArccschType
 
 // ArccschType ...
 type ArccschType struct {
-	XMLName           xml.Name    `xml:"arccsch"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arccsch"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arcsec ...
@@ -3906,16 +3906,16 @@ type Arcsec *ArcsecType
 
 // ArcsecType ...
 type ArcsecType struct {
-	XMLName           xml.Name    `xml:"arcsec"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arcsec"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arcsech ...
@@ -3923,16 +3923,16 @@ type Arcsech *ArcsechType
 
 // ArcsechType ...
 type ArcsechType struct {
-	XMLName           xml.Name    `xml:"arcsech"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arcsech"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arcsinh ...
@@ -3940,16 +3940,16 @@ type Arcsinh *ArcsinhType
 
 // ArcsinhType ...
 type ArcsinhType struct {
-	XMLName           xml.Name    `xml:"arcsinh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arcsinh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Arctanh ...
@@ -3957,16 +3957,16 @@ type Arctanh *ArctanhType
 
 // ArctanhType ...
 type ArctanhType struct {
-	XMLName           xml.Name    `xml:"arctanh"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"arctanh"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Determinant ...
@@ -3974,16 +3974,16 @@ type Determinant *DeterminantType
 
 // DeterminantType ...
 type DeterminantType struct {
-	XMLName           xml.Name    `xml:"determinant"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"determinant"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Transpose ...
@@ -3991,16 +3991,16 @@ type Transpose *TransposeType
 
 // TransposeType ...
 type TransposeType struct {
-	XMLName           xml.Name    `xml:"transpose"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"transpose"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Card ...
@@ -4008,16 +4008,16 @@ type Card *CardType
 
 // CardType ...
 type CardType struct {
-	XMLName           xml.Name    `xml:"card"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"card"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Quotient ...
@@ -4025,16 +4025,16 @@ type Quotient *QuotientType
 
 // QuotientType ...
 type QuotientType struct {
-	XMLName           xml.Name    `xml:"quotient"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"quotient"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Divide ...
@@ -4042,16 +4042,16 @@ type Divide *DivideType
 
 // DivideType ...
 type DivideType struct {
-	XMLName           xml.Name    `xml:"divide"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"divide"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Power ...
@@ -4059,16 +4059,16 @@ type Power *PowerType
 
 // PowerType ...
 type PowerType struct {
-	XMLName           xml.Name    `xml:"power"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"power"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Rem ...
@@ -4076,16 +4076,16 @@ type Rem *RemType
 
 // RemType ...
 type RemType struct {
-	XMLName           xml.Name    `xml:"rem"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"rem"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Implies ...
@@ -4093,16 +4093,16 @@ type Implies *ImpliesType
 
 // ImpliesType ...
 type ImpliesType struct {
-	XMLName           xml.Name    `xml:"implies"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"implies"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Vectorproduct ...
@@ -4110,16 +4110,16 @@ type Vectorproduct *VectorproductType
 
 // VectorproductType ...
 type VectorproductType struct {
-	XMLName           xml.Name    `xml:"vectorproduct"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"vectorproduct"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Scalarproduct ...
@@ -4127,16 +4127,16 @@ type Scalarproduct *ScalarproductType
 
 // ScalarproductType ...
 type ScalarproductType struct {
-	XMLName           xml.Name    `xml:"scalarproduct"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"scalarproduct"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Outerproduct ...
@@ -4144,16 +4144,16 @@ type Outerproduct *OuterproductType
 
 // OuterproductType ...
 type OuterproductType struct {
-	XMLName           xml.Name    `xml:"outerproduct"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"outerproduct"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Setdiff ...
@@ -4161,16 +4161,16 @@ type Setdiff *SetdiffType
 
 // SetdiffType ...
 type SetdiffType struct {
-	XMLName           xml.Name    `xml:"setdiff"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"setdiff"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Fn ...
@@ -4178,16 +4178,16 @@ type Fn *FnType
 
 // FnType ...
 type FnType struct {
-	XMLName               xml.Name    `xml:"fn"`
-	XlinkHrefAttr         interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr         string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr             string      `xml:"class,attr,omitempty"`
-	StyleAttr             string      `xml:"style,attr,omitempty"`
-	IdAttr                string      `xml:"id,attr,omitempty"`
-	XrefAttr              string      `xml:"xref,attr,omitempty"`
-	OtherAttr             string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr     string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr          string      `xml:"encoding,attr,omitempty"`
+	XMLName               xml.Name    `json:"-" xml:"fn"`
+	XlinkHrefAttr         interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr         string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr             string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr             string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr                string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr              string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr             string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr     string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr          string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 	ExchContentExpression []*ContentExpression
 }
 
@@ -4196,16 +4196,16 @@ type Compose *ComposeType
 
 // ComposeType ...
 type ComposeType struct {
-	XMLName           xml.Name    `xml:"compose"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"compose"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Plus ...
@@ -4213,16 +4213,16 @@ type Plus *PlusType
 
 // PlusType ...
 type PlusType struct {
-	XMLName           xml.Name    `xml:"plus"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"plus"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Times ...
@@ -4230,16 +4230,16 @@ type Times *TimesType
 
 // TimesType ...
 type TimesType struct {
-	XMLName           xml.Name    `xml:"times"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"times"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Max ...
@@ -4247,16 +4247,16 @@ type Max *MaxType
 
 // MaxType ...
 type MaxType struct {
-	XMLName           xml.Name    `xml:"max"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"max"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Min ...
@@ -4264,16 +4264,16 @@ type Min *MinType
 
 // MinType ...
 type MinType struct {
-	XMLName           xml.Name    `xml:"min"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"min"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Gcd ...
@@ -4281,16 +4281,16 @@ type Gcd *GcdType
 
 // GcdType ...
 type GcdType struct {
-	XMLName           xml.Name    `xml:"gcd"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"gcd"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Lcm ...
@@ -4298,16 +4298,16 @@ type Lcm *LcmType
 
 // LcmType ...
 type LcmType struct {
-	XMLName           xml.Name    `xml:"lcm"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"lcm"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // And ...
@@ -4315,16 +4315,16 @@ type And *AndType
 
 // AndType ...
 type AndType struct {
-	XMLName           xml.Name    `xml:"and"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"and"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Or ...
@@ -4332,16 +4332,16 @@ type Or *OrType
 
 // OrType ...
 type OrType struct {
-	XMLName           xml.Name    `xml:"or"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"or"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Xor ...
@@ -4349,16 +4349,16 @@ type Xor *XorType
 
 // XorType ...
 type XorType struct {
-	XMLName           xml.Name    `xml:"xor"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"xor"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Union ...
@@ -4366,16 +4366,16 @@ type Union *UnionType
 
 // UnionType ...
 type UnionType struct {
-	XMLName           xml.Name    `xml:"union"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"union"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Intersect ...
@@ -4383,16 +4383,16 @@ type Intersect *IntersectType
 
 // IntersectType ...
 type IntersectType struct {
-	XMLName           xml.Name    `xml:"intersect"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"intersect"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Cartesianproduct ...
@@ -4400,16 +4400,16 @@ type Cartesianproduct *CartesianproductType
 
 // CartesianproductType ...
 type CartesianproductType struct {
-	XMLName           xml.Name    `xml:"cartesianproduct"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"cartesianproduct"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Mean ...
@@ -4417,16 +4417,16 @@ type Mean *MeanType
 
 // MeanType ...
 type MeanType struct {
-	XMLName           xml.Name    `xml:"mean"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"mean"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sdev ...
@@ -4434,16 +4434,16 @@ type Sdev *SdevType
 
 // SdevType ...
 type SdevType struct {
-	XMLName           xml.Name    `xml:"sdev"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sdev"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Variance ...
@@ -4451,16 +4451,16 @@ type Variance *VarianceType
 
 // VarianceType ...
 type VarianceType struct {
-	XMLName           xml.Name    `xml:"variance"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"variance"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Median ...
@@ -4468,16 +4468,16 @@ type Median *MedianType
 
 // MedianType ...
 type MedianType struct {
-	XMLName           xml.Name    `xml:"median"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"median"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Mode ...
@@ -4485,16 +4485,16 @@ type Mode *ModeType
 
 // ModeType ...
 type ModeType struct {
-	XMLName           xml.Name    `xml:"mode"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"mode"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Selector ...
@@ -4502,16 +4502,16 @@ type Selector *SelectorType
 
 // SelectorType ...
 type SelectorType struct {
-	XMLName           xml.Name    `xml:"selector"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"selector"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Root ...
@@ -4519,16 +4519,16 @@ type Root *RootType
 
 // RootType ...
 type RootType struct {
-	XMLName           xml.Name    `xml:"root"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"root"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Minus ...
@@ -4536,16 +4536,16 @@ type Minus *MinusType
 
 // MinusType ...
 type MinusType struct {
-	XMLName           xml.Name    `xml:"minus"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"minus"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Log ...
@@ -4553,16 +4553,16 @@ type Log *LogType
 
 // LogType ...
 type LogType struct {
-	XMLName           xml.Name    `xml:"log"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"log"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Int ...
@@ -4576,16 +4576,16 @@ type Diff *DiffType
 
 // DiffType ...
 type DiffType struct {
-	XMLName           xml.Name    `xml:"diff"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"diff"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Partialdiff ...
@@ -4593,16 +4593,16 @@ type Partialdiff *PartialdiffType
 
 // PartialdiffType ...
 type PartialdiffType struct {
-	XMLName           xml.Name    `xml:"partialdiff"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"partialdiff"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Divergence ...
@@ -4610,16 +4610,16 @@ type Divergence *DivergenceType
 
 // DivergenceType ...
 type DivergenceType struct {
-	XMLName           xml.Name    `xml:"divergence"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"divergence"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Grad ...
@@ -4627,16 +4627,16 @@ type Grad *GradType
 
 // GradType ...
 type GradType struct {
-	XMLName           xml.Name    `xml:"grad"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"grad"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Curl ...
@@ -4644,16 +4644,16 @@ type Curl *CurlType
 
 // CurlType ...
 type CurlType struct {
-	XMLName           xml.Name    `xml:"curl"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"curl"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Laplacian ...
@@ -4661,16 +4661,16 @@ type Laplacian *LaplacianType
 
 // LaplacianType ...
 type LaplacianType struct {
-	XMLName           xml.Name    `xml:"laplacian"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"laplacian"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Sum ...
@@ -4678,16 +4678,16 @@ type Sum *SumType
 
 // SumType ...
 type SumType struct {
-	XMLName           xml.Name    `xml:"sum"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"sum"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Product ...
@@ -4695,16 +4695,16 @@ type Product *ProductType
 
 // ProductType ...
 type ProductType struct {
-	XMLName           xml.Name    `xml:"product"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"product"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Limit ...
@@ -4712,16 +4712,16 @@ type Limit *LimitType
 
 // LimitType ...
 type LimitType struct {
-	XMLName           xml.Name    `xml:"limit"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"limit"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Moment ...
@@ -4729,16 +4729,16 @@ type Moment *MomentType
 
 // MomentType ...
 type MomentType struct {
-	XMLName           xml.Name    `xml:"moment"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"moment"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Exists ...
@@ -4746,16 +4746,16 @@ type Exists *ExistsType
 
 // ExistsType ...
 type ExistsType struct {
-	XMLName           xml.Name    `xml:"exists"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"exists"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Forall ...
@@ -4763,16 +4763,16 @@ type Forall *ForallType
 
 // ForallType ...
 type ForallType struct {
-	XMLName           xml.Name    `xml:"forall"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"forall"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Neq ...
@@ -4780,16 +4780,16 @@ type Neq *NeqType
 
 // NeqType ...
 type NeqType struct {
-	XMLName           xml.Name    `xml:"neq"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"neq"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Factorof ...
@@ -4797,16 +4797,16 @@ type Factorof *FactorofType
 
 // FactorofType ...
 type FactorofType struct {
-	XMLName           xml.Name    `xml:"factorof"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"factorof"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // In ...
@@ -4814,16 +4814,16 @@ type In *InType
 
 // InType ...
 type InType struct {
-	XMLName           xml.Name    `xml:"in"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"in"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Notin ...
@@ -4831,16 +4831,16 @@ type Notin *NotinType
 
 // NotinType ...
 type NotinType struct {
-	XMLName           xml.Name    `xml:"notin"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"notin"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Notsubset ...
@@ -4848,16 +4848,16 @@ type Notsubset *NotsubsetType
 
 // NotsubsetType ...
 type NotsubsetType struct {
-	XMLName           xml.Name    `xml:"notsubset"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"notsubset"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Notprsubset ...
@@ -4865,16 +4865,16 @@ type Notprsubset *NotprsubsetType
 
 // NotprsubsetType ...
 type NotprsubsetType struct {
-	XMLName           xml.Name    `xml:"notprsubset"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"notprsubset"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Tendsto ...
@@ -4882,17 +4882,17 @@ type Tendsto *TendstoType
 
 // TendstoType ...
 type TendstoType struct {
-	XMLName           xml.Name    `xml:"tendsto"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
-	TypeAttr          string      `xml:"type,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"tendsto"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
+	TypeAttr          string      `json:",omitempty" xml:"type,attr,omitempty"`
 }
 
 // Eq ...
@@ -4900,16 +4900,16 @@ type Eq *EqType
 
 // EqType ...
 type EqType struct {
-	XMLName           xml.Name    `xml:"eq"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"eq"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Leq ...
@@ -4917,16 +4917,16 @@ type Leq *LeqType
 
 // LeqType ...
 type LeqType struct {
-	XMLName           xml.Name    `xml:"leq"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"leq"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Lt ...
@@ -4934,16 +4934,16 @@ type Lt *LtType
 
 // LtType ...
 type LtType struct {
-	XMLName           xml.Name    `xml:"lt"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"lt"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Geq ...
@@ -4951,16 +4951,16 @@ type Geq *GeqType
 
 // GeqType ...
 type GeqType struct {
-	XMLName           xml.Name    `xml:"geq"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"geq"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Gt ...
@@ -4968,16 +4968,16 @@ type Gt *GtType
 
 // GtType ...
 type GtType struct {
-	XMLName           xml.Name    `xml:"gt"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"gt"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Equivalent ...
@@ -4985,16 +4985,16 @@ type Equivalent *EquivalentType
 
 // EquivalentType ...
 type EquivalentType struct {
-	XMLName           xml.Name    `xml:"equivalent"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"equivalent"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Approx ...
@@ -5002,16 +5002,16 @@ type Approx *ApproxType
 
 // ApproxType ...
 type ApproxType struct {
-	XMLName           xml.Name    `xml:"approx"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"approx"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Subset ...
@@ -5019,16 +5019,16 @@ type Subset *SubsetType
 
 // SubsetType ...
 type SubsetType struct {
-	XMLName           xml.Name    `xml:"subset"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"subset"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // Prsubset ...
@@ -5036,25 +5036,25 @@ type Prsubset *PrsubsetType
 
 // PrsubsetType ...
 type PrsubsetType struct {
-	XMLName           xml.Name    `xml:"prsubset"`
-	XlinkHrefAttr     interface{} `xml:"xlink:href,attr,omitempty"`
-	XlinkTypeAttr     string      `xml:"xlink:type,attr,omitempty"`
-	ClassAttr         string      `xml:"class,attr,omitempty"`
-	StyleAttr         string      `xml:"style,attr,omitempty"`
-	IdAttr            string      `xml:"id,attr,omitempty"`
-	XrefAttr          string      `xml:"xref,attr,omitempty"`
-	OtherAttr         string      `xml:"other,attr,omitempty"`
-	DefinitionURLAttr string      `xml:"definitionURL,attr,omitempty"`
-	EncodingAttr      string      `xml:"encoding,attr,omitempty"`
+	XMLName           xml.Name    `json:"-" xml:"prsubset"`
+	XlinkHrefAttr     interface{} `json:",omitempty" xml:"xlink:href,attr,omitempty"`
+	XlinkTypeAttr     string      `json:",omitempty" xml:"xlink:type,attr,omitempty"`
+	ClassAttr         string      `json:",omitempty" xml:"class,attr,omitempty"`
+	StyleAttr         string      `json:",omitempty" xml:"style,attr,omitempty"`
+	IdAttr            string      `json:",omitempty" xml:"id,attr,omitempty"`
+	XrefAttr          string      `json:",omitempty" xml:"xref,attr,omitempty"`
+	OtherAttr         string      `json:",omitempty" xml:"other,attr,omitempty"`
+	DefinitionURLAttr string      `json:",omitempty" xml:"definitionURL,attr,omitempty"`
+	EncodingAttr      string      `json:",omitempty" xml:"encoding,attr,omitempty"`
 }
 
 // ChemistryType ...
 type ChemistryType struct {
-	XMLName xml.Name  `xml:"chemistry"`
-	IdAttr  string    `xml:"id,attr,omitempty"`
-	NumAttr string    `xml:"num,attr"`
-	Img     *ImgType  `xml:"img"`
-	Chem    *ChemType `xml:"chem"`
+	XMLName xml.Name  `json:"-" xml:"chemistry"`
+	IdAttr  string    `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr string    `json:",omitempty" xml:"num,attr"`
+	Img     *ImgType  `json:",omitempty" xml:"img"`
+	Chem    *ChemType `json:",omitempty" xml:"chem"`
 }
 
 // Chemistry is *******************************
@@ -5074,10 +5074,10 @@ type Chemistry *ChemistryType
 
 // ChemType ...
 type ChemType struct {
-	XMLName      xml.Name `xml:"chem"`
-	IdAttr       string   `xml:"id,attr,omitempty"`
-	FileAttr     string   `xml:"file,attr"`
-	ChemtypeAttr string   `xml:"chem-type,attr,omitempty"`
+	XMLName      xml.Name `json:"-" xml:"chem"`
+	IdAttr       string   `json:",omitempty" xml:"id,attr,omitempty"`
+	FileAttr     string   `json:",omitempty" xml:"file,attr"`
+	ChemtypeAttr string   `json:",omitempty" xml:"chem-type,attr,omitempty"`
 }
 
 // Chem is This is a pointer to an external DTD for
@@ -5089,11 +5089,11 @@ type Chem *ChemType
 
 // OlType ...
 type OlType struct {
-	XMLName     xml.Name  `xml:"ol"`
-	IdAttr      string    `xml:"id,attr,omitempty"`
-	CompactAttr string    `xml:"compact,attr,omitempty"`
-	OlstyleAttr string    `xml:"ol-style,attr,omitempty"`
-	Li          []*LiType `xml:"li"`
+	XMLName     xml.Name  `json:"-" xml:"ol"`
+	IdAttr      string    `json:",omitempty" xml:"id,attr,omitempty"`
+	CompactAttr string    `json:",omitempty" xml:"compact,attr,omitempty"`
+	OlstyleAttr string    `json:",omitempty" xml:"ol-style,attr,omitempty"`
+	Li          []*LiType `json:",omitempty" xml:"li"`
 }
 
 // Ol is *******************************
@@ -5132,18 +5132,18 @@ type Ol *OlType
 
 // ImgType ...
 type ImgType struct {
-	XMLName         xml.Name `xml:"img"`
-	IdAttr          string   `xml:"id,attr,omitempty"`
-	FileAttr        string   `xml:"file,attr"`
-	WiAttr          string   `xml:"wi,attr"`
-	HeAttr          string   `xml:"he,attr"`
-	PgnumAttr       string   `xml:"pgnum,attr,omitempty"`
-	FrnumAttr       string   `xml:"frnum,attr,omitempty"`
-	ImgcontentAttr  string   `xml:"img-content,attr,omitempty"`
-	ImgformatAttr   string   `xml:"img-format,attr"`
-	OrientationAttr string   `xml:"orientation,attr,omitempty"`
-	InlineAttr      string   `xml:"inline,attr,omitempty"`
-	AltAttr         string   `xml:"alt,attr,omitempty"`
+	XMLName         xml.Name `json:"-" xml:"img"`
+	IdAttr          string   `json:",omitempty" xml:"id,attr,omitempty"`
+	FileAttr        string   `json:",omitempty" xml:"file,attr"`
+	WiAttr          string   `json:",omitempty" xml:"wi,attr"`
+	HeAttr          string   `json:",omitempty" xml:"he,attr"`
+	PgnumAttr       string   `json:",omitempty" xml:"pgnum,attr,omitempty"`
+	FrnumAttr       string   `json:",omitempty" xml:"frnum,attr,omitempty"`
+	ImgcontentAttr  string   `json:",omitempty" xml:"img-content,attr,omitempty"`
+	ImgformatAttr   string   `json:",omitempty" xml:"img-format,attr"`
+	OrientationAttr string   `json:",omitempty" xml:"orientation,attr,omitempty"`
+	InlineAttr      string   `json:",omitempty" xml:"inline,attr,omitempty"`
+	AltAttr         string   `json:",omitempty" xml:"alt,attr,omitempty"`
 }
 
 // Img is *******************************
@@ -5189,16 +5189,16 @@ type Img *ImgType
 
 // FigrefType ...
 type FigrefType struct {
-	XMLName   xml.Name         `xml:"figref"`
-	IdrefAttr []string         `xml:"idref,attr,omitempty"`
-	NumAttr   string           `xml:"num,attr,omitempty"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	U         []*UType         `xml:"u"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"figref"`
+	IdrefAttr []string         `json:",omitempty" xml:"idref,attr,omitempty"`
+	NumAttr   string           `json:",omitempty" xml:"num,attr,omitempty"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // Figref is *******************************
@@ -5213,15 +5213,15 @@ type Figref *FigrefType
 
 // CrossrefType ...
 type CrossrefType struct {
-	XMLName   xml.Name         `xml:"crossref"`
-	IdrefAttr string           `xml:"idref,attr"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	U         []*UType         `xml:"u"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"crossref"`
+	IdrefAttr string           `json:",omitempty" xml:"idref,attr"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // Crossref is Cross reference to any other element with an identifier (id)
@@ -5231,16 +5231,16 @@ type Crossref *CrossrefType
 
 // BiodepositType ...
 type BiodepositType struct {
-	XMLName    xml.Name        `xml:"bio-deposit"`
-	IdAttr     string          `xml:"id,attr,omitempty"`
-	NumAttr    string          `xml:"num,attr"`
-	UrlAttr    string          `xml:"url,attr,omitempty"`
-	DnumAttr   string          `xml:"dnum,attr,omitempty"`
-	Depositary *DepositaryType `xml:"depositary"`
-	Bioaccno   *BioaccnoType   `xml:"bio-accno"`
-	Date       int             `xml:"date"`
-	Term       *TermType       `xml:"term"`
-	Dtext      *DtextType      `xml:"dtext"`
+	XMLName    xml.Name        `json:"-" xml:"bio-deposit"`
+	IdAttr     string          `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr    string          `json:",omitempty" xml:"num,attr"`
+	UrlAttr    string          `json:",omitempty" xml:"url,attr,omitempty"`
+	DnumAttr   string          `json:",omitempty" xml:"dnum,attr,omitempty"`
+	Depositary *DepositaryType `json:",omitempty" xml:"depositary"`
+	Bioaccno   *BioaccnoType   `json:",omitempty" xml:"bio-accno"`
+	Date       int             `json:",omitempty" xml:"date"`
+	Term       *TermType       `json:",omitempty" xml:"term"`
+	Dtext      *DtextType      `json:",omitempty" xml:"dtext"`
 }
 
 // Biodeposit is *******************************
@@ -5260,28 +5260,28 @@ type Biodeposit *BiodepositType
 
 // SourceDocType ...
 type SourceDocType struct {
-	XMLName    xml.Name        `xml:"sourceDoc"`
-	Documentid *DocumentidType `xml:"document-id"`
+	XMLName    xml.Name        `json:"-" xml:"sourceDoc"`
+	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
 // NplcitType ...
 type NplcitType struct {
-	XMLName         xml.Name          `xml:"nplcit"`
-	IdAttr          string            `xml:"id,attr,omitempty"`
-	NumAttr         string            `xml:"num,attr,omitempty"`
-	LangAttr        string            `xml:"lang,attr,omitempty"`
-	FileAttr        string            `xml:"file,attr,omitempty"`
-	NpltypeAttr     string            `xml:"npl-type,attr,omitempty"`
-	MediumAttr      string            `xml:"medium,attr,omitempty"`
-	UrlAttr         string            `xml:"url,attr,omitempty"`
-	ExtractedxpAttr string            `xml:"extracted-xp,attr,omitempty"`
-	Text            *TextType         `xml:"text"`
-	Article         *ArticleType      `xml:"article"`
-	Book            *BookType         `xml:"book"`
-	Online          *OnlineType       `xml:"online"`
-	Othercit        *OthercitType     `xml:"othercit"`
-	Sourcedoc       *SourceDocType    `xml:"source-doc"`
-	Relpassage      []*RelpassageType `xml:"rel-passage"`
+	XMLName         xml.Name          `json:"-" xml:"nplcit"`
+	IdAttr          string            `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr         string            `json:",omitempty" xml:"num,attr,omitempty"`
+	LangAttr        string            `json:",omitempty" xml:"lang,attr,omitempty"`
+	FileAttr        string            `json:",omitempty" xml:"file,attr,omitempty"`
+	NpltypeAttr     string            `json:",omitempty" xml:"npl-type,attr,omitempty"`
+	MediumAttr      string            `json:",omitempty" xml:"medium,attr,omitempty"`
+	UrlAttr         string            `json:",omitempty" xml:"url,attr,omitempty"`
+	ExtractedxpAttr string            `json:",omitempty" xml:"extracted-xp,attr,omitempty"`
+	Text            *TextType         `json:",omitempty" xml:"text"`
+	Article         *ArticleType      `json:",omitempty" xml:"article"`
+	Book            *BookType         `json:",omitempty" xml:"book"`
+	Online          *OnlineType       `json:",omitempty" xml:"online"`
+	Othercit        *OthercitType     `json:",omitempty" xml:"othercit"`
+	Sourcedoc       *SourceDocType    `json:",omitempty" xml:"source-doc"`
+	Relpassage      []*RelpassageType `json:",omitempty" xml:"rel-passage"`
 }
 
 // Nplcit is *******************************
@@ -5336,9 +5336,9 @@ type Nplcit *NplcitType
 
 // RefnoType ...
 type RefnoType struct {
-	XMLName xml.Name `xml:"refno"`
-	IdAttr  string   `xml:"id,attr,omitempty"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"refno"`
+	IdAttr  string   `json:",omitempty" xml:"id,attr,omitempty"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Refno is Reference number (general); for the EPO this is the XP number
@@ -5346,28 +5346,28 @@ type Refno *RefnoType
 
 // ClassType ...
 type ClassType struct {
-	XMLName       xml.Name `xml:"class"`
-	ClasstypeAttr string   `xml:"class-type,attr,omitempty"`
-	Value         string   `xml:",chardata"`
+	XMLName       xml.Name `json:"-" xml:"class"`
+	ClasstypeAttr string   `json:",omitempty" xml:"class-type,attr,omitempty"`
+	Value         string   `json:",omitempty" xml:",chardata"`
 }
 
 // SubnameType ...
 type SubnameType struct {
-	XMLName          xml.Name              `xml:"subname"`
-	SubnametypeAttr  string                `xml:"subname-type,attr,omitempty"`
-	Name             *NameType             `xml:"name"`
-	Prefix           *PrefixType           `xml:"prefix"`
-	Lastname         *LastnameType         `xml:"last-name"`
-	Orgname          *OrgnameType          `xml:"orgname"`
-	Firstname        *FirstnameType        `xml:"first-name"`
-	Middlename       *MiddlenameType       `xml:"middle-name"`
-	Suffix           *SuffixType           `xml:"suffix"`
-	Iid              *IidType              `xml:"iid"`
-	Role             *RoleType             `xml:"role"`
-	Department       *DepartmentType       `xml:"department"`
-	Synonym          []*SynonymType        `xml:"synonym"`
-	Registerednumber *RegisterednumberType `xml:"registered-number"`
-	Addressbook      *AddressbookType      `xml:"addressbook"`
+	XMLName          xml.Name              `json:"-" xml:"subname"`
+	SubnametypeAttr  string                `json:",omitempty" xml:"subname-type,attr,omitempty"`
+	Name             *NameType             `json:",omitempty" xml:"name"`
+	Prefix           *PrefixType           `json:",omitempty" xml:"prefix"`
+	Lastname         *LastnameType         `json:",omitempty" xml:"last-name"`
+	Orgname          *OrgnameType          `json:",omitempty" xml:"orgname"`
+	Firstname        *FirstnameType        `json:",omitempty" xml:"first-name"`
+	Middlename       *MiddlenameType       `json:",omitempty" xml:"middle-name"`
+	Suffix           *SuffixType           `json:",omitempty" xml:"suffix"`
+	Iid              *IidType              `json:",omitempty" xml:"iid"`
+	Role             *RoleType             `json:",omitempty" xml:"role"`
+	Department       *DepartmentType       `json:",omitempty" xml:"department"`
+	Synonym          []*SynonymType        `json:",omitempty" xml:"synonym"`
+	Registerednumber *RegisterednumberType `json:",omitempty" xml:"registered-number"`
+	Addressbook      *AddressbookType      `json:",omitempty" xml:"addressbook"`
 }
 
 // Subname is Subordinate responsibility; e.g., editor, translator, etc.
@@ -5375,21 +5375,21 @@ type Subname *SubnameType
 
 // AuthorType ...
 type AuthorType struct {
-	XMLName          xml.Name              `xml:"author"`
-	IdAttr           string                `xml:"id,attr,omitempty"`
-	Name             *NameType             `xml:"name"`
-	Prefix           *PrefixType           `xml:"prefix"`
-	Lastname         *LastnameType         `xml:"last-name"`
-	Orgname          *OrgnameType          `xml:"orgname"`
-	Firstname        *FirstnameType        `xml:"first-name"`
-	Middlename       *MiddlenameType       `xml:"middle-name"`
-	Suffix           *SuffixType           `xml:"suffix"`
-	Iid              *IidType              `xml:"iid"`
-	Role             *RoleType             `xml:"role"`
-	Department       *DepartmentType       `xml:"department"`
-	Synonym          []*SynonymType        `xml:"synonym"`
-	Registerednumber *RegisterednumberType `xml:"registered-number"`
-	Addressbook      *AddressbookType      `xml:"addressbook"`
+	XMLName          xml.Name              `json:"-" xml:"author"`
+	IdAttr           string                `json:",omitempty" xml:"id,attr,omitempty"`
+	Name             *NameType             `json:",omitempty" xml:"name"`
+	Prefix           *PrefixType           `json:",omitempty" xml:"prefix"`
+	Lastname         *LastnameType         `json:",omitempty" xml:"last-name"`
+	Orgname          *OrgnameType          `json:",omitempty" xml:"orgname"`
+	Firstname        *FirstnameType        `json:",omitempty" xml:"first-name"`
+	Middlename       *MiddlenameType       `json:",omitempty" xml:"middle-name"`
+	Suffix           *SuffixType           `json:",omitempty" xml:"suffix"`
+	Iid              *IidType              `json:",omitempty" xml:"iid"`
+	Role             *RoleType             `json:",omitempty" xml:"role"`
+	Department       *DepartmentType       `json:",omitempty" xml:"department"`
+	Synonym          []*SynonymType        `json:",omitempty" xml:"synonym"`
+	Registerednumber *RegisterednumberType `json:",omitempty" xml:"registered-number"`
+	Addressbook      *AddressbookType      `json:",omitempty" xml:"addressbook"`
 }
 
 // Author is Author
@@ -5408,19 +5408,19 @@ type Author *AuthorType
 
 // AddressbookType ...
 type AddressbookType struct {
-	XMLName        xml.Name `xml:"addressbook"`
-	IdAttr         string   `xml:"id,attr,omitempty"`
-	LangAttr       string   `xml:"lang,attr,omitempty"`
-	DataformatAttr string   `xml:"data-format,attr,omitempty"`
+	XMLName        xml.Name `json:"-" xml:"addressbook"`
+	IdAttr         string   `json:",omitempty" xml:"id,attr,omitempty"`
+	LangAttr       string   `json:",omitempty" xml:"lang,attr,omitempty"`
+	DataformatAttr string   `json:",omitempty" xml:"data-format,attr,omitempty"`
 	ExchNameGroup  *NameGroup
-	Address        *AddressType `xml:"address"`
-	Phone          []*PhoneType `xml:"phone"`
-	Fax            []*FaxType   `xml:"fax"`
-	Email          []*EmailType `xml:"email"`
-	Url            []*UrlType   `xml:"url"`
-	Ead            []*EadType   `xml:"ead"`
-	Dtext          *DtextType   `xml:"dtext"`
-	Text           *TextType    `xml:"text"`
+	Address        *AddressType `json:",omitempty" xml:"address"`
+	Phone          []*PhoneType `json:",omitempty" xml:"phone"`
+	Fax            []*FaxType   `json:",omitempty" xml:"fax"`
+	Email          []*EmailType `json:",omitempty" xml:"email"`
+	Url            []*UrlType   `json:",omitempty" xml:"url"`
+	Ead            []*EadType   `json:",omitempty" xml:"ead"`
+	Dtext          *DtextType   `json:",omitempty" xml:"dtext"`
+	Text           *TextType    `json:",omitempty" xml:"text"`
 }
 
 // Addressbook is ADDRESSBOOK GROUP:
@@ -5434,16 +5434,16 @@ type Addressbook *AddressbookType
 
 // PatcitType ...
 type PatcitType struct {
-	XMLName      xml.Name          `xml:"patcit"`
-	IdAttr       string            `xml:"id,attr,omitempty"`
-	NumAttr      string            `xml:"num,attr,omitempty"`
-	DnumAttr     string            `xml:"dnum,attr,omitempty"`
-	DnumtypeAttr string            `xml:"dnum-type,attr,omitempty"`
-	FileAttr     string            `xml:"file,attr,omitempty"`
-	UrlAttr      string            `xml:"url,attr,omitempty"`
-	Text         *TextType         `xml:"text"`
-	Documentid   *DocumentidType   `xml:"document-id"`
-	Relpassage   []*RelpassageType `xml:"rel-passage"`
+	XMLName      xml.Name          `json:"-" xml:"patcit"`
+	IdAttr       string            `json:",omitempty" xml:"id,attr,omitempty"`
+	NumAttr      string            `json:",omitempty" xml:"num,attr,omitempty"`
+	DnumAttr     string            `json:",omitempty" xml:"dnum,attr,omitempty"`
+	DnumtypeAttr string            `json:",omitempty" xml:"dnum-type,attr,omitempty"`
+	FileAttr     string            `json:",omitempty" xml:"file,attr,omitempty"`
+	UrlAttr      string            `json:",omitempty" xml:"url,attr,omitempty"`
+	Text         *TextType         `json:",omitempty" xml:"text"`
+	Documentid   *DocumentidType   `json:",omitempty" xml:"document-id"`
+	Relpassage   []*RelpassageType `json:",omitempty" xml:"rel-passage"`
 }
 
 // Patcit is *******************************
@@ -5523,25 +5523,25 @@ type Patcit *PatcitType
 
 // DocumentidType ...
 type DocumentidType struct {
-	XMLName   xml.Name       `xml:"document-id"`
-	LangAttr  string         `xml:"lang,attr,omitempty"`
-	DocidAttr int            `xml:"doc-id,attr,omitempty"`
-	Country   string         `xml:"country"`
-	Docnumber *DocnumberType `xml:"doc-number"`
-	Kind      *KindType      `xml:"kind"`
-	Name      *NameType      `xml:"name"`
-	Date      int            `xml:"date"`
+	XMLName   xml.Name       `json:"-" xml:"document-id"`
+	LangAttr  string         `json:",omitempty" xml:"lang,attr,omitempty"`
+	DocidAttr int            `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	Country   string         `json:",omitempty" xml:"country"`
+	Docnumber *DocnumberType `json:",omitempty" xml:"doc-number"`
+	Kind      *KindType      `json:",omitempty" xml:"kind"`
+	Name      *NameType      `json:",omitempty" xml:"name"`
+	Date      int            `json:",omitempty" xml:"date"`
 }
 
 // DocumentidPrintType ...
 type DocumentidPrintType struct {
-	XMLName   xml.Name       `xml:"document-id"`
-	LangAttr  string         `xml:"lang,attr,omitempty"`
-	Country   string         `xml:"country"`
-	Docnumber *DocnumberType `xml:"doc-number"`
-	Kind      *KindType      `xml:"kind"`
-	Name      *NameType      `xml:"name"`
-	Date      int            `xml:"date"`
+	XMLName   xml.Name       `json:"-" xml:"document-id"`
+	LangAttr  string         `json:",omitempty" xml:"lang,attr,omitempty"`
+	Country   string         `json:",omitempty" xml:"country"`
+	Docnumber *DocnumberType `json:",omitempty" xml:"doc-number"`
+	Kind      *KindType      `json:",omitempty" xml:"kind"`
+	Name      *NameType      `json:",omitempty" xml:"name"`
+	Date      int            `json:",omitempty" xml:"date"`
 }
 
 // Documentid is Document identification refers to patents (and patent applications) only. See WIPO ST.14
@@ -5549,9 +5549,9 @@ type Documentid *DocumentidType
 
 // NameType ...
 type NameType struct {
-	XMLName      xml.Name `xml:"name"`
-	NametypeAttr string   `xml:"name-type,attr,omitempty"`
-	Value        string   `xml:",chardata"`
+	XMLName      xml.Name `json:"-" xml:"name"`
+	NametypeAttr string   `json:",omitempty" xml:"name-type,attr,omitempty"`
+	Value        string   `json:",omitempty" xml:",chardata"`
 }
 
 // Name is Name:
@@ -5562,15 +5562,15 @@ type Name *NameType
 
 // DtType ...
 type DtType struct {
-	XMLName   xml.Name         `xml:"dt"`
-	IdAttr    string           `xml:"id,attr,omitempty"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	U         []*UType         `xml:"u"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"dt"`
+	IdAttr    string           `json:",omitempty" xml:"id,attr,omitempty"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // Dt is Term to be defined
@@ -5580,14 +5580,14 @@ type Dt *DtType
 
 // OType ...
 type OType struct {
-	XMLName   xml.Name         `xml:"o"`
-	PosAttr   string           `xml:"pos,attr,omitempty"`
-	StyleAttr string           `xml:"style,attr,omitempty"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	Sub       []*SubType       `xml:"sub"`
-	Sup       []*SupType       `xml:"sup"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"o"`
+	PosAttr   string           `json:",omitempty" xml:"pos,attr,omitempty"`
+	StyleAttr string           `json:",omitempty" xml:"style,attr,omitempty"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // O is Underscore: style - single is default
@@ -5595,14 +5595,14 @@ type O *OType
 
 // UType ...
 type UType struct {
-	XMLName   xml.Name         `xml:"u"`
-	StyleAttr string           `xml:"style,attr,omitempty"`
-	B         []*BType         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"u"`
+	StyleAttr string           `json:",omitempty" xml:"style,attr,omitempty"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // U is Underscore: style - single is default
@@ -5610,19 +5610,19 @@ type U *UType
 
 // DocpageType ...
 type DocpageType struct {
-	XMLName         xml.Name `xml:"doc-page"`
-	AltAttr         string   `xml:"alt,attr,omitempty"`
-	ColorAttr       string   `xml:"color,attr,omitempty"`
-	FileAttr        string   `xml:"file,attr"`
-	HeAttr          string   `xml:"he,attr"`
-	IdAttr          string   `xml:"id,attr,omitempty"`
-	OcrAttr         string   `xml:"ocr,attr,omitempty"`
-	OrientationAttr string   `xml:"orientation,attr,omitempty"`
-	PpAttr          string   `xml:"pp,attr,omitempty"`
-	PpfAttr         string   `xml:"ppf,attr,omitempty"`
-	PplAttr         string   `xml:"ppl,attr,omitempty"`
-	TypeAttr        string   `xml:"type,attr"`
-	WiAttr          string   `xml:"wi,attr"`
+	XMLName         xml.Name `json:"-" xml:"doc-page"`
+	AltAttr         string   `json:",omitempty" xml:"alt,attr,omitempty"`
+	ColorAttr       string   `json:",omitempty" xml:"color,attr,omitempty"`
+	FileAttr        string   `json:",omitempty" xml:"file,attr"`
+	HeAttr          string   `json:",omitempty" xml:"he,attr"`
+	IdAttr          string   `json:",omitempty" xml:"id,attr,omitempty"`
+	OcrAttr         string   `json:",omitempty" xml:"ocr,attr,omitempty"`
+	OrientationAttr string   `json:",omitempty" xml:"orientation,attr,omitempty"`
+	PpAttr          string   `json:",omitempty" xml:"pp,attr,omitempty"`
+	PpfAttr         string   `json:",omitempty" xml:"ppf,attr,omitempty"`
+	PplAttr         string   `json:",omitempty" xml:"ppl,attr,omitempty"`
+	TypeAttr        string   `json:",omitempty" xml:"type,attr"`
+	WiAttr          string   `json:",omitempty" xml:"wi,attr"`
 }
 
 // Docpage is doc-page - DOCument or PAGE
@@ -5639,17 +5639,17 @@ type Docpage *DocpageType
 
 // SrepwrittenopinionType ...
 type SrepwrittenopinionType struct {
-	XMLName                   xml.Name                       `xml:"srep-written-opinion"`
-	Docpage                   []*DocpageType                 `xml:"doc-page"`
-	Basisofsrepopinion        *BasisofsrepopinionType        `xml:"basis-of-srep-opinion"`
-	Priorityopinion           *PriorityopinionType           `xml:"priority-opinion"`
-	Nonestablishmentofopinion *NonestablishmentofopinionType `xml:"non-establishment-of-opinion"`
-	Unityofinvention          *UnityofinventionType          `xml:"unity-of-invention"`
-	ExchPctrule43bisstatement *Pctrule43bisstatementType     `xml:"pct-rule43bis-statement"`
-	ExchOpinioncitations      *OpinioncitationsType          `xml:"opinion-citations"`
-	Defectinapplication       *DefectinapplicationType       `xml:"defect-in-application"`
-	Observationonapplication  *ObservationonapplicationType  `xml:"observation-on-application"`
-	Text                      []*TextType                    `xml:"text"`
+	XMLName                   xml.Name                       `json:"-" xml:"srep-written-opinion"`
+	Docpage                   []*DocpageType                 `json:",omitempty" xml:"doc-page"`
+	Basisofsrepopinion        *BasisofsrepopinionType        `json:",omitempty" xml:"basis-of-srep-opinion"`
+	Priorityopinion           *PriorityopinionType           `json:",omitempty" xml:"priority-opinion"`
+	Nonestablishmentofopinion *NonestablishmentofopinionType `json:",omitempty" xml:"non-establishment-of-opinion"`
+	Unityofinvention          *UnityofinventionType          `json:",omitempty" xml:"unity-of-invention"`
+	ExchPctrule43bisstatement *Pctrule43bisstatementType     `json:",omitempty" xml:"pct-rule43bis-statement"`
+	ExchOpinioncitations      *OpinioncitationsType          `json:",omitempty" xml:"opinion-citations"`
+	Defectinapplication       *DefectinapplicationType       `json:",omitempty" xml:"defect-in-application"`
+	Observationonapplication  *ObservationonapplicationType  `json:",omitempty" xml:"observation-on-application"`
+	Text                      []*TextType                    `json:",omitempty" xml:"text"`
 }
 
 // Srepwrittenopinion ...
@@ -5657,8 +5657,8 @@ type Srepwrittenopinion *SrepwrittenopinionType
 
 // ObservationonapplicationType ...
 type ObservationonapplicationType struct {
-	XMLName xml.Name `xml:"observation-on-application"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"observation-on-application"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // Observationonapplication is Certain observations on the international application (Section VIII).
@@ -5670,8 +5670,8 @@ type Observationonapplication *ObservationonapplicationType
 
 // DefectinapplicationType ...
 type DefectinapplicationType struct {
-	XMLName xml.Name `xml:"defect-in-application"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"defect-in-application"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // Defectinapplication is Certain defects in the international application (Section Vii).
@@ -5682,9 +5682,9 @@ type Defectinapplication *DefectinapplicationType
 
 // OpinioncitationsType ...
 type OpinioncitationsType struct {
-	XMLName                       xml.Name                         `xml:"opinion-citations"`
-	ExchCertainpublisheddocuments []*CertainpublisheddocumentsType `xml:"certain-published-documents"`
-	Nonwrittendisclosures         []*NonwrittendisclosuresType     `xml:"non-written-disclosures"`
+	XMLName                       xml.Name                         `json:"-" xml:"opinion-citations"`
+	ExchCertainpublisheddocuments []*CertainpublisheddocumentsType `json:",omitempty" xml:"certain-published-documents"`
+	Nonwrittendisclosures         []*NonwrittendisclosuresType     `json:",omitempty" xml:"non-written-disclosures"`
 }
 
 // Opinioncitations is (PCT/IPEA/408 - Box No. VI Certain documents cited)
@@ -5692,10 +5692,10 @@ type Opinioncitations *OpinioncitationsType
 
 // NonwrittendisclosuresType ...
 type NonwrittendisclosuresType struct {
-	XMLName                 xml.Name                     `xml:"non-written-disclosures"`
-	Kindofdisclosure        *KindofdisclosureType        `xml:"kind-of-disclosure"`
-	Date                    int                          `xml:"date"`
-	Dateofwrittendisclosure *DateofwrittendisclosureType `xml:"date-of-written-disclosure"`
+	XMLName                 xml.Name                     `json:"-" xml:"non-written-disclosures"`
+	Kindofdisclosure        *KindofdisclosureType        `json:",omitempty" xml:"kind-of-disclosure"`
+	Date                    int                          `json:",omitempty" xml:"date"`
+	Dateofwrittendisclosure *DateofwrittendisclosureType `json:",omitempty" xml:"date-of-written-disclosure"`
 }
 
 // Nonwrittendisclosures is (PCT/ISA/237 )
@@ -5709,8 +5709,8 @@ type Nonwrittendisclosures *NonwrittendisclosuresType
 
 // DateofwrittendisclosureType ...
 type DateofwrittendisclosureType struct {
-	XMLName xml.Name `xml:"date-of-written-disclosure"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"date-of-written-disclosure"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Dateofwrittendisclosure is Date of written disclosure
@@ -5720,8 +5720,8 @@ type Dateofwrittendisclosure *DateofwrittendisclosureType
 
 // KindofdisclosureType ...
 type KindofdisclosureType struct {
-	XMLName xml.Name `xml:"kind-of-disclosure"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"kind-of-disclosure"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Kindofdisclosure is Kind of non-written disclosure
@@ -5729,11 +5729,11 @@ type Kindofdisclosure *KindofdisclosureType
 
 // CertainpublisheddocumentsType ...
 type CertainpublisheddocumentsType struct {
-	XMLName      xml.Name          `xml:"certain-published-documents"`
-	ExchCitation []*CitationType   `xml:"citation"`
-	Filingdate   *FilingdateType   `xml:"filing-date"`
-	Prioritydate *PrioritydateType `xml:"priority-date"`
-	Text         *TextType         `xml:"text"`
+	XMLName      xml.Name          `json:"-" xml:"certain-published-documents"`
+	ExchCitation []*CitationType   `json:",omitempty" xml:"citation"`
+	Filingdate   *FilingdateType   `json:",omitempty" xml:"filing-date"`
+	Prioritydate *PrioritydateType `json:",omitempty" xml:"priority-date"`
+	Text         *TextType         `json:",omitempty" xml:"text"`
 }
 
 // Certainpublisheddocuments is (PCT/ISA/237 )
@@ -5747,14 +5747,14 @@ type Certainpublisheddocuments *CertainpublisheddocumentsType
 
 // Pctrule43bisstatementType ...
 type Pctrule43bisstatementType struct {
-	XMLName                   xml.Name                   `xml:"pct-rule43bis-statement"`
-	Noveltyvalid              *NoveltyvalidType          `xml:"novelty-valid"`
-	Noveltynotvalid           *NoveltynotvalidType       `xml:"novelty-not-valid"`
-	Inventivestepvalid        *InventivestepvalidType    `xml:"inventive-step-valid"`
-	Inventivestepnotvalid     *InventivestepnotvalidType `xml:"inventive-step-not-valid"`
-	Applicabilityvalid        *ApplicabilityvalidType    `xml:"applicability-valid"`
-	Applicabilitynotvalid     *ApplicabilitynotvalidType `xml:"applicability-not-valid"`
-	ExchCitationsexplanations *CitationsexplanationsType `xml:"citations-explanations"`
+	XMLName                   xml.Name                   `json:"-" xml:"pct-rule43bis-statement"`
+	Noveltyvalid              *NoveltyvalidType          `json:",omitempty" xml:"novelty-valid"`
+	Noveltynotvalid           *NoveltynotvalidType       `json:",omitempty" xml:"novelty-not-valid"`
+	Inventivestepvalid        *InventivestepvalidType    `json:",omitempty" xml:"inventive-step-valid"`
+	Inventivestepnotvalid     *InventivestepnotvalidType `json:",omitempty" xml:"inventive-step-not-valid"`
+	Applicabilityvalid        *ApplicabilityvalidType    `json:",omitempty" xml:"applicability-valid"`
+	Applicabilitynotvalid     *ApplicabilitynotvalidType `json:",omitempty" xml:"applicability-not-valid"`
+	ExchCitationsexplanations *CitationsexplanationsType `json:",omitempty" xml:"citations-explanations"`
 }
 
 // Pctrule43bisstatement is (PCT/ISA/237 - Box V)
@@ -5766,11 +5766,11 @@ type Pctrule43bisstatement *Pctrule43bisstatementType
 
 // CitationsexplanationsType ...
 type CitationsexplanationsType struct {
-	XMLName      xml.Name          `xml:"citations-explanations"`
-	ExchCitation []*CitationType   `xml:"citation"`
-	Filingdate   *FilingdateType   `xml:"filing-date"`
-	Prioritydate *PrioritydateType `xml:"priority-date"`
-	Text         *TextType         `xml:"text"`
+	XMLName      xml.Name          `json:"-" xml:"citations-explanations"`
+	ExchCitation []*CitationType   `json:",omitempty" xml:"citation"`
+	Filingdate   *FilingdateType   `json:",omitempty" xml:"filing-date"`
+	Prioritydate *PrioritydateType `json:",omitempty" xml:"priority-date"`
+	Text         *TextType         `json:",omitempty" xml:"text"`
 }
 
 // Citationsexplanations is Citations and explanations:
@@ -5778,8 +5778,8 @@ type Citationsexplanations *CitationsexplanationsType
 
 // FilingdateType ...
 type FilingdateType struct {
-	XMLName xml.Name `xml:"filing-date"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"filing-date"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Filingdate ...
@@ -5787,8 +5787,8 @@ type Filingdate *FilingdateType
 
 // ApplicabilitynotvalidType ...
 type ApplicabilitynotvalidType struct {
-	XMLName  xml.Name        `xml:"applicability-not-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"applicability-not-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Applicabilitynotvalid ...
@@ -5796,8 +5796,8 @@ type Applicabilitynotvalid *ApplicabilitynotvalidType
 
 // ApplicabilityvalidType ...
 type ApplicabilityvalidType struct {
-	XMLName  xml.Name        `xml:"applicability-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"applicability-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Applicabilityvalid ...
@@ -5805,8 +5805,8 @@ type Applicabilityvalid *ApplicabilityvalidType
 
 // InventivestepnotvalidType ...
 type InventivestepnotvalidType struct {
-	XMLName  xml.Name        `xml:"inventive-step-not-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"inventive-step-not-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Inventivestepnotvalid ...
@@ -5814,8 +5814,8 @@ type Inventivestepnotvalid *InventivestepnotvalidType
 
 // InventivestepvalidType ...
 type InventivestepvalidType struct {
-	XMLName  xml.Name        `xml:"inventive-step-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"inventive-step-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Inventivestepvalid ...
@@ -5823,8 +5823,8 @@ type Inventivestepvalid *InventivestepvalidType
 
 // NoveltynotvalidType ...
 type NoveltynotvalidType struct {
-	XMLName  xml.Name        `xml:"novelty-not-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"novelty-not-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Noveltynotvalid ...
@@ -5832,8 +5832,8 @@ type Noveltynotvalid *NoveltynotvalidType
 
 // NoveltyvalidType ...
 type NoveltyvalidType struct {
-	XMLName  xml.Name        `xml:"novelty-valid"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"novelty-valid"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Noveltyvalid ...
@@ -5841,11 +5841,11 @@ type Noveltyvalid *NoveltyvalidType
 
 // UnityofinventionType ...
 type UnityofinventionType struct {
-	XMLName                     xml.Name                         `xml:"unity-of-invention"`
-	Invitationpayadditionalfees *InvitationpayadditionalfeesType `xml:"invitation-pay-additional-fees"`
-	Notunityofinvention         *NotunityofinventionType         `xml:"not-unity-of-invention"`
-	Complianceunityinvention    *ComplianceunityinventionType    `xml:"compliance-unity-invention"`
-	Opinionestablishedregarding *OpinionestablishedregardingType `xml:"opinion-established-regarding"`
+	XMLName                     xml.Name                         `json:"-" xml:"unity-of-invention"`
+	Invitationpayadditionalfees *InvitationpayadditionalfeesType `json:",omitempty" xml:"invitation-pay-additional-fees"`
+	Notunityofinvention         *NotunityofinventionType         `json:",omitempty" xml:"not-unity-of-invention"`
+	Complianceunityinvention    *ComplianceunityinventionType    `json:",omitempty" xml:"compliance-unity-invention"`
+	Opinionestablishedregarding *OpinionestablishedregardingType `json:",omitempty" xml:"opinion-established-regarding"`
 }
 
 // Unityofinvention is (PCT/IPEA/408 - Box No. IV Lack of unity of invention)
@@ -5853,9 +5853,9 @@ type Unityofinvention *UnityofinventionType
 
 // OpinionestablishedregardingType ...
 type OpinionestablishedregardingType struct {
-	XMLName           xml.Name               `xml:"opinion-established-regarding"`
-	Entireapplication *EntireapplicationType `xml:"entire-application"`
-	Claimnum          []*ClaimnumType        `xml:"claim-num"`
+	XMLName           xml.Name               `json:"-" xml:"opinion-established-regarding"`
+	Entireapplication *EntireapplicationType `json:",omitempty" xml:"entire-application"`
+	Claimnum          []*ClaimnumType        `json:",omitempty" xml:"claim-num"`
 }
 
 // Opinionestablishedregarding is (PCT/ISA/237 ) - Box No. IV Lack of unity of invention Consequently,
@@ -5866,7 +5866,7 @@ type Opinionestablishedregarding *OpinionestablishedregardingType
 
 // NotunityofinventionType ...
 type NotunityofinventionType struct {
-	XMLName xml.Name `xml:"not-unity-of-invention"`
+	XMLName xml.Name `json:"-" xml:"not-unity-of-invention"`
 }
 
 // Notunityofinvention is (PCT/ISA/237 ) - Box No. IV Lack of unity of invention (2)
@@ -5882,9 +5882,9 @@ type Notunityofinvention *NotunityofinventionType
 
 // NonestablishmentofopinionType ...
 type NonestablishmentofopinionType struct {
-	XMLName              xml.Name                  `xml:"non-establishment-of-opinion"`
-	Inventionnotexamined *InventionnotexaminedType `xml:"invention-not-examined"`
-	Notannexccompliant   *NotannexccompliantType   `xml:"not-annex-c-compliant"`
+	XMLName              xml.Name                  `json:"-" xml:"non-establishment-of-opinion"`
+	Inventionnotexamined *InventionnotexaminedType `json:",omitempty" xml:"invention-not-examined"`
+	Notannexccompliant   *NotannexccompliantType   `json:",omitempty" xml:"not-annex-c-compliant"`
 }
 
 // Nonestablishmentofopinion is (PCT/ISA/237 - Box III)
@@ -5895,10 +5895,10 @@ type Nonestablishmentofopinion *NonestablishmentofopinionType
 
 // NotannexccompliantType ...
 type NotannexccompliantType struct {
-	XMLName        xml.Name            `xml:"not-annex-c-compliant"`
-	Annexc         *AnnexcType         `xml:"annex-c"`
-	Annexcbis      *AnnexcbisType      `xml:"annex-c-bis"`
-	Additionalinfo *AdditionalinfoType `xml:"additional-info"`
+	XMLName        xml.Name            `json:"-" xml:"not-annex-c-compliant"`
+	Annexc         *AnnexcType         `json:",omitempty" xml:"annex-c"`
+	Annexcbis      *AnnexcbisType      `json:",omitempty" xml:"annex-c-bis"`
+	Additionalinfo *AdditionalinfoType `json:",omitempty" xml:"additional-info"`
 }
 
 // Notannexccompliant is (PCT/ISA/237 - Box III)
@@ -5906,7 +5906,7 @@ type Notannexccompliant *NotannexccompliantType
 
 // AnnexcbisType ...
 type AnnexcbisType struct {
-	XMLName xml.Name `xml:"annex-c-bis"`
+	XMLName xml.Name `json:"-" xml:"annex-c-bis"`
 }
 
 // Annexcbis is (PCT/ISA/237 and PCT/IPEA/408 )
@@ -5923,9 +5923,9 @@ type Annexcbis *AnnexcbisType
 
 // AnnexcType ...
 type AnnexcType struct {
-	XMLName                             xml.Name                                 `xml:"annex-c"`
-	Sequencelistingwrittenform          *SequencelistingwrittenformType          `xml:"sequence-listing-written-form"`
-	Sequencelistingcomputerreadableform *SequencelistingcomputerreadableformType `xml:"sequence-listing-computer-readable-form"`
+	XMLName                             xml.Name                                 `json:"-" xml:"annex-c"`
+	Sequencelistingwrittenform          *SequencelistingwrittenformType          `json:",omitempty" xml:"sequence-listing-written-form"`
+	Sequencelistingcomputerreadableform *SequencelistingcomputerreadableformType `json:",omitempty" xml:"sequence-listing-computer-readable-form"`
 }
 
 // Annexc is The nucleotide and/or amino acid sequence listing does not comply with the
@@ -5935,13 +5935,13 @@ type Annexc *AnnexcType
 
 // InventionnotexaminedType ...
 type InventionnotexaminedType struct {
-	XMLName           xml.Name               `xml:"invention-not-examined"`
-	Entireapplication *EntireapplicationType `xml:"entire-application"`
-	Claimnum          []*ClaimnumType        `xml:"claim-num"`
-	Nonestabreason1   *Nonestabreason1Type   `xml:"non-estab-reason-1"`
-	Nonestabreason2   *Nonestabreason2Type   `xml:"non-estab-reason-2"`
-	Nonestabreason3   *Nonestabreason3Type   `xml:"non-estab-reason-3"`
-	Nonestabreason4   *Nonestabreason4Type   `xml:"non-estab-reason-4"`
+	XMLName           xml.Name               `json:"-" xml:"invention-not-examined"`
+	Entireapplication *EntireapplicationType `json:",omitempty" xml:"entire-application"`
+	Claimnum          []*ClaimnumType        `json:",omitempty" xml:"claim-num"`
+	Nonestabreason1   *Nonestabreason1Type   `json:",omitempty" xml:"non-estab-reason-1"`
+	Nonestabreason2   *Nonestabreason2Type   `json:",omitempty" xml:"non-estab-reason-2"`
+	Nonestabreason3   *Nonestabreason3Type   `json:",omitempty" xml:"non-estab-reason-3"`
+	Nonestabreason4   *Nonestabreason4Type   `json:",omitempty" xml:"non-estab-reason-4"`
 }
 
 // Inventionnotexamined is The questions whether the claimed invention appears to be novel, to involve
@@ -5952,8 +5952,8 @@ type Inventionnotexamined *InventionnotexaminedType
 
 // Nonestabreason4Type ...
 type Nonestabreason4Type struct {
-	XMLName  xml.Name        `xml:"non-estab-reason-4"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"non-estab-reason-4"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Nonestabreason4 is No international search report has been established for said claims Nos.
@@ -5963,8 +5963,8 @@ type Nonestabreason4 *Nonestabreason4Type
 
 // Nonestabreason3Type ...
 type Nonestabreason3Type struct {
-	XMLName  xml.Name        `xml:"non-estab-reason-3"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"non-estab-reason-3"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Nonestabreason3 is The claims, or said claims Nos. (claim nos) are so inadequately supported by the
@@ -5974,9 +5974,9 @@ type Nonestabreason3 *Nonestabreason3Type
 
 // Nonestabreason2Type ...
 type Nonestabreason2Type struct {
-	XMLName  xml.Name        `xml:"non-estab-reason-2"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
-	P        []*PType        `xml:"p"`
+	XMLName  xml.Name        `json:"-" xml:"non-estab-reason-2"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
+	P        []*PType        `json:",omitempty" xml:"p"`
 }
 
 // Nonestabreason2 is The description, claims or drawings (indicate particular elements below) or said
@@ -5986,9 +5986,9 @@ type Nonestabreason2 *Nonestabreason2Type
 
 // Nonestabreason1Type ...
 type Nonestabreason1Type struct {
-	XMLName  xml.Name        `xml:"non-estab-reason-1"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
-	P        []*PType        `xml:"p"`
+	XMLName  xml.Name        `json:"-" xml:"non-estab-reason-1"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
+	P        []*PType        `json:",omitempty" xml:"p"`
 }
 
 // Nonestabreason1 is The said international application, or the said claims Nos. "rel-claims" relate
@@ -5999,7 +5999,7 @@ type Nonestabreason1 *Nonestabreason1Type
 
 // EntireapplicationType ...
 type EntireapplicationType struct {
-	XMLName xml.Name `xml:"entire-application"`
+	XMLName xml.Name `json:"-" xml:"entire-application"`
 }
 
 // Entireapplication is The entire international application.
@@ -6007,7 +6007,7 @@ type Entireapplication *EntireapplicationType
 
 // ClaiminvalidType ...
 type ClaiminvalidType struct {
-	XMLName xml.Name `xml:"claim-invalid"`
+	XMLName xml.Name `json:"-" xml:"claim-invalid"`
 }
 
 // Claiminvalid is This opinion has been established as if no priority had been claimed due to
@@ -6020,9 +6020,9 @@ type Claiminvalid *ClaiminvalidType
 
 // BasisofsrepopinionType ...
 type BasisofsrepopinionType struct {
-	XMLName           xml.Name               `xml:"basis-of-srep-opinion"`
-	Translationofappl *TranslationofapplType `xml:"translation-of-appl"`
-	Sequencelistbasis *SequencelistbasisType `xml:"sequence-list-basis"`
+	XMLName           xml.Name               `json:"-" xml:"basis-of-srep-opinion"`
+	Translationofappl *TranslationofapplType `json:",omitempty" xml:"translation-of-appl"`
+	Sequencelistbasis *SequencelistbasisType `json:",omitempty" xml:"sequence-list-basis"`
 }
 
 // Basisofsrepopinion is Form PCT/ISA/237 (Box No. I) (January 2004)
@@ -6032,16 +6032,16 @@ type Basisofsrepopinion *BasisofsrepopinionType
 
 // SrepforpubType ...
 type SrepforpubType struct {
-	XMLName                    xml.Name                    `xml:"srep-for-pub"`
-	Docpage                    []*DocpageType              `xml:"doc-page"`
-	ExchClassificationipc      *ClassificationipcType      `xml:"classification-ipc"`
-	ExchClassificationsipcr    *ClassificationsipcrType    `xml:"classifications-ipcr"`
-	ExchClassificationnational *ClassificationnationalType `xml:"classification-national"`
-	ExchSrepfieldssearched     *SrepfieldssearchedType     `xml:"srep-fields-searched"`
-	ExchSrepcitations          *SrepcitationsType          `xml:"srep-citations"`
-	ExchIncompletesearch       *IncompletesearchType       `xml:"incomplete-search"`
-	Srepadmin                  *SrepadminType              `xml:"srep-admin"`
-	ExchSreppatentfamilies     *SreppatentfamiliesType     `xml:"srep-patent-families"`
+	XMLName                    xml.Name                    `json:"-" xml:"srep-for-pub"`
+	Docpage                    []*DocpageType              `json:",omitempty" xml:"doc-page"`
+	ExchClassificationipc      *ClassificationipcType      `json:",omitempty" xml:"classification-ipc"`
+	ExchClassificationsipcr    *ClassificationsipcrType    `json:",omitempty" xml:"classifications-ipcr"`
+	ExchClassificationnational *ClassificationnationalType `json:",omitempty" xml:"classification-national"`
+	ExchSrepfieldssearched     *SrepfieldssearchedType     `json:",omitempty" xml:"srep-fields-searched"`
+	ExchSrepcitations          *SrepcitationsType          `json:",omitempty" xml:"srep-citations"`
+	ExchIncompletesearch       *IncompletesearchType       `json:",omitempty" xml:"incomplete-search"`
+	Srepadmin                  *SrepadminType              `json:",omitempty" xml:"srep-admin"`
+	ExchSreppatentfamilies     *SreppatentfamiliesType     `json:",omitempty" xml:"srep-patent-families"`
 }
 
 // Srepforpub ...
@@ -6049,9 +6049,9 @@ type Srepforpub *SrepforpubType
 
 // SreppatentfamiliesType ...
 type SreppatentfamiliesType struct {
-	XMLName              xml.Name                `xml:"srep-patent-families"`
-	Text                 *TextType               `xml:"text"`
-	ExchSreppatentfamily []*SreppatentfamilyType `xml:"srep-patent-family"`
+	XMLName              xml.Name                `json:"-" xml:"srep-patent-families"`
+	Text                 *TextType               `json:",omitempty" xml:"text"`
+	ExchSreppatentfamily []*SreppatentfamilyType `json:",omitempty" xml:"srep-patent-family"`
 }
 
 // Sreppatentfamilies is PATENT FAMILY INFORMATION
@@ -6063,8 +6063,8 @@ type Sreppatentfamilies *SreppatentfamiliesType
 
 // SrepfamilymemberType ...
 type SrepfamilymemberType struct {
-	XMLName    xml.Name        `xml:"srep-family-member"`
-	Documentid *DocumentidType `xml:"document-id"`
+	XMLName    xml.Name        `json:"-" xml:"srep-family-member"`
+	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
 // Srepfamilymember is Patent family.
@@ -6074,8 +6074,8 @@ type Srepfamilymember *SrepfamilymemberType
 
 // PriorityapplicationType ...
 type PriorityapplicationType struct {
-	XMLName    xml.Name        `xml:"priority-application"`
-	Documentid *DocumentidType `xml:"document-id"`
+	XMLName    xml.Name        `json:"-" xml:"priority-application"`
+	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
 // Priorityapplication is Priority application number.
@@ -6085,11 +6085,11 @@ type Priorityapplication *PriorityapplicationType
 
 // SrepadminType ...
 type SrepadminType struct {
-	XMLName                xml.Name                    `xml:"srep-admin"`
-	Examiners              *ExaminersType              `xml:"examiners"`
-	Srepoffice             *SrepofficeType             `xml:"srep-office"`
-	Datesearchcompleted    *DatesearchcompletedType    `xml:"date-search-completed"`
-	Datesearchreportmailed *DatesearchreportmailedType `xml:"date-search-report-mailed"`
+	XMLName                xml.Name                    `json:"-" xml:"srep-admin"`
+	Examiners              *ExaminersType              `json:",omitempty" xml:"examiners"`
+	Srepoffice             *SrepofficeType             `json:",omitempty" xml:"srep-office"`
+	Datesearchcompleted    *DatesearchcompletedType    `json:",omitempty" xml:"date-search-completed"`
+	Datesearchreportmailed *DatesearchreportmailedType `json:",omitempty" xml:"date-search-report-mailed"`
 }
 
 // Srepadmin is srep-admin
@@ -6135,8 +6135,8 @@ type Srepadmin *SrepadminType
 
 // DatesearchcompletedType ...
 type DatesearchcompletedType struct {
-	XMLName xml.Name `xml:"date-search-completed"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"date-search-completed"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Datesearchcompleted is Date of completion of search report.
@@ -6146,10 +6146,10 @@ type Datesearchcompleted *DatesearchcompletedType
 
 // ExaminersType ...
 type ExaminersType struct {
-	XMLName           xml.Name               `xml:"examiners"`
-	Primaryexaminer   *PrimaryexaminerType   `xml:"primary-examiner"`
-	Assistantexaminer *AssistantexaminerType `xml:"assistant-examiner"`
-	Authorizedofficer *AuthorizedofficerType `xml:"authorized-officer"`
+	XMLName           xml.Name               `json:"-" xml:"examiners"`
+	Primaryexaminer   *PrimaryexaminerType   `json:",omitempty" xml:"primary-examiner"`
+	Assistantexaminer *AssistantexaminerType `json:",omitempty" xml:"assistant-examiner"`
+	Authorizedofficer *AuthorizedofficerType `json:",omitempty" xml:"authorized-officer"`
 }
 
 // Examiners is Persons acting on the document.
@@ -6159,20 +6159,20 @@ type Examiners *ExaminersType
 
 // AssistantexaminerType ...
 type AssistantexaminerType struct {
-	XMLName             xml.Name                 `xml:"assistant-examiner"`
-	Name                *NameType                `xml:"name"`
-	Prefix              *PrefixType              `xml:"prefix"`
-	Lastname            *LastnameType            `xml:"last-name"`
-	Orgname             *OrgnameType             `xml:"orgname"`
-	Firstname           *FirstnameType           `xml:"first-name"`
-	Middlename          *MiddlenameType          `xml:"middle-name"`
-	Suffix              *SuffixType              `xml:"suffix"`
-	Iid                 *IidType                 `xml:"iid"`
-	Role                *RoleType                `xml:"role"`
-	Department          *DepartmentType          `xml:"department"`
-	Synonym             []*SynonymType           `xml:"synonym"`
-	Registerednumber    *RegisterednumberType    `xml:"registered-number"`
-	Electronicsignature *ElectronicsignatureType `xml:"electronic-signature"`
+	XMLName             xml.Name                 `json:"-" xml:"assistant-examiner"`
+	Name                *NameType                `json:",omitempty" xml:"name"`
+	Prefix              *PrefixType              `json:",omitempty" xml:"prefix"`
+	Lastname            *LastnameType            `json:",omitempty" xml:"last-name"`
+	Orgname             *OrgnameType             `json:",omitempty" xml:"orgname"`
+	Firstname           *FirstnameType           `json:",omitempty" xml:"first-name"`
+	Middlename          *MiddlenameType          `json:",omitempty" xml:"middle-name"`
+	Suffix              *SuffixType              `json:",omitempty" xml:"suffix"`
+	Iid                 *IidType                 `json:",omitempty" xml:"iid"`
+	Role                *RoleType                `json:",omitempty" xml:"role"`
+	Department          *DepartmentType          `json:",omitempty" xml:"department"`
+	Synonym             []*SynonymType           `json:",omitempty" xml:"synonym"`
+	Registerednumber    *RegisterednumberType    `json:",omitempty" xml:"registered-number"`
+	Electronicsignature *ElectronicsignatureType `json:",omitempty" xml:"electronic-signature"`
 }
 
 // Assistantexaminer is Assistant Examiner.
@@ -6182,20 +6182,20 @@ type Assistantexaminer *AssistantexaminerType
 
 // PrimaryexaminerType ...
 type PrimaryexaminerType struct {
-	XMLName             xml.Name                 `xml:"primary-examiner"`
-	Name                *NameType                `xml:"name"`
-	Prefix              *PrefixType              `xml:"prefix"`
-	Lastname            *LastnameType            `xml:"last-name"`
-	Orgname             *OrgnameType             `xml:"orgname"`
-	Firstname           *FirstnameType           `xml:"first-name"`
-	Middlename          *MiddlenameType          `xml:"middle-name"`
-	Suffix              *SuffixType              `xml:"suffix"`
-	Iid                 *IidType                 `xml:"iid"`
-	Role                *RoleType                `xml:"role"`
-	Department          *DepartmentType          `xml:"department"`
-	Synonym             []*SynonymType           `xml:"synonym"`
-	Registerednumber    *RegisterednumberType    `xml:"registered-number"`
-	Electronicsignature *ElectronicsignatureType `xml:"electronic-signature"`
+	XMLName             xml.Name                 `json:"-" xml:"primary-examiner"`
+	Name                *NameType                `json:",omitempty" xml:"name"`
+	Prefix              *PrefixType              `json:",omitempty" xml:"prefix"`
+	Lastname            *LastnameType            `json:",omitempty" xml:"last-name"`
+	Orgname             *OrgnameType             `json:",omitempty" xml:"orgname"`
+	Firstname           *FirstnameType           `json:",omitempty" xml:"first-name"`
+	Middlename          *MiddlenameType          `json:",omitempty" xml:"middle-name"`
+	Suffix              *SuffixType              `json:",omitempty" xml:"suffix"`
+	Iid                 *IidType                 `json:",omitempty" xml:"iid"`
+	Role                *RoleType                `json:",omitempty" xml:"role"`
+	Department          *DepartmentType          `json:",omitempty" xml:"department"`
+	Synonym             []*SynonymType           `json:",omitempty" xml:"synonym"`
+	Registerednumber    *RegisterednumberType    `json:",omitempty" xml:"registered-number"`
+	Electronicsignature *ElectronicsignatureType `json:",omitempty" xml:"electronic-signature"`
 }
 
 // Primaryexaminer is Primary Examiner.
@@ -6205,12 +6205,12 @@ type Primaryexaminer *PrimaryexaminerType
 
 // IncompletesearchType ...
 type IncompletesearchType struct {
-	XMLName                    xml.Name                        `xml:"incomplete-search"`
-	Text                       *TextType                       `xml:"text"`
-	Claimssearched             *ClaimssearchedType             `xml:"claims-searched"`
-	Claimssearchedincompletely *ClaimssearchedincompletelyType `xml:"claims-searched-incompletely"`
-	Claimsnotsearched          *ClaimsnotsearchedType          `xml:"claims-not-searched"`
-	Reasonlimitedsearch        *ReasonlimitedsearchType        `xml:"reason-limited-search"`
+	XMLName                    xml.Name                        `json:"-" xml:"incomplete-search"`
+	Text                       *TextType                       `json:",omitempty" xml:"text"`
+	Claimssearched             *ClaimssearchedType             `json:",omitempty" xml:"claims-searched"`
+	Claimssearchedincompletely *ClaimssearchedincompletelyType `json:",omitempty" xml:"claims-searched-incompletely"`
+	Claimsnotsearched          *ClaimsnotsearchedType          `json:",omitempty" xml:"claims-not-searched"`
+	Reasonlimitedsearch        *ReasonlimitedsearchType        `json:",omitempty" xml:"reason-limited-search"`
 }
 
 // Incompletesearch ...
@@ -6218,8 +6218,8 @@ type Incompletesearch *IncompletesearchType
 
 // ReasonlimitedsearchType ...
 type ReasonlimitedsearchType struct {
-	XMLName xml.Name `xml:"reason-limited-search"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"reason-limited-search"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // Reasonlimitedsearch ...
@@ -6227,8 +6227,8 @@ type Reasonlimitedsearch *ReasonlimitedsearchType
 
 // ClaimsnotsearchedType ...
 type ClaimsnotsearchedType struct {
-	XMLName xml.Name `xml:"claims-not-searched"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"claims-not-searched"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Claimsnotsearched ...
@@ -6236,8 +6236,8 @@ type Claimsnotsearched *ClaimsnotsearchedType
 
 // ClaimssearchedincompletelyType ...
 type ClaimssearchedincompletelyType struct {
-	XMLName xml.Name `xml:"claims-searched-incompletely"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"claims-searched-incompletely"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Claimssearchedincompletely ...
@@ -6245,8 +6245,8 @@ type Claimssearchedincompletely *ClaimssearchedincompletelyType
 
 // ClaimssearchedType ...
 type ClaimssearchedType struct {
-	XMLName xml.Name `xml:"claims-searched"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"claims-searched"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Claimssearched ...
@@ -6254,9 +6254,9 @@ type Claimssearched *ClaimssearchedType
 
 // SrepcitationsType ...
 type SrepcitationsType struct {
-	XMLName      xml.Name        `xml:"srep-citations"`
-	Text         *TextType       `xml:"text"`
-	ExchCitation []*CitationType `xml:"citation"`
+	XMLName      xml.Name        `json:"-" xml:"srep-citations"`
+	Text         *TextType       `json:",omitempty" xml:"text"`
+	ExchCitation []*CitationType `json:",omitempty" xml:"citation"`
 }
 
 // Srepcitations ...
@@ -6264,10 +6264,10 @@ type Srepcitations *SrepcitationsType
 
 // SrepfieldssearchedType ...
 type SrepfieldssearchedType struct {
-	XMLName                  xml.Name                  `xml:"srep-fields-searched"`
-	ExchMinimumdocumentation *MinimumdocumentationType `xml:"minimum-documentation"`
-	Otherdocumentation       []*OtherdocumentationType `xml:"other-documentation"`
-	Databasesearched         *DatabasesearchedType     `xml:"database-searched"`
+	XMLName                  xml.Name                  `json:"-" xml:"srep-fields-searched"`
+	ExchMinimumdocumentation *MinimumdocumentationType `json:",omitempty" xml:"minimum-documentation"`
+	Otherdocumentation       []*OtherdocumentationType `json:",omitempty" xml:"other-documentation"`
+	Databasesearched         *DatabasesearchedType     `json:",omitempty" xml:"database-searched"`
 }
 
 // Srepfieldssearched is - Technical fields searched
@@ -6276,9 +6276,9 @@ type Srepfieldssearched *SrepfieldssearchedType
 
 // DatabasesearchedType ...
 type DatabasesearchedType struct {
-	XMLName xml.Name    `xml:"database-searched"`
-	Text    *TextType   `xml:"text"`
-	Nplcit  *NplcitType `xml:"nplcit"`
+	XMLName xml.Name    `json:"-" xml:"database-searched"`
+	Text    *TextType   `json:",omitempty" xml:"text"`
+	Nplcit  *NplcitType `json:",omitempty" xml:"nplcit"`
 }
 
 // Databasesearched is Database(s) searched
@@ -6288,8 +6288,8 @@ type Databasesearched *DatabasesearchedType
 
 // OtherdocumentationType ...
 type OtherdocumentationType struct {
-	XMLName xml.Name `xml:"other-documentation"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"other-documentation"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Otherdocumentation is Documentation searched other than minimum documentation
@@ -6299,10 +6299,10 @@ type Otherdocumentation *OtherdocumentationType
 
 // MinimumdocumentationType ...
 type MinimumdocumentationType struct {
-	XMLName                    xml.Name                    `xml:"minimum-documentation"`
-	ExchClassificationipc      *ClassificationipcType      `xml:"classification-ipc"`
-	ExchClassificationsipcr    *ClassificationsipcrType    `xml:"classifications-ipcr"`
-	ExchClassificationnational *ClassificationnationalType `xml:"classification-national"`
+	XMLName                    xml.Name                    `json:"-" xml:"minimum-documentation"`
+	ExchClassificationipc      *ClassificationipcType      `json:",omitempty" xml:"classification-ipc"`
+	ExchClassificationsipcr    *ClassificationsipcrType    `json:",omitempty" xml:"classifications-ipcr"`
+	ExchClassificationnational *ClassificationnationalType `json:",omitempty" xml:"classification-national"`
 }
 
 // Minimumdocumentation is Minimum documentation searched
@@ -6357,8 +6357,8 @@ type Srepinventiontitle *SrepinventiontitleType
 
 // SrepotherinfoType ...
 type SrepotherinfoType struct {
-	XMLName         xml.Name               `xml:"srep-other-info"`
-	Srepinformation []*SrepinformationType `xml:"srep-information"`
+	XMLName         xml.Name               `json:"-" xml:"srep-other-info"`
+	Srepinformation []*SrepinformationType `json:",omitempty" xml:"srep-information"`
 }
 
 // Srepotherinfo is This is a place marker since there may be other information added at a later
@@ -6368,10 +6368,10 @@ type Srepotherinfo *SrepotherinfoType
 
 // SrepinfoadminType ...
 type SrepinfoadminType struct {
-	XMLName                xml.Name                    `xml:"srep-info-admin"`
-	Authorizedofficer      *AuthorizedofficerType      `xml:"authorized-officer"`
-	Srepoffice             *SrepofficeType             `xml:"srep-office"`
-	Datesearchreportmailed *DatesearchreportmailedType `xml:"date-search-report-mailed"`
+	XMLName                xml.Name                    `json:"-" xml:"srep-info-admin"`
+	Authorizedofficer      *AuthorizedofficerType      `json:",omitempty" xml:"authorized-officer"`
+	Srepoffice             *SrepofficeType             `json:",omitempty" xml:"srep-office"`
+	Datesearchreportmailed *DatesearchreportmailedType `json:",omitempty" xml:"date-search-report-mailed"`
 }
 
 // Srepinfoadmin is Date mailed
@@ -6383,8 +6383,8 @@ type Srepinfoadmin *SrepinfoadminType
 
 // DatesearchreportmailedType ...
 type DatesearchreportmailedType struct {
-	XMLName xml.Name `xml:"date-search-report-mailed"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"date-search-report-mailed"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Datesearchreportmailed is Date of mailing of search report.
@@ -6394,8 +6394,8 @@ type Datesearchreportmailed *DatesearchreportmailedType
 
 // SrepofficeType ...
 type SrepofficeType struct {
-	XMLName     xml.Name         `xml:"srep-office"`
-	Addressbook *AddressbookType `xml:"addressbook"`
+	XMLName     xml.Name         `json:"-" xml:"srep-office"`
+	Addressbook *AddressbookType `json:",omitempty" xml:"addressbook"`
 }
 
 // Srepoffice is International Search Authority; international search to be carried out by
@@ -6403,23 +6403,23 @@ type Srepoffice *SrepofficeType
 
 // AuthorizedofficerType ...
 type AuthorizedofficerType struct {
-	XMLName             xml.Name                 `xml:"authorized-officer"`
-	Name                *NameType                `xml:"name"`
-	Prefix              *PrefixType              `xml:"prefix"`
-	Lastname            *LastnameType            `xml:"last-name"`
-	Orgname             *OrgnameType             `xml:"orgname"`
-	Firstname           *FirstnameType           `xml:"first-name"`
-	Middlename          *MiddlenameType          `xml:"middle-name"`
-	Suffix              *SuffixType              `xml:"suffix"`
-	Iid                 *IidType                 `xml:"iid"`
-	Role                *RoleType                `xml:"role"`
-	Department          *DepartmentType          `xml:"department"`
-	Synonym             []*SynonymType           `xml:"synonym"`
-	Registerednumber    *RegisterednumberType    `xml:"registered-number"`
-	Phone               *PhoneType               `xml:"phone"`
-	Fax                 *FaxType                 `xml:"fax"`
-	Email               *EmailType               `xml:"email"`
-	Electronicsignature *ElectronicsignatureType `xml:"electronic-signature"`
+	XMLName             xml.Name                 `json:"-" xml:"authorized-officer"`
+	Name                *NameType                `json:",omitempty" xml:"name"`
+	Prefix              *PrefixType              `json:",omitempty" xml:"prefix"`
+	Lastname            *LastnameType            `json:",omitempty" xml:"last-name"`
+	Orgname             *OrgnameType             `json:",omitempty" xml:"orgname"`
+	Firstname           *FirstnameType           `json:",omitempty" xml:"first-name"`
+	Middlename          *MiddlenameType          `json:",omitempty" xml:"middle-name"`
+	Suffix              *SuffixType              `json:",omitempty" xml:"suffix"`
+	Iid                 *IidType                 `json:",omitempty" xml:"iid"`
+	Role                *RoleType                `json:",omitempty" xml:"role"`
+	Department          *DepartmentType          `json:",omitempty" xml:"department"`
+	Synonym             []*SynonymType           `json:",omitempty" xml:"synonym"`
+	Registerednumber    *RegisterednumberType    `json:",omitempty" xml:"registered-number"`
+	Phone               *PhoneType               `json:",omitempty" xml:"phone"`
+	Fax                 *FaxType                 `json:",omitempty" xml:"fax"`
+	Email               *EmailType               `json:",omitempty" xml:"email"`
+	Electronicsignature *ElectronicsignatureType `json:",omitempty" xml:"electronic-signature"`
 }
 
 // Authorizedofficer is Authorized Officer.
@@ -6427,8 +6427,8 @@ type Authorizedofficer *AuthorizedofficerType
 
 // EnhancedsignatureType ...
 type EnhancedsignatureType struct {
-	XMLName xml.Name   `xml:"enhanced-signature"`
-	Pkcs7   *Pkcs7Type `xml:"pkcs7"`
+	XMLName xml.Name   `json:"-" xml:"enhanced-signature"`
+	Pkcs7   *Pkcs7Type `json:",omitempty" xml:"pkcs7"`
 }
 
 // Enhancedsignature is A PKI / PKCS #7 digital signature data type
@@ -6436,7 +6436,7 @@ type Enhancedsignature *EnhancedsignatureType
 
 // Pkcs7Type ...
 type Pkcs7Type struct {
-	XMLName xml.Name `xml:"pkcs7"`
+	XMLName xml.Name `json:"-" xml:"pkcs7"`
 }
 
 // Pkcs7 is PKCS7 digital signature
@@ -6444,10 +6444,10 @@ type Pkcs7 *Pkcs7Type
 
 // BasicsignatureType ...
 type BasicsignatureType struct {
-	XMLName    xml.Name        `xml:"basic-signature"`
-	Faximage   *FaximageType   `xml:"fax-image"`
-	Textstring *TextstringType `xml:"text-string"`
-	Clickwrap  *ClickwrapType  `xml:"click-wrap"`
+	XMLName    xml.Name        `json:"-" xml:"basic-signature"`
+	Faximage   *FaximageType   `json:",omitempty" xml:"fax-image"`
+	Textstring *TextstringType `json:",omitempty" xml:"text-string"`
+	Clickwrap  *ClickwrapType  `json:",omitempty" xml:"click-wrap"`
 }
 
 // Basicsignature is A non-PKI electronic signature
@@ -6455,7 +6455,7 @@ type Basicsignature *BasicsignatureType
 
 // ClickwrapType ...
 type ClickwrapType struct {
-	XMLName xml.Name `xml:"click-wrap"`
+	XMLName xml.Name `json:"-" xml:"click-wrap"`
 }
 
 // Clickwrap is A simple 'signature';
@@ -6465,8 +6465,8 @@ type Clickwrap *ClickwrapType
 
 // TextstringType ...
 type TextstringType struct {
-	XMLName xml.Name `xml:"text-string"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"text-string"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Textstring is A simple text string is to be used as the basic electronic signature;
@@ -6476,8 +6476,8 @@ type Textstring *TextstringType
 
 // FiguretopublishType ...
 type FiguretopublishType struct {
-	XMLName   xml.Name         `xml:"figure-to-publish"`
-	Fignumber []*FignumberType `xml:"fig-number"`
+	XMLName   xml.Name         `json:"-" xml:"figure-to-publish"`
+	Fignumber []*FignumberType `json:",omitempty" xml:"fig-number"`
 }
 
 // Figuretopublish is Figure of the drawings which should accompany the abstract
@@ -6487,8 +6487,8 @@ type Figuretopublish *FiguretopublishType
 
 // FignumberType ...
 type FignumberType struct {
-	XMLName xml.Name `xml:"fig-number"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"fig-number"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Fignumber is Also at EP: <B598>
@@ -6498,10 +6498,10 @@ type Fignumber *FignumberType
 
 // SrepunityofinventionType ...
 type SrepunityofinventionType struct {
-	XMLName          xml.Name              `xml:"srep-unity-of-invention"`
-	P                []*PType              `xml:"p"`
-	Srepsearchfees   *SrepsearchfeesType   `xml:"srep-search-fees"`
-	Searchfeeprotest *SearchfeeprotestType `xml:"search-fee-protest"`
+	XMLName          xml.Name              `json:"-" xml:"srep-unity-of-invention"`
+	P                []*PType              `json:",omitempty" xml:"p"`
+	Srepsearchfees   *SrepsearchfeesType   `json:",omitempty" xml:"srep-search-fees"`
+	Searchfeeprotest *SearchfeeprotestType `json:",omitempty" xml:"search-fee-protest"`
 }
 
 // Srepunityofinvention is Observations where unity of invention is lacking
@@ -6509,11 +6509,11 @@ type Srepunityofinvention *SrepunityofinventionType
 
 // SrepsearchfeesType ...
 type SrepsearchfeesType struct {
-	XMLName  xml.Name      `xml:"srep-search-fees"`
-	Srepfee1 *Srepfee1Type `xml:"srep-fee-1"`
-	Srepfee2 *Srepfee2Type `xml:"srep-fee-2"`
-	Srepfee3 *Srepfee3Type `xml:"srep-fee-3"`
-	Srepfee4 *Srepfee4Type `xml:"srep-fee-4"`
+	XMLName  xml.Name      `json:"-" xml:"srep-search-fees"`
+	Srepfee1 *Srepfee1Type `json:",omitempty" xml:"srep-fee-1"`
+	Srepfee2 *Srepfee2Type `json:",omitempty" xml:"srep-fee-2"`
+	Srepfee3 *Srepfee3Type `json:",omitempty" xml:"srep-fee-3"`
+	Srepfee4 *Srepfee4Type `json:",omitempty" xml:"srep-fee-4"`
 }
 
 // Srepsearchfees ...
@@ -6521,8 +6521,8 @@ type Srepsearchfees *SrepsearchfeesType
 
 // Srepfee4Type ...
 type Srepfee4Type struct {
-	XMLName  xml.Name        `xml:"srep-fee-4"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"srep-fee-4"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Srepfee4 is No required additional search fees were timely paid by the applicant.
@@ -6533,8 +6533,8 @@ type Srepfee4 *Srepfee4Type
 
 // Srepfee3Type ...
 type Srepfee3Type struct {
-	XMLName  xml.Name        `xml:"srep-fee-3"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"srep-fee-3"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Srepfee3 is As only some of the required additional search fees were timely paid by the
@@ -6545,7 +6545,7 @@ type Srepfee3 *Srepfee3Type
 
 // Srepfee2Type ...
 type Srepfee2Type struct {
-	XMLName xml.Name `xml:"srep-fee-2"`
+	XMLName xml.Name `json:"-" xml:"srep-fee-2"`
 }
 
 // Srepfee2 is As all searchable claims could be searched without effort justifying an
@@ -6555,7 +6555,7 @@ type Srepfee2 *Srepfee2Type
 
 // Srepfee1Type ...
 type Srepfee1Type struct {
-	XMLName xml.Name `xml:"srep-fee-1"`
+	XMLName xml.Name `json:"-" xml:"srep-fee-1"`
 }
 
 // Srepfee1 is As all required additional search fees were timely paid by the applicant,
@@ -6565,10 +6565,10 @@ type Srepfee1 *Srepfee1Type
 
 // SrepclaimsinfoType ...
 type SrepclaimsinfoType struct {
-	XMLName     xml.Name         `xml:"srep-claims-info"`
-	Clmsreason1 *Clmsreason1Type `xml:"clms-reason-1"`
-	Clmsreason2 *Clmsreason2Type `xml:"clms-reason-2"`
-	Clmsreason3 *Clmsreason3Type `xml:"clms-reason-3"`
+	XMLName     xml.Name         `json:"-" xml:"srep-claims-info"`
+	Clmsreason1 *Clmsreason1Type `json:",omitempty" xml:"clms-reason-1"`
+	Clmsreason2 *Clmsreason2Type `json:",omitempty" xml:"clms-reason-2"`
+	Clmsreason3 *Clmsreason3Type `json:",omitempty" xml:"clms-reason-3"`
 }
 
 // Srepclaimsinfo is (Old PCT/ISA/210 - Box No. II)
@@ -6583,8 +6583,8 @@ type Srepclaimsinfo *SrepclaimsinfoType
 
 // Clmsreason3Type ...
 type Clmsreason3Type struct {
-	XMLName  xml.Name        `xml:"clms-reason-3"`
-	Claimnum []*ClaimnumType `xml:"claim-num"`
+	XMLName  xml.Name        `json:"-" xml:"clms-reason-3"`
+	Claimnum []*ClaimnumType `json:",omitempty" xml:"claim-num"`
 }
 
 // Clmsreason3 is Claim number(s) (insert value from cliaim-no)
@@ -6595,9 +6595,9 @@ type Clmsreason3 *Clmsreason3Type
 
 // Clmsreason2Type ...
 type Clmsreason2Type struct {
-	XMLName     xml.Name         `xml:"clms-reason-2"`
-	Claimnum    []*ClaimnumType  `xml:"claim-num"`
-	Claimremark *ClaimremarkType `xml:"claim-remark"`
+	XMLName     xml.Name         `json:"-" xml:"clms-reason-2"`
+	Claimnum    []*ClaimnumType  `json:",omitempty" xml:"claim-num"`
+	Claimremark *ClaimremarkType `json:",omitempty" xml:"claim-remark"`
 }
 
 // Clmsreason2 is Claims Nos.: (insert value from claim-no)
@@ -6609,9 +6609,9 @@ type Clmsreason2 *Clmsreason2Type
 
 // Clmsreason1Type ...
 type Clmsreason1Type struct {
-	XMLName     xml.Name         `xml:"clms-reason-1"`
-	Claimnum    []*ClaimnumType  `xml:"claim-num"`
-	Claimremark *ClaimremarkType `xml:"claim-remark"`
+	XMLName     xml.Name         `json:"-" xml:"clms-reason-1"`
+	Claimnum    []*ClaimnumType  `json:",omitempty" xml:"claim-num"`
+	Claimremark *ClaimremarkType `json:",omitempty" xml:"claim-remark"`
 }
 
 // Clmsreason1 is Claims Nos.: (insert value from cliaim-no)
@@ -6622,8 +6622,8 @@ type Clmsreason1 *Clmsreason1Type
 
 // ClaimremarkType ...
 type ClaimremarkType struct {
-	XMLName xml.Name `xml:"claim-remark"`
-	P       []*PType `xml:"p"`
+	XMLName xml.Name `json:"-" xml:"claim-remark"`
+	P       []*PType `json:",omitempty" xml:"p"`
 }
 
 // Claimremark is Remarks on these claims
@@ -6631,8 +6631,8 @@ type Claimremark *ClaimremarkType
 
 // ClaimnumType ...
 type ClaimnumType struct {
-	XMLName xml.Name `xml:"claim-num"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"claim-num"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Claimnum is Claim numbers
@@ -6640,9 +6640,9 @@ type Claimnum *ClaimnumType
 
 // SrepbasisType ...
 type SrepbasisType struct {
-	XMLName                xml.Name                    `xml:"srep-basis"`
-	Basislanguageforsearch *BasislanguageforsearchType `xml:"basis-language-for-search"`
-	Sequencelistbasis      *SequencelistbasisType      `xml:"sequence-list-basis"`
+	XMLName                xml.Name                    `json:"-" xml:"srep-basis"`
+	Basislanguageforsearch *BasislanguageforsearchType `json:",omitempty" xml:"basis-language-for-search"`
+	Sequencelistbasis      *SequencelistbasisType      `json:",omitempty" xml:"sequence-list-basis"`
 }
 
 // Srepbasis is +++++++++++++++++++++++++++++++++++++++
@@ -6655,10 +6655,10 @@ type Srepbasis *SrepbasisType
 
 // SequencelistbasisType ...
 type SequencelistbasisType struct {
-	XMLName                  xml.Name                      `xml:"sequence-list-basis"`
-	Materialofsequencelist   *MaterialofsequencelistType   `xml:"material-of-sequence-list"`
-	Presentationofstatements *PresentationofstatementsType `xml:"presentation-of-statements"`
-	Additionalinfo           *AdditionalinfoType           `xml:"additional-info"`
+	XMLName                  xml.Name                      `json:"-" xml:"sequence-list-basis"`
+	Materialofsequencelist   *MaterialofsequencelistType   `json:",omitempty" xml:"material-of-sequence-list"`
+	Presentationofstatements *PresentationofstatementsType `json:",omitempty" xml:"presentation-of-statements"`
+	Additionalinfo           *AdditionalinfoType           `json:",omitempty" xml:"additional-info"`
 }
 
 // Sequencelistbasis is A sequence listing and/or any related table(s) - see Supplemental Box Relating
@@ -6668,7 +6668,7 @@ type Sequencelistbasis *SequencelistbasisType
 
 // PresentationofstatementsType ...
 type PresentationofstatementsType struct {
-	XMLName xml.Name `xml:"presentation-of-statements"`
+	XMLName xml.Name `json:"-" xml:"presentation-of-statements"`
 }
 
 // Presentationofstatements is (PCT/ISA/210 and PCT/ISA/237 )
@@ -6690,10 +6690,10 @@ type Presentationofstatements *PresentationofstatementsType
 
 // MaterialofsequencelistType ...
 type MaterialofsequencelistType struct {
-	XMLName                       xml.Name                           `xml:"material-of-sequence-list"`
-	Sequencelistingmaterialtype   *SequencelistingmaterialtypeType   `xml:"sequence-listing-material-type"`
-	Sequencelistingmaterialformat *SequencelistingmaterialformatType `xml:"sequence-listing-material-format"`
-	Sequencelistingfilingtime     *SequencelistingfilingtimeType     `xml:"sequence-listing-filing-time"`
+	XMLName                       xml.Name                           `json:"-" xml:"material-of-sequence-list"`
+	Sequencelistingmaterialtype   *SequencelistingmaterialtypeType   `json:",omitempty" xml:"sequence-listing-material-type"`
+	Sequencelistingmaterialformat *SequencelistingmaterialformatType `json:",omitempty" xml:"sequence-listing-material-format"`
+	Sequencelistingfilingtime     *SequencelistingfilingtimeType     `json:",omitempty" xml:"sequence-listing-filing-time"`
 }
 
 // Materialofsequencelist is (PCT/ISA/210 Box No. I Nucleotide and/or amino acid sequence(s)
@@ -6722,8 +6722,8 @@ type Materialofsequencelist *MaterialofsequencelistType
 
 // SreprequestnumberType ...
 type SreprequestnumberType struct {
-	XMLName xml.Name `xml:"srep-request-number"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"srep-request-number"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sreprequestnumber is Search request number eg. on PCT Form 201.
@@ -6731,8 +6731,8 @@ type Sreprequestnumber *SreprequestnumberType
 
 // SreprequestdateType ...
 type SreprequestdateType struct {
-	XMLName xml.Name `xml:"srep-request-date"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"srep-request-date"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Sreprequestdate is Date of request for search eg. on PCT Form 201
@@ -6740,8 +6740,8 @@ type Sreprequestdate *SreprequestdateType
 
 // DateofearliestpriorityType ...
 type DateofearliestpriorityType struct {
-	XMLName xml.Name `xml:"date-of-earliest-priority"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"date-of-earliest-priority"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Dateofearliestpriority is Where the international application claims the priority of several earlier
@@ -6752,8 +6752,8 @@ type Dateofearliestpriority *DateofearliestpriorityType
 
 // FilereferenceidType ...
 type FilereferenceidType struct {
-	XMLName xml.Name `xml:"file-reference-id"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"file-reference-id"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Filereferenceid is Applicant's or agent's file reference, if desired,
@@ -6761,9 +6761,9 @@ type Filereferenceid *FilereferenceidType
 
 // PatentfamilyType ...
 type PatentfamilyType struct {
-	XMLName          xml.Name            `xml:"patent-family"`
-	ExchFamilymember []*FamilymemberType `xml:"family-member"`
-	ExchAbstract     *AbstractType       `xml:"abstract"`
+	XMLName          xml.Name            `json:"-" xml:"patent-family"`
+	ExchFamilymember []*FamilymemberType `json:",omitempty" xml:"family-member"`
+	ExchAbstract     *AbstractType       `json:",omitempty" xml:"abstract"`
 }
 
 // Patentfamily is DOCDB simple patent family consists of all publications that claim EXACTLY the same ACTIVE priorities as
@@ -6784,9 +6784,9 @@ type Patentfamily *PatentfamilyType
 
 // FamilymemberType ...
 type FamilymemberType struct {
-	XMLName                  xml.Name                    `xml:"family-member"`
-	ExchApplicationreference []*ApplicationreferenceType `xml:"application-reference"`
-	ExchPublicationreference []*PublicationreferenceType `xml:"publication-reference"`
+	XMLName                  xml.Name                    `json:"-" xml:"family-member"`
+	ExchApplicationreference []*ApplicationreferenceType `json:",omitempty" xml:"application-reference"`
+	ExchPublicationreference []*PublicationreferenceType `json:",omitempty" xml:"publication-reference"`
 }
 
 // Familymember is Element "family member" contains :
@@ -6797,9 +6797,9 @@ type Familymember *FamilymemberType
 
 // CorrectionnoticeType ...
 type CorrectionnoticeType struct {
-	XMLName              xml.Name                      `xml:"correction-notice"`
-	Date                 int                           `xml:"date"`
-	ExchGazettereference *ExchangegazettereferenceType `xml:"gazette-reference"`
+	XMLName              xml.Name                      `json:"-" xml:"correction-notice"`
+	Date                 int                           `json:",omitempty" xml:"date"`
+	ExchGazettereference *ExchangegazettereferenceType `json:",omitempty" xml:"gazette-reference"`
 }
 
 // Correctionnotice is (ST.32:B480)
@@ -6807,8 +6807,8 @@ type Correctionnotice *CorrectionnoticeType
 
 // RepublicationnotesType ...
 type RepublicationnotesType struct {
-	XMLName           xml.Name                 `xml:"republication-notes"`
-	Republicationnote []*RepublicationnoteType `xml:"republication-note"`
+	XMLName           xml.Name                 `json:"-" xml:"republication-notes"`
+	Republicationnote []*RepublicationnoteType `json:",omitempty" xml:"republication-note"`
 }
 
 // Republicationnotes is Notes on the correction information (ST.32 : B154EP)
@@ -6816,9 +6816,9 @@ type Republicationnotes *RepublicationnotesType
 
 // ModificationsType ...
 type ModificationsType struct {
-	XMLName              xml.Name                  `xml:"modifications"`
-	Modifiedbibliography *ModifiedbibliographyType `xml:"modified-bibliography"`
-	Modifiedpart         []*ModifiedpartType       `xml:"modified-part"`
+	XMLName              xml.Name                  `json:"-" xml:"modifications"`
+	Modifiedbibliography *ModifiedbibliographyType `json:",omitempty" xml:"modified-bibliography"`
+	Modifiedpart         []*ModifiedpartType       `json:",omitempty" xml:"modified-part"`
 }
 
 // Modifications is Information on the modifications in the document (ST.32 : B153 and B155EP)
@@ -6826,8 +6826,8 @@ type Modifications *ModificationsType
 
 // ModifiedpartnameType ...
 type ModifiedpartnameType struct {
-	XMLName xml.Name `xml:"modified-part-name"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"modified-part-name"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Modifiedpartname is Name of the affected part (ST.32 : B1552EP)
@@ -6835,8 +6835,8 @@ type Modifiedpartname *ModifiedpartnameType
 
 // ModifiedbibliographyType ...
 type ModifiedbibliographyType struct {
-	XMLName  xml.Name        `xml:"modified-bibliography"`
-	Inidcode []*InidcodeType `xml:"inid-code"`
+	XMLName  xml.Name        `json:"-" xml:"modified-bibliography"`
+	Inidcode []*InidcodeType `json:",omitempty" xml:"inid-code"`
 }
 
 // Modifiedbibliography is INID-codes affected by the correction information (ST.32 : B153)
@@ -6844,8 +6844,8 @@ type Modifiedbibliography *ModifiedbibliographyType
 
 // CancellationdateType ...
 type CancellationdateType struct {
-	XMLName xml.Name `xml:"cancellation-date"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"cancellation-date"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Cancellationdate is Issue date of announced correction being cancelled B152EP
@@ -6853,8 +6853,8 @@ type Cancellationdate *CancellationdateType
 
 // RepublicationcodeType ...
 type RepublicationcodeType struct {
-	XMLName xml.Name `xml:"republication-code"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"republication-code"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Republicationcode is Correction information B151EP
@@ -6862,8 +6862,8 @@ type Republicationcode *RepublicationcodeType
 
 // TypeofcorrectionType ...
 type TypeofcorrectionType struct {
-	XMLName xml.Name `xml:"type-of-correction"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"type-of-correction"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Typeofcorrection is type-of-correction [ for WIPO only ]
@@ -6871,12 +6871,12 @@ type Typeofcorrection *TypeofcorrectionType
 
 // CorrespondingdocsType ...
 type CorrespondingdocsType struct {
-	XMLName    xml.Name          `xml:"corresponding-docs"`
-	Patcit     []*PatcitType     `xml:"patcit"`
-	Nplcit     []*NplcitType     `xml:"nplcit"`
-	Relpassage []*RelpassageType `xml:"rel-passage"`
-	Category   []*CategoryType   `xml:"category"`
-	Relclaims  []*RelclaimsType  `xml:"rel-claims"`
+	XMLName    xml.Name          `json:"-" xml:"corresponding-docs"`
+	Patcit     []*PatcitType     `json:",omitempty" xml:"patcit"`
+	Nplcit     []*NplcitType     `json:",omitempty" xml:"nplcit"`
+	Relpassage []*RelpassageType `json:",omitempty" xml:"rel-passage"`
+	Category   []*CategoryType   `json:",omitempty" xml:"category"`
+	Relclaims  []*RelclaimsType  `json:",omitempty" xml:"rel-claims"`
 }
 
 // Correspondingdocs is Patent family and corresponding-docs - see example above
@@ -6892,8 +6892,8 @@ type Priorityclaims *PriorityclaimsType
 
 // PriorityclaimsType ...
 type PriorityclaimsType struct {
-	XMLName           xml.Name             `xml:"priority-claims"`
-	ExchPriorityclaim []*PriorityclaimType `xml:"priority-claim"`
+	XMLName           xml.Name             `json:"-" xml:"priority-claims"`
+	ExchPriorityclaim []*PriorityclaimType `json:",omitempty" xml:"priority-claim"`
 }
 
 // Priorityactiveindicator ...
@@ -6904,8 +6904,8 @@ type Prioritylinkagetype string
 
 // PrioritydocattachedType ...
 type PrioritydocattachedType struct {
-	XMLName xml.Name `xml:"priority-doc-attached"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"priority-doc-attached"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Prioritydocattached is The priority document is attached to the application
@@ -6913,8 +6913,8 @@ type Prioritydocattached *PrioritydocattachedType
 
 // PrioritydocrequestedType ...
 type PrioritydocrequestedType struct {
-	XMLName xml.Name `xml:"priority-doc-requested"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"priority-doc-requested"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Prioritydocrequested is The receiving office is requested to prepare and transmit to the IB a certified
@@ -6924,9 +6924,9 @@ type Prioritydocrequested *PrioritydocrequestedType
 
 // OfficeoffilingType ...
 type OfficeoffilingType struct {
-	XMLName xml.Name    `xml:"office-of-filing"`
-	Region  *RegionType `xml:"region"`
-	Country string      `xml:"country"`
+	XMLName xml.Name    `json:"-" xml:"office-of-filing"`
+	Region  *RegionType `json:",omitempty" xml:"region"`
+	Country string      `json:",omitempty" xml:"country"`
 }
 
 // Officeoffiling is Where the earlier application is an ARIPO application,indicate at least one
@@ -6940,18 +6940,18 @@ type Parties *PartiesType
 
 // PartiesType ...
 type PartiesType struct {
-	XMLName               xml.Name                   `xml:"parties"`
-	ExchApplicants        *ApplicantsType            `xml:"applicants"`
-	ExchInventors         *InventorsType             `xml:"inventors"`
-	Correspondenceaddress *CorrespondenceaddressType `xml:"correspondence-address"`
-	Agents                *AgentsType                `xml:"agents"`
+	XMLName               xml.Name                   `json:"-" xml:"parties"`
+	ExchApplicants        *ApplicantsType            `json:",omitempty" xml:"applicants"`
+	ExchInventors         *InventorsType             `json:",omitempty" xml:"inventors"`
+	Correspondenceaddress *CorrespondenceaddressType `json:",omitempty" xml:"correspondence-address"`
+	Agents                *AgentsType                `json:",omitempty" xml:"agents"`
 }
 
 // AgentsType ...
 type AgentsType struct {
-	XMLName        xml.Name            `xml:"agents"`
-	Customernumber *CustomernumberType `xml:"customer-number"`
-	Agent          []*AgentType        `xml:"agent"`
+	XMLName        xml.Name            `json:"-" xml:"agents"`
+	Customernumber *CustomernumberType `json:",omitempty" xml:"customer-number"`
+	Agent          []*AgentType        `json:",omitempty" xml:"agent"`
 }
 
 // Agents is Information regarding Agents or common representatives
@@ -6959,9 +6959,9 @@ type Agents *AgentsType
 
 // CorrespondenceaddressType ...
 type CorrespondenceaddressType struct {
-	XMLName        xml.Name            `xml:"correspondence-address"`
-	Customernumber *CustomernumberType `xml:"customer-number"`
-	Addressbook    []*AddressbookType  `xml:"addressbook"`
+	XMLName        xml.Name            `json:"-" xml:"correspondence-address"`
+	Customernumber *CustomernumberType `json:",omitempty" xml:"customer-number"`
+	Addressbook    []*AddressbookType  `json:",omitempty" xml:"addressbook"`
 }
 
 // Correspondenceaddress is Address used for general correspondence
@@ -6969,8 +6969,8 @@ type Correspondenceaddress *CorrespondenceaddressType
 
 // CustomernumberType ...
 type CustomernumberType struct {
-	XMLName xml.Name `xml:"customer-number"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"customer-number"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Customernumber is Customer number for agents by office
@@ -6987,9 +6987,9 @@ type Inventors *InventorsType
 
 // InventorsType ...
 type InventorsType struct {
-	XMLName              xml.Name                `xml:"inventors"`
-	ExchInventor         []*InventorType         `xml:"inventor"`
-	ExchDeceasedinventor []*DeceasedinventorType `xml:"deceased-inventor"`
+	XMLName              xml.Name                `json:"-" xml:"inventors"`
+	ExchInventor         []*InventorType         `json:",omitempty" xml:"inventor"`
+	ExchDeceasedinventor []*DeceasedinventorType `json:",omitempty" xml:"deceased-inventor"`
 }
 
 // Inventor is DOCDB only keeps a record of inventor-name and country of residence; address is only available
@@ -7017,8 +7017,8 @@ type Inventor *InventorType
 
 // ApplicantsType ...
 type ApplicantsType struct {
-	XMLName       xml.Name         `xml:"applicants"`
-	ExchApplicant []*ApplicantType `xml:"applicant"`
+	XMLName       xml.Name         `json:"-" xml:"applicants"`
+	ExchApplicant []*ApplicantType `json:",omitempty" xml:"applicant"`
 }
 
 // Applicants ...
@@ -7026,9 +7026,9 @@ type Applicants *ApplicantsType
 
 // DesignatedstatesasinventorType ...
 type DesignatedstatesasinventorType struct {
-	XMLName xml.Name    `xml:"designated-states-as-inventor"`
-	Country []string    `xml:"country"`
-	Region  *RegionType `xml:"region"`
+	XMLName xml.Name    `json:"-" xml:"designated-states-as-inventor"`
+	Country []string    `json:",omitempty" xml:"country"`
+	Region  *RegionType `json:",omitempty" xml:"region"`
 }
 
 // Designatedstatesasinventor is Rule 4.6(c):
@@ -7044,9 +7044,9 @@ type Designatedstatesasinventor *DesignatedstatesasinventorType
 
 // DesignatedstatesType ...
 type DesignatedstatesType struct {
-	XMLName xml.Name    `xml:"designated-states"`
-	Country []string    `xml:"country"`
-	Region  *RegionType `xml:"region"`
+	XMLName xml.Name    `json:"-" xml:"designated-states"`
+	Country []string    `json:",omitempty" xml:"country"`
+	Region  *RegionType `json:",omitempty" xml:"region"`
 }
 
 // Designatedstates is Indication of specific Contracting States in or for which the applicant is
@@ -7056,8 +7056,8 @@ type Designatedstates *DesignatedstatesType
 
 // ResidenceType ...
 type ResidenceType struct {
-	XMLName xml.Name `xml:"residence"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"residence"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Residence is Country of residence
@@ -7065,8 +7065,8 @@ type Residence *ResidenceType
 
 // NationalityType ...
 type NationalityType struct {
-	XMLName xml.Name `xml:"nationality"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"nationality"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Nationality is Country of nationality
@@ -7074,11 +7074,11 @@ type Nationality *NationalityType
 
 // DesignationepcType ...
 type DesignationepcType struct {
-	XMLName                   xml.Name                     `xml:"designation-epc"`
-	ExchContractingstates     []*ContractingstatesType     `xml:"contracting-states"`
-	ExchExtensionstates       []*ExtensionstatesType       `xml:"extension-states"`
-	ExchValidationstates      []*ValidationstatesType      `xml:"validation-states"`
-	ExchUpparticipatingstates []*UpparticipatingstatesType `xml:"up-participating-states"`
+	XMLName                   xml.Name                     `json:"-" xml:"designation-epc"`
+	ExchContractingstates     []*ContractingstatesType     `json:",omitempty" xml:"contracting-states"`
+	ExchExtensionstates       []*ExtensionstatesType       `json:",omitempty" xml:"extension-states"`
+	ExchValidationstates      []*ValidationstatesType      `json:",omitempty" xml:"validation-states"`
+	ExchUpparticipatingstates []*UpparticipatingstatesType `json:",omitempty" xml:"up-participating-states"`
 }
 
 // Designationepc is EPO member states in which protection is desired.
@@ -7086,8 +7086,8 @@ type Designationepc *DesignationepcType
 
 // ExtensionstatesType ...
 type ExtensionstatesType struct {
-	XMLName xml.Name `xml:"extension-states"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"extension-states"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Extensionstates is Recognising EP patent applications and patents on their territory
@@ -7095,8 +7095,8 @@ type Extensionstates *ExtensionstatesType
 
 // ContractingstatesType ...
 type ContractingstatesType struct {
-	XMLName xml.Name `xml:"contracting-states"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"contracting-states"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Contractingstates is The EPO member States for which protection (depending upon context) is desired
@@ -7104,8 +7104,8 @@ type Contractingstates *ContractingstatesType
 
 // ValidationstatesType ...
 type ValidationstatesType struct {
-	XMLName xml.Name `xml:"validation-states"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"validation-states"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Validationstates is Recognising EP patent applications and patents on their territory
@@ -7113,8 +7113,8 @@ type Validationstates *ValidationstatesType
 
 // UpparticipatingstatesType ...
 type UpparticipatingstatesType struct {
-	XMLName xml.Name `xml:"up-participating-states"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"up-participating-states"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Upparticipatingstates is EPO member states participating in the Unitary Patent
@@ -7122,9 +7122,9 @@ type Upparticipatingstates *UpparticipatingstatesType
 
 // ExclusionfromdesignationType ...
 type ExclusionfromdesignationType struct {
-	XMLName      xml.Name        `xml:"exclusion-from-designation"`
-	ExchRegional []*RegionalType `xml:"regional"`
-	ExchNational *NationalType   `xml:"national"`
+	XMLName      xml.Name        `json:"-" xml:"exclusion-from-designation"`
+	ExchRegional []*RegionalType `json:",omitempty" xml:"regional"`
+	ExchNational *NationalType   `json:",omitempty" xml:"national"`
 }
 
 // Exclusionfromdesignation is State(s) excluded from precautionary designations under Rule 4.9(b)
@@ -7132,8 +7132,8 @@ type Exclusionfromdesignation *ExclusionfromdesignationType
 
 // PrecautionarydesignationstatementType ...
 type PrecautionarydesignationstatementType struct {
-	XMLName xml.Name `xml:"precautionary-designation-statement"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"precautionary-designation-statement"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Precautionarydesignationstatement is Rule 4.9(b),(c)
@@ -7150,10 +7150,10 @@ type Precautionarydesignationstatement *PrecautionarydesignationstatementType
 
 // DesignationpctType ...
 type DesignationpctType struct {
-	XMLName               xml.Name                     `xml:"designation-pct"`
-	ExchRegional          []*RegionalType              `xml:"regional"`
-	ExchNational          *NationalType                `xml:"national"`
-	Newdesignationcountry []*NewdesignationcountryType `xml:"new-designation-country"`
+	XMLName               xml.Name                     `json:"-" xml:"designation-pct"`
+	ExchRegional          []*RegionalType              `json:",omitempty" xml:"regional"`
+	ExchNational          *NationalType                `json:",omitempty" xml:"national"`
+	Newdesignationcountry []*NewdesignationcountryType `json:",omitempty" xml:"new-designation-country"`
 }
 
 // Designationpct is The Contracting States in which protection is desired
@@ -7163,8 +7163,8 @@ type Designationpct *DesignationpctType
 
 // NewdesignationcountryType ...
 type NewdesignationcountryType struct {
-	XMLName xml.Name `xml:"new-designation-country"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"new-designation-country"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Newdesignationcountry is New PCT member country states (e.g., not yet published in WIPO ST.3, joined after
@@ -7174,9 +7174,9 @@ type Newdesignationcountry *NewdesignationcountryType
 
 // NationalType ...
 type NationalType struct {
-	XMLName           xml.Name                 `xml:"national"`
-	Country           string                   `xml:"country"`
-	Protectionrequest []*ProtectionrequestType `xml:"protection-request"`
+	XMLName           xml.Name                 `json:"-" xml:"national"`
+	Country           string                   `json:",omitempty" xml:"country"`
+	Protectionrequest []*ProtectionrequestType `json:",omitempty" xml:"protection-request"`
 }
 
 // National is The States for which protection or exclusion (depending upon context) is desired
@@ -7184,11 +7184,11 @@ type National *NationalType
 
 // RegionalType ...
 type RegionalType struct {
-	XMLName           xml.Name                 `xml:"regional"`
-	Region            *RegionType              `xml:"region"`
-	Country           string                   `xml:"country"`
-	Protectionrequest []*ProtectionrequestType `xml:"protection-request"`
-	Anyotherstate     *AnyotherstateType       `xml:"any-other-state"`
+	XMLName           xml.Name                 `json:"-" xml:"regional"`
+	Region            *RegionType              `json:",omitempty" xml:"region"`
+	Country           string                   `json:",omitempty" xml:"country"`
+	Protectionrequest []*ProtectionrequestType `json:",omitempty" xml:"protection-request"`
+	Anyotherstate     *AnyotherstateType       `json:",omitempty" xml:"any-other-state"`
 }
 
 // Regional is Regional (as opposed to national) protection being sought
@@ -7196,7 +7196,7 @@ type Regional *RegionalType
 
 // AnyotherstateType ...
 type AnyotherstateType struct {
-	XMLName xml.Name `xml:"any-other-state"`
+	XMLName xml.Name `json:"-" xml:"any-other-state"`
 }
 
 // Anyotherstate is Any other state in which protection is being sought
@@ -7204,9 +7204,9 @@ type Anyotherstate *AnyotherstateType
 
 // ProtectionrequestType ...
 type ProtectionrequestType struct {
-	XMLName          xml.Name              `xml:"protection-request"`
-	Kindofprotection *KindofprotectionType `xml:"kind-of-protection"`
-	Documentid       *DocumentidType       `xml:"document-id"`
+	XMLName          xml.Name              `json:"-" xml:"protection-request"`
+	Kindofprotection *KindofprotectionType `json:",omitempty" xml:"kind-of-protection"`
+	Documentid       *DocumentidType       `json:",omitempty" xml:"document-id"`
 }
 
 // Protectionrequest is Protection request for the designated office.
@@ -7214,8 +7214,8 @@ type Protectionrequest *ProtectionrequestType
 
 // KindofprotectionType ...
 type KindofprotectionType struct {
-	XMLName xml.Name `xml:"kind-of-protection"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"kind-of-protection"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Kindofprotection is Kind of protection; e.g., patent, utility model
@@ -7223,8 +7223,8 @@ type Kindofprotection *KindofprotectionType
 
 // RegionType ...
 type RegionType struct {
-	XMLName xml.Name `xml:"region"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"region"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Region is The region for which protection or
@@ -7234,17 +7234,17 @@ type Region *RegionType
 
 // Gazettepubannouncement ...
 type Gazettepubannouncement struct {
-	XMLName        xml.Name        `xml:"gazette-pub-announcement"`
-	ExchGazettenum *GazettenumType `xml:"gazette-num"`
-	ExchDate       string          `xml:"date"`
-	ExchText       *TextType       `xml:"text"`
+	XMLName        xml.Name        `json:"-" xml:"gazette-pub-announcement"`
+	ExchGazettenum *GazettenumType `json:",omitempty" xml:"gazette-num"`
+	ExchDate       string          `json:",omitempty" xml:"date"`
+	ExchText       *TextType       `json:",omitempty" xml:"text"`
 }
 
 // Supplementalsreppub ...
 type Supplementalsreppub struct {
-	XMLName     xml.Name `xml:"supplemental-srep-pub"`
-	ExchSrepnum string   `xml:"srep-num"`
-	ExchDate    string   `xml:"date"`
+	XMLName     xml.Name `json:"-" xml:"supplemental-srep-pub"`
+	ExchSrepnum string   `json:",omitempty" xml:"srep-num"`
+	ExchDate    string   `json:",omitempty" xml:"date"`
 }
 
 // Srepnum ...
@@ -7265,9 +7265,9 @@ type Modifiedfirstpagepub *ModifiedfirstpagepubType
 
 // PrintedasamendedType ...
 type PrintedasamendedType struct {
-	XMLName    xml.Name             `xml:"printed-as-amended"`
-	Documentid *DocumentidPrintType `xml:"document-id"`
-	Text       *TextType            `xml:"text"`
+	XMLName    xml.Name             `json:"-" xml:"printed-as-amended"`
+	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
+	Text       *TextType            `json:",omitempty" xml:"text"`
 }
 
 // Printedasamended is Document printed as amended, (eg. EPO B2).
@@ -7277,9 +7277,9 @@ type Printedasamended *PrintedasamendedType
 
 // InvalidationofpatentType ...
 type InvalidationofpatentType struct {
-	XMLName    xml.Name        `xml:"invalidation-of-patent"`
-	Documentid *DocumentidType `xml:"document-id"`
-	Text       *TextType       `xml:"text"`
+	XMLName    xml.Name        `json:"-" xml:"invalidation-of-patent"`
+	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
+	Text       *TextType       `json:",omitempty" xml:"text"`
 }
 
 // Invalidationofpatent is Invalidation of patent.
@@ -7289,11 +7289,11 @@ type Invalidationofpatent *InvalidationofpatentType
 
 // TermofgrantType ...
 type TermofgrantType struct {
-	XMLName       xml.Name             `xml:"term-of-grant"`
-	Text          []*TextType          `xml:"text"`
-	Disclaimer    []*DisclaimerType    `xml:"disclaimer"`
-	Lengthofgrant []*LengthofgrantType `xml:"length-of-grant"`
-	Lapseofpatent []*LapseofpatentType `xml:"lapse-of-patent"`
+	XMLName       xml.Name             `json:"-" xml:"term-of-grant"`
+	Text          []*TextType          `json:",omitempty" xml:"text"`
+	Disclaimer    []*DisclaimerType    `json:",omitempty" xml:"disclaimer"`
+	Lengthofgrant []*LengthofgrantType `json:",omitempty" xml:"length-of-grant"`
+	Lapseofpatent []*LapseofpatentType `json:",omitempty" xml:"lapse-of-patent"`
 }
 
 // Termofgrant is Term of grant.
@@ -7303,9 +7303,9 @@ type Termofgrant *TermofgrantType
 
 // LapseofpatentType ...
 type LapseofpatentType struct {
-	XMLName    xml.Name        `xml:"lapse-of-patent"`
-	Documentid *DocumentidType `xml:"document-id"`
-	Text       *TextType       `xml:"text"`
+	XMLName    xml.Name        `json:"-" xml:"lapse-of-patent"`
+	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
+	Text       *TextType       `json:",omitempty" xml:"text"`
 }
 
 // Lapseofpatent is Lapse of patent.
@@ -7315,8 +7315,8 @@ type Lapseofpatent *LapseofpatentType
 
 // LengthofgrantType ...
 type LengthofgrantType struct {
-	XMLName xml.Name `xml:"length-of-grant"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"length-of-grant"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Lengthofgrant is Length of Grant.
@@ -7326,9 +7326,9 @@ type Lengthofgrant *LengthofgrantType
 
 // DisclaimerType ...
 type DisclaimerType struct {
-	XMLName xml.Name  `xml:"disclaimer"`
-	Date    int       `xml:"date"`
-	Text    *TextType `xml:"text"`
+	XMLName xml.Name  `json:"-" xml:"disclaimer"`
+	Date    int       `json:",omitempty" xml:"date"`
+	Text    *TextType `json:",omitempty" xml:"text"`
 }
 
 // Disclaimer is Disclaimer date.
@@ -7338,8 +7338,8 @@ type Disclaimer *DisclaimerType
 
 // GazettenumType ...
 type GazettenumType struct {
-	XMLName xml.Name `xml:"gazette-num"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"gazette-num"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Gazettenum ...
@@ -7347,9 +7347,9 @@ type Gazettenum *GazettenumType
 
 // CombinationrankType ...
 type CombinationrankType struct {
-	XMLName              xml.Name                  `xml:"combination-rank"`
-	Ranknumber           string                    `xml:"rank-number"`
-	Patentclassification *PatentclassificationType `xml:"patent-classification"`
+	XMLName              xml.Name                  `json:"-" xml:"combination-rank"`
+	Ranknumber           string                    `json:",omitempty" xml:"rank-number"`
+	Patentclassification *PatentclassificationType `json:",omitempty" xml:"patent-classification"`
 }
 
 // Combinationrank ...
@@ -7357,8 +7357,8 @@ type Combinationrank *CombinationrankType
 
 // UnlinkedindexingcodeType ...
 type UnlinkedindexingcodeType struct {
-	XMLName xml.Name `xml:"unlinked-indexing-code"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"unlinked-indexing-code"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Unlinkedindexingcode is Unlinked indexing code.
@@ -7368,9 +7368,9 @@ type Unlinkedindexingcode *UnlinkedindexingcodeType
 
 // LinkedindexingcodegroupType ...
 type LinkedindexingcodegroupType struct {
-	XMLName                xml.Name                     `xml:"linked-indexing-code-group"`
-	Mainlinkedindexingcode *MainlinkedindexingcodeType  `xml:"main-linked-indexing-code"`
-	Sublinkedindexingcode  []*SublinkedindexingcodeType `xml:"sub-linked-indexing-code"`
+	XMLName                xml.Name                     `json:"-" xml:"linked-indexing-code-group"`
+	Mainlinkedindexingcode *MainlinkedindexingcodeType  `json:",omitempty" xml:"main-linked-indexing-code"`
+	Sublinkedindexingcode  []*SublinkedindexingcodeType `json:",omitempty" xml:"sub-linked-indexing-code"`
 }
 
 // Linkedindexingcodegroup is Linked indexing code.
@@ -7380,8 +7380,8 @@ type Linkedindexingcodegroup *LinkedindexingcodegroupType
 
 // SublinkedindexingcodeType ...
 type SublinkedindexingcodeType struct {
-	XMLName xml.Name `xml:"sub-linked-indexing-code"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"sub-linked-indexing-code"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sublinkedindexingcode is Sub/further Linked Indexing Code.
@@ -7389,8 +7389,8 @@ type Sublinkedindexingcode *SublinkedindexingcodeType
 
 // MainlinkedindexingcodeType ...
 type MainlinkedindexingcodeType struct {
-	XMLName xml.Name `xml:"main-linked-indexing-code"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"main-linked-indexing-code"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Mainlinkedindexingcode is Main Linked Indexing Code.
@@ -7398,8 +7398,8 @@ type Mainlinkedindexingcode *MainlinkedindexingcodeType
 
 // AdditionalinfoType ...
 type AdditionalinfoType struct {
-	XMLName xml.Name `xml:"additional-info"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"additional-info"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Additionalinfo is Additional information. ST.32 equivalency = B513
@@ -7407,8 +7407,8 @@ type Additionalinfo *AdditionalinfoType
 
 // MainclassificationType ...
 type MainclassificationType struct {
-	XMLName xml.Name `xml:"main-classification"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"main-classification"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Mainclassification is Main classification.
@@ -7418,8 +7418,8 @@ type Mainclassification *MainclassificationType
 
 // GeneratingofficeType ...
 type GeneratingofficeType struct {
-	XMLName xml.Name `xml:"generating-office"`
-	Country string   `xml:"country"`
+	XMLName xml.Name `json:"-" xml:"generating-office"`
+	Country string   `json:",omitempty" xml:"country"`
 }
 
 // Generatingoffice is Positions 41-42: Generating Office
@@ -7433,8 +7433,8 @@ type Generatingoffice *GeneratingofficeType
 
 // ClassificationdatasourceType ...
 type ClassificationdatasourceType struct {
-	XMLName xml.Name `xml:"classification-data-source"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"classification-data-source"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Classificationdatasource is Position 40: Source of classification data
@@ -7453,8 +7453,8 @@ type Classificationdatasource *ClassificationdatasourceType
 
 // ClassificationstatusType ...
 type ClassificationstatusType struct {
-	XMLName xml.Name `xml:"classification-status"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"classification-status"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Classificationstatus is Position 39: Original and reclassified data
@@ -7477,14 +7477,14 @@ type Classificationstatus *ClassificationstatusType
 
 // ActiondateType ...
 type ActiondateType struct {
-	XMLName xml.Name `xml:"action-date"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"action-date"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // ClassificationvalueType ...
 type ClassificationvalueType struct {
-	XMLName xml.Name `xml:"classification-value"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"classification-value"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Classificationvalue is Position 30: Classification value (inventive or non-inventive)
@@ -7497,8 +7497,8 @@ type Classificationvalue *ClassificationvalueType
 
 // SymbolpositionType ...
 type SymbolpositionType struct {
-	XMLName xml.Name `xml:"symbol-position"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"symbol-position"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Symbolposition is Position 29: First or later position of symbols
@@ -7510,8 +7510,8 @@ type Symbolposition *SymbolpositionType
 
 // ClassificationlevelType ...
 type ClassificationlevelType struct {
-	XMLName xml.Name `xml:"classification-level"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"classification-level"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Classificationlevel is Position 28 : Classification level
@@ -7532,8 +7532,8 @@ type Classificationlevel *ClassificationlevelType
 
 // IpcversionindicatorType ...
 type IpcversionindicatorType struct {
-	XMLName xml.Name `xml:"ipc-version-indicator"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"ipc-version-indicator"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Ipcversionindicator is Positions 20 to 27: Version indicator
@@ -7545,8 +7545,8 @@ type Ipcversionindicator *IpcversionindicatorType
 
 // SubgroupType ...
 type SubgroupType struct {
-	XMLName xml.Name `xml:"subgroup"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"subgroup"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Subgroup ...
@@ -7554,8 +7554,8 @@ type Subgroup *SubgroupType
 
 // MaingroupType ...
 type MaingroupType struct {
-	XMLName xml.Name `xml:"main-group"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"main-group"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Maingroup ...
@@ -7563,8 +7563,8 @@ type Maingroup *MaingroupType
 
 // SubclassType ...
 type SubclassType struct {
-	XMLName xml.Name `xml:"subclass"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"subclass"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Subclass ...
@@ -7572,8 +7572,8 @@ type Subclass *SubclassType
 
 // SectionType ...
 type SectionType struct {
-	XMLName xml.Name `xml:"section"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"section"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Section is Positions 1 to 19: Recording of the parts of the IPC symbols
@@ -7621,61 +7621,61 @@ type Abstproblem *AbstproblemType
 
 // EntryAtt ...
 type EntryAtt struct {
-	XMLName xml.Name `xml:"entry.att"`
+	XMLName xml.Name `json:"-" xml:"entry.att"`
 }
 
 // RowAtt ...
 type RowAtt struct {
-	XMLName xml.Name `xml:"row.att"`
+	XMLName xml.Name `json:"-" xml:"row.att"`
 }
 
 // TbodyAtt ...
 type TbodyAtt struct {
-	XMLName xml.Name `xml:"tbody.att"`
+	XMLName xml.Name `json:"-" xml:"tbody.att"`
 }
 
 // TheadAtt ...
 type TheadAtt struct {
-	XMLName xml.Name `xml:"thead.att"`
+	XMLName xml.Name `json:"-" xml:"thead.att"`
 }
 
 // ColspecAtt ...
 type ColspecAtt struct {
-	XMLName xml.Name `xml:"colspec.att"`
+	XMLName xml.Name `json:"-" xml:"colspec.att"`
 }
 
 // TgroupAtt ...
 type TgroupAtt struct {
-	XMLName xml.Name `xml:"tgroup.att"`
+	XMLName xml.Name `json:"-" xml:"tgroup.att"`
 }
 
 // TableAtt ...
 type TableAtt struct {
-	XMLName xml.Name `xml:"table.att"`
+	XMLName xml.Name `json:"-" xml:"table.att"`
 }
 
 // DdType ...
 type DdType struct {
-	XMLName    xml.Name          `xml:"dd"`
-	B          []*BType          `xml:"b"`
-	I          []*IType          `xml:"i"`
-	U          []*UType          `xml:"u"`
-	O          []*OType          `xml:"o"`
-	Sup        []*SupType        `xml:"sup"`
-	Sub        []*SubType        `xml:"sub"`
-	Smallcaps  []*SmallcapsType  `xml:"smallcaps"`
-	Br         []*BrType         `xml:"br"`
-	Pre        []*PreType        `xml:"pre"`
-	Patcit     []*PatcitType     `xml:"patcit"`
-	Nplcit     []*NplcitType     `xml:"nplcit"`
-	Biodeposit []*BiodepositType `xml:"bio-deposit"`
-	Crossref   []*CrossrefType   `xml:"crossref"`
-	Figref     []*FigrefType     `xml:"figref"`
-	Img        []*ImgType        `xml:"img"`
-	Ul         []*UlType         `xml:"ul"`
-	Ol         []*OlType         `xml:"ol"`
-	Chemistry  []*ChemistryType  `xml:"chemistry"`
-	Maths      []*MathsType      `xml:"maths"`
+	XMLName    xml.Name          `json:"-" xml:"dd"`
+	B          []*BType          `json:",omitempty" xml:"b"`
+	I          []*IType          `json:",omitempty" xml:"i"`
+	U          []*UType          `json:",omitempty" xml:"u"`
+	O          []*OType          `json:",omitempty" xml:"o"`
+	Sup        []*SupType        `json:",omitempty" xml:"sup"`
+	Sub        []*SubType        `json:",omitempty" xml:"sub"`
+	Smallcaps  []*SmallcapsType  `json:",omitempty" xml:"smallcaps"`
+	Br         []*BrType         `json:",omitempty" xml:"br"`
+	Pre        []*PreType        `json:",omitempty" xml:"pre"`
+	Patcit     []*PatcitType     `json:",omitempty" xml:"patcit"`
+	Nplcit     []*NplcitType     `json:",omitempty" xml:"nplcit"`
+	Biodeposit []*BiodepositType `json:",omitempty" xml:"bio-deposit"`
+	Crossref   []*CrossrefType   `json:",omitempty" xml:"crossref"`
+	Figref     []*FigrefType     `json:",omitempty" xml:"figref"`
+	Img        []*ImgType        `json:",omitempty" xml:"img"`
+	Ul         []*UlType         `json:",omitempty" xml:"ul"`
+	Ol         []*OlType         `json:",omitempty" xml:"ol"`
+	Chemistry  []*ChemistryType  `json:",omitempty" xml:"chemistry"`
+	Maths      []*MathsType      `json:",omitempty" xml:"maths"`
 }
 
 // Dd is Definition description
@@ -7683,7 +7683,7 @@ type Dd *DdType
 
 // SemanticsContentExpression ...
 type SemanticsContentExpression struct {
-	XMLName             xml.Name `xml:"semanticsContentExpression"`
+	XMLName             xml.Name `json:"-" xml:"semanticsContentExpression"`
 	Csymbol             *CsymbolType
 	Ci                  *CiType
 	Cn                  *CnType
@@ -8042,7 +8042,7 @@ type ContentExpression struct {
 
 // MtdPresExpression ...
 type MtdPresExpression struct {
-	XMLName        xml.Name `xml:"mtdPresExpression"`
+	XMLName        xml.Name `json:"-" xml:"mtdPresExpression"`
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
@@ -8110,7 +8110,7 @@ type MtdPresExpression struct {
 
 // MtrPresExpression ...
 type MtrPresExpression struct {
-	XMLName        xml.Name `xml:"mtrPresExpression"`
+	XMLName        xml.Name `json:"-" xml:"mtrPresExpression"`
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
@@ -8178,7 +8178,7 @@ type MtrPresExpression struct {
 
 // PrscrPresExpression ...
 type PrscrPresExpression struct {
-	XMLName        xml.Name `xml:"prscrPresExpression"`
+	XMLName        xml.Name `json:"-" xml:"prscrPresExpression"`
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
@@ -8246,7 +8246,7 @@ type PrscrPresExpression struct {
 
 // ThreePresExpression ...
 type ThreePresExpression struct {
-	XMLName        xml.Name `xml:"threePresExpression"`
+	XMLName        xml.Name `json:"-" xml:"threePresExpression"`
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
@@ -8314,7 +8314,7 @@ type ThreePresExpression struct {
 
 // TwoPresExpression ...
 type TwoPresExpression struct {
-	XMLName        xml.Name `xml:"twoPresExpression"`
+	XMLName        xml.Name `json:"-" xml:"twoPresExpression"`
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
@@ -8517,8 +8517,8 @@ type Math *MathType
 
 // TermType ...
 type TermType struct {
-	XMLName xml.Name `xml:"term"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"term"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Term is Identifies the period of time during which the depository must be able to furnish
@@ -8528,8 +8528,8 @@ type Term *TermType
 
 // BioaccnoType ...
 type BioaccnoType struct {
-	XMLName xml.Name `xml:"bio-accno"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"bio-accno"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Bioaccno is Biological accession number:
@@ -8540,8 +8540,8 @@ type Bioaccno *BioaccnoType
 
 // DepositaryType ...
 type DepositaryType struct {
-	XMLName xml.Name       `xml:"depositary"`
-	Address []*AddressType `xml:"address"`
+	XMLName xml.Name       `json:"-" xml:"depositary"`
+	Address []*AddressType `json:",omitempty" xml:"address"`
 }
 
 // Depositary is Information regarding the facility storing the biological deposit.
@@ -8551,12 +8551,12 @@ type Depositary *DepositaryType
 
 // OthercitType ...
 type OthercitType struct {
-	XMLName xml.Name   `xml:"othercit"`
-	B       []*BType   `xml:"b"`
-	I       []*IType   `xml:"i"`
-	U       []*UType   `xml:"u"`
-	Sup     []*SupType `xml:"sup"`
-	Sub     []*SubType `xml:"sub"`
+	XMLName xml.Name   `json:"-" xml:"othercit"`
+	B       []*BType   `json:",omitempty" xml:"b"`
+	I       []*IType   `json:",omitempty" xml:"i"`
+	U       []*UType   `json:",omitempty" xml:"u"`
+	Sup     []*SupType `json:",omitempty" xml:"sup"`
+	Sub     []*SubType `json:",omitempty" xml:"sub"`
 }
 
 // Othercit is *******************************
@@ -8568,36 +8568,36 @@ type Othercit *OthercitType
 
 // OnlineType ...
 type OnlineType struct {
-	XMLName     xml.Name           `xml:"online"`
-	Text        *TextType          `xml:"text"`
-	Author      []*AuthorType      `xml:"author"`
-	Onlinetitle []*OnlinetitleType `xml:"online-title"`
-	Hosttitle   *HosttitleType     `xml:"hosttitle"`
-	Subname     []*SubnameType     `xml:"subname"`
-	Edition     *EditionType       `xml:"edition"`
-	Serial      *SerialType        `xml:"serial"`
-	Book        *BookType          `xml:"book"`
-	Imprint     *ImprintType       `xml:"imprint"`
-	Pubdate     *PubdateType       `xml:"pubdate"`
-	Vid         *VidType           `xml:"vid"`
-	Ino         *InoType           `xml:"ino"`
-	History     *HistoryType       `xml:"history"`
-	Series      *SeriesType        `xml:"series"`
-	Hostno      *HostnoType        `xml:"hostno"`
-	Absno       *AbsnoType         `xml:"absno"`
-	Location    *LocationType      `xml:"location"`
-	Notes       *NotesType         `xml:"notes"`
-	Avail       []*AvailType       `xml:"avail"`
-	Class       []*ClassType       `xml:"class"`
-	Keyword     []*KeywordType     `xml:"keyword"`
-	Cpyrt       *CpyrtType         `xml:"cpyrt"`
-	Doi         *DoiType           `xml:"doi"`
-	Issn        *IssnType          `xml:"issn"`
-	Isbn        *IsbnType          `xml:"isbn"`
-	Datecit     *DatecitType       `xml:"datecit"`
-	Srchterm    []*SrchtermType    `xml:"srchterm"`
-	Srchdate    *SrchdateType      `xml:"srchdate"`
-	Refno       []*RefnoType       `xml:"refno"`
+	XMLName     xml.Name           `json:"-" xml:"online"`
+	Text        *TextType          `json:",omitempty" xml:"text"`
+	Author      []*AuthorType      `json:",omitempty" xml:"author"`
+	Onlinetitle []*OnlinetitleType `json:",omitempty" xml:"online-title"`
+	Hosttitle   *HosttitleType     `json:",omitempty" xml:"hosttitle"`
+	Subname     []*SubnameType     `json:",omitempty" xml:"subname"`
+	Edition     *EditionType       `json:",omitempty" xml:"edition"`
+	Serial      *SerialType        `json:",omitempty" xml:"serial"`
+	Book        *BookType          `json:",omitempty" xml:"book"`
+	Imprint     *ImprintType       `json:",omitempty" xml:"imprint"`
+	Pubdate     *PubdateType       `json:",omitempty" xml:"pubdate"`
+	Vid         *VidType           `json:",omitempty" xml:"vid"`
+	Ino         *InoType           `json:",omitempty" xml:"ino"`
+	History     *HistoryType       `json:",omitempty" xml:"history"`
+	Series      *SeriesType        `json:",omitempty" xml:"series"`
+	Hostno      *HostnoType        `json:",omitempty" xml:"hostno"`
+	Absno       *AbsnoType         `json:",omitempty" xml:"absno"`
+	Location    *LocationType      `json:",omitempty" xml:"location"`
+	Notes       *NotesType         `json:",omitempty" xml:"notes"`
+	Avail       []*AvailType       `json:",omitempty" xml:"avail"`
+	Class       []*ClassType       `json:",omitempty" xml:"class"`
+	Keyword     []*KeywordType     `json:",omitempty" xml:"keyword"`
+	Cpyrt       *CpyrtType         `json:",omitempty" xml:"cpyrt"`
+	Doi         *DoiType           `json:",omitempty" xml:"doi"`
+	Issn        *IssnType          `json:",omitempty" xml:"issn"`
+	Isbn        *IsbnType          `json:",omitempty" xml:"isbn"`
+	Datecit     *DatecitType       `json:",omitempty" xml:"datecit"`
+	Srchterm    []*SrchtermType    `json:",omitempty" xml:"srchterm"`
+	Srchdate    *SrchdateType      `json:",omitempty" xml:"srchdate"`
+	Refno       []*RefnoType       `json:",omitempty" xml:"refno"`
 }
 
 // Online is *******************************
@@ -8697,8 +8697,8 @@ type Online *OnlineType
 
 // SrchdateType ...
 type SrchdateType struct {
-	XMLName xml.Name `xml:"srchdate"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"srchdate"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Srchdate is Date of search/retrieval YYYYMMDD
@@ -8709,14 +8709,14 @@ type Srchterm *SrchtermType
 
 // SrchtermType ...
 type SrchtermType struct {
-	XMLName xml.Name `xml:"srchterm"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"srchterm"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // DatecitType ...
 type DatecitType struct {
-	XMLName xml.Name `xml:"datecit"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"datecit"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Datecit is Date cited - date on which the citation was cited.
@@ -8726,8 +8726,8 @@ type Datecit *DatecitType
 
 // AvailType ...
 type AvailType struct {
-	XMLName xml.Name `xml:"avail"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"avail"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Avail is Availability and access - REQUIRED use for URL, online database, ftp address,
@@ -8743,8 +8743,8 @@ type Avail *AvailType
 
 // HostnoType ...
 type HostnoType struct {
-	XMLName xml.Name `xml:"hostno"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"hostno"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Hostno is Numeration within host document
@@ -8752,12 +8752,12 @@ type Hostno *HostnoType
 
 // HistoryType ...
 type HistoryType struct {
-	XMLName  xml.Name      `xml:"history"`
-	Text     *TextType     `xml:"text"`
-	Received *ReceivedType `xml:"received"`
-	Accepted *AcceptedType `xml:"accepted"`
-	Revised  *RevisedType  `xml:"revised"`
-	Misc     *MiscType     `xml:"misc"`
+	XMLName  xml.Name      `json:"-" xml:"history"`
+	Text     *TextType     `json:",omitempty" xml:"text"`
+	Received *ReceivedType `json:",omitempty" xml:"received"`
+	Accepted *AcceptedType `json:",omitempty" xml:"accepted"`
+	Revised  *RevisedType  `json:",omitempty" xml:"revised"`
+	Misc     *MiscType     `json:",omitempty" xml:"misc"`
 }
 
 // History is History of the article (not serial)
@@ -8765,8 +8765,8 @@ type History *HistoryType
 
 // MiscType ...
 type MiscType struct {
-	XMLName xml.Name `xml:"misc"`
-	Date    []int    `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"misc"`
+	Date    []int    `json:",omitempty" xml:"date"`
 }
 
 // Misc is Miscellaneous information relating to the history of the article; see ISO 12083
@@ -8774,8 +8774,8 @@ type Misc *MiscType
 
 // RevisedType ...
 type RevisedType struct {
-	XMLName xml.Name `xml:"revised"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"revised"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Revised is Date article was revised
@@ -8786,14 +8786,14 @@ type Accepted *AcceptedType
 
 // AcceptedType ...
 type AcceptedType struct {
-	XMLName xml.Name `xml:"accepted"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"accepted"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // ReceivedType ...
 type ReceivedType struct {
-	XMLName xml.Name `xml:"received"`
-	Date    int      `xml:"date"`
+	XMLName xml.Name `json:"-" xml:"received"`
+	Date    int      `json:",omitempty" xml:"date"`
 }
 
 // Received is Date article was received
@@ -8801,8 +8801,8 @@ type Received *ReceivedType
 
 // HosttitleType ...
 type HosttitleType struct {
-	XMLName xml.Name `xml:"hosttitle"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"hosttitle"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Hosttitle is Title of the host document/database
@@ -8810,8 +8810,8 @@ type Hosttitle *HosttitleType
 
 // OnlinetitleType ...
 type OnlinetitleType struct {
-	XMLName xml.Name `xml:"online-title"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"online-title"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Onlinetitle is The title within the electronic resource,
@@ -8821,21 +8821,21 @@ type Onlinetitle *OnlinetitleType
 
 // ArticleType ...
 type ArticleType struct {
-	XMLName  xml.Name       `xml:"article"`
-	Text     *TextType      `xml:"text"`
-	Author   []*AuthorType  `xml:"author"`
-	Atl      *AtlType       `xml:"atl"`
-	Subname  []*SubnameType `xml:"subname"`
-	Serial   *SerialType    `xml:"serial"`
-	Book     *BookType      `xml:"book"`
-	Absno    *AbsnoType     `xml:"absno"`
-	Location *LocationType  `xml:"location"`
-	Class    []*ClassType   `xml:"class"`
-	Keyword  []*KeywordType `xml:"keyword"`
-	Cpyrt    *CpyrtType     `xml:"cpyrt"`
-	Artid    *ArtidType     `xml:"artid"`
-	Srchdate *SrchdateType  `xml:"srchdate"`
-	Refno    []*RefnoType   `xml:"refno"`
+	XMLName  xml.Name       `json:"-" xml:"article"`
+	Text     *TextType      `json:",omitempty" xml:"text"`
+	Author   []*AuthorType  `json:",omitempty" xml:"author"`
+	Atl      *AtlType       `json:",omitempty" xml:"atl"`
+	Subname  []*SubnameType `json:",omitempty" xml:"subname"`
+	Serial   *SerialType    `json:",omitempty" xml:"serial"`
+	Book     *BookType      `json:",omitempty" xml:"book"`
+	Absno    *AbsnoType     `json:",omitempty" xml:"absno"`
+	Location *LocationType  `json:",omitempty" xml:"location"`
+	Class    []*ClassType   `json:",omitempty" xml:"class"`
+	Keyword  []*KeywordType `json:",omitempty" xml:"keyword"`
+	Cpyrt    *CpyrtType     `json:",omitempty" xml:"cpyrt"`
+	Artid    *ArtidType     `json:",omitempty" xml:"artid"`
+	Srchdate *SrchdateType  `json:",omitempty" xml:"srchdate"`
+	Refno    []*RefnoType   `json:",omitempty" xml:"refno"`
 }
 
 // Article is *******************************
@@ -8925,8 +8925,8 @@ type Article *ArticleType
 
 // ArtidType ...
 type ArtidType struct {
-	XMLName xml.Name `xml:"artid"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"artid"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Artid is Article unique ID - assigned by a eg. publisher to an article
@@ -8934,31 +8934,31 @@ type Artid *ArtidType
 
 // BookType ...
 type BookType struct {
-	XMLName    xml.Name         `xml:"book"`
-	Text       *TextType        `xml:"text"`
-	Author     []*AuthorType    `xml:"author"`
-	Booktitle  []*BooktitleType `xml:"book-title"`
-	Conference *ConferenceType  `xml:"conference"`
-	Subtitle   *SubtitleType    `xml:"subtitle"`
-	Subname    []*SubnameType   `xml:"subname"`
-	Edition    *EditionType     `xml:"edition"`
-	Imprint    *ImprintType     `xml:"imprint"`
-	Vid        *VidType         `xml:"vid"`
-	Ino        *InoType         `xml:"ino"`
-	Descrip    *DescripType     `xml:"descrip"`
-	Series     *SeriesType      `xml:"series"`
-	Notes      *NotesType       `xml:"notes"`
-	Absno      *AbsnoType       `xml:"absno"`
-	Location   []*LocationType  `xml:"location"`
-	Pubid      *PubidType       `xml:"pubid"`
-	Bookno     *BooknoType      `xml:"bookno"`
-	Class      []*ClassType     `xml:"class"`
-	Keyword    []*KeywordType   `xml:"keyword"`
-	Cpyrt      *CpyrtType       `xml:"cpyrt"`
-	Doi        *DoiType         `xml:"doi"`
-	Issn       []*IssnType      `xml:"issn"`
-	Isbn       []*IsbnType      `xml:"isbn"`
-	Refno      []*RefnoType     `xml:"refno"`
+	XMLName    xml.Name         `json:"-" xml:"book"`
+	Text       *TextType        `json:",omitempty" xml:"text"`
+	Author     []*AuthorType    `json:",omitempty" xml:"author"`
+	Booktitle  []*BooktitleType `json:",omitempty" xml:"book-title"`
+	Conference *ConferenceType  `json:",omitempty" xml:"conference"`
+	Subtitle   *SubtitleType    `json:",omitempty" xml:"subtitle"`
+	Subname    []*SubnameType   `json:",omitempty" xml:"subname"`
+	Edition    *EditionType     `json:",omitempty" xml:"edition"`
+	Imprint    *ImprintType     `json:",omitempty" xml:"imprint"`
+	Vid        *VidType         `json:",omitempty" xml:"vid"`
+	Ino        *InoType         `json:",omitempty" xml:"ino"`
+	Descrip    *DescripType     `json:",omitempty" xml:"descrip"`
+	Series     *SeriesType      `json:",omitempty" xml:"series"`
+	Notes      *NotesType       `json:",omitempty" xml:"notes"`
+	Absno      *AbsnoType       `json:",omitempty" xml:"absno"`
+	Location   []*LocationType  `json:",omitempty" xml:"location"`
+	Pubid      *PubidType       `json:",omitempty" xml:"pubid"`
+	Bookno     *BooknoType      `json:",omitempty" xml:"bookno"`
+	Class      []*ClassType     `json:",omitempty" xml:"class"`
+	Keyword    []*KeywordType   `json:",omitempty" xml:"keyword"`
+	Cpyrt      *CpyrtType       `json:",omitempty" xml:"cpyrt"`
+	Doi        *DoiType         `json:",omitempty" xml:"doi"`
+	Issn       []*IssnType      `json:",omitempty" xml:"issn"`
+	Isbn       []*IsbnType      `json:",omitempty" xml:"isbn"`
+	Refno      []*RefnoType     `json:",omitempty" xml:"refno"`
 }
 
 // Book is *******************************
@@ -9020,8 +9020,8 @@ type Book *BookType
 
 // KeywordType ...
 type KeywordType struct {
-	XMLName xml.Name `xml:"keyword"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"keyword"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Keyword is Keyword; e.g., from a Thesaurus or class. scheme
@@ -9031,8 +9031,8 @@ type Keyword *KeywordType
 
 // BooknoType ...
 type BooknoType struct {
-	XMLName xml.Name `xml:"bookno"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"bookno"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Bookno is *******************************
@@ -9042,15 +9042,15 @@ type Bookno *BooknoType
 
 // LocationType ...
 type LocationType struct {
-	XMLName xml.Name     `xml:"location"`
-	Text    *TextType    `xml:"text"`
-	Serpart *SerpartType `xml:"serpart"`
-	Sersect *SersectType `xml:"sersect"`
-	Chapter *ChapterType `xml:"chapter"`
-	Pp      *PpType      `xml:"pp"`
-	Column  *ColumnType  `xml:"column"`
-	Para    *ParaType    `xml:"para"`
-	Line    *LineType    `xml:"line"`
+	XMLName xml.Name     `json:"-" xml:"location"`
+	Text    *TextType    `json:",omitempty" xml:"text"`
+	Serpart *SerpartType `json:",omitempty" xml:"serpart"`
+	Sersect *SersectType `json:",omitempty" xml:"sersect"`
+	Chapter *ChapterType `json:",omitempty" xml:"chapter"`
+	Pp      *PpType      `json:",omitempty" xml:"pp"`
+	Column  *ColumnType  `json:",omitempty" xml:"column"`
+	Para    *ParaType    `json:",omitempty" xml:"para"`
+	Line    *LineType    `json:",omitempty" xml:"line"`
 }
 
 // Location is *******************************
@@ -9062,9 +9062,9 @@ type Location *LocationType
 
 // LineType ...
 type LineType struct {
-	XMLName xml.Name     `xml:"line"`
-	Linef   []*LinefType `xml:"linef"`
-	Linel   []*LinelType `xml:"linel"`
+	XMLName xml.Name     `json:"-" xml:"line"`
+	Linef   []*LinefType `json:",omitempty" xml:"linef"`
+	Linel   []*LinelType `json:",omitempty" xml:"linel"`
 }
 
 // Line is Referenced line within cited work
@@ -9072,8 +9072,8 @@ type Line *LineType
 
 // LinelType ...
 type LinelType struct {
-	XMLName xml.Name `xml:"linel"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"linel"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Linel is Cited document line last
@@ -9081,8 +9081,8 @@ type Linel *LinelType
 
 // LinefType ...
 type LinefType struct {
-	XMLName xml.Name `xml:"linef"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"linef"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Linef is Cited document line first
@@ -9090,9 +9090,9 @@ type Linef *LinefType
 
 // ParaType ...
 type ParaType struct {
-	XMLName xml.Name     `xml:"para"`
-	Paraf   []*ParafType `xml:"paraf"`
-	Paral   []*ParalType `xml:"paral"`
+	XMLName xml.Name     `json:"-" xml:"para"`
+	Paraf   []*ParafType `json:",omitempty" xml:"paraf"`
+	Paral   []*ParalType `json:",omitempty" xml:"paral"`
 }
 
 // Para is Referenced paragraph within cited work
@@ -9100,8 +9100,8 @@ type Para *ParaType
 
 // ParalType ...
 type ParalType struct {
-	XMLName xml.Name `xml:"paral"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"paral"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Paral is Cited paragraph last
@@ -9109,8 +9109,8 @@ type Paral *ParalType
 
 // ParafType ...
 type ParafType struct {
-	XMLName xml.Name `xml:"paraf"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"paraf"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Paraf is Cited paragraph first
@@ -9118,9 +9118,9 @@ type Paraf *ParafType
 
 // ColumnType ...
 type ColumnType struct {
-	XMLName xml.Name    `xml:"column"`
-	Colf    []*ColfType `xml:"colf"`
-	Coll    []*CollType `xml:"coll"`
+	XMLName xml.Name    `json:"-" xml:"column"`
+	Colf    []*ColfType `json:",omitempty" xml:"colf"`
+	Coll    []*CollType `json:",omitempty" xml:"coll"`
 }
 
 // Column is Cited document column numbers
@@ -9128,8 +9128,8 @@ type Column *ColumnType
 
 // CollType ...
 type CollType struct {
-	XMLName xml.Name `xml:"coll"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"coll"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Coll is Cited document column last
@@ -9137,8 +9137,8 @@ type Coll *CollType
 
 // ColfType ...
 type ColfType struct {
-	XMLName xml.Name `xml:"colf"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"colf"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Colf is Cited document column first
@@ -9146,9 +9146,9 @@ type Colf *ColfType
 
 // PpType ...
 type PpType struct {
-	XMLName xml.Name   `xml:"pp"`
-	Ppf     []*PpfType `xml:"ppf"`
-	Ppl     []*PplType `xml:"ppl"`
+	XMLName xml.Name   `json:"-" xml:"pp"`
+	Ppf     []*PpfType `json:",omitempty" xml:"ppf"`
+	Ppl     []*PplType `json:",omitempty" xml:"ppl"`
 }
 
 // Pp is Cited document page numbers
@@ -9156,8 +9156,8 @@ type Pp *PpType
 
 // PplType ...
 type PplType struct {
-	XMLName xml.Name `xml:"ppl"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"ppl"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Ppl is Cited document page last
@@ -9165,8 +9165,8 @@ type Ppl *PplType
 
 // PpfType ...
 type PpfType struct {
-	XMLName xml.Name `xml:"ppf"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"ppf"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Ppf is Cited document page first
@@ -9174,8 +9174,8 @@ type Ppf *PpfType
 
 // ChapterType ...
 type ChapterType struct {
-	XMLName xml.Name `xml:"chapter"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"chapter"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Chapter is Chapter; normally in a book. Example: Chapter 2
@@ -9183,8 +9183,8 @@ type Chapter *ChapterType
 
 // SersectType ...
 type SersectType struct {
-	XMLName xml.Name `xml:"sersect"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"sersect"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sersect is Serial section or book; or the book section
@@ -9192,8 +9192,8 @@ type Sersect *SersectType
 
 // SerpartType ...
 type SerpartType struct {
-	XMLName xml.Name `xml:"serpart"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"serpart"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Serpart is Part within a serial or book; or the book part
@@ -9204,17 +9204,17 @@ type Absno *AbsnoType
 
 // AbsnoType ...
 type AbsnoType struct {
-	XMLName xml.Name `xml:"absno"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"absno"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // SeriesType ...
 type SeriesType struct {
-	XMLName xml.Name  `xml:"series"`
-	Text    *TextType `xml:"text"`
-	Mst     *MstType  `xml:"mst"`
-	Msn     *MsnType  `xml:"msn"`
-	Issn    *IssnType `xml:"issn"`
+	XMLName xml.Name  `json:"-" xml:"series"`
+	Text    *TextType `json:",omitempty" xml:"text"`
+	Mst     *MstType  `json:",omitempty" xml:"mst"`
+	Msn     *MsnType  `json:",omitempty" xml:"msn"`
+	Issn    *IssnType `json:",omitempty" xml:"issn"`
 }
 
 // Series is *******************************
@@ -9226,8 +9226,8 @@ type Series *SeriesType
 
 // MsnType ...
 type MsnType struct {
-	XMLName xml.Name `xml:"msn"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"msn"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Msn is Monographic series number
@@ -9235,8 +9235,8 @@ type Msn *MsnType
 
 // MstType ...
 type MstType struct {
-	XMLName xml.Name `xml:"mst"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"mst"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Mst is Monographic series title
@@ -9244,8 +9244,8 @@ type Mst *MstType
 
 // EditionType ...
 type EditionType struct {
-	XMLName xml.Name `xml:"edition"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"edition"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Edition is Edition statement
@@ -9255,8 +9255,8 @@ type Edition *EditionType
 
 // SubtitleType ...
 type SubtitleType struct {
-	XMLName xml.Name `xml:"subtitle"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"subtitle"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Subtitle is *******************************
@@ -9266,14 +9266,14 @@ type Subtitle *SubtitleType
 
 // ConferenceType ...
 type ConferenceType struct {
-	XMLName     xml.Name           `xml:"conference"`
-	Text        *TextType          `xml:"text"`
-	Conftitle   *ConftitleType     `xml:"conftitle"`
-	Date        int                `xml:"date"`
-	Confdate    *ConfdateType      `xml:"confdate"`
-	Confno      *ConfnoType        `xml:"confno"`
-	Confplace   *ConfplaceType     `xml:"confplace"`
-	Confsponsor []*ConfsponsorType `xml:"confsponsor"`
+	XMLName     xml.Name           `json:"-" xml:"conference"`
+	Text        *TextType          `json:",omitempty" xml:"text"`
+	Conftitle   *ConftitleType     `json:",omitempty" xml:"conftitle"`
+	Date        int                `json:",omitempty" xml:"date"`
+	Confdate    *ConfdateType      `json:",omitempty" xml:"confdate"`
+	Confno      *ConfnoType        `json:",omitempty" xml:"confno"`
+	Confplace   *ConfplaceType     `json:",omitempty" xml:"confplace"`
+	Confsponsor []*ConfsponsorType `json:",omitempty" xml:"confsponsor"`
 }
 
 // Conference is *******************************
@@ -9290,22 +9290,22 @@ type Conference *ConferenceType
 
 // ConfdateType ...
 type ConfdateType struct {
-	XMLName xml.Name `xml:"confdate"`
+	XMLName xml.Name `json:"-" xml:"confdate"`
 	*RangedateType
 }
 
 // RangedateType ...
 type RangedateType struct {
-	XMLName xml.Name     `xml:"rangedate"`
-	Sdate   []*SdateType `xml:"sdate"`
-	Edate   []*EdateType `xml:"edate"`
-	Time    []*TimeType  `xml:"time"`
+	XMLName xml.Name     `json:"-" xml:"rangedate"`
+	Sdate   []*SdateType `json:",omitempty" xml:"sdate"`
+	Edate   []*EdateType `json:",omitempty" xml:"edate"`
+	Time    []*TimeType  `json:",omitempty" xml:"time"`
 }
 
 // ConfsponsorType ...
 type ConfsponsorType struct {
-	XMLName     xml.Name           `xml:"confsponsor"`
-	Addressbook []*AddressbookType `xml:"addressbook"`
+	XMLName     xml.Name           `json:"-" xml:"confsponsor"`
+	Addressbook []*AddressbookType `json:",omitempty" xml:"addressbook"`
 }
 
 // Confsponsor is Conference sponsor
@@ -9313,8 +9313,8 @@ type Confsponsor *ConfsponsorType
 
 // ConfplaceType ...
 type ConfplaceType struct {
-	XMLName xml.Name       `xml:"confplace"`
-	Address []*AddressType `xml:"address"`
+	XMLName xml.Name       `json:"-" xml:"confplace"`
+	Address []*AddressType `json:",omitempty" xml:"address"`
 }
 
 // Confplace is Conference place
@@ -9322,8 +9322,8 @@ type Confplace *ConfplaceType
 
 // ConfnoType ...
 type ConfnoType struct {
-	XMLName xml.Name `xml:"confno"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"confno"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Confno is Conference number
@@ -9331,8 +9331,8 @@ type Confno *ConfnoType
 
 // ConftitleType ...
 type ConftitleType struct {
-	XMLName xml.Name `xml:"conftitle"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"conftitle"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Conftitle is Conference title
@@ -9340,8 +9340,8 @@ type Conftitle *ConftitleType
 
 // BooktitleType ...
 type BooktitleType struct {
-	XMLName xml.Name `xml:"book-title"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"book-title"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Booktitle is The title of the cited book
@@ -9349,23 +9349,23 @@ type Booktitle *BooktitleType
 
 // SerialType ...
 type SerialType struct {
-	XMLName   xml.Name       `xml:"serial"`
-	Newsgroup *NewsgroupType `xml:"newsgroup"`
-	Sertitle  *SertitleType  `xml:"sertitle"`
-	Alttitle  *AlttitleType  `xml:"alttitle"`
-	Subname   []*SubnameType `xml:"subname"`
-	Issue     *IssueType     `xml:"issue"`
-	Imprint   *ImprintType   `xml:"imprint"`
-	Pubdate   *PubdateType   `xml:"pubdate"`
-	Descrip   *DescripType   `xml:"descrip"`
-	Notes     *NotesType     `xml:"notes"`
-	Pubid     *PubidType     `xml:"pubid"`
-	Vid       *VidType       `xml:"vid"`
-	Ino       *InoType       `xml:"ino"`
-	Doi       *DoiType       `xml:"doi"`
-	Issn      *IssnType      `xml:"issn"`
-	Isbn      *IsbnType      `xml:"isbn"`
-	Cpyrt     *CpyrtType     `xml:"cpyrt"`
+	XMLName   xml.Name       `json:"-" xml:"serial"`
+	Newsgroup *NewsgroupType `json:",omitempty" xml:"newsgroup"`
+	Sertitle  *SertitleType  `json:",omitempty" xml:"sertitle"`
+	Alttitle  *AlttitleType  `json:",omitempty" xml:"alttitle"`
+	Subname   []*SubnameType `json:",omitempty" xml:"subname"`
+	Issue     *IssueType     `json:",omitempty" xml:"issue"`
+	Imprint   *ImprintType   `json:",omitempty" xml:"imprint"`
+	Pubdate   *PubdateType   `json:",omitempty" xml:"pubdate"`
+	Descrip   *DescripType   `json:",omitempty" xml:"descrip"`
+	Notes     *NotesType     `json:",omitempty" xml:"notes"`
+	Pubid     *PubidType     `json:",omitempty" xml:"pubid"`
+	Vid       *VidType       `json:",omitempty" xml:"vid"`
+	Ino       *InoType       `json:",omitempty" xml:"ino"`
+	Doi       *DoiType       `json:",omitempty" xml:"doi"`
+	Issn      *IssnType      `json:",omitempty" xml:"issn"`
+	Isbn      *IsbnType      `json:",omitempty" xml:"isbn"`
+	Cpyrt     *CpyrtType     `json:",omitempty" xml:"cpyrt"`
 }
 
 // Serial is Serial citation data:
@@ -9380,8 +9380,8 @@ type Serial *SerialType
 
 // CpyrtType ...
 type CpyrtType struct {
-	XMLName xml.Name `xml:"cpyrt"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"cpyrt"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Cpyrt is Copyright info. Copyright of publisher of serial
@@ -9389,8 +9389,8 @@ type Cpyrt *CpyrtType
 
 // IsbnType ...
 type IsbnType struct {
-	XMLName xml.Name `xml:"isbn"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"isbn"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Isbn is International Standard Book Number
@@ -9398,8 +9398,8 @@ type Isbn *IsbnType
 
 // IssnType ...
 type IssnType struct {
-	XMLName xml.Name `xml:"issn"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"issn"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Issn is International Standard Serial Number
@@ -9407,8 +9407,8 @@ type Issn *IssnType
 
 // InoType ...
 type InoType struct {
-	XMLName xml.Name `xml:"ino"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"ino"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Ino is Issue number
@@ -9416,8 +9416,8 @@ type Ino *InoType
 
 // DoiType ...
 type DoiType struct {
-	XMLName xml.Name `xml:"doi"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"doi"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Doi is Digital Object Identifier
@@ -9425,8 +9425,8 @@ type Doi *DoiType
 
 // VidType ...
 type VidType struct {
-	XMLName xml.Name `xml:"vid"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"vid"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Vid is Volume id/number
@@ -9434,8 +9434,8 @@ type Vid *VidType
 
 // PubidType ...
 type PubidType struct {
-	XMLName xml.Name `xml:"pubid"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"pubid"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Pubid is Publisher's unique id
@@ -9443,8 +9443,8 @@ type Pubid *PubidType
 
 // NotesType ...
 type NotesType struct {
-	XMLName xml.Name `xml:"notes"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"notes"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Notes is Notes about the serial; e.g. Continues Journal of XYZ 1910-1998, published in
@@ -9454,8 +9454,8 @@ type Notes *NotesType
 
 // DescripType ...
 type DescripType struct {
-	XMLName xml.Name `xml:"descrip"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"descrip"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Descrip is This element is used for the physical description
@@ -9469,11 +9469,11 @@ type Descrip *DescripType
 
 // ImprintType ...
 type ImprintType struct {
-	XMLName xml.Name       `xml:"imprint"`
-	Text    *TextType      `xml:"text"`
-	Address *AddressType   `xml:"address"`
-	Name    *NameType      `xml:"name"`
-	Pubdate []*PubdateType `xml:"pubdate"`
+	XMLName xml.Name       `json:"-" xml:"imprint"`
+	Text    *TextType      `json:",omitempty" xml:"text"`
+	Address *AddressType   `json:",omitempty" xml:"address"`
+	Name    *NameType      `json:",omitempty" xml:"name"`
+	Pubdate []*PubdateType `json:",omitempty" xml:"pubdate"`
 }
 
 // Imprint is Imprint:
@@ -9485,7 +9485,7 @@ type Imprint *ImprintType
 
 // PubdateType ...
 type PubdateType struct {
-	XMLName xml.Name `xml:"pubdate"`
+	XMLName xml.Name `json:"-" xml:"pubdate"`
 	*RangedateType
 }
 
@@ -9496,8 +9496,8 @@ type Pubdate *PubdateType
 
 // TimeType ...
 type TimeType struct {
-	XMLName xml.Name `xml:"time"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"time"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Time is Time; format HHMM
@@ -9505,8 +9505,8 @@ type Time *TimeType
 
 // EdateType ...
 type EdateType struct {
-	XMLName xml.Name `xml:"edate"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"edate"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Edate is End date used in pubdate
@@ -9514,8 +9514,8 @@ type Edate *EdateType
 
 // SdateType ...
 type SdateType struct {
-	XMLName xml.Name `xml:"sdate"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"sdate"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sdate is Start date used in pubdate
@@ -9523,8 +9523,8 @@ type Sdate *SdateType
 
 // IssueType ...
 type IssueType struct {
-	XMLName xml.Name `xml:"issue"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"issue"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Issue is Issue designation;
@@ -9537,8 +9537,8 @@ type Issue *IssueType
 
 // AlttitleType ...
 type AlttitleType struct {
-	XMLName xml.Name `xml:"alttitle"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"alttitle"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Alttitle is Alternate title for serial; e.g. BMJ = British Medical Journal
@@ -9546,14 +9546,14 @@ type Alttitle *AlttitleType
 
 // NewsgroupType ...
 type NewsgroupType struct {
-	XMLName xml.Name `xml:"newsgroup"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"newsgroup"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // SertitleType ...
 type SertitleType struct {
-	XMLName xml.Name `xml:"sertitle"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"sertitle"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Sertitle is Serial title; the host document:
@@ -9565,8 +9565,8 @@ type Sertitle *SertitleType
 
 // AtlType ...
 type AtlType struct {
-	XMLName xml.Name `xml:"atl"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"atl"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Atl is Article title
@@ -9574,8 +9574,8 @@ type Atl *AtlType
 
 // DtextType ...
 type DtextType struct {
-	XMLName xml.Name `xml:"dtext"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"dtext"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Dtext is Descriptive text
@@ -9583,8 +9583,8 @@ type Dtext *DtextType
 
 // EadType ...
 type EadType struct {
-	XMLName xml.Name `xml:"ead"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"ead"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Ead is Electronic address use for other than email
@@ -9592,8 +9592,8 @@ type Ead *EadType
 
 // UrlType ...
 type UrlType struct {
-	XMLName xml.Name `xml:"url"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"url"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Url is Universal Resource Locator; e.g. www.wipo.int
@@ -9601,8 +9601,8 @@ type Url *UrlType
 
 // EmailType ...
 type EmailType struct {
-	XMLName xml.Name `xml:"email"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"email"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Email is Email address
@@ -9610,8 +9610,8 @@ type Email *EmailType
 
 // FaxType ...
 type FaxType struct {
-	XMLName xml.Name `xml:"fax"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"fax"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Fax is Fax number
@@ -9619,8 +9619,8 @@ type Fax *FaxType
 
 // PhoneType ...
 type PhoneType struct {
-	XMLName xml.Name `xml:"phone"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"phone"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Phone is Telephone number
@@ -9634,28 +9634,28 @@ type Address *AddressType
 
 // AddressType ...
 type AddressType struct {
-	XMLName      xml.Name          `xml:"address"`
-	Address1     *Address1Type     `xml:"address-1"`
-	Address2     *Address2Type     `xml:"address-2"`
-	Address3     *Address3Type     `xml:"address-3"`
-	Mailcode     *MailcodeType     `xml:"mailcode"`
-	Pobox        *PoboxType        `xml:"pobox"`
-	Room         *RoomType         `xml:"room"`
-	Addressfloor *AddressfloorType `xml:"address-floor"`
-	Building     *BuildingType     `xml:"building"`
-	Street       *StreetType       `xml:"street"`
-	City         *CityType         `xml:"city"`
-	County       *CountyType       `xml:"county"`
-	State        *StateType        `xml:"state"`
-	Postcode     *PostcodeType     `xml:"postcode"`
-	Country      string            `xml:"country"`
-	Text         *TextType         `xml:"text"`
+	XMLName      xml.Name          `json:"-" xml:"address"`
+	Address1     *Address1Type     `json:",omitempty" xml:"address-1"`
+	Address2     *Address2Type     `json:",omitempty" xml:"address-2"`
+	Address3     *Address3Type     `json:",omitempty" xml:"address-3"`
+	Mailcode     *MailcodeType     `json:",omitempty" xml:"mailcode"`
+	Pobox        *PoboxType        `json:",omitempty" xml:"pobox"`
+	Room         *RoomType         `json:",omitempty" xml:"room"`
+	Addressfloor *AddressfloorType `json:",omitempty" xml:"address-floor"`
+	Building     *BuildingType     `json:",omitempty" xml:"building"`
+	Street       *StreetType       `json:",omitempty" xml:"street"`
+	City         *CityType         `json:",omitempty" xml:"city"`
+	County       *CountyType       `json:",omitempty" xml:"county"`
+	State        *StateType        `json:",omitempty" xml:"state"`
+	Postcode     *PostcodeType     `json:",omitempty" xml:"postcode"`
+	Country      string            `json:",omitempty" xml:"country"`
+	Text         *TextType         `json:",omitempty" xml:"text"`
 }
 
 // PostcodeType ...
 type PostcodeType struct {
-	XMLName xml.Name `xml:"postcode"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"postcode"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Postcode is Postal code or zip code
@@ -9663,8 +9663,8 @@ type Postcode *PostcodeType
 
 // StateType ...
 type StateType struct {
-	XMLName xml.Name `xml:"state"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"state"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // State is Region of country; e.g., state, province, etc.
@@ -9672,8 +9672,8 @@ type State *StateType
 
 // CountyType ...
 type CountyType struct {
-	XMLName xml.Name `xml:"county"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"county"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // County is County, parish, department, etc (mainly UK, USA)
@@ -9681,8 +9681,8 @@ type County *CountyType
 
 // CityType ...
 type CityType struct {
-	XMLName xml.Name `xml:"city"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"city"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // City is City or town name
@@ -9690,8 +9690,8 @@ type City *CityType
 
 // StreetType ...
 type StreetType struct {
-	XMLName xml.Name `xml:"street"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"street"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Street is Street may contain house number or name
@@ -9699,8 +9699,8 @@ type Street *StreetType
 
 // BuildingType ...
 type BuildingType struct {
-	XMLName xml.Name `xml:"building"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"building"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Building is Building information in address; e.g., Hoffman building
@@ -9708,8 +9708,8 @@ type Building *BuildingType
 
 // AddressfloorType ...
 type AddressfloorType struct {
-	XMLName xml.Name `xml:"address-floor"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"address-floor"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Addressfloor is Address floor; e.g., 10th
@@ -9717,8 +9717,8 @@ type Addressfloor *AddressfloorType
 
 // RoomType ...
 type RoomType struct {
-	XMLName xml.Name `xml:"room"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"room"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Room is Address room; e.g., Room 55B
@@ -9726,8 +9726,8 @@ type Room *RoomType
 
 // PoboxType ...
 type PoboxType struct {
-	XMLName xml.Name `xml:"pobox"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"pobox"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Pobox is Post Office Box number
@@ -9735,8 +9735,8 @@ type Pobox *PoboxType
 
 // MailcodeType ...
 type MailcodeType struct {
-	XMLName xml.Name `xml:"mailcode"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"mailcode"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Mailcode is Organizational mail code
@@ -9744,8 +9744,8 @@ type Mailcode *MailcodeType
 
 // Address3Type ...
 type Address3Type struct {
-	XMLName xml.Name `xml:"address-3"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"address-3"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Address3 is Address, third line
@@ -9753,8 +9753,8 @@ type Address3 *Address3Type
 
 // Address2Type ...
 type Address2Type struct {
-	XMLName xml.Name `xml:"address-2"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"address-2"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Address2 is Address, second line
@@ -9762,8 +9762,8 @@ type Address2 *Address2Type
 
 // Address1Type ...
 type Address1Type struct {
-	XMLName xml.Name `xml:"address-1"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"address-1"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Address1 is Address, first line
@@ -9771,7 +9771,7 @@ type Address1 *Address1Type
 
 // NameGroup ...
 type NameGroup struct {
-	XMLName          xml.Name `xml:"nameGroup"`
+	XMLName          xml.Name `json:"-" xml:"nameGroup"`
 	Name             *NameType
 	Prefix           *PrefixType
 	Lastname         *LastnameType
@@ -9788,8 +9788,8 @@ type NameGroup struct {
 
 // RegisterednumberType ...
 type RegisterednumberType struct {
-	XMLName xml.Name `xml:"registered-number"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"registered-number"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Registerednumber is Registered number
@@ -9797,8 +9797,8 @@ type Registerednumber *RegisterednumberType
 
 // SynonymType ...
 type SynonymType struct {
-	XMLName xml.Name `xml:"synonym"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"synonym"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Synonym is Synonym
@@ -9806,8 +9806,8 @@ type Synonym *SynonymType
 
 // DepartmentType ...
 type DepartmentType struct {
-	XMLName xml.Name `xml:"department"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"department"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Department is Department, division, section, etc. name
@@ -9815,8 +9815,8 @@ type Department *DepartmentType
 
 // SuffixType ...
 type SuffixType struct {
-	XMLName xml.Name `xml:"suffix"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"suffix"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Suffix is Name suffix (e.g., II, Jr., Dip., Ing., BA, etc.)
@@ -9824,8 +9824,8 @@ type Suffix *SuffixType
 
 // PrefixType ...
 type PrefixType struct {
-	XMLName xml.Name `xml:"prefix"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"prefix"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Prefix is Title: e.g., Mr., Mrs., Dr. etc
@@ -9833,8 +9833,8 @@ type Prefix *PrefixType
 
 // RoleType ...
 type RoleType struct {
-	XMLName xml.Name `xml:"role"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"role"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Role is Role; e.g., President, Chairman, etc.
@@ -9842,8 +9842,8 @@ type Role *RoleType
 
 // IidType ...
 type IidType struct {
-	XMLName xml.Name `xml:"iid"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"iid"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Iid is Individual id
@@ -9851,8 +9851,8 @@ type Iid *IidType
 
 // OrgnameType ...
 type OrgnameType struct {
-	XMLName xml.Name `xml:"orgname"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"orgname"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Orgname is Organisation name or company name
@@ -9860,8 +9860,8 @@ type Orgname *OrgnameType
 
 // MiddlenameType ...
 type MiddlenameType struct {
-	XMLName xml.Name `xml:"middle-name"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"middle-name"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Middlename is Middle name(s) or initial(s)
@@ -9869,8 +9869,8 @@ type Middlename *MiddlenameType
 
 // FirstnameType ...
 type FirstnameType struct {
-	XMLName xml.Name `xml:"first-name"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"first-name"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Firstname is First or given name(s), initial(s)
@@ -9878,8 +9878,8 @@ type Firstname *FirstnameType
 
 // LastnameType ...
 type LastnameType struct {
-	XMLName xml.Name `xml:"last-name"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"last-name"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Lastname is Last, family, surname
@@ -9887,11 +9887,11 @@ type Lastname *LastnameType
 
 // RelpassageType ...
 type RelpassageType struct {
-	XMLName   xml.Name       `xml:"rel-passage"`
-	Text      *TextType      `xml:"text"`
-	Passage   []*PassageType `xml:"passage"`
-	Category  *CategoryType  `xml:"category"`
-	Relclaims *RelclaimsType `xml:"rel-claims"`
+	XMLName   xml.Name       `json:"-" xml:"rel-passage"`
+	Text      *TextType      `json:",omitempty" xml:"text"`
+	Passage   []*PassageType `json:",omitempty" xml:"passage"`
+	Category  *CategoryType  `json:",omitempty" xml:"category"`
+	Relclaims *RelclaimsType `json:",omitempty" xml:"rel-claims"`
 }
 
 // Relpassage is Relevant passage group within patent; most used in search reports. With regards to passage, references
@@ -9901,8 +9901,8 @@ type Relpassage *RelpassageType
 
 // RelclaimsType ...
 type RelclaimsType struct {
-	XMLName xml.Name `xml:"rel-claims"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"rel-claims"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Relclaims is Relevant claims
@@ -9912,8 +9912,8 @@ type Relclaims *RelclaimsType
 
 // CategoryType ...
 type CategoryType struct {
-	XMLName xml.Name `xml:"category"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"category"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Category is Category - see example above
@@ -9935,26 +9935,26 @@ type Category *CategoryType
 
 // PassageType ...
 type PassageType struct {
-	XMLName  xml.Name `xml:"passage"`
-	Pp       string   `xml:"pp"`
-	Ppf      string   `xml:"ppf"`
-	Ppl      string   `xml:"ppl"`
-	Column   string   `xml:"column"`
-	Colf     string   `xml:"colf"`
-	Coll     string   `xml:"coll"`
-	Para     string   `xml:"para"`
-	Paraf    string   `xml:"paraf"`
-	Paral    string   `xml:"paral"`
-	Line     string   `xml:"line"`
-	Linef    string   `xml:"linef"`
-	Linel    string   `xml:"linel"`
-	Claim    string   `xml:"claim"`
-	Figure   string   `xml:"figure"`
-	Example  string   `xml:"example"`
-	Table    string   `xml:"table"`
-	Sequence string   `xml:"sequence"`
-	Compound string   `xml:"compound"`
-	Bookmark string   `xml:"bookmark"`
+	XMLName  xml.Name `json:"-" xml:"passage"`
+	Pp       string   `json:",omitempty" xml:"pp"`
+	Ppf      string   `json:",omitempty" xml:"ppf"`
+	Ppl      string   `json:",omitempty" xml:"ppl"`
+	Column   string   `json:",omitempty" xml:"column"`
+	Colf     string   `json:",omitempty" xml:"colf"`
+	Coll     string   `json:",omitempty" xml:"coll"`
+	Para     string   `json:",omitempty" xml:"para"`
+	Paraf    string   `json:",omitempty" xml:"paraf"`
+	Paral    string   `json:",omitempty" xml:"paral"`
+	Line     string   `json:",omitempty" xml:"line"`
+	Linef    string   `json:",omitempty" xml:"linef"`
+	Linel    string   `json:",omitempty" xml:"linel"`
+	Claim    string   `json:",omitempty" xml:"claim"`
+	Figure   string   `json:",omitempty" xml:"figure"`
+	Example  string   `json:",omitempty" xml:"example"`
+	Table    string   `json:",omitempty" xml:"table"`
+	Sequence string   `json:",omitempty" xml:"sequence"`
+	Compound string   `json:",omitempty" xml:"compound"`
+	Bookmark string   `json:",omitempty" xml:"bookmark"`
 }
 
 // Passage is Passage within the cited patent literature. References included for EPO internal use only
@@ -9968,8 +9968,8 @@ type ICEdatetype *IntType
 
 // KindType ...
 type KindType struct {
-	XMLName xml.Name `xml:"kind"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"kind"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Kind is Document kind code; e.g., A1
@@ -9979,8 +9979,8 @@ type Kind *KindType
 
 // DocnumberType ...
 type DocnumberType struct {
-	XMLName xml.Name `xml:"doc-number"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"doc-number"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Docnumber is The number of the referenced patent (or application) document
@@ -9996,8 +9996,8 @@ type CountryType string
 
 // TextType ...
 type TextType struct {
-	XMLName xml.Name `xml:"text"`
-	Value   string   `xml:",chardata"`
+	XMLName xml.Name `json:"-" xml:"text"`
+	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Text is If no structure is possible, enter text (without markup)
@@ -10005,17 +10005,17 @@ type Text *TextType
 
 // PreAttlist ...
 type PreAttlist struct {
-	XMLName         xml.Name `xml:"pre.attlist"`
-	XmlSpaceAttr    string   `xml:"xml:space,attr,omitempty"`
-	IdAttr          string   `xml:"id,attr,omitempty"`
-	ListingtypeAttr string   `xml:"listing-type,attr"`
+	XMLName         xml.Name `json:"-" xml:"pre.attlist"`
+	XmlSpaceAttr    string   `json:",omitempty" xml:"xml:space,attr,omitempty"`
+	IdAttr          string   `json:",omitempty" xml:"id,attr,omitempty"`
+	ListingtypeAttr string   `json:",omitempty" xml:"listing-type,attr"`
 }
 
 // PreType ...
 type PreType struct {
-	XMLName        xml.Name `xml:"pre"`
+	XMLName        xml.Name `json:"-" xml:"pre"`
 	ExchPreAttlist *PreAttlist
-	Value          string `xml:",chardata"`
+	Value          string `json:",omitempty" xml:",chardata"`
 }
 
 // Pre is *******************************
@@ -10031,7 +10031,7 @@ type Pre *PreType
 
 // BrType ...
 type BrType struct {
-	XMLName xml.Name `xml:"br"`
+	XMLName xml.Name `json:"-" xml:"br"`
 }
 
 // Br is br - break, line break within a paragraph, etc
@@ -10039,13 +10039,13 @@ type Br *BrType
 
 // BType ...
 type BType struct {
-	XMLName   xml.Name         `xml:"b"`
-	I         []*IType         `xml:"i"`
-	U         []*UType         `xml:"u"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"b"`
+	I         []*IType         `json:",omitempty" xml:"i"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // B is *********************************
@@ -10056,13 +10056,13 @@ type B *BType
 
 // IType ...
 type IType struct {
-	XMLName   xml.Name         `xml:"i"`
-	B         []*BType         `xml:"b"`
-	U         []*UType         `xml:"u"`
-	O         []*OType         `xml:"o"`
-	Sup       []*SupType       `xml:"sup"`
-	Sub       []*SubType       `xml:"sub"`
-	Smallcaps []*SmallcapsType `xml:"smallcaps"`
+	XMLName   xml.Name         `json:"-" xml:"i"`
+	B         []*BType         `json:",omitempty" xml:"b"`
+	U         []*UType         `json:",omitempty" xml:"u"`
+	O         []*OType         `json:",omitempty" xml:"o"`
+	Sup       []*SupType       `json:",omitempty" xml:"sup"`
+	Sub       []*SubType       `json:",omitempty" xml:"sub"`
+	Smallcaps []*SmallcapsType `json:",omitempty" xml:"smallcaps"`
 }
 
 // I is Italic formatting for text
@@ -10070,11 +10070,11 @@ type I *IType
 
 // SmallcapsType ...
 type SmallcapsType struct {
-	XMLName xml.Name `xml:"smallcaps"`
-	B       []*BType `xml:"b"`
-	U       []*UType `xml:"u"`
-	I       []*IType `xml:"i"`
-	O       []*OType `xml:"o"`
+	XMLName xml.Name `json:"-" xml:"smallcaps"`
+	B       []*BType `json:",omitempty" xml:"b"`
+	U       []*UType `json:",omitempty" xml:"u"`
+	I       []*IType `json:",omitempty" xml:"i"`
+	O       []*OType `json:",omitempty" xml:"o"`
 }
 
 // Smallcaps is Small capitals
@@ -10082,13 +10082,13 @@ type Smallcaps *SmallcapsType
 
 // SupType ...
 type SupType struct {
-	XMLName xml.Name    `xml:"sup"`
-	B       []*BType    `xml:"b"`
-	U       []*UType    `xml:"u"`
-	I       []*IType    `xml:"i"`
-	O       []*OType    `xml:"o"`
-	Sup2    []*Sup2Type `xml:"sup2"`
-	Sub2    []*Sub2Type `xml:"sub2"`
+	XMLName xml.Name    `json:"-" xml:"sup"`
+	B       []*BType    `json:",omitempty" xml:"b"`
+	U       []*UType    `json:",omitempty" xml:"u"`
+	I       []*IType    `json:",omitempty" xml:"i"`
+	O       []*OType    `json:",omitempty" xml:"o"`
+	Sup2    []*Sup2Type `json:",omitempty" xml:"sup2"`
+	Sub2    []*Sub2Type `json:",omitempty" xml:"sub2"`
 }
 
 // Sup is Superscripted text
@@ -10096,13 +10096,13 @@ type Sup *SupType
 
 // SubType ...
 type SubType struct {
-	XMLName xml.Name    `xml:"sub"`
-	B       []*BType    `xml:"b"`
-	U       []*UType    `xml:"u"`
-	I       []*IType    `xml:"i"`
-	O       []*OType    `xml:"o"`
-	Sup2    []*Sup2Type `xml:"sup2"`
-	Sub2    []*Sub2Type `xml:"sub2"`
+	XMLName xml.Name    `json:"-" xml:"sub"`
+	B       []*BType    `json:",omitempty" xml:"b"`
+	U       []*UType    `json:",omitempty" xml:"u"`
+	I       []*IType    `json:",omitempty" xml:"i"`
+	O       []*OType    `json:",omitempty" xml:"o"`
+	Sup2    []*Sup2Type `json:",omitempty" xml:"sup2"`
+	Sub2    []*Sub2Type `json:",omitempty" xml:"sub2"`
 }
 
 // Sub is Subscripted text
@@ -10110,11 +10110,11 @@ type Sub *SubType
 
 // Sub2Type ...
 type Sub2Type struct {
-	XMLName xml.Name `xml:"sub2"`
-	B       []*BType `xml:"b"`
-	U       []*UType `xml:"u"`
-	I       []*IType `xml:"i"`
-	O       []*OType `xml:"o"`
+	XMLName xml.Name `json:"-" xml:"sub2"`
+	B       []*BType `json:",omitempty" xml:"b"`
+	U       []*UType `json:",omitempty" xml:"u"`
+	I       []*IType `json:",omitempty" xml:"i"`
+	O       []*OType `json:",omitempty" xml:"o"`
 }
 
 // Sub2 is Subscripted text 2nd level
@@ -10122,11 +10122,11 @@ type Sub2 *Sub2Type
 
 // Sup2Type ...
 type Sup2Type struct {
-	XMLName xml.Name `xml:"sup2"`
-	B       []*BType `xml:"b"`
-	U       []*UType `xml:"u"`
-	I       []*IType `xml:"i"`
-	O       []*OType `xml:"o"`
+	XMLName xml.Name `json:"-" xml:"sup2"`
+	B       []*BType `json:",omitempty" xml:"b"`
+	U       []*UType `json:",omitempty" xml:"u"`
+	I       []*IType `json:",omitempty" xml:"i"`
+	O       []*OType `json:",omitempty" xml:"o"`
 }
 
 // Sup2 is Superscripted text 2nd level
@@ -10134,14 +10134,14 @@ type Sup2 *Sup2Type
 
 // Exchangedocuments ...
 type Exchangedocuments struct {
-	XMLName               xml.Name `xml:"exchange-documents"`
-	CountryAttr           string   `xml:"country,attr,omitempty"`
-	DateproducedAttr      *IntType `xml:"date-produced,attr,omitempty"`
-	DateofexchangeAttr    *IntType `xml:"date-of-exchange,attr,omitempty"`
-	DtdversionAttr        string   `xml:"dtd-version,attr,omitempty"`
-	FileAttr              string   `xml:"file,attr,omitempty"`
-	NoofdocumentsAttr     *IntType `xml:"no-of-documents,attr,omitempty"`
-	OriginatingofficeAttr string   `xml:"originating-office,attr,omitempty"`
-	StatusAttr            string   `xml:"status,attr,omitempty"`
-	ExchExchangedocument  []string `xml:"exchange-document"`
+	XMLName               xml.Name `json:"-" xml:"exchange-documents"`
+	CountryAttr           string   `json:",omitempty" xml:"country,attr,omitempty"`
+	DateproducedAttr      *IntType `json:",omitempty" xml:"date-produced,attr,omitempty"`
+	DateofexchangeAttr    *IntType `json:",omitempty" xml:"date-of-exchange,attr,omitempty"`
+	DtdversionAttr        string   `json:",omitempty" xml:"dtd-version,attr,omitempty"`
+	FileAttr              string   `json:",omitempty" xml:"file,attr,omitempty"`
+	NoofdocumentsAttr     *IntType `json:",omitempty" xml:"no-of-documents,attr,omitempty"`
+	OriginatingofficeAttr string   `json:",omitempty" xml:"originating-office,attr,omitempty"`
+	StatusAttr            string   `json:",omitempty" xml:"status,attr,omitempty"`
+	ExchExchangedocument  []string `json:",omitempty" xml:"exchange-document"`
 }
