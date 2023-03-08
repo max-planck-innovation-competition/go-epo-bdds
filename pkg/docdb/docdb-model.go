@@ -630,7 +630,7 @@ type PriorityclaimType struct {
 	Officeoffiling              *OfficeoffilingType       `xml:"office-of-filing"`
 	Prioritydocrequested        *PrioritydocrequestedType `xml:"priority-doc-requested"`
 	Prioritydocattached         *PrioritydocattachedType  `xml:"priority-doc-attached"`
-	ExchPrioritylinkagetype     string                    `xml:"priority-linkage-"`
+	ExchPrioritylinkagetype     string                    `xml:"priority-linkage-type"`
 	ExchPriorityactiveindicator string                    `xml:"priority-active-indicator"`
 }
 
@@ -780,7 +780,7 @@ type ApplicantnameType struct {
 	XMLName        xml.Name `xml:"applicant-name"`
 	LangAttr       string   `xml:"lang,attr,omitempty"`
 	DataformatAttr string   `xml:"data-format,attr,omitempty"`
-	ExchNameGroup  *NameGroup
+	Name           *NameType
 }
 
 // Applicantname is The name of the applicant (without address information)
@@ -5525,7 +5525,7 @@ type Patcit *PatcitType
 type DocumentidType struct {
 	XMLName   xml.Name       `xml:"document-id"`
 	LangAttr  string         `xml:"lang,attr,omitempty"`
-	DocidAttr *IntType       `xml:"doc-id,attr,omitempty"`
+	DocidAttr int            `xml:"doc-id,attr,omitempty"`
 	Country   string         `xml:"country"`
 	Docnumber *DocnumberType `xml:"doc-number"`
 	Kind      *KindType      `xml:"kind"`
