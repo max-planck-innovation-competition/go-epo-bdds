@@ -24,7 +24,7 @@ type Exchangedocument struct {
 	FilereferenceidAttr        string                 `json:",omitempty" xml:"file-reference-id,attr,omitempty"`
 	IdAttr                     string                 `json:",omitempty" xml:"id,attr,omitempty"`
 	FamilyidAttr               string                 `json:",omitempty" xml:"family-id,attr,omitempty"`
-	DocidAttr                  string                 `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	DocidAttr                  string                 `json:"id,omitempty" xml:"doc-id,attr,omitempty"` // doc id is the "unique and stable" identifier
 	IsrepresentativeAttr       string                 `json:",omitempty" xml:"is-representative,attr,omitempty"`
 	KindAttr                   string                 `json:",omitempty" xml:"kind,attr,omitempty"`
 	LangAttr                   string                 `json:",omitempty" xml:"lang,attr,omitempty"`
@@ -34,7 +34,7 @@ type Exchangedocument struct {
 	ExchBibliographicdata      *BibliographicdataType `json:",omitempty" xml:"bibliographic-data"`
 	ExchAbstract               []*AbstractType        `json:",omitempty" xml:"abstract"`
 	ExchPatentfamily           *PatentfamilyType      `json:",omitempty" xml:"patent-family"`
-	Exchangedocument           string                 `json:",omitempty" xml:"exchange-document"`
+	ExchangeDocument           string                 `json:",omitempty" xml:"exchange-document"`
 }
 
 // SearchreportdataType ...
@@ -199,7 +199,7 @@ type SreppatentfamilyType struct {
 	IdAttr               string                   `json:",omitempty" xml:"id,attr,omitempty"`
 	Priorityapplication  *PriorityapplicationType `json:",omitempty" xml:"priority-application"`
 	ExchSrepfamilymember []*SrepfamilymemberType  `json:",omitempty" xml:"srep-family-member"`
-	Text                 *TextType                `json:",omitempty" xml:"text"`
+	Text                 *string                  `json:",omitempty" xml:"text"`
 }
 
 // Sreppatentfamily is Patent family member.
@@ -230,7 +230,7 @@ type SrepinfoType struct {
 	Srepfiguretopublish      *SrepfiguretopublishType    `json:",omitempty" xml:"srep-figure-to-publish"`
 	Srepinfoadmin            *SrepinfoadminType          `json:",omitempty" xml:"srep-info-admin"`
 	Srepotherinfo            *SrepotherinfoType          `json:",omitempty" xml:"srep-other-info"`
-	Text                     []*TextType                 `json:",omitempty" xml:"text"`
+	Text                     []*string                   `json:",omitempty" xml:"text"`
 }
 
 // SrepabstractType ...
@@ -569,7 +569,7 @@ type Inidcode *InidcodeType
 type ReferencescitedType struct {
 	XMLName      xml.Name        `json:"-" xml:"references-cited"`
 	StatusAttr   string          `json:",omitempty" xml:"status,attr,omitempty"`
-	Text         *TextType       `json:",omitempty" xml:"text"`
+	Text         *string         `json:",omitempty" xml:"text"`
 	ExchCitation []*CitationType `json:",omitempty" xml:"citation"`
 }
 
@@ -607,7 +607,7 @@ type CitationType struct {
 	Nplcit                *NplcitType              `json:",omitempty" xml:"nplcit"`
 	Relpassage            []*RelpassageType        `json:",omitempty" xml:"rel-passage"`
 	Category              []*CategoryType          `json:",omitempty" xml:"category"`
-	Relclaims             []*RelclaimsType         `json:",omitempty" xml:"rel-claims"`
+	Relclaims             []*string                `json:",omitempty" xml:"rel-claims"`
 	ExchCorrespondingdocs []*CorrespondingdocsType `json:",omitempty" xml:"corresponding-docs"`
 }
 
@@ -798,6 +798,7 @@ type InventiontitleType struct {
 	U              []*UType   `json:",omitempty" xml:"u"`
 	Sup            []*SupType `json:",omitempty" xml:"sup"`
 	Sub            []*SubType `json:",omitempty" xml:"sub"`
+	Value          string     `json:",omitempty" xml:",chardata"`
 }
 
 // Inventiontitle is Invention title, text embedded in tag itself,
@@ -872,7 +873,7 @@ type PrintedwithgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"printed-with-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Printedwithgrant is Date of publication by printing or similar process of a document, on which grant has taken place on or
@@ -886,7 +887,7 @@ type AbstractreferenceType struct {
 	XMLName    xml.Name             `json:"-" xml:"abstract-reference"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // ModifiedcompletespecpubType ...
@@ -894,7 +895,7 @@ type ModifiedcompletespecpubType struct {
 	XMLName    xml.Name             `json:"-" xml:"modified-complete-spec-pub"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // ModifiedfirstpagepubType ...
@@ -902,7 +903,7 @@ type ModifiedfirstpagepubType struct {
 	XMLName    xml.Name             `json:"-" xml:"modified-first-page-pub"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // NotprintedwithgrantType ...
@@ -910,7 +911,7 @@ type NotprintedwithgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"not-printed-with-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Notprintedwithgrant is Not printed document with grant
@@ -923,7 +924,7 @@ type ClaimsonlyavailableType struct {
 	XMLName    xml.Name             `json:"-" xml:"claims-only-available"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Claimsonlyavailable is Document claims only available. (INID 46, ST.32 B460)
@@ -934,7 +935,7 @@ type ExaminedprintedwithoutgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"examined-printed-without-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Examinedprintedwithoutgrant is Examined, printed document without grant.
@@ -947,7 +948,7 @@ type UnexaminedprintedwithoutgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"unexamined-printed-without-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Unexaminedprintedwithoutgrant is Unexamined, printed document without grant.
@@ -960,7 +961,7 @@ type ExaminednotprintedwithoutgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"examined-not-printed-without-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Examinednotprintedwithoutgrant is Examined, not printed document without grant.
@@ -973,7 +974,7 @@ type UnexaminednotprintedwithoutgrantType struct {
 	XMLName    xml.Name             `json:"-" xml:"unexamined-not-printed-without-grant"`
 	LangAttr   string               `json:",omitempty" xml:"lang,attr,omitempty"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Unexaminednotprintedwithoutgrant is Unexamined, not printed document without grant.
@@ -989,7 +990,7 @@ type ExchangegazettereferenceType struct {
 	LangAttr    string          `json:",omitempty" xml:"lang,attr,omitempty"`
 	Gazettenum  *GazettenumType `json:",omitempty" xml:"gazette-num"`
 	Date        int             `json:",omitempty" xml:"date"`
-	Text        *TextType       `json:",omitempty" xml:"text"`
+	Text        *string         `json:",omitempty" xml:"text"`
 }
 
 // Gazettereference is Information about an office's gazette or bulletin - paper, electronic, etc.
@@ -1094,7 +1095,7 @@ type ClassificationipcType struct {
 	Additionalinfo          []*AdditionalinfoType          `json:",omitempty" xml:"additional-info"`
 	Linkedindexingcodegroup []*LinkedindexingcodegroupType `json:",omitempty" xml:"linked-indexing-code-group"`
 	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `json:",omitempty" xml:"unlinked-indexing-code"`
-	Text                    []*TextType                    `json:",omitempty" xml:"text"`
+	Text                    []*string                      `json:",omitempty" xml:"text"`
 }
 
 // Classificationipc is IFD tag = 070
@@ -1231,7 +1232,7 @@ type ClassificationnationalType struct {
 	Additionalinfo          []*AdditionalinfoType          `json:",omitempty" xml:"additional-info"`
 	Linkedindexingcodegroup []*LinkedindexingcodegroupType `json:",omitempty" xml:"linked-indexing-code-group"`
 	Unlinkedindexingcode    []*UnlinkedindexingcodeType    `json:",omitempty" xml:"unlinked-indexing-code"`
-	Text                    []*TextType                    `json:",omitempty" xml:"text"`
+	Text                    []*string                      `json:",omitempty" xml:"text"`
 }
 
 // Classificationnational is Domestic or national classification.
@@ -1283,7 +1284,7 @@ type ClassificationipcrType struct {
 	Generatingoffice         *GeneratingofficeType         `json:",omitempty" xml:"generating-office"`
 	Classificationstatus     *ClassificationstatusType     `json:",omitempty" xml:"classification-status"`
 	Classificationdatasource *ClassificationdatasourceType `json:",omitempty" xml:"classification-data-source"`
-	Text                     *TextType                     `json:",omitempty" xml:"text"`
+	Text                     *string                       `json:",omitempty" xml:"text"`
 }
 
 // Classificationipcr is *******************************
@@ -1904,10 +1905,10 @@ type MoType struct {
 }
 
 // Mtext ...
-type Mtext *MtextType
+type Mtext *Mstring
 
-// MtextType ...
-type MtextType struct {
+// Mstring ...
+type Mstring struct {
 	XMLName            xml.Name          `json:"-" xml:"mtext"`
 	XlinkHrefAttr      interface{}       `json:",omitempty" xml:"xlink:href,attr,omitempty"`
 	XlinkTypeAttr      string            `json:",omitempty" xml:"xlink:type,attr,omitempty"`
@@ -2499,7 +2500,7 @@ type CiType struct {
 	Mi                []*MiType            `json:",omitempty" xml:"mi"`
 	Mn                []*MnType            `json:",omitempty" xml:"mn"`
 	Mo                []*MoType            `json:",omitempty" xml:"mo"`
-	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Mtext             []*Mstring           `json:",omitempty" xml:"mtext"`
 	Ms                []*MsType            `json:",omitempty" xml:"ms"`
 	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
 	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
@@ -2548,7 +2549,7 @@ type CsymbolType struct {
 	Mi                []*MiType            `json:",omitempty" xml:"mi"`
 	Mn                []*MnType            `json:",omitempty" xml:"mn"`
 	Mo                []*MoType            `json:",omitempty" xml:"mo"`
-	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Mtext             []*Mstring           `json:",omitempty" xml:"mtext"`
 	Ms                []*MsType            `json:",omitempty" xml:"ms"`
 	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
 	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
@@ -2599,7 +2600,7 @@ type CnType struct {
 	Mi                []*MiType            `json:",omitempty" xml:"mi"`
 	Mn                []*MnType            `json:",omitempty" xml:"mn"`
 	Mo                []*MoType            `json:",omitempty" xml:"mo"`
-	Mtext             []*MtextType         `json:",omitempty" xml:"mtext"`
+	Mtext             []*Mstring           `json:",omitempty" xml:"mtext"`
 	Ms                []*MsType            `json:",omitempty" xml:"ms"`
 	Mspace            []*MspaceType        `json:",omitempty" xml:"mspace"`
 	Mrow              []*MrowType          `json:",omitempty" xml:"mrow"`
@@ -5240,7 +5241,7 @@ type BiodepositType struct {
 	Bioaccno   *BioaccnoType   `json:",omitempty" xml:"bio-accno"`
 	Date       int             `json:",omitempty" xml:"date"`
 	Term       *TermType       `json:",omitempty" xml:"term"`
-	Dtext      *DtextType      `json:",omitempty" xml:"dtext"`
+	Dtext      *Dstring        `json:",omitempty" xml:"dtext"`
 }
 
 // Biodeposit is *******************************
@@ -5275,7 +5276,7 @@ type NplcitType struct {
 	MediumAttr      string            `json:",omitempty" xml:"medium,attr,omitempty"`
 	UrlAttr         string            `json:",omitempty" xml:"url,attr,omitempty"`
 	ExtractedxpAttr string            `json:",omitempty" xml:"extracted-xp,attr,omitempty"`
-	Text            *TextType         `json:",omitempty" xml:"text"`
+	Text            *string           `json:",omitempty" xml:"text"`
 	Article         *ArticleType      `json:",omitempty" xml:"article"`
 	Book            *BookType         `json:",omitempty" xml:"book"`
 	Online          *OnlineType       `json:",omitempty" xml:"online"`
@@ -5419,8 +5420,8 @@ type AddressbookType struct {
 	Email          []*EmailType `json:",omitempty" xml:"email"`
 	Url            []*UrlType   `json:",omitempty" xml:"url"`
 	Ead            []*EadType   `json:",omitempty" xml:"ead"`
-	Dtext          *DtextType   `json:",omitempty" xml:"dtext"`
-	Text           *TextType    `json:",omitempty" xml:"text"`
+	Dtext          *Dstring     `json:",omitempty" xml:"dtext"`
+	Text           *string      `json:",omitempty" xml:"text"`
 }
 
 // Addressbook is ADDRESSBOOK GROUP:
@@ -5441,7 +5442,7 @@ type PatcitType struct {
 	DnumtypeAttr string            `json:",omitempty" xml:"dnum-type,attr,omitempty"`
 	FileAttr     string            `json:",omitempty" xml:"file,attr,omitempty"`
 	UrlAttr      string            `json:",omitempty" xml:"url,attr,omitempty"`
-	Text         *TextType         `json:",omitempty" xml:"text"`
+	Text         *string           `json:",omitempty" xml:"text"`
 	Documentid   *DocumentidType   `json:",omitempty" xml:"document-id"`
 	Relpassage   []*RelpassageType `json:",omitempty" xml:"rel-passage"`
 }
@@ -5523,25 +5524,25 @@ type Patcit *PatcitType
 
 // DocumentidType ...
 type DocumentidType struct {
-	XMLName   xml.Name       `json:"-" xml:"document-id"`
-	LangAttr  string         `json:",omitempty" xml:"lang,attr,omitempty"`
-	DocidAttr int            `json:",omitempty" xml:"doc-id,attr,omitempty"`
-	Country   string         `json:",omitempty" xml:"country"`
-	Docnumber *DocnumberType `json:",omitempty" xml:"doc-number"`
-	Kind      *KindType      `json:",omitempty" xml:"kind"`
-	Name      *NameType      `json:",omitempty" xml:"name"`
-	Date      int            `json:",omitempty" xml:"date"`
+	XMLName   xml.Name  `json:"-" xml:"document-id"`
+	LangAttr  string    `json:",omitempty" xml:"lang,attr,omitempty"`
+	DocidAttr int       `json:",omitempty" xml:"doc-id,attr,omitempty"`
+	Country   string    `json:",omitempty" xml:"country"`
+	Docnumber *string   `json:",omitempty" xml:"doc-number"`
+	Kind      *string   `json:",omitempty" xml:"kind"`
+	Name      *NameType `json:",omitempty" xml:"name"`
+	Date      int       `json:",omitempty" xml:"date"`
 }
 
 // DocumentidPrintType ...
 type DocumentidPrintType struct {
-	XMLName   xml.Name       `json:"-" xml:"document-id"`
-	LangAttr  string         `json:",omitempty" xml:"lang,attr,omitempty"`
-	Country   string         `json:",omitempty" xml:"country"`
-	Docnumber *DocnumberType `json:",omitempty" xml:"doc-number"`
-	Kind      *KindType      `json:",omitempty" xml:"kind"`
-	Name      *NameType      `json:",omitempty" xml:"name"`
-	Date      int            `json:",omitempty" xml:"date"`
+	XMLName   xml.Name  `json:"-" xml:"document-id"`
+	LangAttr  string    `json:",omitempty" xml:"lang,attr,omitempty"`
+	Country   string    `json:",omitempty" xml:"country"`
+	Docnumber *string   `json:",omitempty" xml:"doc-number"`
+	Kind      *string   `json:",omitempty" xml:"kind"`
+	Name      *NameType `json:",omitempty" xml:"name"`
+	Date      int       `json:",omitempty" xml:"date"`
 }
 
 // Documentid is Document identification refers to patents (and patent applications) only. See WIPO ST.14
@@ -5649,7 +5650,7 @@ type SrepwrittenopinionType struct {
 	ExchOpinioncitations      *OpinioncitationsType          `json:",omitempty" xml:"opinion-citations"`
 	Defectinapplication       *DefectinapplicationType       `json:",omitempty" xml:"defect-in-application"`
 	Observationonapplication  *ObservationonapplicationType  `json:",omitempty" xml:"observation-on-application"`
-	Text                      []*TextType                    `json:",omitempty" xml:"text"`
+	Text                      []*string                      `json:",omitempty" xml:"text"`
 }
 
 // Srepwrittenopinion ...
@@ -5733,7 +5734,7 @@ type CertainpublisheddocumentsType struct {
 	ExchCitation []*CitationType   `json:",omitempty" xml:"citation"`
 	Filingdate   *FilingdateType   `json:",omitempty" xml:"filing-date"`
 	Prioritydate *PrioritydateType `json:",omitempty" xml:"priority-date"`
-	Text         *TextType         `json:",omitempty" xml:"text"`
+	Text         *string           `json:",omitempty" xml:"text"`
 }
 
 // Certainpublisheddocuments is (PCT/ISA/237 )
@@ -5770,7 +5771,7 @@ type CitationsexplanationsType struct {
 	ExchCitation []*CitationType   `json:",omitempty" xml:"citation"`
 	Filingdate   *FilingdateType   `json:",omitempty" xml:"filing-date"`
 	Prioritydate *PrioritydateType `json:",omitempty" xml:"priority-date"`
-	Text         *TextType         `json:",omitempty" xml:"text"`
+	Text         *string           `json:",omitempty" xml:"text"`
 }
 
 // Citationsexplanations is Citations and explanations:
@@ -6050,7 +6051,7 @@ type Srepforpub *SrepforpubType
 // SreppatentfamiliesType ...
 type SreppatentfamiliesType struct {
 	XMLName              xml.Name                `json:"-" xml:"srep-patent-families"`
-	Text                 *TextType               `json:",omitempty" xml:"text"`
+	Text                 *string                 `json:",omitempty" xml:"text"`
 	ExchSreppatentfamily []*SreppatentfamilyType `json:",omitempty" xml:"srep-patent-family"`
 }
 
@@ -6206,7 +6207,7 @@ type Primaryexaminer *PrimaryexaminerType
 // IncompletesearchType ...
 type IncompletesearchType struct {
 	XMLName                    xml.Name                        `json:"-" xml:"incomplete-search"`
-	Text                       *TextType                       `json:",omitempty" xml:"text"`
+	Text                       *string                         `json:",omitempty" xml:"text"`
 	Claimssearched             *ClaimssearchedType             `json:",omitempty" xml:"claims-searched"`
 	Claimssearchedincompletely *ClaimssearchedincompletelyType `json:",omitempty" xml:"claims-searched-incompletely"`
 	Claimsnotsearched          *ClaimsnotsearchedType          `json:",omitempty" xml:"claims-not-searched"`
@@ -6255,7 +6256,7 @@ type Claimssearched *ClaimssearchedType
 // SrepcitationsType ...
 type SrepcitationsType struct {
 	XMLName      xml.Name        `json:"-" xml:"srep-citations"`
-	Text         *TextType       `json:",omitempty" xml:"text"`
+	Text         *string         `json:",omitempty" xml:"text"`
 	ExchCitation []*CitationType `json:",omitempty" xml:"citation"`
 }
 
@@ -6277,7 +6278,7 @@ type Srepfieldssearched *SrepfieldssearchedType
 // DatabasesearchedType ...
 type DatabasesearchedType struct {
 	XMLName xml.Name    `json:"-" xml:"database-searched"`
-	Text    *TextType   `json:",omitempty" xml:"text"`
+	Text    *string     `json:",omitempty" xml:"text"`
 	Nplcit  *NplcitType `json:",omitempty" xml:"nplcit"`
 }
 
@@ -6876,7 +6877,7 @@ type CorrespondingdocsType struct {
 	Nplcit     []*NplcitType     `json:",omitempty" xml:"nplcit"`
 	Relpassage []*RelpassageType `json:",omitempty" xml:"rel-passage"`
 	Category   []*CategoryType   `json:",omitempty" xml:"category"`
-	Relclaims  []*RelclaimsType  `json:",omitempty" xml:"rel-claims"`
+	Relclaims  []*string         `json:",omitempty" xml:"rel-claims"`
 }
 
 // Correspondingdocs is Patent family and corresponding-docs - see example above
@@ -7237,7 +7238,7 @@ type Gazettepubannouncement struct {
 	XMLName        xml.Name        `json:"-" xml:"gazette-pub-announcement"`
 	ExchGazettenum *GazettenumType `json:",omitempty" xml:"gazette-num"`
 	ExchDate       string          `json:",omitempty" xml:"date"`
-	ExchText       *TextType       `json:",omitempty" xml:"text"`
+	ExchText       *string         `json:",omitempty" xml:"text"`
 }
 
 // Supplementalsreppub ...
@@ -7267,7 +7268,7 @@ type Modifiedfirstpagepub *ModifiedfirstpagepubType
 type PrintedasamendedType struct {
 	XMLName    xml.Name             `json:"-" xml:"printed-as-amended"`
 	Documentid *DocumentidPrintType `json:",omitempty" xml:"document-id"`
-	Text       *TextType            `json:",omitempty" xml:"text"`
+	Text       *string              `json:",omitempty" xml:"text"`
 }
 
 // Printedasamended is Document printed as amended, (eg. EPO B2).
@@ -7279,7 +7280,7 @@ type Printedasamended *PrintedasamendedType
 type InvalidationofpatentType struct {
 	XMLName    xml.Name        `json:"-" xml:"invalidation-of-patent"`
 	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
-	Text       *TextType       `json:",omitempty" xml:"text"`
+	Text       *string         `json:",omitempty" xml:"text"`
 }
 
 // Invalidationofpatent is Invalidation of patent.
@@ -7290,7 +7291,7 @@ type Invalidationofpatent *InvalidationofpatentType
 // TermofgrantType ...
 type TermofgrantType struct {
 	XMLName       xml.Name             `json:"-" xml:"term-of-grant"`
-	Text          []*TextType          `json:",omitempty" xml:"text"`
+	Text          []*string            `json:",omitempty" xml:"text"`
 	Disclaimer    []*DisclaimerType    `json:",omitempty" xml:"disclaimer"`
 	Lengthofgrant []*LengthofgrantType `json:",omitempty" xml:"length-of-grant"`
 	Lapseofpatent []*LapseofpatentType `json:",omitempty" xml:"lapse-of-patent"`
@@ -7305,7 +7306,7 @@ type Termofgrant *TermofgrantType
 type LapseofpatentType struct {
 	XMLName    xml.Name        `json:"-" xml:"lapse-of-patent"`
 	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
-	Text       *TextType       `json:",omitempty" xml:"text"`
+	Text       *string         `json:",omitempty" xml:"text"`
 }
 
 // Lapseofpatent is Lapse of patent.
@@ -7326,9 +7327,9 @@ type Lengthofgrant *LengthofgrantType
 
 // DisclaimerType ...
 type DisclaimerType struct {
-	XMLName xml.Name  `json:"-" xml:"disclaimer"`
-	Date    int       `json:",omitempty" xml:"date"`
-	Text    *TextType `json:",omitempty" xml:"text"`
+	XMLName xml.Name `json:"-" xml:"disclaimer"`
+	Date    int      `json:",omitempty" xml:"date"`
+	Text    *string  `json:",omitempty" xml:"text"`
 }
 
 // Disclaimer is Disclaimer date.
@@ -7832,7 +7833,7 @@ type SemanticsContentExpression struct {
 	Mi                  *MiType
 	Mn                  *MnType
 	Mo                  *MoType
-	Mtext               *MtextType
+	Mtext               *Mstring
 	Ms                  *MsType
 	Mspace              *MspaceType
 	Mrow                *MrowType
@@ -8011,7 +8012,7 @@ type ContentExpression struct {
 	Mi                  *MiType
 	Mn                  *MnType
 	Mo                  *MoType
-	Mtext               *MtextType
+	Mtext               *Mstring
 	Ms                  *MsType
 	Mspace              *MspaceType
 	Mrow                *MrowType
@@ -8046,7 +8047,7 @@ type MtdPresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8114,7 +8115,7 @@ type MtrPresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8182,7 +8183,7 @@ type PrscrPresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8250,7 +8251,7 @@ type ThreePresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8318,7 +8319,7 @@ type TwoPresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8385,7 +8386,7 @@ type PresExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mprescripts    *MprescriptsType
@@ -8452,7 +8453,7 @@ type MathExpression struct {
 	Mi             *MiType
 	Mn             *MnType
 	Mo             *MoType
-	Mtext          *MtextType
+	Mtext          *Mstring
 	Ms             *MsType
 	Mspace         *MspaceType
 	Mrow           *MrowType
@@ -8569,7 +8570,7 @@ type Othercit *OthercitType
 // OnlineType ...
 type OnlineType struct {
 	XMLName     xml.Name           `json:"-" xml:"online"`
-	Text        *TextType          `json:",omitempty" xml:"text"`
+	Text        *string            `json:",omitempty" xml:"text"`
 	Author      []*AuthorType      `json:",omitempty" xml:"author"`
 	Onlinetitle []*OnlinetitleType `json:",omitempty" xml:"online-title"`
 	Hosttitle   *HosttitleType     `json:",omitempty" xml:"hosttitle"`
@@ -8753,7 +8754,7 @@ type Hostno *HostnoType
 // HistoryType ...
 type HistoryType struct {
 	XMLName  xml.Name      `json:"-" xml:"history"`
-	Text     *TextType     `json:",omitempty" xml:"text"`
+	Text     *string       `json:",omitempty" xml:"text"`
 	Received *ReceivedType `json:",omitempty" xml:"received"`
 	Accepted *AcceptedType `json:",omitempty" xml:"accepted"`
 	Revised  *RevisedType  `json:",omitempty" xml:"revised"`
@@ -8822,7 +8823,7 @@ type Onlinetitle *OnlinetitleType
 // ArticleType ...
 type ArticleType struct {
 	XMLName  xml.Name       `json:"-" xml:"article"`
-	Text     *TextType      `json:",omitempty" xml:"text"`
+	Text     *string        `json:",omitempty" xml:"text"`
 	Author   []*AuthorType  `json:",omitempty" xml:"author"`
 	Atl      *AtlType       `json:",omitempty" xml:"atl"`
 	Subname  []*SubnameType `json:",omitempty" xml:"subname"`
@@ -8935,7 +8936,7 @@ type Artid *ArtidType
 // BookType ...
 type BookType struct {
 	XMLName    xml.Name         `json:"-" xml:"book"`
-	Text       *TextType        `json:",omitempty" xml:"text"`
+	Text       *string          `json:",omitempty" xml:"text"`
 	Author     []*AuthorType    `json:",omitempty" xml:"author"`
 	Booktitle  []*BooktitleType `json:",omitempty" xml:"book-title"`
 	Conference *ConferenceType  `json:",omitempty" xml:"conference"`
@@ -9043,7 +9044,7 @@ type Bookno *BooknoType
 // LocationType ...
 type LocationType struct {
 	XMLName xml.Name     `json:"-" xml:"location"`
-	Text    *TextType    `json:",omitempty" xml:"text"`
+	Text    *string      `json:",omitempty" xml:"text"`
 	Serpart *SerpartType `json:",omitempty" xml:"serpart"`
 	Sersect *SersectType `json:",omitempty" xml:"sersect"`
 	Chapter *ChapterType `json:",omitempty" xml:"chapter"`
@@ -9211,7 +9212,7 @@ type AbsnoType struct {
 // SeriesType ...
 type SeriesType struct {
 	XMLName xml.Name  `json:"-" xml:"series"`
-	Text    *TextType `json:",omitempty" xml:"text"`
+	Text    *string   `json:",omitempty" xml:"text"`
 	Mst     *MstType  `json:",omitempty" xml:"mst"`
 	Msn     *MsnType  `json:",omitempty" xml:"msn"`
 	Issn    *IssnType `json:",omitempty" xml:"issn"`
@@ -9267,7 +9268,7 @@ type Subtitle *SubtitleType
 // ConferenceType ...
 type ConferenceType struct {
 	XMLName     xml.Name           `json:"-" xml:"conference"`
-	Text        *TextType          `json:",omitempty" xml:"text"`
+	Text        *string            `json:",omitempty" xml:"text"`
 	Conftitle   *ConftitleType     `json:",omitempty" xml:"conftitle"`
 	Date        int                `json:",omitempty" xml:"date"`
 	Confdate    *ConfdateType      `json:",omitempty" xml:"confdate"`
@@ -9470,7 +9471,7 @@ type Descrip *DescripType
 // ImprintType ...
 type ImprintType struct {
 	XMLName xml.Name       `json:"-" xml:"imprint"`
-	Text    *TextType      `json:",omitempty" xml:"text"`
+	Text    *string        `json:",omitempty" xml:"text"`
 	Address *AddressType   `json:",omitempty" xml:"address"`
 	Name    *NameType      `json:",omitempty" xml:"name"`
 	Pubdate []*PubdateType `json:",omitempty" xml:"pubdate"`
@@ -9572,14 +9573,14 @@ type AtlType struct {
 // Atl is Article title
 type Atl *AtlType
 
-// DtextType ...
-type DtextType struct {
+// Dstring ...
+type Dstring struct {
 	XMLName xml.Name `json:"-" xml:"dtext"`
 	Value   string   `json:",omitempty" xml:",chardata"`
 }
 
 // Dtext is Descriptive text
-type Dtext *DtextType
+type Dtext *Dstring
 
 // EadType ...
 type EadType struct {
@@ -9649,7 +9650,7 @@ type AddressType struct {
 	State        *StateType        `json:",omitempty" xml:"state"`
 	Postcode     *PostcodeType     `json:",omitempty" xml:"postcode"`
 	Country      string            `json:",omitempty" xml:"country"`
-	Text         *TextType         `json:",omitempty" xml:"text"`
+	Text         *string           `json:",omitempty" xml:"text"`
 }
 
 // PostcodeType ...
@@ -9888,10 +9889,10 @@ type Lastname *LastnameType
 // RelpassageType ...
 type RelpassageType struct {
 	XMLName   xml.Name       `json:"-" xml:"rel-passage"`
-	Text      *TextType      `json:",omitempty" xml:"text"`
+	Text      *string        `json:",omitempty" xml:"text"`
 	Passage   []*PassageType `json:",omitempty" xml:"passage"`
 	Category  *CategoryType  `json:",omitempty" xml:"category"`
-	Relclaims *RelclaimsType `json:",omitempty" xml:"rel-claims"`
+	Relclaims *string        `json:",omitempty" xml:"rel-claims"`
 }
 
 // Relpassage is Relevant passage group within patent; most used in search reports. With regards to passage, references
@@ -9899,16 +9900,16 @@ type RelpassageType struct {
 //	other than location included for EPO internal use only
 type Relpassage *RelpassageType
 
-// RelclaimsType ...
-type RelclaimsType struct {
-	XMLName xml.Name `json:"-" xml:"rel-claims"`
-	Value   string   `json:",omitempty" xml:",chardata"`
-}
+// string ...
+//type string struct {
+//	XMLName xml.Name `json:"-" xml:"rel-claims"`
+//	Value   string   `json:",omitempty" xml:",chardata"`
+//}
 
 // Relclaims is Relevant claims
 //
 //	see example above
-type Relclaims *RelclaimsType
+// type Relclaims *string
 
 // CategoryType ...
 type CategoryType struct {
@@ -9967,15 +9968,15 @@ type Date int
 type ICEdatetype *IntType
 
 // KindType ...
-type KindType struct {
-	XMLName xml.Name `json:"-" xml:"kind"`
-	Value   string   `json:",omitempty" xml:",chardata"`
-}
+//type KindType struct {
+//	XMLName xml.Name `json:"-" xml:"kind"`
+//	Value   string   `json:",omitempty" xml:",chardata"`
+//}
 
 // Kind is Document kind code; e.g., A1
 //
 //	(INID 13, ST.32:B130)
-type Kind *KindType
+//type Kind *KindType
 
 // DocnumberType ...
 type DocnumberType struct {
@@ -9994,14 +9995,14 @@ type Country string
 // CountryType is Zimbabwe
 type CountryType string
 
-// TextType ...
-type TextType struct {
-	XMLName xml.Name `json:"-" xml:"text"`
-	Value   string   `json:",omitempty" xml:",chardata"`
-}
+// string ...
+//type string struct {
+//	XMLName xml.Name `json:"-" xml:"text"`
+//	Value   string   `json:",omitempty" xml:",chardata"`
+//}
 
 // Text is If no structure is possible, enter text (without markup)
-type Text *TextType
+// type Text *string
 
 // PreAttlist ...
 type PreAttlist struct {

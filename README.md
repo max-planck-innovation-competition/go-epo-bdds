@@ -11,6 +11,15 @@ Alpha Version
 ## Author
 Sebastian Erhardt
 
+## DocDB
+
+The structs for the docdb data are generated from the xsd files provided by the EPO.
+
+The [xgen](https://github.com/xuri/xgen) library was used to generate the structs.
+```
+xgen -i /path/to/your/xsd -o /path/to/your/output -l Go
+```
+
 ## Environment Variables
 
 ```
