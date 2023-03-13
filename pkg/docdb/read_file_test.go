@@ -1,36 +1,21 @@
-package go_epo_bdds
+package docdb
 
 import (
-	"encoding/json"
-	"encoding/xml"
-	"fmt"
-	"github.com/max-planck-innovation-competition/go-epo-docdb/pkg/docdb"
 	"github.com/stretchr/testify/assert"
-	"io/ioutil"
 	"strconv"
-	"strings"
 	"testing"
 )
 
 func TestReadFile(t *testing.T) {
 
 	// process file
-	data, err := ioutil.ReadFile("./pkg/docdb/test-data/AP-1206-A_302101161.xml")
-	if err != nil {
-		t.Error(err)
-	}
-	// replace bytes
-	xmlString := strings.Replace(string(data), "<exch:", "<", -1)
-	xmlString = strings.Replace(xmlString, "</exch:", "</", -1)
-	// parse data from cml in to exchange object
-	var exchangeObject docdb.Exchangedocument
-	err = xml.Unmarshal([]byte(xmlString), &exchangeObject)
+	exchangeObject, err := ReadFile("./test-data/AP-1206-A_302101161.xml")
 	if err != nil {
 		t.Error(err)
 	}
 
-	jsonObject, err := json.MarshalIndent(exchangeObject, "", "  ")
-	fmt.Println(string(jsonObject))
+	// jsonObject, err := json.MarshalIndent(exchangeObject, "", "  ")
+	// fmt.Println(string(jsonObject))
 
 	ass := assert.New(t)
 	ass.NoError(err)
@@ -57,19 +42,19 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("en", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.LangAttr)
 	ass.Equal("AP", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Country)
 	//ass.Equal("doc-number", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Docnumber.XMLName.Local)
-	ass.Equal("1206", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Docnumber)
+	ass.Equal("1206", *exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Docnumber)
 	//ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Kind)
 	ass.Equal(20030918, exchangeObject.ExchBibliographicdata.ExchPublicationreference[0].Documentid.Date)
 
 	ass.Equal("publication-reference", exchangeObject.ExchBibliographicdata.ExchPublicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchBibliographicdata.ExchPublicationreference[1].DataformatAttr)
 	//ass.Equal("doc-number", exchangeObject.ExchBibliographicdata.ExchPublicationreference[1].Documentid.Docnumber.XMLName.Local)
-	ass.Equal("AP1206", exchangeObject.ExchBibliographicdata.ExchPublicationreference[1].Documentid.Docnumber)
+	ass.Equal("AP1206", *exchangeObject.ExchBibliographicdata.ExchPublicationreference[1].Documentid.Docnumber)
 
 	ass.Equal("publication-reference", exchangeObject.ExchBibliographicdata.ExchPublicationreference[2].XMLName.Local)
 	ass.Equal("original", exchangeObject.ExchBibliographicdata.ExchPublicationreference[2].DataformatAttr)
-	ass.Equal("AP 1206", exchangeObject.ExchBibliographicdata.ExchPublicationreference[2].Documentid.Docnumber)
+	ass.Equal("AP 1206", *exchangeObject.ExchBibliographicdata.ExchPublicationreference[2].Documentid.Docnumber)
 
 	// classification-ipc
 	ass.Equal("classification-ipc", exchangeObject.ExchBibliographicdata.ExchClassificationipc.XMLName.Local)
@@ -83,24 +68,24 @@ func TestReadFile(t *testing.T) {
 	}
 
 	ass.Equal("classifications-ipcr", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.XMLName.Local)
-	ass.Equal("A61K 9/16 20060101A I20051008RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[0].Text)
-	ass.Equal("A61K 9/32 20060101ALI20030127BMRU", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[1].Text)
-	ass.Equal("A61K 9/48 20060101ALI20030127BMRU", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[2].Text)
-	ass.Equal("A61K 9/50 20060101A I20051008RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[3].Text)
-	ass.Equal("A61K 9/54 20060101A I20051110RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[4].Text)
-	ass.Equal("A61K 9/62 20060101A I20051110RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[5].Text)
-	ass.Equal("A61K 9/64 20060101A I20060521RMUS", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[6].Text)
-	ass.Equal("A61K 31/22 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[7].Text)
-	ass.Equal("A61K 31/522 20060101A I20051110RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[8].Text)
-	ass.Equal("A61K 31/704 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[9].Text)
-	ass.Equal("A61K 31/7048 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[10].Text)
-	ass.Equal("A61K 31/708 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[11].Text)
-	ass.Equal("A61K 47/02 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[12].Text)
-	ass.Equal("A61K 47/14 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[13].Text)
-	ass.Equal("A61K 47/32 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[14].Text)
-	ass.Equal("A61K 47/36 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[15].Text)
-	ass.Equal("A61K 47/38 20060101ALI20051220RMJP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[16].Text)
-	ass.Equal("A61P 31/18 20060101A I20051110RMEP", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[17].Text)
+	ass.Equal("A61K 9/16 20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[0].Text)
+	ass.Equal("A61K 9/32 20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[1].Text)
+	ass.Equal("A61K 9/48 20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[2].Text)
+	ass.Equal("A61K 9/50 20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[3].Text)
+	ass.Equal("A61K 9/54 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[4].Text)
+	ass.Equal("A61K 9/62 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[5].Text)
+	ass.Equal("A61K 9/64 20060101A I20060521RMUS", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[6].Text)
+	ass.Equal("A61K 31/22 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[7].Text)
+	ass.Equal("A61K 31/522 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[8].Text)
+	ass.Equal("A61K 31/704 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[9].Text)
+	ass.Equal("A61K 31/7048 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[10].Text)
+	ass.Equal("A61K 31/708 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[11].Text)
+	ass.Equal("A61K 47/02 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[12].Text)
+	ass.Equal("A61K 47/14 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[13].Text)
+	ass.Equal("A61K 47/32 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[14].Text)
+	ass.Equal("A61K 47/36 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[15].Text)
+	ass.Equal("A61K 47/38 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[16].Text)
+	ass.Equal("A61P 31/18 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[17].Text)
 
 	// patent classification
 	for i := 0; i <= 7; i++ {
@@ -169,20 +154,20 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("docdb", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.XMLName.Local)
 	ass.Equal("AP", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Country)
-	ass.Equal("2000001988", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Docnumber)
+	ass.Equal("2000001988", *exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Kind)
 	ass.Equal(19980804, exchangeObject.ExchBibliographicdata.ExchApplicationreference[0].Documentid.Date)
 
 	ass.Equal("application-reference", exchangeObject.ExchBibliographicdata.ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchBibliographicdata.ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchApplicationreference[1].Documentid.XMLName.Local)
-	ass.Equal("AP19200001988", exchangeObject.ExchBibliographicdata.ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AP19200001988", *exchangeObject.ExchBibliographicdata.ExchApplicationreference[1].Documentid.Docnumber)
 
 	ass.Equal("application-reference", exchangeObject.ExchBibliographicdata.ExchApplicationreference[2].XMLName.Local)
 	ass.Equal("original", exchangeObject.ExchBibliographicdata.ExchApplicationreference[2].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchApplicationreference[2].Documentid.XMLName.Local)
-	ass.Equal("AP/P/2000/001988", exchangeObject.ExchBibliographicdata.ExchApplicationreference[2].Documentid.Docnumber)
+	ass.Equal("AP/P/2000/001988", *exchangeObject.ExchBibliographicdata.ExchApplicationreference[2].Documentid.Docnumber)
 
 	// language of publication
 	ass.Equal("language-of-publication", exchangeObject.ExchBibliographicdata.ExchLanguageofpublication.XMLName.Local)
@@ -193,9 +178,10 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("1", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].SequenceAttr)
 	ass.Equal("docdb", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.XMLName.Local)
-	ass.Equal("8359798", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Docnumber)
+	ass.Equal("8359798", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Docnumber)
+
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Kind)
 	ass.Equal("US", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Country)
 	ass.Equal(19980522, exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].Documentid.Date)
 	ass.Equal("Y", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[0].ExchPriorityactiveindicator)
@@ -204,15 +190,15 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("1", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[1].SequenceAttr)
 	ass.Equal("epodoc", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[1].Documentid.XMLName.Local)
-	ass.Equal("US19980083597", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[1].Documentid.Docnumber)
+	ass.Equal("US19980083597", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[1].Documentid.Docnumber)
 
 	ass.Equal("priority-claim", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].XMLName.Local)
 	ass.Equal("2", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].SequenceAttr)
 	ass.Equal("docdb", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.XMLName.Local)
-	ass.Equal("9816128", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Docnumber)
+	ass.Equal("9816128", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Kind.XMLName.Local)
-	ass.Equal("W", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Kind)
+	ass.Equal("W", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Kind)
 	ass.Equal("US", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Country)
 	ass.Equal(19980804, exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].Documentid.Date)
 	ass.Equal("W", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[2].ExchPrioritylinkagetype)
@@ -222,19 +208,19 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("2", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[3].SequenceAttr)
 	ass.Equal("epodoc", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[3].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[3].Documentid.XMLName.Local)
-	ass.Equal("WO1998US16128", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[3].Documentid.Docnumber)
+	ass.Equal("WO1998US16128", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[3].Documentid.Docnumber)
 
 	ass.Equal("priority-claim", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].XMLName.Local)
 	ass.Equal("1", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].SequenceAttr)
 	ass.Equal("original", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].Documentid.XMLName.Local)
-	ass.Equal("PCT/US98/16128", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].Documentid.Docnumber)
+	ass.Equal("PCT/US98/16128", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[4].Documentid.Docnumber)
 
 	ass.Equal("priority-claim", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].XMLName.Local)
 	ass.Equal("2", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].SequenceAttr)
 	ass.Equal("original", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].Documentid.XMLName.Local)
-	ass.Equal("09/083,597", exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].Documentid.Docnumber)
+	ass.Equal("09/083,597", *exchangeObject.ExchBibliographicdata.ExchPriorityclaims.ExchPriorityclaim[5].Documentid.Docnumber)
 
 	// parties
 	ass.Equal("parties", exchangeObject.ExchBibliographicdata.ExchParties.XMLName.Local)
@@ -280,11 +266,11 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("publication number", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.DnumtypeAttr)
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.XMLName.Local)
 	ass.Equal(298340634, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.DocidAttr)
-	ass.Equal("5556839", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Docnumber)
+	ass.Equal("5556839", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Docnumber)
 	ass.Equal("US", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Country)
-	ass.Equal("5556839", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Docnumber)
+	ass.Equal("5556839", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Kind)
 	ass.Equal("name", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Name.XMLName.Local)
 	ass.Equal("GREENE JAMES M [US], et al", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Name.Value)
 	ass.Equal(19960917, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[0].Patcit.Documentid.Date)
@@ -299,9 +285,10 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.XMLName.Local)
 	ass.Equal(301191403, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.DocidAttr)
 	ass.Equal("US", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Country)
-	ass.Equal("5510114", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Docnumber)
+	ass.Equal("5510114", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Docnumber)
+
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Kind)
 	ass.Equal("name", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Name.XMLName.Local)
 	ass.Equal("BORELLA FABIO [IT], et al", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Name.Value)
 	ass.Equal(19960423, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[1].Patcit.Documentid.Date)
@@ -316,9 +303,9 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("document-id", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.XMLName.Local)
 	ass.Equal(302101161, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.DocidAttr)
 	ass.Equal("US", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Country)
-	ass.Equal("5326570", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Docnumber)
+	ass.Equal("5326570", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Kind)
 	ass.Equal("name", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Name.XMLName.Local)
 	ass.Equal("RUDNIC EDWARD M [US], et al", exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Name.Value)
 	ass.Equal(19940705, exchangeObject.ExchBibliographicdata.ExchReferencescited.ExchCitation[2].Patcit.Documentid.Date)
@@ -328,32 +315,32 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("docdba", exchangeObject.ExchAbstract[0].DataformatAttr)
 	ass.Equal("national office", exchangeObject.ExchAbstract[0].AbstractsourceAttr)
 	ass.Equal("p", exchangeObject.ExchAbstract[0].ExchP[0].XMLName.Local)
-	ass.Equal(682, len(exchangeObject.ExchAbstract[0].ExchP[0].Value))
+	ass.Equal(667, len(exchangeObject.ExchAbstract[0].ExchP[0].Value))
 
 	// family member tag 1 (46)
 	ass.Equal("family-member", exchangeObject.ExchPatentfamily.ExchFamilymember[0].XMLName.Local)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchApplicationreference[0].XMLName.Local)
 	ass.Equal("docdb", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchApplicationreference[0].DataformatAttr)
 	ass.Equal("NO", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchApplicationreference[0].IsrepresentativeAttr)
-	ass.Equal("2000001988", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchApplicationreference[0].Documentid.Docnumber)
+	ass.Equal("2000001988", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchApplicationreference[0].Documentid.Docnumber)
 	ass.Equal("publication-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].XMLName.Local)
 	ass.Equal("docdb", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.XMLName.Local)
 	ass.Equal("AP", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Country)
-	ass.Equal("1206", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Docnumber)
+	ass.Equal("1206", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Kind.XMLName.Local)
-	ass.Equal("A", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Kind)
+	ass.Equal("A", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[0].Documentid.Kind)
 	ass.Equal("publication-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[1].Documentid.XMLName.Local)
-	ass.Equal("AP1206", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[1].Documentid.Docnumber)
+	ass.Equal("AP1206", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[1].Documentid.Docnumber)
 	ass.Equal("publication-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].XMLName.Local)
 	ass.Equal("docdb", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.XMLName.Local)
 	ass.Equal("AP", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Country)
-	ass.Equal("2000001988", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Docnumber)
+	ass.Equal("2000001988", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Docnumber)
 	// ass.Equal("kind", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Kind.XMLName.Local)
-	ass.Equal("A0", exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Kind)
+	ass.Equal("A0", *exchangeObject.ExchPatentfamily.ExchFamilymember[0].ExchPublicationreference[2].Documentid.Kind)
 
 	for i := 0; i <= 45; i++ {
 		ass.Equal("family-member", exchangeObject.ExchPatentfamily.ExchFamilymember[i].XMLName.Local)
@@ -373,50 +360,50 @@ func TestReadFile(t *testing.T) {
 	}
 	// 2
 	ass.Equal("NO", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[0].IsrepresentativeAttr)
-	ass.Equal("4342002", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[0].Documentid.Docnumber)
+	ass.Equal("4342002", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[0].Documentid.Docnumber)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.XMLName.Local)
 	//ass.Equal("doc-number", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber.XMLName.Local)
-	ass.Equal("AT20020000434U", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AT20020000434U", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber)
 	ass.Equal("AT", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[0].Documentid.Country)
-	ass.Equal("6311", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[0].Documentid.Docnumber)
-	ass.Equal("U1", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[0].Documentid.Kind)
-	ass.Equal("AT6311U", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[1].Documentid.Docnumber)
+	ass.Equal("6311", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[0].Documentid.Docnumber)
+	ass.Equal("U1", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[0].Documentid.Kind)
+	ass.Equal("AT6311U", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchPublicationreference[1].Documentid.Docnumber)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.XMLName.Local)
 	//ass.Equal("doc-number", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber.XMLName.Local)
-	ass.Equal("AT20020000434U", exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AT20020000434U", *exchangeObject.ExchPatentfamily.ExchFamilymember[2].ExchApplicationreference[1].Documentid.Docnumber)
 
 	// 3
 	ass.Equal("NO", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[0].IsrepresentativeAttr)
-	ass.Equal("98938302", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[0].Documentid.Docnumber)
+	ass.Equal("98938302", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[0].Documentid.Docnumber)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.XMLName.Local)
-	ass.Equal("AT19980938302T", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AT19980938302T", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.Docnumber)
 	ass.Equal("AT", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[0].Documentid.Country)
-	ass.Equal("311859", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[0].Documentid.Docnumber)
-	ass.Equal("T", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[0].Documentid.Kind)
-	ass.Equal("AT311859T", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[1].Documentid.Docnumber)
+	ass.Equal("311859", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[0].Documentid.Docnumber)
+	ass.Equal("T", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[0].Documentid.Kind)
+	ass.Equal("AT311859T", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchPublicationreference[1].Documentid.Docnumber)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.XMLName.Local)
-	ass.Equal("AT19980938302T", exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AT19980938302T", *exchangeObject.ExchPatentfamily.ExchFamilymember[3].ExchApplicationreference[1].Documentid.Docnumber)
 
 	// 4
 	ass.Equal("NO", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[0].IsrepresentativeAttr)
-	ass.Equal("8685498", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[0].Documentid.Docnumber)
+	ass.Equal("8685498", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[0].Documentid.Docnumber)
 	ass.Equal("application-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[1].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[1].DataformatAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[1].Documentid.XMLName.Local)
-	ass.Equal("AU19980086854", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[1].Documentid.Docnumber)
+	ass.Equal("AU19980086854", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchApplicationreference[1].Documentid.Docnumber)
 	ass.Equal("AU", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].Documentid.Country)
-	ass.Equal("750911", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].Documentid.Docnumber)
-	ass.Equal("B2", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].Documentid.Kind)
+	ass.Equal("750911", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].Documentid.Docnumber)
+	ass.Equal("B2", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].Documentid.Kind)
 	ass.Equal("1", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[0].SequenceAttr)
-	ass.Equal("AU750911B", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[1].Documentid.Docnumber)
+	ass.Equal("AU750911B", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[1].Documentid.Docnumber)
 	ass.Equal("1", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[1].SequenceAttr)
 	ass.Equal("publication-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].XMLName.Local)
 	ass.Equal("docdb", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].DataformatAttr)
@@ -424,12 +411,12 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.XMLName.Local)
 	// ass.Equal("kind", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Kind.XMLName.Local)
 	ass.Equal("AU", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Country)
-	ass.Equal("8685498", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Docnumber)
-	ass.Equal("A", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Kind)
+	ass.Equal("8685498", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Docnumber)
+	ass.Equal("A", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[2].Documentid.Kind)
 	ass.Equal("publication-reference", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].XMLName.Local)
 	ass.Equal("epodoc", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].DataformatAttr)
 	ass.Equal("2", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].SequenceAttr)
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].Documentid.XMLName.Local)
-	ass.Equal("AU8685498", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].Documentid.Docnumber)
+	ass.Equal("AU8685498", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].Documentid.Docnumber)
 
 }
