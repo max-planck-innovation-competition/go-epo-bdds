@@ -1,4 +1,4 @@
-module github.com/max-planck-innovation-competition/go-epo-docdb
+module github.com/max-planck-innovation-competition/go-epo-bdds
 
 go 1.19
 
