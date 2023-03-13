@@ -42,7 +42,7 @@ func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 				return err
 			}
 			logger.WithField("zipFile", path).Info("found zip file")
-			processZipFile(logger, f)
+			processZipFile(logger, f, destinationFolder)
 		}
 		// default (other files)
 		return nil
@@ -62,7 +62,7 @@ func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 	return
 }
 
-func processZipFile(logger *log.Entry, f fs.File) {
+func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
 	stats, _ := f.Stat()
 	logger = logger.WithField("zipFile", stats.Name())
 	// read file
@@ -79,7 +79,7 @@ func processZipFile(logger *log.Entry, f fs.File) {
 	// Read all the files from zip archive
 	for _, zipFile := range zipReader.File {
 		logger.WithField("xmlFile", zipFile.Name).Info("child found")
-		err = processZipFileContent(logger, zipFile)
+		err = processZipFileContent(logger, zipFile, destinationFolder)
 		if err != nil {
 			logger.WithError(err).Error("failed to process zip file content")
 			return
@@ -88,7 +88,7 @@ func processZipFile(logger *log.Entry, f fs.File) {
 
 }
 
-func processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
+func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder string) (err error) {
 	logger = log.WithField("xmlFile", file.Name)
 	logger.Info("process xml file")
 	ctx := context.TODO()
@@ -113,7 +113,7 @@ func processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
 	chFilename := make(chan string)
 	chFileEnd := make(chan bool)
 	// start 2nd process
-	go fileWriter(ctx, "./test-data", &wg, chContent, chFilename, chFileEnd)
+	go fileWriter(ctx, destinationFolder, &wg, chContent, chFilename, chFileEnd)
 	// scan file
 	// scan file
 	scanner := bufio.NewScanner(fc)
