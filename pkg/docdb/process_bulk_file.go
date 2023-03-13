@@ -118,7 +118,7 @@ func processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
 	// scan file
 	scanner := bufio.NewScanner(fc)
 	buf := make([]byte, 0, 64*1024)
-	scanner.Buffer(buf, 1024*1024) // 1MB
+	scanner.Buffer(buf, 1024*1024*200) // 200 MB
 	// custom line break
 	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
 		if atEOF && len(data) == 0 {
