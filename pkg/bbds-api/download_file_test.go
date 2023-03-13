@@ -16,7 +16,7 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 	}
 
 	// get front files
-	resFrontFiles, err := GetEpoBddsFileItems(token)
+	resFrontFiles, err := GetEpoBddsFileItems(token, EpoDocDBFrontFilesProductID)
 	if err != nil {
 		t.Error(err)
 	}
@@ -24,7 +24,7 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 
 	// download front files
 	err = DownloadFile(token,
-		EpoDocDBProductID,
+		EpoDocDBFrontFilesProductID,
 		resFrontFiles.Deliveries[0].DeliveryID,
 		resFrontFiles.Deliveries[0].Files[0].FileID,
 		resFrontFiles.Deliveries[0].Files[0].FileName,

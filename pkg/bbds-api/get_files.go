@@ -3,6 +3,7 @@ package bbds_api
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"strings"
@@ -33,21 +34,26 @@ type EpoDocDbResponse struct {
 }
 
 // EpoBddsProductEndpoint is the endpoint for the doc db product
-var EpoBddsProductEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/3"
+var EpoBddsProductEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/%s"
 
 // EpoBddsBProductID is the product id for epo bulk datasets
 type EpoBddsBProductID string
 
-// EpoDocDBProductID is the product id for the doc db
-const EpoDocDBProductID EpoBddsBProductID = "3"
+// EpoDocDBFrontFilesProductID is the product id for the doc db
+const EpoDocDBFrontFilesProductID EpoBddsBProductID = "3"
+const EpoDocDBBackFilesProductID EpoBddsBProductID = "14"
 
 // GetEpoBddsFileItems returns the links to the front files of the doc db
-func GetEpoBddsFileItems(token string) (response EpoDocDbResponse, err error) {
+func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response EpoDocDbResponse, err error) {
+
+	// build endpoint url
+	endpoint := fmt.Sprintf(EpoBddsProductEndpoint, string(productID))
+
 	// create new http request with header and payload
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
 	defer cancel()
 
-	req, err := http.NewRequestWithContext(ctx, "GET", EpoBddsProductEndpoint, strings.NewReader(""))
+	req, err := http.NewRequestWithContext(ctx, "GET", endpoint, strings.NewReader(""))
 	if err != nil {
 		log.WithError(err).Error("failed to create new request")
 		return

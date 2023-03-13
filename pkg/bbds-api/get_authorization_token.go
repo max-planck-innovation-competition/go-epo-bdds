@@ -32,7 +32,22 @@ var ErrNoAccessToken = errors.New("no access token")
 
 // GetAuthorizationToken returns the authorization token for the EPO API
 func GetAuthorizationToken() (token string, err error) {
-	payload := fmt.Sprintf("grant_type=password&username=%s&password=%s&scope=openid", os.Getenv("EPO_USERNAME"), os.Getenv("EPO_PASSWORD"))
+
+	epoUserName := os.Getenv("EPO_USERNAME")
+	if epoUserName == "" {
+		err = errors.New("no epo username set")
+		log.WithError(err).Error("no epo username set")
+		return
+	}
+
+	epoPassword := os.Getenv("EPO_PASSWORD")
+	if epoPassword == "" {
+		err = errors.New("no epo password set")
+		log.WithError(err).Error("no epo password set")
+		return
+	}
+
+	payload := fmt.Sprintf("grant_type=password&username=%s&password=%s&scope=openid", epoUserName, epoPassword)
 
 	// create new http request with header and payload
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
