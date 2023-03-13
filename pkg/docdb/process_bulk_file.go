@@ -167,6 +167,11 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 				// add the content
 				wg.Add(1)
 				chContent <- line
+				// if the line also contains the end of the file
+				if strings.Contains(line, "</exch:exchange-document>") {
+					wg.Add(1)
+					chFileEnd <- true
+				}
 			} else {
 				log.WithField("line", line).Error("failed to split line")
 			}
