@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// ReadFile reads a file and returns the ExchangeDocument
 func ReadFile(filepath string) (doc *Exchangedocument, err error) {
 	// read file
 	data, err := os.ReadFile(filepath)

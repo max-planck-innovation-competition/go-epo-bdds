@@ -18,6 +18,7 @@ import (
 // regexFileName is used to extract the filename from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
 
+// ProcessBulkZipFile processes a bulk zip file
 func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 	logger := log.WithField("bulkZipFile", bulkZipFile)
 	logger.Info("start reading file")
@@ -62,6 +63,7 @@ func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
 	return
 }
 
+// processZipFile processes a bulk zip file
 func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
 	stats, _ := f.Stat()
 	logger = logger.WithField("zipFile", stats.Name())
@@ -88,6 +90,7 @@ func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
 
 }
 
+// processZipFileContent processes a zip file content
 func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder string) (err error) {
 	logger = log.WithField("xmlFile", file.Name)
 	logger.Info("process xml file")
@@ -195,6 +198,7 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 	return
 }
 
+// fileWriter writes the content to a file
 func fileWriter(
 	ctx context.Context,
 	destinationFolder string,

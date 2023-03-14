@@ -19,18 +19,21 @@ type EpoDocDbFileItem struct {
 	ItemPublicationDatetime time.Time `json:"itemPublicationDatetime"`
 }
 
-// EpoDocDbResponse is the response from the epo doc db
-type EpoDocDbResponse struct {
-	ID          int    `json:"id"`
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Deliveries  []struct {
-		DeliveryID                  int                `json:"deliveryId"`
-		DeliveryName                string             `json:"deliveryName"`
-		DeliveryPublicationDatetime time.Time          `json:"deliveryPublicationDatetime"`
-		DeliveryExpiryDatetime      *time.Time         `json:"deliveryExpiryDatetime"`
-		Files                       []EpoDocDbFileItem `json:"files"`
-	} `json:"deliveries"`
+// EpoProductDeliveriesResponse is the response from the epo doc db
+type EpoProductDeliveriesResponse struct {
+	ID          int                `json:"id"`
+	Name        string             `json:"name"`
+	Description string             `json:"description"`
+	Deliveries  []EpoDocDbDelivery `json:"deliveries"`
+}
+
+// EpoDocDbDelivery is a single delivery of doc db
+type EpoDocDbDelivery struct {
+	DeliveryID                  int                `json:"deliveryId"`
+	DeliveryName                string             `json:"deliveryName"`
+	DeliveryPublicationDatetime time.Time          `json:"deliveryPublicationDatetime"`
+	DeliveryExpiryDatetime      *time.Time         `json:"deliveryExpiryDatetime"`
+	Files                       []EpoDocDbFileItem `json:"files"`
 }
 
 // EpoBddsProductEndpoint is the endpoint for the doc db product
@@ -44,7 +47,7 @@ const EpoDocDBFrontFilesProductID EpoBddsBProductID = "3"
 const EpoDocDBBackFilesProductID EpoBddsBProductID = "14"
 
 // GetEpoBddsFileItems returns the links to the front files of the doc db
-func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response EpoDocDbResponse, err error) {
+func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response EpoProductDeliveriesResponse, err error) {
 
 	// build endpoint url
 	endpoint := fmt.Sprintf(EpoBddsProductEndpoint, string(productID))

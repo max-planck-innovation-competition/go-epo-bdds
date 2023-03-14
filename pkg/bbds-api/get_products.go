@@ -19,6 +19,7 @@ type EpoProductItem struct {
 	Description string `json:"description"`
 }
 
+// GetProducts returns the products
 func GetProducts(token string) (response []EpoProductItem, err error) {
 	// create new http request with header and payload
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
