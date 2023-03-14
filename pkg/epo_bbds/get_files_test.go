@@ -1,4 +1,4 @@
-package bbds_api
+package epo_bbds
 
 import (
 	"fmt"

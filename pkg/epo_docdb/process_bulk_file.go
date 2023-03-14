@@ -1,4 +1,4 @@
-package docdb
+package epo_docdb
 
 import (
 	"archive/zip"
