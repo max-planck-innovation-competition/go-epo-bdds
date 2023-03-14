@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -24,8 +25,10 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 		log.WithError(err).Error("failed to create file path")
 		return
 	}
+	// join file and filepath
+	path := filepath.Join(destinationFilePath, destinationFileName)
 	// create file
-	out, err := os.Create("./" + destinationFileName)
+	out, err := os.Create(path)
 	if err != nil {
 		log.WithError(err).Error("failed to create file")
 		return
