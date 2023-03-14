@@ -19,12 +19,12 @@ import (
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
 
 // ProcessBulkZipFile processes a bulk zip file
-func ProcessBulkZipFile(bulkZipFile, destinationFolder string) (err error) {
-	logger := log.WithField("bulkZipFile", bulkZipFile)
+func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
+	logger := log.WithField("bulkZipFilePath", bulkZipFilePath)
 	logger.Info("start reading file")
 
 	// read the bulk zip file
-	reader, err := zip.OpenReader(bulkZipFile)
+	reader, err := zip.OpenReader(bulkZipFilePath)
 	if err != nil {
 		logger.WithError(err).Error("failed to open bulk zip file")
 		return err
