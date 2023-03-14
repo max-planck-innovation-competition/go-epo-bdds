@@ -15,11 +15,17 @@ import (
 var EpoBddsFileEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/%s/delivery/%d/file/%d/download"
 
 // DownloadFile downloads a file from the bulk data service
-func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID int, fileName string) (err error) {
+func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID int, destinationFilePath, destinationFileName string) (err error) {
 	// build endpoint url
 	endpoint := fmt.Sprintf(EpoBddsFileEndpoint, string(productID), deliveryID, fileID)
+	// create path if not exists
+	err = os.MkdirAll(destinationFilePath, os.ModePerm)
+	if err != nil {
+		log.WithError(err).Error("failed to create file path")
+		return
+	}
 	// create file
-	out, err := os.Create("./" + fileName)
+	out, err := os.Create("./" + destinationFileName)
 	if err != nil {
 		log.WithError(err).Error("failed to create file")
 		return

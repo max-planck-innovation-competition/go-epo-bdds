@@ -27,6 +27,7 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 		EpoDocDBFrontFilesProductID,
 		resFrontFiles.Deliveries[0].DeliveryID,
 		resFrontFiles.Deliveries[0].Files[0].FileID,
+		"./test",
 		resFrontFiles.Deliveries[0].Files[0].FileName,
 	)
 	if err != nil {
