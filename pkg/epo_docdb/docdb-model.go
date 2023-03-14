@@ -5261,7 +5261,7 @@ type Biodeposit *BiodepositType
 
 // SourceDocType ...
 type SourceDocType struct {
-	XMLName    xml.Name        `json:"-" xml:"sourceDoc"`
+	XMLName    xml.Name        `json:"-" xml:"source-doc"`
 	Documentid *DocumentidType `json:",omitempty" xml:"document-id"`
 }
 
