@@ -21,14 +21,14 @@ type EpoDocDbFileItem struct {
 
 // EpoProductDeliveriesResponse is the response from the epo doc db
 type EpoProductDeliveriesResponse struct {
-	ID          int                `json:"id"`
-	Name        string             `json:"name"`
-	Description string             `json:"description"`
-	Deliveries  []EpoDocDbDelivery `json:"deliveries"`
+	ID          int                  `json:"id"`
+	Name        string               `json:"name"`
+	Description string               `json:"description"`
+	Deliveries  []EpoProductDelivery `json:"deliveries"`
 }
 
-// EpoDocDbDelivery is a single delivery of doc db
-type EpoDocDbDelivery struct {
+// EpoProductDelivery is a single delivery of the epo bbds
+type EpoProductDelivery struct {
 	DeliveryID                  int                `json:"deliveryId"`
 	DeliveryName                string             `json:"deliveryName"`
 	DeliveryPublicationDatetime time.Time          `json:"deliveryPublicationDatetime"`
