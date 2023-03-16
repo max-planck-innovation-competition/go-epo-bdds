@@ -158,6 +158,12 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 				line = docStart + split[1]
 				// extract the filename
 				regexExtractionResults := regexFileName.FindAllStringSubmatch(line, -1)
+				if len(regexExtractionResults) == 0 {
+					msg := "failed extract filename"
+					err = fmt.Errorf(msg)
+					logger.Error(err)
+					return
+				}
 				if len(regexExtractionResults) != 1 && len(regexExtractionResults[0]) != 1 {
 					msg := "failed extract filename"
 					err = fmt.Errorf(msg)
