@@ -38,4 +38,10 @@ func TestGetDocDbBackFileLinks(t *testing.T) {
 		return
 	}
 	fmt.Println(resFrontFiles)
+	for _, d := range resFrontFiles.Deliveries {
+		fmt.Println(d.DeliveryName)
+		for _, f := range d.Files {
+			fmt.Println("\t"+f.FileName, f.FileSize)
+		}
+	}
 }
