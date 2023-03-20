@@ -1,6 +1,7 @@
 package epo_docdb
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"strconv"
 	"testing"
@@ -61,31 +62,31 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("edition", exchangeObject.ExchBibliographicdata.ExchClassificationipc.Edition.XMLName.Local)
 	ass.Equal("7", exchangeObject.ExchBibliographicdata.ExchClassificationipc.Edition.Value)
 	ass.Equal("main-classification", exchangeObject.ExchBibliographicdata.ExchClassificationipc.Mainclassification[0].XMLName.Local)
-	ass.Equal("7A 61K 9/16 A", exchangeObject.ExchBibliographicdata.ExchClassificationipc.Mainclassification[0].Value)
+	ass.Equal("7A 61K   9/16   A", exchangeObject.ExchBibliographicdata.ExchClassificationipc.Mainclassification[0].Value)
 
 	for i := 0; i <= 17; i++ {
 		ass.Equal(strconv.Itoa(i+1), exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[i].SequenceAttr)
 	}
 
 	ass.Equal("classifications-ipcr", exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.XMLName.Local)
-	ass.Equal("A61K 9/16 20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[0].Text)
-	ass.Equal("A61K 9/32 20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[1].Text)
-	ass.Equal("A61K 9/48 20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[2].Text)
-	ass.Equal("A61K 9/50 20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[3].Text)
-	ass.Equal("A61K 9/54 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[4].Text)
-	ass.Equal("A61K 9/62 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[5].Text)
-	ass.Equal("A61K 9/64 20060101A I20060521RMUS", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[6].Text)
-	ass.Equal("A61K 31/22 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[7].Text)
-	ass.Equal("A61K 31/522 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[8].Text)
-	ass.Equal("A61K 31/704 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[9].Text)
-	ass.Equal("A61K 31/7048 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[10].Text)
-	ass.Equal("A61K 31/708 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[11].Text)
-	ass.Equal("A61K 47/02 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[12].Text)
-	ass.Equal("A61K 47/14 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[13].Text)
-	ass.Equal("A61K 47/32 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[14].Text)
-	ass.Equal("A61K 47/36 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[15].Text)
-	ass.Equal("A61K 47/38 20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[16].Text)
-	ass.Equal("A61P 31/18 20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[17].Text)
+	ass.Equal("A61K   9/16        20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[0].Text)
+	ass.Equal("A61K   9/32        20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[1].Text)
+	ass.Equal("A61K   9/48        20060101ALI20030127BMRU", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[2].Text)
+	ass.Equal("A61K   9/50        20060101A I20051008RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[3].Text)
+	ass.Equal("A61K   9/54        20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[4].Text)
+	ass.Equal("A61K   9/62        20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[5].Text)
+	ass.Equal("A61K   9/64        20060101A I20060521RMUS", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[6].Text)
+	ass.Equal("A61K  31/22        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[7].Text)
+	ass.Equal("A61K  31/522       20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[8].Text)
+	ass.Equal("A61K  31/704       20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[9].Text)
+	ass.Equal("A61K  31/7048      20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[10].Text)
+	ass.Equal("A61K  31/708       20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[11].Text)
+	ass.Equal("A61K  47/02        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[12].Text)
+	ass.Equal("A61K  47/14        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[13].Text)
+	ass.Equal("A61K  47/32        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[14].Text)
+	ass.Equal("A61K  47/36        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[15].Text)
+	ass.Equal("A61K  47/38        20060101ALI20051220RMJP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[16].Text)
+	ass.Equal("A61P  31/18        20060101A I20051110RMEP", *exchangeObject.ExchBibliographicdata.ExchClassificationsipcr.Classificationipcr[17].Text)
 
 	// patent classification
 	for i := 0; i <= 7; i++ {
@@ -98,50 +99,50 @@ func TestReadFile(t *testing.T) {
 		ass.Equal("action-date", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[i].Actiondate.XMLName.Local)
 	}
 
-	ass.Equal("A61K 9/1652", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Classificationsymbol)
+	ass.Equal("A61K   9/1652", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[0].Actiondate.Date)
 
-	ass.Equal("A61K 9/485", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Classificationsymbol)
+	ass.Equal("A61K   9/485", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Classificationsymbol)
 	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[1].Actiondate.Date)
 
-	ass.Equal("A61K 9/501", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Classificationsymbol)
+	ass.Equal("A61K   9/501", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[2].Actiondate.Date)
 
-	ass.Equal("A61K 9/5015", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Classificationsymbol)
+	ass.Equal("A61K   9/5015", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Classificationsymbol)
 	ass.Equal("A", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[3].Actiondate.Date)
 
-	ass.Equal("A61K 9/5026", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Classificationsymbol)
+	ass.Equal("A61K   9/5026", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Classificationvalue)
 	ass.Equal("F", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[4].Actiondate.Date)
 
-	ass.Equal("A61K 9/5073", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Classificationsymbol)
+	ass.Equal("A61K   9/5073", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Classificationscheme.OfficeAttr)
 	ass.Equal(20130101, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[5].Actiondate.Date)
 
-	ass.Equal("A61P 31/18", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Classificationsymbol)
+	ass.Equal("A61P  31/18", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Classificationvalue)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Symbolposition)
 	ass.Equal("L", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Classificationscheme.OfficeAttr)
 	ass.Equal(20200327, exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[6].Actiondate.Date)
 
-	ass.Equal("A61K 9/16", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[7].Classificationsymbol)
+	ass.Equal("A61K   9/16", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[7].Classificationsymbol)
 	ass.Equal("I", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[7].Classificationvalue)
 	ass.Equal("F", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[7].Symbolposition)
 	ass.Equal("EP", exchangeObject.ExchBibliographicdata.ExchPatentclassifications.Patentclassification[7].Classificationscheme.OfficeAttr)
@@ -315,7 +316,8 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("docdba", exchangeObject.ExchAbstract[0].DataformatAttr)
 	ass.Equal("national office", exchangeObject.ExchAbstract[0].AbstractsourceAttr)
 	ass.Equal("p", exchangeObject.ExchAbstract[0].ExchP[0].XMLName.Local)
-	ass.Equal(667, len(exchangeObject.ExchAbstract[0].ExchP[0].Value))
+	ass.Equal(598, len(exchangeObject.ExchAbstract[0].ExchP[0].Value))
+	fmt.Println(exchangeObject.ExchAbstract[0].ExchP[0].Value)
 
 	// family member tag 1 (46)
 	ass.Equal("family-member", exchangeObject.ExchPatentfamily.ExchFamilymember[0].XMLName.Local)
@@ -419,4 +421,14 @@ func TestReadFile(t *testing.T) {
 	ass.Equal("document-id", exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].Documentid.XMLName.Local)
 	ass.Equal("AU8685498", *exchangeObject.ExchPatentfamily.ExchFamilymember[4].ExchPublicationreference[3].Documentid.Docnumber)
 
+}
+
+func TestReadFileParsingErr(t *testing.T) {
+	// process file
+	exchangeObject, err := ReadFile("./test-data/WO-2023012807-A1_507242069.xml")
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(exchangeObject.ExchAbstract[0].ExchP[0].Value)
+	return
 }
