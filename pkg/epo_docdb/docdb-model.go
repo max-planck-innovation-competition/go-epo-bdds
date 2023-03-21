@@ -713,6 +713,7 @@ type InventornameType struct {
 	LangAttr       string   `json:",omitempty" xml:"lang,attr,omitempty"`
 	DataformatAttr string   `json:",omitempty" xml:"data-format,attr,omitempty"`
 	ExchNameGroup  *NameGroup
+	Name           *NameType
 }
 
 // Inventorname is Inventor name (without address information)
