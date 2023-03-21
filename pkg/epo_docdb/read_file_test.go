@@ -3,6 +3,8 @@ package epo_docdb
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
+	"log"
 	"strconv"
 	"testing"
 )
@@ -1023,4 +1025,25 @@ func TestReadFileParsingErr(t *testing.T) {
 	}
 	fmt.Println(exchangeObject.ExchAbstract[0].ExchP[0].Value)
 	return
+}
+
+func TestReadFileParsingErrAll(t *testing.T) {
+
+	files, err := ioutil.ReadDir("./test-data")
+	if err != nil {
+		log.Fatal(err)
+	}
+	var filenames []string
+	for _, file := range files {
+		if !file.IsDir() {
+			filenames = append(filenames, file.Name())
+		}
+	}
+	for _, filename := range filenames {
+		exchangeObject, err := ReadFile("./test-data/" + filename)
+		if err != nil {
+			t.Error(err)
+		}
+		fmt.Println(exchangeObject.ExchBibliographicdata.ExchInventiontitle[0].Value)
+	}
 }
