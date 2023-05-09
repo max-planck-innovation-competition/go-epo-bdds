@@ -18,6 +18,13 @@ type EpoDocDbFileItem struct {
 	FileChecksum            string    `json:"fileChecksum"`
 	ItemPublicationDatetime time.Time `json:"itemPublicationDatetime"`
 }
+type EpoDocDbFileItems []EpoDocDbFileItem
+
+func (a EpoDocDbFileItems) Len() int      { return len(a) }
+func (a EpoDocDbFileItems) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
+func (a EpoDocDbFileItems) Less(i, j int) bool {
+	return a[i].FileID < a[j].FileID
+}
 
 // EpoProductDeliveriesResponse is the response from the epo doc db
 type EpoProductDeliveriesResponse struct {
