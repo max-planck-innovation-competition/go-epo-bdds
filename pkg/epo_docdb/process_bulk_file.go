@@ -110,14 +110,12 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 		}
 	}()
 	// init channels and sync
-	// init channels and sync
 	var wg sync.WaitGroup
-	chContent := make(chan string)
-	chFilename := make(chan string)
-	chFileEnd := make(chan bool)
+	chContent := make(chan string)  // content channel
+	chFilename := make(chan string) // filename channel
+	chFileEnd := make(chan bool)    // file end channel
 	// start 2nd process
 	go fileWriter(ctx, destinationFolder, &wg, chContent, chFilename, chFileEnd)
-	// scan file
 	// scan file
 	scanner := bufio.NewScanner(fc)
 	buf := make([]byte, 0, 64*1024)
@@ -185,6 +183,7 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 				log.WithField("line", line).Error("failed to split line")
 			}
 		} else {
+			// if the line contains the end of the file
 			if strings.Contains(line, "</exch:exchange-document>") {
 				// end of the file
 				wg.Add(1)
@@ -193,7 +192,7 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 				chFileEnd <- true
 				continue
 			}
-			// normal line
+			// otherwise it's a normal line
 			wg.Add(1)
 			chContent <- line
 		}
