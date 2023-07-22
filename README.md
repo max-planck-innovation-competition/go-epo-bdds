@@ -1,6 +1,6 @@
-# GO EPO-DOCDB
+# GO Bulk Data Sets
 
-Go API Client for the European Patent Office DocDB Data
+Go API Client for the European Patent Office Bulk Data Sets
 
 ## Status
 
