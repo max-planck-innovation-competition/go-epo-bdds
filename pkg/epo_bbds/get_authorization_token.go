@@ -15,9 +15,6 @@ import (
 // ErrNo200StatusCode is returned if the response status code is not 200
 var ErrNo200StatusCode = errors.New("no 200 status code")
 
-// EpoLoginEndpoint is the endpoint for the EPO login
-const EpoLoginEndpoint = "https://login.epo.org/oauth2/aus3up3nz0N133c0V417/v1/token"
-
 // TokenResponse is the response from the EPO login endpoint
 type TokenResponse struct {
 	AccessToken string `json:"access_token"`

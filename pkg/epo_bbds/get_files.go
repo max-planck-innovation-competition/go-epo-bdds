@@ -43,27 +43,6 @@ type EpoProductDelivery struct {
 	Files                       []EpoDocDbFileItem `json:"files"`
 }
 
-// EpoBddsProductEndpoint is the endpoint for the doc db product
-var EpoBddsProductEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/%s"
-
-// EpoBddsBProductID is the product id for epo bulk datasets
-type EpoBddsBProductID string
-
-// EpoFullTextFrontFilesProductID is the EP full-text data - front file
-const EpoFullTextFrontFilesProductID EpoBddsBProductID = "4"
-
-// EpoDocDBFrontFilesProductID is the product id for the doc db
-const EpoDocDBFrontFilesProductID EpoBddsBProductID = "3"
-
-// EpoDocDBBackFilesProductID is the product id for the doc db back files
-const EpoDocDBBackFilesProductID EpoBddsBProductID = "14"
-
-// EpoPatstatGlobalProductID is the product id for the PATSTAT global
-const EpoPatstatGlobalProductID EpoBddsBProductID = "17"
-
-// EpoPatstatEpRegisterProductID is the product id for the PATSTAT ep register
-const EpoPatstatEpRegisterProductID EpoBddsBProductID = "18"
-
 // GetEpoBddsFileItems returns the links to the front files of the doc db
 func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response EpoProductDeliveriesResponse, err error) {
 
@@ -80,7 +59,7 @@ func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response Ep
 		return
 	}
 	// add header
-	req.Header.Set("Authorization", token)
+	req.Header.Set(AuthHeader, token)
 
 	// send request
 	resp, err := http.DefaultClient.Do(req)

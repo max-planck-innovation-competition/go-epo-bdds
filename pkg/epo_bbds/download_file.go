@@ -11,10 +11,6 @@ import (
 	"strings"
 )
 
-// EpoBddsFileEndpoint is the endpoint for the docdb frontfiles bucket
-// GET https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/%s/delivery/%s/file/%s/download
-var EpoBddsFileEndpoint = "https://publication-bdds.apps.epo.org/bdds/bdds-bff-service/prod/api/products/%s/delivery/%d/file/%d/download"
-
 // DownloadFile downloads a file from the bulk data service
 func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID int, destinationFilePath, destinationFileName string) (err error) {
 	// build endpoint url
@@ -41,7 +37,7 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 		return
 	}
 	// add header
-	req.Header.Set("Authorization", token)
+	req.Header.Set(AuthHeader, token)
 	// send request
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {

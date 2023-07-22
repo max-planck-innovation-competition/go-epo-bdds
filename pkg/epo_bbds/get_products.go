@@ -31,7 +31,7 @@ func GetProducts(token string) (response []EpoProductItem, err error) {
 		return
 	}
 	// add header
-	req.Header.Set("Authorization", token)
+	req.Header.Set(AuthHeader, token)
 
 	// send request
 	resp, err := http.DefaultClient.Do(req)

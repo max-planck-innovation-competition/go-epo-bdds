@@ -42,10 +42,27 @@ func TestGetDocDbBackFileLinks(t *testing.T) {
 	printFiles(res)
 }
 
+func TestGetPatstatGlobalFileLinks(t *testing.T) {
+	ass := assert.New(t)
+	resToken, err := GetAuthorizationToken()
+	ass.NoError(err)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	res, err := GetEpoBddsFileItems(resToken, EpoPatstatGlobalProductID)
+	ass.NoError(err)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	printFiles(res)
+}
+
 func printFiles(res EpoProductDeliveriesResponse) {
 	totalFileSize := int64(0)
 	for _, d := range res.Deliveries {
-		fmt.Println(d.DeliveryName)
+		fmt.Printf("%d \t %s\n", d.DeliveryID, d.DeliveryName)
 		for _, f := range d.Files {
 			size, err := parseFileSize(f.FileSize)
 			if err != nil {
@@ -54,7 +71,7 @@ func printFiles(res EpoProductDeliveriesResponse) {
 			} else {
 				totalFileSize += size
 			}
-			fmt.Println("\t"+f.FileName, f.FileSize)
+			fmt.Printf("\t %d \t %s %s \n", f.FileID, f.FileName, f.FileSize)
 		}
 	}
 	fmt.Println("\n\nTotal file size in GB:", float64(totalFileSize)/1024/1024/1024)
