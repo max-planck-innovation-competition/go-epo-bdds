@@ -52,6 +52,8 @@ type EpoBddsBProductID string
 // EpoDocDBFrontFilesProductID is the product id for the doc db
 const EpoDocDBFrontFilesProductID EpoBddsBProductID = "3"
 const EpoDocDBBackFilesProductID EpoBddsBProductID = "14"
+const EpoPatstatGlobalProductID EpoBddsBProductID = "17"
+const EpoPatstatEpRegisterProductID EpoBddsBProductID = "18"
 
 // GetEpoBddsFileItems returns the links to the front files of the doc db
 func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response EpoProductDeliveriesResponse, err error) {
