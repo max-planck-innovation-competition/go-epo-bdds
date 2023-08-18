@@ -1,12 +1,15 @@
 package epo_bbds
 
 import (
+	"archive/zip"
 	"bufio"
 	"encoding/xml"
 	"fmt"
 	"io"
 	"log"
 	"os"
+	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -78,10 +81,12 @@ type ExchangeDocument struct {
 	XMLName xml.Name `xml:"exchange-document"`
 }
 
-func CountExchangeDocuments(filename string) (int, error) {
-	file, err := os.Open(filename)
+// GenerateReplacerEntityMap transforms a given DTD file into a Replacer Entity map
+func GenerateReplacerEntityMap(dtdFilePath string) (*strings.Replacer, error) {
+	// Read the DTD file
+	file, err := os.Open(dtdFilePath)
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 	defer func(file *os.File) {
 		err := file.Close()
@@ -89,13 +94,59 @@ func CountExchangeDocuments(filename string) (int, error) {
 		}
 	}(file)
 
+	entityMap := make(map[string]string)
+
+	entityPattern := regexp.MustCompile(`<!ENTITY\s+(\w+)\s+"([^"]+)"`)
+
+	// read and process each line of the DTD file
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		match := entityPattern.FindStringSubmatch(line)
+		if len(match) == 3 {
+			entityName := match[1]
+			entityValue := match[2]
+			entityMap[entityName] = entityValue
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+
+	// generate strings.Replacer instance using the entity map
+	replacerArgs := make([]string, 0, len(entityMap)*2)
+	for key, value := range entityMap {
+		replacerArgs = append(replacerArgs, "&"+key+";", value)
+	}
+
+	return strings.NewReplacer(replacerArgs...), nil
+}
+
+// CountExchangeDocuments counts the exchange documents of an XML file
+func CountExchangeDocuments(filename string) (int, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return 0, err
+	}
+	defer func(file *os.File) {
+		_ = file.Close()
+	}(file)
+
 	data, err := io.ReadAll(file)
 	if err != nil {
 		return 0, err
 	}
 
+	dirname := "docdb_xml_202331_Amend_001"
+
+	dtdname := "test-data/output/" + dirname + "/Root/DTDS/docdb-entities.dtd"
+	replacer, _ := GenerateReplacerEntityMap(dtdname)
+
+	preprocessedData := replacer.Replace(string(data))
+
 	var exchangeDocs ExchangeDocuments
-	err = xml.Unmarshal(data, &exchangeDocs)
+	err = xml.Unmarshal([]byte(preprocessedData), &exchangeDocs)
 	if err != nil {
 		return 0, err
 	}
@@ -258,4 +309,172 @@ func readCsvToStruct(filePath string) ([]StatsStruct, error) {
 	}
 
 	return data, nil
+}
+
+// CountZIPs unpacks zip file and counts DOCDB zip files within
+func CountZIPs() {
+	//
+	zipFilePath := "test-data/docdb_xml_202331_Amend_001.zip"
+
+	zipFile, err := zip.OpenReader(zipFilePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(zipFile *zip.ReadCloser) {
+		err := zipFile.Close()
+		if err != nil {
+
+		}
+	}(zipFile)
+
+	firstDirName := "docdb_xml_202331_Amend_001"
+	rootDirName := "Root"
+	docDirName := "DOC"
+
+	var firstDir *zip.File
+	for _, file := range zipFile.File {
+		if file.Name == firstDirName+"/" {
+			firstDir = file
+			break
+		}
+	}
+
+	if firstDir == nil {
+		log.Fatal("First directory not found in the zip file.")
+	}
+
+	var rootDir *zip.File
+	for _, file := range zipFile.File {
+		if strings.HasPrefix(file.Name, firstDirName+"/") {
+			if strings.TrimPrefix(file.Name, firstDirName+"/") == rootDirName+"/" {
+				rootDir = file
+				break
+			}
+		}
+	}
+
+	if rootDir == nil {
+		log.Fatal("Root directory not found in the zip file.")
+	}
+
+	var docDir *zip.File
+	for _, file := range zipFile.File {
+		if strings.HasPrefix(file.Name, firstDirName+"/"+rootDirName+"/") {
+			if strings.TrimPrefix(file.Name, firstDirName+"/"+rootDirName+"/") == docDirName+"/" {
+				docDir = file
+				break
+			}
+		}
+	}
+
+	if docDir == nil {
+		log.Fatal("DOC directory not found inside the Root directory.")
+	}
+
+	count := 0
+	for _, file := range zipFile.File {
+		if strings.HasPrefix(file.Name, firstDirName+"/"+rootDirName+"/"+docDirName+"/") {
+			if strings.HasPrefix(file.Name, firstDirName+"/"+rootDirName+"/"+docDirName+"/DOCDB") {
+				count++
+			}
+		}
+	}
+
+	fmt.Printf("Number of zip files in %s directory starting with \"DOCDB\": %d\n", docDirName, count)
+}
+
+// Unzip unpacks a zip file
+func Unzip(zipPath string, outputPath string) {
+
+	dst := outputPath
+	archive, err := zip.OpenReader(zipPath)
+	if err != nil {
+		panic(err)
+	}
+	defer func(archive *zip.ReadCloser) {
+		err := archive.Close()
+		if err != nil {
+		}
+	}(archive)
+
+	for _, f := range archive.File {
+		filePath := filepath.Join(dst, f.Name)
+		fmt.Println("unzipping file ", filePath)
+
+		if !strings.HasPrefix(filePath, filepath.Clean(dst)+string(os.PathSeparator)) {
+			fmt.Println("invalid file path")
+			return
+		}
+		if f.FileInfo().IsDir() {
+			fmt.Println("creating directory...")
+			err := os.MkdirAll(filePath, os.ModePerm)
+			if err != nil {
+				return
+			}
+			continue
+		}
+
+		if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
+			panic(err)
+		}
+
+		dstFile, err := os.OpenFile(filePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+		if err != nil {
+			panic(err)
+		}
+
+		fileInArchive, err := f.Open()
+		if err != nil {
+			panic(err)
+		}
+
+		if _, err := io.Copy(dstFile, fileInArchive); err != nil {
+			panic(err)
+		}
+
+		dstFile.Close()
+		fileInArchive.Close()
+	}
+}
+
+// CountExchDocs unpacks each zipfile within a directory and counts its exchange documents
+func CountExchDocs() {
+
+	//zipPath := "test-data/docdb_xml_202331_Amend_001.zip"
+	outputPath := "test-data/output"
+
+	//Unzip(zipPath, outputPath)
+
+	dirPath := outputPath + "/docdb_xml_202331_Amend_001/Root/DOC"
+
+	dir, err := os.Open(dirPath)
+	if err != nil {
+		fmt.Println("Error opening directory:", err)
+		return
+	}
+	defer func(dir *os.File) {
+		err := dir.Close()
+		if err != nil {
+		}
+	}(dir)
+
+	files, err := dir.Readdir(-1)
+	if err != nil {
+		fmt.Println("Error reading directory:", err)
+		return
+	}
+
+	for _, file := range files {
+		if strings.HasPrefix(file.Name(), "DOCDB") {
+			dst := "test-data/output"
+
+			//Unzip(dirPath + "/" + file.Name(), dst)
+			count, err := CountExchangeDocuments(dst + "/" + strings.TrimSuffix(file.Name(), ".zip") + ".xml")
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			fmt.Printf("File: %s, Exchange Documents Count: %d\n", file.Name(), count)
+		}
+	}
 }

@@ -36,12 +36,13 @@ func TestParseIndexXML(t *testing.T) {
 
 }
 
+// funktionieren nicht weil datei nicht gelesen werden kann? (funktioniert aber mit beiden Dateien in python)
 func TestReadCsv(t *testing.T) {
 	// works with this
 	filePath1 := "test-data/test.csv"
 
 	// actual stat file, this only prints one line?
-	filePath2 := "test-data/statistics_202324_Amend_001.csv"
+	filePath2 := "test-data/statistics_202331_Amend_001.csv"
 
 	csvData1, err := readCsv(filePath1)
 	if err != nil {
@@ -117,4 +118,13 @@ func TestReadCsvToStruct(t *testing.T) {
 		}
 	*/
 
+}
+
+///////
+
+func TestCountZIPs(t *testing.T) {
+	CountZIPs()
+}
+func TestCountExchDocs(t *testing.T) {
+	CountExchDocs()
 }
