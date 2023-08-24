@@ -128,3 +128,6 @@ func TestCountZIPs(t *testing.T) {
 func TestCountExchDocs(t *testing.T) {
 	CountExchDocs()
 }
+func TestCountExchDocsTemp(t *testing.T) {
+	CountExchDocsTemp()
+}

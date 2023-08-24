@@ -72,6 +72,139 @@ func ParseIndexXML(filename string) (indexObject DocdbPackageIndex, err error) {
 	return indexObject, nil
 }
 
+func readCsv(filePath string) ([][]string, error) {
+
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("couldn't open file, %s", err)
+	}
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+		}
+	}(file)
+
+	scanner := bufio.NewScanner(file)
+
+	//two dimensional slice
+	var data [][]string
+
+	for scanner.Scan() {
+		row := scanner.Text()
+		fields := strings.Split(row, ",")
+
+		data = append(data, fields)
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, fmt.Errorf("couldn't read csv file: %s", err)
+	}
+
+	return data, nil
+}
+
+/*
+	func deleteFirstLine(inputFile, outputFile string) error {
+		//opens file as txt, deletes first line, returns mod output file
+
+		input, err := os.Open(inputFile)
+
+		if err != nil {
+			return fmt.Errorf("couldn't open file, %s", err)
+		}
+		defer func(input *os.File) {
+			err := input.Close()
+			if err != nil {
+			}
+		}(input)
+
+		output, err := os.Create(outputFile)
+
+		if err != nil {
+			return fmt.Errorf("couldn't create output file, %s", err)
+		}
+		defer func(output *os.File) {
+			err := output.Close()
+			if err != nil {
+			}
+		}(output)
+
+		scanner := bufio.NewScanner(input)
+
+		if scanner.Scan() {
+			for scanner.Scan() {
+				line := scanner.Text()
+				_, err := fmt.Fprintln(output, line)
+				if err != nil {
+					return fmt.Errorf("couldn't write to output file, %s", err)
+				}
+			}
+			if err := scanner.Err(); err != nil {
+				return fmt.Errorf("couldn't read input file, %s", err)
+			}
+		}
+		return nil
+	}
+*/
+func readCsvToStruct(filePath string) ([]StatsStruct, error) {
+
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("couldn't open file, %s", err)
+	}
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+
+		}
+	}(file)
+	// bufio bc csv reader can't handle the first line being different
+	scanner := bufio.NewScanner(file)
+
+	//skip first line (different amount of columns than rest)
+	if !scanner.Scan() {
+		if err := scanner.Err(); err != nil {
+			return nil, fmt.Errorf("couldn't read the first line, %s", err)
+		}
+	}
+
+	var data []StatsStruct
+
+	for scanner.Scan() {
+		row := scanner.Text()
+		fields := strings.Split(row, ",")
+		//string conversion
+		nrOfPNStatus, _ := strconv.Atoi(fields[1])
+		firstPN, _ := strconv.Atoi(fields[4])
+		lastPN, _ := strconv.Atoi(fields[5])
+		nrOfPN, _ := strconv.Atoi(fields[8])
+		firstPubDate, _ := time.Parse("20060102", fields[6])
+		lastPubDate, _ := time.Parse("20060102", fields[7])
+
+		csvRow := StatsStruct{
+			Status:       fields[0],
+			NrOfPNStatus: nrOfPNStatus,
+			CC:           fields[2],
+			KC:           fields[3],
+			FirstPN:      firstPN,
+			LastPN:       lastPN,
+			FirstPubDate: firstPubDate,
+			LastPubDate:  lastPubDate,
+			NrOfPN:       nrOfPN,
+		}
+
+		data = append(data, csvRow)
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, fmt.Errorf("couldn't read CSV file, %s", err)
+	}
+
+	return data, nil
+}
+
+///
+
 type ExchangeDocuments struct {
 	XMLName           xml.Name           `xml:"exchange-documents"`
 	ExchangeDocuments []ExchangeDocument `xml:"exchange-document"`
@@ -138,9 +271,9 @@ func CountExchangeDocuments(filename string) (int, error) {
 		return 0, err
 	}
 
-	dirname := "docdb_xml_202331_Amend_001"
+	//dirname := "docdb_xml_202331_Amend_001"
 
-	dtdname := "test-data/output/" + dirname + "/Root/DTDS/docdb-entities.dtd"
+	dtdname := "test-data/docdb-entities.dtd"
 	replacer, _ := GenerateReplacerEntityMap(dtdname)
 
 	preprocessedData := replacer.Replace(string(data))
@@ -179,136 +312,6 @@ type StatsStruct struct {
 	FirstPubDate time.Time
 	LastPubDate  time.Time
 	NrOfPN       int
-}
-
-func readCsv(filePath string) ([][]string, error) {
-
-	file, err := os.Open(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("couldn't open file, %s", err)
-	}
-	defer func(file *os.File) {
-		err := file.Close()
-		if err != nil {
-		}
-	}(file)
-
-	scanner := bufio.NewScanner(file)
-
-	//two dimensional slice
-	var data [][]string
-
-	for scanner.Scan() {
-		row := scanner.Text()
-		fields := strings.Split(row, ",")
-
-		data = append(data, fields)
-	}
-
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("couldn't read csv file: %s", err)
-	}
-
-	return data, nil
-}
-
-func deleteFirstLine(inputFile, outputFile string) error {
-	//opens file as txt, deletes first line, returns mod output file
-
-	input, err := os.Open(inputFile)
-
-	if err != nil {
-		return fmt.Errorf("couldn't open file, %s", err)
-	}
-	defer func(input *os.File) {
-		err := input.Close()
-		if err != nil {
-		}
-	}(input)
-
-	output, err := os.Create(outputFile)
-
-	if err != nil {
-		return fmt.Errorf("couldn't create output file, %s", err)
-	}
-	defer func(output *os.File) {
-		err := output.Close()
-		if err != nil {
-		}
-	}(output)
-
-	scanner := bufio.NewScanner(input)
-
-	if scanner.Scan() {
-		for scanner.Scan() {
-			line := scanner.Text()
-			_, err := fmt.Fprintln(output, line)
-			if err != nil {
-				return fmt.Errorf("couldn't write to output file, %s", err)
-			}
-		}
-		if err := scanner.Err(); err != nil {
-			return fmt.Errorf("couldn't read input file, %s", err)
-		}
-	}
-	return nil
-}
-
-func readCsvToStruct(filePath string) ([]StatsStruct, error) {
-
-	file, err := os.Open(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("couldn't open file, %s", err)
-	}
-	defer func(file *os.File) {
-		err := file.Close()
-		if err != nil {
-
-		}
-	}(file)
-	// bufio bc csv reader can't handle the first line being different
-	scanner := bufio.NewScanner(file)
-
-	//skip first line (different amount of columns than rest)
-	if !scanner.Scan() {
-		if err := scanner.Err(); err != nil {
-			return nil, fmt.Errorf("couldn't read the first line, %s", err)
-		}
-	}
-
-	var data []StatsStruct
-
-	for scanner.Scan() {
-		row := scanner.Text()
-		fields := strings.Split(row, ",")
-		//string conversion
-		nrOfPNStatus, _ := strconv.Atoi(fields[1])
-		firstPN, _ := strconv.Atoi(fields[4])
-		lastPN, _ := strconv.Atoi(fields[5])
-		nrOfPN, _ := strconv.Atoi(fields[8])
-		firstPubDate, _ := time.Parse("20060102", fields[6])
-		lastPubDate, _ := time.Parse("20060102", fields[7])
-
-		csvRow := StatsStruct{
-			Status:       fields[0],
-			NrOfPNStatus: nrOfPNStatus,
-			CC:           fields[2],
-			KC:           fields[3],
-			FirstPN:      firstPN,
-			LastPN:       lastPN,
-			FirstPubDate: firstPubDate,
-			LastPubDate:  lastPubDate,
-			NrOfPN:       nrOfPN,
-		}
-
-		data = append(data, csvRow)
-	}
-
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("couldn't read CSV file, %s", err)
-	}
-
-	return data, nil
 }
 
 // CountZIPs unpacks zip file and counts DOCDB zip files within
@@ -432,12 +435,18 @@ func Unzip(zipPath string, outputPath string) {
 			panic(err)
 		}
 
-		dstFile.Close()
-		fileInArchive.Close()
+		err = dstFile.Close()
+		if err != nil {
+			return
+		}
+		err = fileInArchive.Close()
+		if err != nil {
+			return
+		}
 	}
 }
 
-// CountExchDocs unpacks each zipfile within a directory and counts its exchange documents
+// CountExchDocs unpacks each zip file within a directory and counts its exchange documents
 func CountExchDocs() {
 
 	//zipPath := "test-data/docdb_xml_202331_Amend_001.zip"
@@ -475,6 +484,97 @@ func CountExchDocs() {
 			}
 
 			fmt.Printf("File: %s, Exchange Documents Count: %d\n", file.Name(), count)
+		}
+	}
+}
+
+// CountExchDocsTemp unpacks each zip file within a temporary directory and counts its exchange documents
+func CountExchDocsTemp() {
+
+	zipPath := "test-data/docdb_xml_202331_Amend_001.zip"
+	zipFile, err := zip.OpenReader(zipPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(zipFile *zip.ReadCloser) {
+		err := zipFile.Close()
+		if err != nil {
+
+		}
+	}(zipFile)
+
+	tempDir, err := os.MkdirTemp("", "temp-docs")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(path string) {
+		err := os.RemoveAll(path)
+		if err != nil {
+
+		}
+	}(tempDir)
+
+	for _, file := range zipFile.File {
+		if strings.HasPrefix(file.Name, "docdb_xml_202331_Amend_001/Root/DOC/DOCDB") {
+			fmt.Println(file.Name)
+			dstPath := filepath.Join(tempDir, filepath.Base(file.Name))
+			dstFile, err := os.Create(dstPath)
+			if err != nil {
+				log.Printf("Error creating destination file: %s", err)
+				continue
+			}
+			srcFile, err := file.Open()
+			if err != nil {
+				log.Printf("Error opening source file: %s", err)
+				err := dstFile.Close()
+				if err != nil {
+					return
+				}
+				continue
+			}
+			_, err = io.Copy(dstFile, srcFile)
+			if err != nil {
+				log.Printf("Error copying file contents: %s", err)
+			}
+			err = dstFile.Close()
+			if err != nil {
+				return
+			}
+			err = srcFile.Close()
+			if err != nil {
+				return
+			}
+
+			xmlTempDir := filepath.Join(tempDir, "xmltemp")
+			err = os.Mkdir(xmlTempDir, os.ModePerm)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			Unzip(dstPath, xmlTempDir)
+
+			xmlFiles, err := os.ReadDir(xmlTempDir)
+			if err != nil {
+				log.Printf("Error reading extracted XML directory: %s", err)
+				continue
+			}
+
+			for _, xmlFile := range xmlFiles {
+				xmlFilePath := filepath.Join(xmlTempDir, xmlFile.Name())
+
+				count, err := CountExchangeDocuments(xmlFilePath)
+				if err != nil {
+					log.Printf("Error counting exchange documents: %s", err)
+					continue
+				}
+				fmt.Printf("File: %s, Exchange Documents Count: %d\n", xmlFile.Name(), count)
+			}
+
+			// clean up
+			err = os.RemoveAll(xmlTempDir)
+			if err != nil {
+				log.Printf("Error cleaning up extracted XML directory: %s", err)
+			}
 		}
 	}
 }
