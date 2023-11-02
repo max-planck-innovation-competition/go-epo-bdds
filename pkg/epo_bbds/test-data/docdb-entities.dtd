@@ -1,0 +1,2675 @@
+<!-- 
+      File isoamsa.ent 
+-->
+
+<!ENTITY angzarr          "&#x0237C;" ><!--angle with down zig-zag arrow -->
+<!ENTITY cirmid           "&#x02AEF;" ><!--circle, mid below -->
+<!ENTITY cudarrl          "&#x02938;" ><!--left, curved, down arrow -->
+<!ENTITY cudarrr          "&#x02935;" ><!--right, curved, down arrow -->
+<!ENTITY cularr           "&#x021B6;" ><!--/curvearrowleft A: left curved arrow -->
+<!ENTITY cularrp          "&#x0293D;" ><!--curved left arrow with plus -->
+<!ENTITY curarr           "&#x021B7;" ><!--/curvearrowright A: rt curved arrow -->
+<!ENTITY curarrm          "&#x0293C;" ><!--curved right arrow with minus -->
+<!ENTITY dArr             "&#x021D3;" ><!--/Downarrow A: down dbl arrow -->
+<!ENTITY Darr             "&#x021A1;" ><!--down two-headed arrow -->
+<!ENTITY ddarr            "&#x021CA;" ><!--/downdownarrows A: two down arrows -->
+<!ENTITY DDotrahd         "&#x02911;" ><!--right arrow with dotted stem -->
+<!ENTITY dfisht           "&#x0297F;" ><!--down fish tail -->
+<!ENTITY dHar             "&#x02965;" ><!--down harpoon-left, down harpoon-right -->
+<!ENTITY dharl            "&#x021C3;" ><!--/downharpoonleft A: dn harpoon-left -->
+<!ENTITY dharr            "&#x021C2;" ><!--/downharpoonright A: down harpoon-rt -->
+<!ENTITY duarr            "&#x021F5;" ><!--down arrow, up arrow -->
+<!ENTITY duhar            "&#x0296F;" ><!--down harp, up harp -->
+<!ENTITY dzigrarr         "&#x0F5A2;" ><!--right long zig-zag arrow -->
+<!ENTITY erarr            "&#x02971;" ><!--equal, right arrow below -->
+<!ENTITY harr             "&#x02194;" ><!--/leftrightarrow A: l&r arrow -->
+<!ENTITY hArr             "&#x021D4;" ><!--/Leftrightarrow A: l&r dbl arrow -->
+<!ENTITY harrcir          "&#x02948;" ><!--left and right arrow with a circle -->
+<!ENTITY harrw            "&#x021AD;" ><!--/leftrightsquigarrow A: l&r arr-wavy -->
+<!ENTITY hoarr            "&#x021FF;" ><!--horizontal open arrow -->
+<!ENTITY imof             "&#x022B7;" ><!--image of -->
+<!ENTITY lAarr            "&#x021DA;" ><!--/Lleftarrow A: left triple arrow -->
+<!ENTITY Larr             "&#x0219E;" ><!--/twoheadleftarrow A: -->
+<!ENTITY larrbfs          "&#x0291F;" ><!--left arrow-bar, filled square -->
+<!ENTITY larrfs           "&#x0291D;" ><!--left arrow, filled square -->
+<!ENTITY larrhk           "&#x021A9;" ><!--/hookleftarrow A: left arrow-hooked -->
+<!ENTITY larrlp           "&#x021AB;" ><!--/looparrowleft A: left arrow-looped -->
+<!ENTITY larrpl           "&#x02939;" ><!--left arrow, plus -->
+<!ENTITY larrsim          "&#x02973;" ><!--left arrow, similar -->
+<!ENTITY larrtl           "&#x021A2;" ><!--/leftarrowtail A: left arrow-tailed -->
+<!ENTITY latail           "&#x02919;" ><!--left arrow-tail -->
+<!ENTITY lAtail           "&#x0291B;" ><!--left double arrow-tail -->
+<!ENTITY lbarr            "&#x0290C;" ><!--left broken arrow -->
+<!ENTITY lBarr            "&#x0290E;" ><!--left doubly broken arrow -->
+<!ENTITY ldca             "&#x02936;" ><!--left down curved arrow -->
+<!ENTITY ldrdhar          "&#x02967;" ><!--left harpoon-down over right harpoon-down -->
+<!ENTITY ldrushar         "&#x0294B;" ><!--left-down-right-up harpoon -->
+<!ENTITY ldsh             "&#x021B2;" ><!--left down angled arrow -->
+<!ENTITY lfisht           "&#x0297C;" ><!--left fish tail -->
+<!ENTITY lHar             "&#x02962;" ><!--left harpoon-up over left harpoon-down -->
+<!ENTITY lhard            "&#x021BD;" ><!--/leftharpoondown A: l harpoon-down -->
+<!ENTITY lharu            "&#x021BC;" ><!--/leftharpoonup A: left harpoon-up -->
+<!ENTITY lharul           "&#x0296A;" ><!--left harpoon-up over long dash -->
+<!ENTITY llarr            "&#x021C7;" ><!--/leftleftarrows A: two left arrows -->
+<!ENTITY llhard           "&#x0296B;" ><!--left harpoon-down below long dash -->
+<!ENTITY loarr            "&#x021FD;" ><!--left open arrow -->
+<!ENTITY lrarr            "&#x021C6;" ><!--/leftrightarrows A: l arr over r arr -->
+<!ENTITY lrhar            "&#x021CB;" ><!--/leftrightharpoons A: l harp over r -->
+<!ENTITY lrhard           "&#x0296D;" ><!--right harpoon-down below long dash -->
+<!ENTITY lsh              "&#x021B0;" ><!--/Lsh A: -->
+<!ENTITY lurdshar         "&#x0294A;" ><!--left-up-right-down harpoon -->
+<!ENTITY luruhar          "&#x02966;" ><!--left harpoon-up over right harpoon-up -->
+<!ENTITY map              "&#x021A6;" ><!--/mapsto A: -->
+<!ENTITY Map              "&#x02905;" ><!--twoheaded mapsto -->
+<!ENTITY midcir           "&#x02AF0;" ><!--mid, circle below  -->
+<!ENTITY mumap            "&#x022B8;" ><!--/multimap A: -->
+<!ENTITY nearhk           "&#x02924;" ><!--NE arrow-hooked -->
+<!ENTITY nearr            "&#x02197;" ><!--/nearrow A: NE pointing arrow -->
+<!ENTITY neArr            "&#x021D7;" ><!--NE pointing dbl arrow -->
+<!ENTITY nesear           "&#x02928;" ><!--/toea A: NE & SE arrows -->
+<!ENTITY nharr            "&#x021AE;" ><!--/nleftrightarrow A: not l&r arrow -->
+<!ENTITY nhArr            "&#x021CE;" ><!--/nLeftrightarrow A: not l&r dbl arr -->
+<!ENTITY nlarr            "&#x0219A;" ><!--/nleftarrow A: not left arrow -->
+<!ENTITY nlArr            "&#x021CD;" ><!--/nLeftarrow A: not implied by -->
+<!ENTITY nrarr            "&#x0219B;" ><!--/nrightarrow A: not right arrow -->
+<!ENTITY nrArr            "&#x021CF;" ><!--/nRightarrow A: not implies -->
+<!ENTITY nrarrc           "&#x02933;&#x00338;" ><!--not right arrow-curved -->
+<!ENTITY nrarrw           "&#x0219D;&#x00338;" ><!--not right arrow-wavy -->
+<!ENTITY nvHarr           "&#x021CE;" ><!--not, vert, left and right double arrow  -->
+<!ENTITY nvlArr           "&#x021CD;" ><!--not, vert, left double arrow -->
+<!ENTITY nvrArr           "&#x021CF;" ><!--not, vert, right double arrow -->
+<!ENTITY nwarhk           "&#x02923;" ><!--NW arrow-hooked -->
+<!ENTITY nwarr            "&#x02196;" ><!--/nwarrow A: NW pointing arrow -->
+<!ENTITY nwArr            "&#x021D6;" ><!--NW pointing dbl arrow -->
+<!ENTITY nwnear           "&#x02927;" ><!--NW & NE arrows -->
+<!ENTITY olarr            "&#x021BA;" ><!--/circlearrowleft A: l arr in circle -->
+<!ENTITY orarr            "&#x021BB;" ><!--/circlearrowright A: r arr in circle -->
+<!ENTITY origof           "&#x022B6;" ><!--original of -->
+<!ENTITY rAarr            "&#x021DB;" ><!--/Rrightarrow A: right triple arrow -->
+<!ENTITY Rarr             "&#x021A0;" ><!--/twoheadrightarrow A: -->
+<!ENTITY rarrap           "&#x02975;" ><!--approximate, right arrow above -->
+<!ENTITY rarrbfs          "&#x02920;" ><!--right arrow-bar, filled square -->
+<!ENTITY rarrc            "&#x02933;" ><!--right arrow-curved -->
+<!ENTITY rarrfs           "&#x0291E;" ><!--right arrow, filled square -->
+<!ENTITY rarrhk           "&#x021AA;" ><!--/hookrightarrow A: rt arrow-hooked -->
+<!ENTITY rarrlp           "&#x021AC;" ><!--/looparrowright A: rt arrow-looped -->
+<!ENTITY rarrpl           "&#x02945;" ><!--right arrow, plus -->
+<!ENTITY rarrsim          "&#x02974;" ><!--right arrow, similar -->
+<!ENTITY rarrtl           "&#x021A3;" ><!--/rightarrowtail A: rt arrow-tailed -->
+<!ENTITY Rarrtl           "&#x02916;" ><!--right two-headed arrow with tail -->
+<!ENTITY rarrw            "&#x0219D;" ><!--/rightsquigarrow A: rt arrow-wavy -->
+<!ENTITY ratail           "&#x021A3;" ><!--right arrow-tail -->
+<!ENTITY rAtail           "&#x0291C;" ><!--right double arrow-tail -->
+<!ENTITY rbarr            "&#x0290D;" ><!--/bkarow A: right broken arrow -->
+<!ENTITY rBarr            "&#x0290F;" ><!--/dbkarow A: right doubly broken arrow -->
+<!ENTITY RBarr            "&#x02910;" ><!--/drbkarow A: twoheaded right broken arrow -->
+<!ENTITY rdca             "&#x02937;" ><!--right down curved arrow -->
+<!ENTITY rdldhar          "&#x02969;" ><!--right harpoon-down over left harpoon-down -->
+<!ENTITY rdsh             "&#x021B3;" ><!--right down angled arrow -->
+<!ENTITY rfisht           "&#x0297D;" ><!--right fish tail -->
+<!ENTITY rHar             "&#x02964;" ><!--right harpoon-up over right harpoon-down -->
+<!ENTITY rhard            "&#x021C1;" ><!--/rightharpoondown A: rt harpoon-down -->
+<!ENTITY rharu            "&#x021C0;" ><!--/rightharpoonup A: rt harpoon-up -->
+<!ENTITY rharul           "&#x0296C;" ><!--right harpoon-up over long dash -->
+<!ENTITY rlarr            "&#x021C4;" ><!--/rightleftarrows A: r arr over l arr -->
+<!ENTITY rlarr2           "&#x021C4;" ><!--/rightleftarrows A: r arr over l arr --> 
+<!ENTITY rlhar            "&#x021CC;" ><!--/rightleftharpoons A: r harp over l -->
+<!ENTITY roarr            "&#x021FE;" ><!--right open arrow -->
+<!ENTITY rrarr            "&#x021C9;" ><!--/rightrightarrows A: two rt arrows -->
+<!ENTITY rsh              "&#x021B1;" ><!--/Rsh A: -->
+<!ENTITY ruluhar          "&#x02968;" ><!--right harpoon-up over left harpoon-up -->
+<!ENTITY searhk           "&#x02925;" ><!--/hksearow A: SE arrow-hooken -->
+<!ENTITY searr            "&#x02198;" ><!--/searrow A: SE pointing arrow -->
+<!ENTITY seArr            "&#x021D8;" ><!--SE pointing dbl arrow -->
+<!ENTITY seswar           "&#x02929;" ><!--/tosa A: SE & SW arrows -->
+<!ENTITY simrarr          "&#x02972;" ><!--similar, right arrow below -->
+<!ENTITY slarr            "&#x02190;&#x0FE00;" ><!--short left arrow -->
+<!ENTITY srarr            "&#x02192;&#x0FE00;" ><!--short right arrow -->
+<!ENTITY swarhk           "&#x02926;" ><!--/hkswarow A: SW arrow-hooked -->
+<!ENTITY swarr            "&#x02199;" ><!--/swarrow A: SW pointing arrow -->
+<!ENTITY swArr            "&#x021D9;" ><!--SW pointing dbl arrow -->
+<!ENTITY swnwar           "&#x0292A;" ><!--SW & NW arrows -->
+<!ENTITY uArr             "&#x021D1;" ><!--/Uparrow A: up dbl arrow -->
+<!ENTITY Uarr             "&#x0219F;" ><!--up two-headed arrow -->
+<!ENTITY Uarrocir         "&#x02949;" ><!--up two-headed arrow above circle -->
+<!ENTITY udarr            "&#x021C5;" ><!--up arrow, down arrow -->
+<!ENTITY udhar            "&#x0296E;" ><!--up harp, down harp -->
+<!ENTITY ufisht           "&#x0297E;" ><!--up fish tail -->
+<!ENTITY uHar             "&#x02963;" ><!--up harpoon-left, up harpoon-right -->
+<!ENTITY uharl            "&#x021BF;" ><!--/upharpoonleft A: up harpoon-left -->
+<!ENTITY uharr            "&#x021BE;" ><!--/upharpoonright /restriction A: up harp-r -->
+<!ENTITY uuarr            "&#x021C8;" ><!--/upuparrows A: two up arrows -->
+<!ENTITY varr             "&#x02195;" ><!--/updownarrow A: up&down arrow -->
+<!ENTITY vArr             "&#x021D5;" ><!--/Updownarrow A: up&down dbl arrow -->
+<!ENTITY xharr            "&#x0F578;" ><!--/longleftrightarrow A: long l&r arr -->
+<!ENTITY xhArr            "&#x0F57B;" ><!--/Longleftrightarrow A: long l&r dbl arr -->
+<!ENTITY xlarr            "&#x0F576;" ><!--/longleftarrow A: long left arrow -->
+<!ENTITY xlArr            "&#x0F579;" ><!--/Longleftarrow A: long l dbl arrow -->
+<!ENTITY xmap             "&#x0F57D;" ><!--/longmapsto A: -->
+<!ENTITY xrarr            "&#x0F577;" ><!--/longrightarrow A: long right arrow -->
+<!ENTITY xrArr            "&#x0F57A;" ><!--/Longrightarrow A: long rt dbl arr -->
+<!ENTITY zigrarr          "&#x021DD;" ><!--right zig-zag arrow -->
+
+
+<!--
+     File isoamsb.ent 
+-->
+
+<!ENTITY ac               "&#x0290F;" ><!--most positive -->
+<!ENTITY acE              "&#x029DB;" ><!--most positive, two lines below -->
+<!ENTITY amalg            "&#x02A3F;" ><!--/amalg B: amalgamation or coproduct -->
+<!ENTITY barvee           "&#x022BD;" ><!--bar, vee -->
+<!ENTITY barwed           "&#x022BC;" ><!--/barwedge B: logical and, bar above -->
+<!ENTITY Barwed           "&#x02306;" ><!--/doublebarwedge B: log and, dbl bar above -->
+<!ENTITY bsolb            "&#x029C5;" ><!--reverse solidus in square -->
+<!ENTITY Cap              "&#x022D2;" ><!--/Cap /doublecap B: dbl intersection -->
+<!ENTITY capand           "&#x02A44;" ><!--intersection, and -->
+<!ENTITY capbrcup         "&#x02A49;" ><!--intersection, bar, union -->
+<!ENTITY capcap           "&#x02A4B;" ><!--intersection, intersection, joined -->
+<!ENTITY capcup           "&#x02A47;" ><!--intersection above union -->
+<!ENTITY capdot           "&#x02A40;" ><!--intersection, with dot -->
+<!ENTITY caps             "&#x02229;&#x0FE00;" ><!--intersection, serifs -->
+<!ENTITY ccaps            "&#x02A4D;" ><!--closed intersection, serifs -->
+<!ENTITY ccups            "&#x02A4C;" ><!--closed union, serifs -->
+<!ENTITY ccupssm          "&#x02A50;" ><!--closed union, serifs, smash product -->
+<!ENTITY coprod           "&#x02210;" ><!--/coprod L: coproduct operator -->
+<!ENTITY Cup              "&#x022D3;" ><!--/Cup /doublecup B: dbl union -->
+<!ENTITY cupbrcap         "&#x02A48;" ><!--union, bar, intersection -->
+<!ENTITY cupcap           "&#x02A46;" ><!--union above intersection -->
+<!ENTITY cupcup           "&#x02A4A;" ><!--union, union, joined -->
+<!ENTITY cupdot           "&#x0228D;" ><!--union, with dot -->
+<!ENTITY cupor            "&#x02A45;" ><!--union, or -->
+<!ENTITY cups             "&#x0222A;&#x0FE00;" ><!--union, serifs -->
+<!ENTITY cuvee            "&#x022CE;" ><!--/curlyvee B: curly logical or -->
+<!ENTITY cuwed            "&#x022CF;" ><!--/curlywedge B: curly logical and -->
+<!ENTITY dagger           "&#x02020;" ><!--/dagger B: dagger relation -->
+<!ENTITY Dagger           "&#x02021;" ><!--/ddagger B: double dagger relation -->
+<!ENTITY diam             "&#x022C4;" ><!--/diamond B: open diamond -->
+<!ENTITY divonx           "&#x022C7;" ><!--/divideontimes B: division on times -->
+<!ENTITY eplus            "&#x02A71;" ><!--equal, plus -->
+<!ENTITY hercon           "&#x022B9;" ><!--hermitian conjugate matrix -->
+<!ENTITY intcal           "&#x022BA;" ><!--/intercal B: intercal -->
+<!ENTITY iprod            "&#x02A3C;" ><!--/intprod -->
+<!ENTITY loplus           "&#x02A2D;" ><!--plus sign in left half circle -->
+<!ENTITY lotimes          "&#x02A34;" ><!--multiply sign in left half circle  -->
+<!ENTITY lthree           "&#x022CB;" ><!--/leftthreetimes B: -->
+<!ENTITY ltimes           "&#x022C9;" ><!--/ltimes B: times sign, left closed -->
+<!ENTITY midast           "&#x0002A;" ><!--/ast B: asterisk -->
+<!ENTITY minusb           "&#x0229F;" ><!--/boxminus B: minus sign in box -->
+<!ENTITY minusd           "&#x02238;" ><!--/dotminus B: minus sign, dot above -->
+<!ENTITY minusdu          "&#x02A2A;" ><!--minus sign, dot below -->
+<!ENTITY ncap             "&#x02A43;" ><!--bar, intersection -->
+<!ENTITY ncup             "&#x02A42;" ><!--bar, union -->
+<!ENTITY oast             "&#x0229B;" ><!--/circledast B: asterisk in circle -->
+<!ENTITY ocir             "&#x0229A;" ><!--/circledcirc B: small circle in circle -->
+<!ENTITY odash            "&#x0229D;" ><!--/circleddash B: hyphen in circle -->
+<!ENTITY odiv             "&#x02A38;" ><!--divide in circle -->
+<!ENTITY odot             "&#x02299;" ><!--/odot B: middle dot in circle -->
+<!ENTITY odsold           "&#x029BC;" ><!--dot, solidus, dot in circle -->
+<!ENTITY ofcir            "&#x029BF;" ><!--filled circle in circle -->
+<!ENTITY ogt              "&#x029C1;" ><!--greater-than in circle -->
+<!ENTITY ohbar            "&#x029B5;" ><!--circle with horizontal bar -->
+<!ENTITY olcir            "&#x029BE;" ><!--large circle in circle -->
+<!ENTITY olt              "&#x029C0;" ><!--less-than in circle -->
+<!ENTITY omid             "&#x029B6;" ><!--vertical bar in circle -->
+<!ENTITY ominus           "&#x02296;" ><!--/ominus B: minus sign in circle -->
+<!ENTITY opar             "&#x029B7;" ><!--parallel in circle -->
+<!ENTITY operp            "&#x029B9;" ><!--perpendicular in circle -->
+<!ENTITY oplus            "&#x02295;" ><!--/oplus B: plus sign in circle -->
+<!ENTITY osol             "&#x02298;" ><!--/oslash B: solidus in circle -->
+<!ENTITY otimes           "&#x02297;" ><!--/otimes B: multiply sign in circle -->
+<!ENTITY Otimes           "&#x02A37;" ><!--multiply sign in double circle -->
+<!ENTITY otimesas         "&#x02A36;" ><!--multiply sign in circle, circumflex accent -->
+<!ENTITY ovbar            "&#x0233D;" ><!--circle with vertical bar -->
+<!ENTITY plusacir         "&#x02A23;" ><!--plus, circumflex accent above -->
+<!ENTITY plusb            "&#x0229E;" ><!--/boxplus B: plus sign in box -->
+<!ENTITY pluscir          "&#x02A22;" ><!--plus, small circle above -->
+<!ENTITY plusdo           "&#x02214;" ><!--/dotplus B: plus sign, dot above -->
+<!ENTITY plusdu           "&#x02A25;" ><!--plus sign, dot below -->
+<!ENTITY pluse            "&#x02A72;" ><!--plus, equals -->
+<!ENTITY plussim          "&#x02A26;" ><!--plus, similar below -->
+<!ENTITY plustwo          "&#x02A27;" ><!--plus, two; Nim-addition -->
+<!ENTITY prod             "&#x0220F;" ><!--/prod L: product operator -->
+<!ENTITY race             "&#x029DA;" ><!--reverse most positive, line below -->
+<!ENTITY roplus           "&#x02A2E;" ><!--plus sign in right half circle -->
+<!ENTITY rotimes          "&#x02A35;" ><!--multiply sign in right half circle -->
+<!ENTITY rthree           "&#x022CC;" ><!--/rightthreetimes B: -->
+<!ENTITY rtimes           "&#x022CA;" ><!--/rtimes B: times sign, right closed -->
+<!ENTITY sdot             "&#x022C5;" ><!--/cdot B: small middle dot -->
+<!ENTITY sdotb            "&#x022A1;" ><!--/dotsquare /boxdot B: small dot in box -->
+<!ENTITY setmn            "&#x02216;" ><!--/setminus B: reverse solidus -->
+<!ENTITY simplus          "&#x02A24;" ><!--plus, similar above -->
+<!ENTITY smashp           "&#x02A33;" ><!--smash product -->
+<!ENTITY solb             "&#x029C4;" ><!--solidus in square -->
+<!ENTITY sqcap            "&#x02293;" ><!--/sqcap B: square intersection -->
+<!ENTITY sqcaps           "&#x02293;&#x0FE00;" ><!--square intersection, serifs -->
+<!ENTITY sqcup            "&#x02294;" ><!--/sqcup B: square union -->
+<!ENTITY sqcups           "&#x02294;&#x0FE00;" ><!--square union, serifs -->
+<!ENTITY ssetmn           "&#x02216;&#x0FE00;" ><!--/smallsetminus B: sm reverse solidus -->
+<!ENTITY sstarf           "&#x022C6;" ><!--/star B: small star, filled -->
+<!ENTITY subdot           "&#x02ABD;" ><!--subset, with dot -->
+<!ENTITY sum              "&#x02211;" ><!--/sum L: summation operator -->
+<!ENTITY supdot           "&#x02ABE;" ><!--superset, with dot -->
+<!ENTITY timesb           "&#x022A0;" ><!--/boxtimes B: multiply sign in box -->
+<!ENTITY timesbar         "&#x02A31;" ><!--multiply sign, bar below -->
+<!ENTITY timesd           "&#x02A30;" ><!--times, dot -->
+<!ENTITY tridot           "&#x025EC;" ><!--dot in triangle -->
+<!ENTITY triminus         "&#x02A3A;" ><!--minus in triangle -->
+<!ENTITY triplus          "&#x02A39;" ><!--plus in triangle -->
+<!ENTITY trisb            "&#x029CD;" ><!--triangle, serifs at bottom -->
+<!ENTITY tritime          "&#x02A3B;" ><!--multiply in triangle -->
+<!ENTITY uplus            "&#x0228E;" ><!--/uplus B: plus sign in union -->
+<!ENTITY veebar           "&#x022BB;" ><!--/veebar B: logical or, bar below -->
+<!ENTITY wedbar           "&#x02A5F;" ><!--wedge, bar below -->
+<!ENTITY wreath           "&#x02240;" ><!--/wr B: wreath product -->
+<!ENTITY xcap             "&#x022C2;" ><!--/bigcap L: intersection operator -->
+<!ENTITY xcirc            "&#x025EF;" ><!--/bigcirc B: large circle -->
+<!ENTITY xcup             "&#x022C3;" ><!--/bigcup L: union operator -->
+<!ENTITY xdtri            "&#x025BD;" ><!--/bigtriangledown B: big dn tri, open -->
+<!ENTITY xodot            "&#x02299;" ><!--/bigodot L: circle dot operator -->
+<!ENTITY xoplus           "&#x02295;" ><!--/bigoplus L: circle plus operator -->
+<!ENTITY xotime           "&#x02297;" ><!--/bigotimes L: circle times operator -->
+<!ENTITY xsqcup           "&#x02294;" ><!--/bigsqcup L: square union operator -->
+<!ENTITY xuplus           "&#x0228E;" ><!--/biguplus L: -->
+<!ENTITY xutri            "&#x025B3;" ><!--/bigtriangleup B: big up tri, open -->
+<!ENTITY xvee             "&#x022C1;" ><!--/bigvee L: logical and operator -->
+<!ENTITY xwedge           "&#x022C0;" ><!--/bigwedge L: logical or operator -->
+
+
+<!--
+     File isoamsc.ent 
+-->
+
+<!ENTITY dlcorn           "&#x0231E;" ><!--/llcorner O: lower left corner -->
+<!ENTITY drcorn           "&#x0231F;" ><!--/lrcorner C: lower right corner -->
+<!ENTITY gtlPar           "&#x02995;" ><!--dbl left parenthesis, greater -->
+<!ENTITY langd            "&#x02991;" ><!--left angle, dot -->
+<!ENTITY lbrke            "&#x0298B;" ><!--left bracket, equal -->
+<!ENTITY lbrksld          "&#x0298F;" ><!--left bracket, solidus bottom corner -->
+<!ENTITY lbrkslu          "&#x0298D;" ><!--left bracket, solidus top corner -->
+<!ENTITY lceil            "&#x02308;" ><!--/lceil O: left ceiling -->
+<!ENTITY lfloor           "&#x0230A;" ><!--/lfloor O: left floor -->
+<!ENTITY lmoust           "&#x023B0;" ><!--/lmoustache -->
+<!ENTITY lparlt           "&#x02993;" ><!--O: left parenthesis, lt -->
+<!ENTITY ltrPar           "&#x02996;" ><!--dbl right parenthesis, less -->
+<!ENTITY rangd            "&#x02992;" ><!--right angle, dot -->
+<!ENTITY rbrke            "&#x0298C;" ><!--right bracket, equal -->
+<!ENTITY rbrksld          "&#x0298E;" ><!--right bracket, solidus bottom corner -->
+<!ENTITY rbrkslu          "&#x02990;" ><!--right bracket, solidus top corner -->
+<!ENTITY rceil            "&#x02309;" ><!--/rceil C: right ceiling -->
+<!ENTITY rfloor           "&#x0230B;" ><!--/rfloor C: right floor -->
+<!ENTITY rmoust           "&#x023B1;" ><!--/rmoustache -->
+<!ENTITY rpargt           "&#x02994;" ><!--C: right paren, gt -->
+<!ENTITY ulcorn           "&#x0231C;" ><!--/ulcorner O: upper left corner -->
+<!ENTITY urcorn           "&#x0231D;" ><!--/urcorner C: upper right corner -->
+
+
+<!--
+     File isoamsn.ent 
+-->
+
+<!ENTITY gnap             "&#x02A8A;" ><!--/gnapprox N: greater, not approximate -->
+<!ENTITY gne              "&#x02269;" ><!--/gneq N: greater, not equals -->
+<!ENTITY gnE              "&#x02269;" ><!--/gneqq N: greater, not dbl equals -->
+<!ENTITY gnsim            "&#x022E7;" ><!--/gnsim N: greater, not similar -->
+<!ENTITY gvnE             "&#x02269;&#x0FE00;" ><!--/gvertneqq N: gt, vert, not dbl eq -->
+<!ENTITY lnap             "&#x02A89;" ><!--/lnapprox N: less, not approximate -->
+<!ENTITY lne              "&#x02268;" ><!--/lneq N: less, not equals -->
+<!ENTITY lnE              "&#x02268;" ><!--/lneqq N: less, not double equals -->
+<!ENTITY lnsim            "&#x022E6;" ><!--/lnsim N: less, not similar -->
+<!ENTITY lvnE             "&#x02268;&#x0FE00;" ><!--/lvertneqq N: less, vert, not dbl eq -->
+<!ENTITY nap              "&#x02249;" ><!--/napprox N: not approximate -->
+<!ENTITY napE             "&#x02A70;&#x00338;" ><!--not approximately equal or equal to -->
+<!ENTITY napid            "&#x0224B;&#x00338;" ><!--not approximately identical to -->
+<!ENTITY ncong            "&#x02247;" ><!--/ncong N: not congruent with -->
+<!ENTITY ncongdot         "&#x02A6D;&#x00338;" ><!--not congruent, dot -->
+<!ENTITY nequiv           "&#x02262;" ><!--/nequiv N: not identical with -->
+<!ENTITY nge              "&#x02271;&#x020E5;" ><!--/ngeq N: not greater-than-or-equal -->
+<!ENTITY ngE              "&#x02271;" ><!--/ngeqq N: not greater, dbl equals -->
+<!ENTITY nges             "&#x02271;" ><!--/ngeqslant N: not gt-or-eq, slanted -->
+<!ENTITY nGg              "&#x022D9;&#x00338;" ><!--not triple greater than -->
+<!ENTITY ngsim            "&#x02275;" ><!--not greater, similar -->
+<!ENTITY ngt              "&#x0226F;" ><!--/ngtr N: not greater-than -->
+<!ENTITY nGt              "&#x0226B;&#x00338;" ><!--not, vert, much greater than -->
+<!ENTITY nGtv             "&#x0226B;&#x00338;&#x0FE00;" ><!--not much greater than, variant -->
+<!ENTITY nle              "&#x02270;&#x020E5;" ><!--/nleq N: not less-than-or-equal -->
+<!ENTITY nlE              "&#x02270;" ><!--/nleqq N: not less, dbl equals -->
+<!ENTITY nles             "&#x02270;" ><!--/nleqslant N: not less-or-eq, slant -->
+<!ENTITY nLl              "&#x022D8;&#x00338;" ><!--not triple less than -->
+<!ENTITY nlsim            "&#x02274;" ><!--not less, similar -->
+<!ENTITY nlt              "&#x0226E;" ><!--/nless N: not less-than -->
+<!ENTITY nLt              "&#x0226A;&#x00338;" ><!--not, vert, much less than -->
+<!ENTITY nltri            "&#x022EA;" ><!--/ntriangleleft N: not left triangle -->
+<!ENTITY nltrie           "&#x022EC;" ><!--/ntrianglelefteq N: not l tri, eq -->
+<!ENTITY nLtv             "&#x0226A;&#x00338;&#x0FE00;" ><!--not much less than, variant -->
+<!ENTITY nmid             "&#x02224;" ><!--/nmid -->
+<!ENTITY npar             "&#x02226;" ><!--/nparallel N: not parallel -->
+<!ENTITY npr              "&#x02280;" ><!--/nprec N: not precedes -->
+<!ENTITY nprcue           "&#x022E0;" ><!--not curly precedes, eq -->
+<!ENTITY npre             "&#x02AAF;&#x00338;" ><!--/npreceq N: not precedes, equals -->
+<!ENTITY nrtri            "&#x022EB;" ><!--/ntriangleright N: not rt triangle -->
+<!ENTITY nrtrie           "&#x022ED;" ><!--/ntrianglerighteq N: not r tri, eq -->
+<!ENTITY nsc              "&#x02281;" ><!--/nsucc N: not succeeds -->
+<!ENTITY nsccue           "&#x022E1;" ><!--not succeeds, curly eq -->
+<!ENTITY nsce             "&#x02AB0;&#x00338;" ><!--/nsucceq N: not succeeds, equals -->
+<!ENTITY nsim             "&#x02241;" ><!--/nsim N: not similar -->
+<!ENTITY nsime            "&#x02244;" ><!--/nsimeq N: not similar, equals -->
+<!ENTITY nsmid            "&#x02224;&#x0FE00;" ><!--/nshortmid -->
+<!ENTITY nspar            "&#x02226;&#x0FE00;" ><!--/nshortparallel N: not short par -->
+<!ENTITY nsqsube          "&#x022E2;" ><!--not, square subset, equals -->
+<!ENTITY nsqsupe          "&#x022E3;" ><!--not, square superset, equals -->
+<!ENTITY nsub             "&#x02284;" ><!--not subset -->
+<!ENTITY nsube            "&#x02288;" ><!--/nsubseteq N: not subset, equals -->
+<!ENTITY nsubE            "&#x02288;" ><!--/nsubseteqq N: not subset, dbl eq -->
+<!ENTITY nsup             "&#x02285;" ><!--not superset -->
+<!ENTITY nsupe            "&#x02289;" ><!--/nsupseteq N: not superset, equals -->
+<!ENTITY nsupE            "&#x02289;" ><!--/nsupseteqq N: not superset, dbl eq -->
+<!ENTITY ntgl             "&#x02279;" ><!--not greater, less -->
+<!ENTITY ntlg             "&#x02278;" ><!--not less, greater -->
+<!ENTITY nvap             "&#x02249;&#x00338;" ><!--not, vert, approximate -->
+<!ENTITY nvdash           "&#x022AC;" ><!--/nvdash N: not vertical, dash -->
+<!ENTITY nvDash           "&#x022AD;" ><!--/nvDash N: not vertical, dbl dash -->
+<!ENTITY nVdash           "&#x022AE;" ><!--/nVdash N: not dbl vertical, dash -->
+<!ENTITY nVDash           "&#x022AF;" ><!--/nVDash N: not dbl vert, dbl dash -->
+<!ENTITY nvge             "&#x02271;" ><!--not, vert, greater-than-or-equal -->
+<!ENTITY nvgt             "&#x0226F;" ><!--not, vert, greater-than -->
+<!ENTITY nvle             "&#x02270;" ><!--not, vert, less-than-or-equal -->
+<!ENTITY nvlt             "&#x0226E;" ><!--not, vert, less-than -->
+<!ENTITY nvltrie          "&#x022EC;&#x00338;" ><!--not, vert, left triangle, equals -->
+<!ENTITY nvrtrie          "&#x022ED;&#x00338;" ><!--not, vert, right triangle, equals -->
+<!ENTITY nvsim            "&#x02241;&#x00338;" ><!--not, vert, similar -->
+<!ENTITY parsim           "&#x02AF3;" ><!--parallel, similar -->
+<!ENTITY prnap            "&#x022E8;" ><!--/precnapprox N: precedes, not approx -->
+<!ENTITY prnE             "&#x02AB5;" ><!--/precneqq N: precedes, not dbl eq -->
+<!ENTITY prnsim           "&#x022E8;" ><!--/precnsim N: precedes, not similar -->
+<!ENTITY rnmid            "&#x02AEE;" ><!--reverse /nmid -->
+<!ENTITY scnap            "&#x022E9;" ><!--/succnapprox N: succeeds, not approx -->
+<!ENTITY scnE             "&#x02AB6;" ><!--/succneqq N: succeeds, not dbl eq -->
+<!ENTITY scnsim           "&#x022E9;" ><!--/succnsim N: succeeds, not similar -->
+<!ENTITY simne            "&#x02246;" ><!--similar, not equals -->
+<!ENTITY solbar           "&#x0233F;" ><!--solidus, bar through -->
+<!ENTITY subne            "&#x0228A;" ><!--/subsetneq N: subset, not equals -->
+<!ENTITY subnE            "&#x0228A;" ><!--/subsetneqq N: subset, not dbl eq -->
+<!ENTITY supne            "&#x0228B;" ><!--/supsetneq N: superset, not equals -->
+<!ENTITY supnE            "&#x0228B;" ><!--/supsetneqq N: superset, not dbl eq -->
+<!ENTITY vnsub            "&#x02284;" ><!--/nsubset N: not subset, var -->
+<!ENTITY vnsup            "&#x02285;" ><!--/nsupset N: not superset, var -->
+<!ENTITY vsubne           "&#x0228A;&#x0FE00;" ><!--/varsubsetneq N: subset, not eq, var -->
+<!ENTITY vsubnE           "&#x0228A;&#x0FE00;" ><!--/varsubsetneqq N: subset not dbl eq, var -->
+<!ENTITY vsupne           "&#x0228B;&#x0FE00;" ><!--/varsupsetneq N: superset, not eq, var -->
+<!ENTITY vsupnE           "&#x0228B;&#x0FE00;" ><!--/varsupsetneqq N: super not dbl eq, var -->
+
+<!--
+     File isoamso.ent
+-->
+
+<!ENTITY ang              "&#x02220;" ><!--/angle - angle -->
+<!ENTITY ange             "&#x029A4;" ><!--angle, equal -->
+<!ENTITY angmsd           "&#x02221;" ><!--/measuredangle - angle-measured -->
+<!ENTITY angmsdaa         "&#x029A8;" ><!--angle-measured, arrow, up, right -->
+<!ENTITY angmsdab         "&#x029A9;" ><!--angle-measured, arrow, up, left -->
+<!ENTITY angmsdac         "&#x029AA;" ><!--angle-measured, arrow, down, right -->
+<!ENTITY angmsdad         "&#x029AB;" ><!--angle-measured, arrow, down, left -->
+<!ENTITY angmsdae         "&#x029AC;" ><!--angle-measured, arrow, right, up -->
+<!ENTITY angmsdaf         "&#x029AD;" ><!--angle-measured, arrow, left, up -->
+<!ENTITY angmsdag         "&#x029AE;" ><!--angle-measured, arrow, right, down -->
+<!ENTITY angmsdah         "&#x029AF;" ><!--angle-measured, arrow, left, down -->
+<!ENTITY angrtvb          "&#x0299D;&#x0FE00;" ><!--right angle-measured -->
+<!ENTITY angrtvbd         "&#x0299D;" ><!--right angle-measured, dot -->
+<!ENTITY bbrk             "&#x023B5;" ><!--bottom square bracket -->
+<!ENTITY bemptyv          "&#x029B0;" ><!--reversed circle, slash -->
+<!ENTITY beth             "&#x02136;" ><!--/beth - beth, Hebrew -->
+<!ENTITY boxbox           "&#x029C9;" ><!--two joined squares -->
+<!ENTITY bprime           "&#x02035;" ><!--/backprime - reverse prime -->
+<!ENTITY bsemi            "&#x0204F;" ><!--reverse semi-colon -->
+<!ENTITY cemptyv          "&#x029B2;" ><!--circle, slash, small circle above -->
+<!ENTITY cirE             "&#x029C3;" ><!--circle, two horizontal stroked to the right -->
+<!ENTITY cirscir          "&#x029C2;" ><!--circle, small circle to the right -->
+<!ENTITY comp             "&#x02201;" ><!--/complement - complement sign -->
+<!ENTITY daleth           "&#x02138;" ><!--/daleth - daleth, Hebrew -->
+<!ENTITY demptyv          "&#x029B1;" ><!--circle, slash, bar above -->
+<!ENTITY ell              "&#x02113;" ><!--/ell - cursive small l -->
+<!ENTITY empty            "&#x02205;&#x0FE00;" ><!--/emptyset - zero, slash -->
+<!ENTITY emptyv           "&#x02205;" ><!--/varnothing - circle, slash -->
+<!ENTITY gimel            "&#x02137;" ><!--/gimel - gimel, Hebrew -->
+<!ENTITY iiota            "&#x02129;" ><!--inverted iota -->
+<!ENTITY image            "&#x02111;" ><!--/Im - imaginary   -->
+<!ENTITY imath            "&#x00131;" ><!--/imath - small i, no dot -->
+<!ENTITY jmath            "&#x0006A;&#x0FE00;" ><!--/jmath - small j, no dot -->
+<!ENTITY laemptyv         "&#x029B4;" ><!--circle, slash, left arrow above -->
+<!ENTITY lltri            "&#x025FA;" ><!--lower left triangle -->
+<!ENTITY lrtri            "&#x022BF;" ><!--lower right triangle -->
+<!ENTITY mho              "&#x02127;" ><!--/mho - conductance -->
+<!ENTITY nang             "&#x02220;&#x00338;" ><!--not, vert, angle -->
+<!ENTITY nexist           "&#x02204;" ><!--/nexists - negated exists -->
+<!ENTITY oS               "&#x024C8;" ><!--/circledS - capital S in circle -->
+<!ENTITY planck           "&#x0210F;&#x0FE00;" ><!--/hbar - Planck's over 2pi -->
+<!ENTITY plankv           "&#x0210F;" ><!--/hslash - variant Planck's over 2pi -->
+<!ENTITY raemptyv         "&#x029B3;" ><!--circle, slash, right arrow above -->
+<!ENTITY range            "&#x029A5;" ><!--reverse angle, equal -->
+<!ENTITY real             "&#x0211C;" ><!--/Re - real -->
+<!ENTITY tbrk             "&#x023B4;" ><!--top square bracket -->
+<!ENTITY ultri            "&#x025F8;" ><!--upper left triangle -->
+<!ENTITY urtri            "&#x025F9;" ><!--upper right triangle -->
+<!ENTITY vzigzag          "&#x0299A;" ><!--vertical zig-zag line -->
+<!ENTITY weierp           "&#x02118;" ><!--/wp - Weierstrass p -->
+
+<!--
+     File isoamsr.ent
+-->
+
+<!ENTITY ape              "&#x0224A;" ><!--/approxeq R: approximate, equals -->
+<!ENTITY apE              "&#x0224A;" ><!--approximately equal or equal to -->
+<!ENTITY apid             "&#x0224B;" ><!--approximately identical to -->
+<!ENTITY asymp            "&#x0224D;" ><!--/asymp R: asymptotically equal to -->
+<!ENTITY Barv             "&#x02AE7;" ><!--vert, dbl bar (over) -->
+<!ENTITY bcong            "&#x0224C;" ><!--/backcong R: reverse congruent -->
+<!ENTITY bepsi            "&#x003F6;" ><!--/backepsilon R: such that -->
+<!ENTITY bowtie           "&#x022C8;" ><!--/bowtie R: -->
+<!ENTITY bsim             "&#x0223D;" ><!--/backsim R: reverse similar -->
+<!ENTITY bsime            "&#x022CD;" ><!--/backsimeq R: reverse similar, eq -->
+<!ENTITY bsolhsub         "&#x0005C;&#x02282;" ><!--reverse solidus, subset -->
+<!ENTITY bump             "&#x0224E;" ><!--/Bumpeq R: bumpy equals -->
+<!ENTITY bumpe            "&#x0224F;" ><!--/bumpeq R: bumpy equals, equals -->
+<!ENTITY bumpE            "&#x02AAE;" ><!--bump, equals -->
+<!ENTITY cire             "&#x02257;" ><!--/circeq R: circle, equals -->
+<!ENTITY Colon            "&#x02237;" ><!--/Colon, two colons -->
+<!ENTITY colone           "&#x02254;" ><!--/coloneq R: colon, equals -->
+<!ENTITY Colone           "&#x02A74;" ><!--double colon, equals -->
+<!ENTITY congdot          "&#x02A6D;" ><!--congruent, dot -->
+<!ENTITY csub             "&#x02ACF;" ><!--subset, closed -->
+<!ENTITY csube            "&#x02AD1;" ><!--subset, closed, equals -->
+<!ENTITY csup             "&#x02AD0;" ><!--superset, closed -->
+<!ENTITY csupe            "&#x02AD2;" ><!--superset, closed, equals -->
+<!ENTITY cuepr            "&#x022DE;" ><!--/curlyeqprec R: curly eq, precedes -->
+<!ENTITY cuesc            "&#x022DF;" ><!--/curlyeqsucc R: curly eq, succeeds -->
+<!ENTITY dashv            "&#x022A3;" ><!--/dashv R: dash, vertical -->
+<!ENTITY Dashv            "&#x02AE4;" ><!--dbl dash, vertical -->
+<!ENTITY easter           "&#x0225B;" ><!--equal, asterisk above -->
+<!ENTITY ecir             "&#x02256;" ><!--/eqcirc R: circle on equals sign -->
+<!ENTITY ecolon           "&#x02255;" ><!--/eqcolon R: equals, colon -->
+<!ENTITY eDDot            "&#x02A77;" ><!--/ddotseq R: equal with four dots -->
+<!ENTITY eDot             "&#x02251;" ><!--/doteqdot /Doteq R: eq, even dots -->
+<!ENTITY efDot            "&#x02252;" ><!--/fallingdotseq R: eq, falling dots -->
+<!ENTITY eg               "&#x02A9A;" ><!--equal-or-greater -->
+<!ENTITY egs              "&#x022DD;" ><!--/eqslantgtr R: equal-or-gtr, slanted -->
+<!ENTITY egsdot           "&#x02A98;" ><!--equal-or-greater, slanted, dot inside -->
+<!ENTITY el               "&#x02A99;" ><!--equal-or-less -->
+<!ENTITY els              "&#x022DC;" ><!--/eqslantless R: eq-or-less, slanted -->
+<!ENTITY elsdot           "&#x02A97;" ><!--equal-or-less, slanted, dot inside -->
+<!ENTITY equest           "&#x0225F;" ><!--/questeq R: equal with questionmark -->
+<!ENTITY equivDD          "&#x02A78;" ><!--equivalent, four dots above -->
+<!ENTITY erDot            "&#x02253;" ><!--/risingdotseq R: eq, rising dots -->
+<!ENTITY esdot            "&#x02250;" ><!--/doteq R: equals, single dot above -->
+<!ENTITY esim             "&#x02242;" ><!--/esim R: equals, similar -->
+<!ENTITY Esim             "&#x02A73;" ><!--equal, similar -->
+<!ENTITY fork             "&#x022D4;" ><!--/pitchfork R: pitchfork -->
+<!ENTITY forkv            "&#x02AD9;" ><!--fork, variant -->
+<!ENTITY frown            "&#x02322;" ><!--/frown R: down curve -->
+<!ENTITY gap              "&#x02273;" ><!--/gtrapprox R: greater, approximate -->
+<!ENTITY gE               "&#x02267;" ><!--/geqq R: greater, double equals -->
+<!ENTITY gel              "&#x022DB;" ><!--/gtreqless R: greater, equals, less -->
+<!ENTITY gEl              "&#x022DB;" ><!--/gtreqqless R: gt, dbl equals, less -->
+<!ENTITY ges              "&#x02A7E;" ><!--/geqslant R: gt-or-equal, slanted -->
+<!ENTITY gescc            "&#x02AA9;" ><!--greater than, closed by curve, equal, slanted -->
+<!ENTITY gesdot           "&#x02A80;" ><!--greater-than-or-equal, slanted, dot inside -->
+<!ENTITY gesdoto          "&#x02A82;" ><!--greater-than-or-equal, slanted, dot above -->
+<!ENTITY gesdotol         "&#x02A84;" ><!--greater-than-or-equal, slanted, dot above left -->
+<!ENTITY gesl             "&#x022DB;&#x0FE00;" ><!--greater, equal, slanted, less -->
+<!ENTITY gesles           "&#x02A94;" ><!--greater, equal, slanted, less, equal, slanted -->
+<!ENTITY Gg               "&#x022D9;" ><!--/ggg /Gg /gggtr R: triple gtr-than -->
+<!ENTITY gl               "&#x02277;" ><!--/gtrless R: greater, less -->
+<!ENTITY gla              "&#x02AA5;" ><!--greater, less, apart -->
+<!ENTITY glE              "&#x02A92;" ><!--greater, less, equal -->
+<!ENTITY glj              "&#x02AA4;" ><!--greater, less, overlapping -->
+<!ENTITY gsim             "&#x02273;" ><!--/gtrsim R: greater, similar -->
+<!ENTITY gsime            "&#x02A8E;" ><!--greater, similar, equal -->
+<!ENTITY gsiml            "&#x02A90;" ><!--greater, similar, less -->
+<!ENTITY Gt               "&#x0226B;" ><!--/gg R: dbl greater-than sign -->
+<!ENTITY gtcc             "&#x02AA7;" ><!--greater than, closed by curve -->
+<!ENTITY gtcir            "&#x02A7A;" ><!--greater than, circle inside -->
+<!ENTITY gtdot            "&#x022D7;" ><!--/gtrdot R: greater than, with dot -->
+<!ENTITY gtquest          "&#x02A7C;" ><!--greater than, questionmark above -->
+<!ENTITY gtrarr           "&#x02978;" ><!--greater than, right arrow -->
+<!ENTITY homtht           "&#x0223B;" ><!--homothetic -->
+<!ENTITY lap              "&#x02272;" ><!--/lessapprox R: less, approximate -->
+<!ENTITY lat              "&#x02AAB;" ><!--larger than -->
+<!ENTITY late             "&#x02AAD;" ><!--larger than or equal -->
+<!ENTITY lates            "&#x02AAD;&#x0FE00;" ><!--larger than or equal, slanted -->
+<!ENTITY lE               "&#x02266;" ><!--/leqq R: less, double equals -->
+<!ENTITY leg              "&#x022DA;" ><!--/lesseqgtr R: less, eq, greater -->
+<!ENTITY lEg              "&#x022DA;" ><!--/lesseqqgtr R: less, dbl eq, greater -->
+<!ENTITY les              "&#x02A7D;" ><!--/leqslant R: less-than-or-eq, slant -->
+<!ENTITY lescc            "&#x02AA8;" ><!--less than, closed by curve, equal, slanted -->
+<!ENTITY lesdot           "&#x02A7F;" ><!--less-than-or-equal, slanted, dot inside -->
+<!ENTITY lesdoto          "&#x02A81;" ><!--less-than-or-equal, slanted, dot above -->
+<!ENTITY lesdotor         "&#x02A83;" ><!--less-than-or-equal, slanted, dot above right -->
+<!ENTITY lesg             "&#x022DA;&#x0FE00;" ><!--less, equal, slanted, greater -->
+<!ENTITY lesges           "&#x02A93;" ><!--less, equal, slanted, greater, equal, slanted -->
+<!ENTITY lg               "&#x02276;" ><!--/lessgtr R: less, greater -->
+<!ENTITY lgE              "&#x02A91;" ><!--less, greater, equal -->
+<!ENTITY Ll               "&#x022D8;" ><!--/Ll /lll /llless R: triple less-than -->
+<!ENTITY lsim             "&#x02272;" ><!--/lesssim R: less, similar -->
+<!ENTITY lsime            "&#x02A8D;" ><!--less, similar, equal -->
+<!ENTITY lsimg            "&#x02A8F;" ><!--less, similar, greater -->
+<!ENTITY Lt               "&#x0226A;" ><!--/ll R: double less-than sign -->
+<!ENTITY ltcc             "&#x02AA6;" ><!--less than, closed by curve -->
+<!ENTITY ltcir            "&#x02A79;" ><!--less than, circle inside -->
+<!ENTITY ltdot            "&#x022D6;" ><!--/lessdot R: less than, with dot -->
+<!ENTITY ltlarr           "&#x02976;" ><!--less than, left arrow -->
+<!ENTITY ltquest          "&#x02A7B;" ><!--less than, questionmark above -->
+<!ENTITY ltrie            "&#x022B4;" ><!--/trianglelefteq R: left triangle, eq -->
+<!ENTITY mcomma           "&#x02A29;" ><!--minus, comma above -->
+<!ENTITY mDDot            "&#x0223A;" ><!--minus with four dots, geometric properties -->
+<!ENTITY mid              "&#x02223;" ><!--/mid R: -->
+<!ENTITY mlcp             "&#x02ADB;" ><!--/mlcp -->
+<!ENTITY models           "&#x022A7;" ><!--/models R: -->
+<!ENTITY mstpos           "&#x0223E;" ><!--most positive -->
+<!ENTITY pr               "&#x0227A;" ><!--/prec R: precedes -->
+<!ENTITY Pr               "&#x02ABB;" ><!--dbl precedes -->
+<!ENTITY prap             "&#x0227E;" ><!--/precapprox R: precedes, approximate -->
+<!ENTITY prcue            "&#x0227C;" ><!--/preccurlyeq R: precedes, curly eq -->
+<!ENTITY pre              "&#x02AAF;" ><!--/preceq R: precedes, equals -->
+<!ENTITY prE              "&#x02AAF;" ><!--precedes, dbl equals -->
+<!ENTITY prsim            "&#x0227E;" ><!--/precsim R: precedes, similar -->
+<!ENTITY prurel           "&#x022B0;" ><!--element precedes under relation -->
+<!ENTITY ratio            "&#x02236;" ><!--/ratio -->
+<!ENTITY rtrie            "&#x022B5;" ><!--/trianglerighteq R: right tri, eq -->
+<!ENTITY rtriltri         "&#x029CE;" ><!--right triangle above left triangle -->
+<!ENTITY sc               "&#x0227B;" ><!--/succ R: succeeds -->
+<!ENTITY Sc               "&#x02ABC;" ><!--dbl succeeds -->
+<!ENTITY scap             "&#x0227F;" ><!--/succapprox R: succeeds, approximate -->
+<!ENTITY sccue            "&#x0227D;" ><!--/succcurlyeq R: succeeds, curly eq -->
+<!ENTITY sce              "&#x0227D;" ><!--/succeq R: succeeds, equals -->
+<!ENTITY scE              "&#x0227E;" ><!--succeeds, dbl equals -->
+<!ENTITY scsim            "&#x0227F;" ><!--/succsim R: succeeds, similar -->
+<!ENTITY sdote            "&#x02A66;" ><!--equal, dot below -->
+<!ENTITY simg             "&#x02A9E;" ><!--similar, greater -->
+<!ENTITY simgE            "&#x02AA0;" ><!--similar, greater, equal -->
+<!ENTITY siml             "&#x02A9D;" ><!--similar, less -->
+<!ENTITY simlE            "&#x02A9F;" ><!--similar, less, equal -->
+<!ENTITY smid             "&#x02223;&#x0FE00;" ><!--/shortmid R: -->
+<!ENTITY smile            "&#x02323;" ><!--/smile R: up curve -->
+<!ENTITY smt              "&#x02AAA;" ><!--smaller than -->
+<!ENTITY smte             "&#x02AAC;" ><!--smaller than or equal -->
+<!ENTITY smtes            "&#x02AAC;&#x0FE00;" ><!--smaller than or equal, slanted -->
+<!ENTITY spar             "&#x02225;&#x0FE00;" ><!--/shortparallel R: short parallel -->
+<!ENTITY sqsub            "&#x0228F;" ><!--/sqsubset R: square subset -->
+<!ENTITY sqsube           "&#x02291;" ><!--/sqsubseteq R: square subset, equals -->
+<!ENTITY sqsup            "&#x02290;" ><!--/sqsupset R: square superset -->
+<!ENTITY sqsupe           "&#x02292;" ><!--/sqsupseteq R: square superset, eq -->
+<!ENTITY Sub              "&#x022D0;" ><!--/Subset R: double subset -->
+<!ENTITY subE             "&#x02286;" ><!--/subseteqq R: subset, dbl equals -->
+<!ENTITY subedot          "&#x02AC3;" ><!--subset, equals, dot -->
+<!ENTITY submult          "&#x02AC1;" ><!--subset, multiply -->
+<!ENTITY subplus          "&#x02ABF;" ><!--subset, plus -->
+<!ENTITY subrarr          "&#x02979;" ><!--subset, right arrow -->
+<!ENTITY subsim           "&#x02AC7;" ><!--subset, similar -->
+<!ENTITY subsub           "&#x02AD5;" ><!--subset above subset -->
+<!ENTITY subsup           "&#x02AD3;" ><!--subset above superset -->
+<!ENTITY Sup              "&#x022D1;" ><!--/Supset R: dbl superset -->
+<!ENTITY supdsub          "&#x02AD8;" ><!--superset, subset, dash joining them -->
+<!ENTITY supE             "&#x02287;" ><!--/supseteqq R: superset, dbl equals -->
+<!ENTITY supedot          "&#x02AC4;" ><!--superset, equals, dot -->
+<!ENTITY suphsol          "&#x02283;&#x0002F;" ><!--superset, solidus -->
+<!ENTITY suphsub          "&#x02AD7;" ><!--superset, subset -->
+<!ENTITY suplarr          "&#x0297B;" ><!--superset, left arrow -->
+<!ENTITY supmult          "&#x02AC2;" ><!--superset, multiply -->
+<!ENTITY supplus          "&#x02AC0;" ><!--superset, plus -->
+<!ENTITY supsim           "&#x02AC8;" ><!--superset, similar -->
+<!ENTITY supsub           "&#x02AD4;" ><!--superset above subset -->
+<!ENTITY supsup           "&#x02AD6;" ><!--superset above superset -->
+<!ENTITY thkap            "&#x02248;&#x0FE00;" ><!--/thickapprox R: thick approximate -->
+<!ENTITY thksim           "&#x0223C;&#x0FE00;" ><!--/thicksim R: thick similar -->
+<!ENTITY topfork          "&#x02ADA;" ><!--fork with top -->
+<!ENTITY trie             "&#x0225C;" ><!--/triangleq R: triangle, equals -->
+<!ENTITY twixt            "&#x0226C;" ><!--/between R: between -->
+<!ENTITY vBar             "&#x02AE8;" ><!--vert, dbl bar (under) -->
+<!ENTITY Vbar             "&#x02AEB;" ><!--dbl vert, bar (under) -->
+<!ENTITY vBarv            "&#x02AE9;" ><!--dbl bar, vert over and under -->
+<!ENTITY vdash            "&#x022A2;" ><!--/vdash R: vertical, dash -->
+<!ENTITY vDash            "&#x022A8;" ><!--/vDash R: vertical, dbl dash -->
+<!ENTITY Vdash            "&#x022A9;" ><!--/Vdash R: dbl vertical, dash -->
+<!ENTITY VDash            "&#x022AB;" ><!--dbl vert, dbl dash -->
+<!ENTITY Vdashl           "&#x02AE6;" ><!--vertical, dash (long) -->
+<!ENTITY vltri            "&#x022B2;" ><!--/vartriangleleft R: l tri, open, var -->
+<!ENTITY vprop            "&#x0221D;" ><!--/varpropto R: proportional, variant -->
+<!ENTITY vrtri            "&#x022B3;" ><!--/vartriangleright R: r tri, open, var -->
+<!ENTITY Vvdash           "&#x022AA;" ><!--/Vvdash R: triple vertical, dash -->
+
+<!--
+     File isogrk1.ent 
+-->
+<!ENTITY Agr              "&#x00391;" ><!--GREEK CAPITAL LETTER ALPHA -->
+<!ENTITY agr              "&#x003B1;" ><!--GREEK SMALL LETTER ALPHA -->
+<!ENTITY Bgr              "&#x00392;" ><!--GREEK CAPITAL LETTER BETA -->
+<!ENTITY bgr              "&#x003B2;" ><!--GREEK SMALL LETTER BETA -->
+<!ENTITY Dgr              "&#x00394;" ><!--GREEK CAPITAL LETTER DELTA -->
+<!ENTITY dgr              "&#x003B4;" ><!--GREEK SMALL LETTER DELTA -->
+<!ENTITY EEgr             "&#x00397;" ><!--GREEK CAPITAL LETTER ETA -->
+<!ENTITY eegr             "&#x003B7;" ><!--GREEK SMALL LETTER ETA -->
+<!ENTITY EEGR             "&#x00397;" ><!--GREEK CAPITAL LETTER ETA -->
+<!ENTITY Egr              "&#x00395;" ><!--GREEK CAPITAL LETTER EPSILON -->
+<!ENTITY egr              "&#x003B5;" ><!--GREEK SMALL LETTER EPSILON -->
+<!ENTITY Ggr              "&#x00393;" ><!--GREEK CAPITAL LETTER GAMMA -->
+<!ENTITY ggr              "&#x003B3;" ><!--GREEK SMALL LETTER GAMMA -->
+<!ENTITY Igr              "&#x00399;" ><!--GREEK CAPITAL LETTER IOTA -->
+<!ENTITY igr              "&#x003B9;" ><!--GREEK SMALL LETTER IOTA -->
+<!ENTITY Kgr              "&#x0039A;" ><!--GREEK CAPITAL LETTER KAPPA -->
+<!ENTITY kgr              "&#x003BA;" ><!--GREEK SMALL LETTER KAPPA -->
+<!ENTITY KGR              "&#x0039A;" ><!--GREEK CAPITAL LETTER KAPPA -->
+<!ENTITY KHgr             "&#x003A7;" ><!--GREEK CAPITAL LETTER CHI -->
+<!ENTITY khgr             "&#x003C7;" ><!--GREEK SMALL LETTER CHI -->
+<!ENTITY KHGR             "&#x003A7;" ><!--GREEK CAPITAL LETTER CHI -->
+<!ENTITY Lgr              "&#x0039B;" ><!--GREEK CAPITAL LETTER LAMDA -->
+<!ENTITY lgr              "&#x003BB;" ><!--GREEK SMALL LETTER LAMDA -->
+<!ENTITY Mgr              "&#x0039C;" ><!--GREEK CAPITAL LETTER MU -->
+<!ENTITY mgr              "&#x003BC;" ><!--GREEK SMALL LETTER MU -->
+<!ENTITY Ngr              "&#x0039D;" ><!--GREEK CAPITAL LETTER NU -->
+<!ENTITY ngr              "&#x003BD;" ><!--GREEK SMALL LETTER NU -->
+<!ENTITY Ogr              "&#x0039F;" ><!--GREEK CAPITAL LETTER OMICRON -->
+<!ENTITY ogr              "&#x003BF;" ><!--GREEK SMALL LETTER OMICRON -->
+<!ENTITY OGR              "&#x0039F;" ><!--GREEK CAPITAL LETTER OMICRON -->
+<!ENTITY OHgr             "&#x003A9;" ><!--GREEK CAPITAL LETTER OMEGA -->
+<!ENTITY ohgr             "&#x003C9;" ><!--GREEK SMALL LETTER OMEGA -->
+<!ENTITY Pgr              "&#x003A0;" ><!--GREEK CAPITAL LETTER PI -->
+<!ENTITY pgr              "&#x003C0;" ><!--GREEK SMALL LETTER PI -->
+<!ENTITY PGR              "&#x003A0;" ><!--GREEK CAPITAL LETTER PI -->
+<!ENTITY PHgr             "&#x003A6;" ><!--GREEK CAPITAL LETTER PHI -->
+<!ENTITY phgr             "&#x003C6;" ><!--GREEK SMALL LETTER PHI -->
+<!ENTITY PSgr             "&#x003A8;" ><!--GREEK CAPITAL LETTER PSI -->
+<!ENTITY psgr             "&#x003C8;" ><!--GREEK SMALL LETTER PSI -->
+<!ENTITY Rgr              "&#x003A1;" ><!--GREEK CAPITAL LETTER RHO -->
+<!ENTITY rgr              "&#x003C1;" ><!--GREEK SMALL LETTER RHO -->
+<!ENTITY sfgr             "&#x003C2;" ><!--GREEK SMALL LETTER FINAL SIGMA -->
+<!ENTITY Sgr              "&#x003A3;" ><!--GREEK CAPITAL LETTER SIGMA -->
+<!ENTITY sgr              "&#x003C3;" ><!--GREEK SMALL LETTER SIGMA -->
+<!ENTITY Tgr              "&#x003A4;" ><!--GREEK CAPITAL LETTER TAU -->
+<!ENTITY tgr              "&#x003C4;" ><!--GREEK SMALL LETTER TAU -->
+<!ENTITY THgr             "&#x00398;" ><!--GREEK CAPITAL LETTER THETA -->
+<!ENTITY thgr             "&#x003B8;" ><!--GREEK SMALL LETTER THETA -->
+<!ENTITY Ugr              "&#x003A5;" ><!--GREEK CAPITAL LETTER UPSILON -->
+<!ENTITY ugr              "&#x003C5;" ><!--GREEK SMALL LETTER UPSILON -->
+<!ENTITY Xgr              "&#x0039E;" ><!--GREEK CAPITAL LETTER XI -->
+<!ENTITY xgr              "&#x003BE;" ><!--GREEK SMALL LETTER XI -->
+<!ENTITY Zgr              "&#x00396;" ><!--GREEK CAPITAL LETTER ZETA -->
+<!ENTITY zgr              "&#x003B6;" ><!--GREEK SMALL LETTER ZETA -->
+
+<!--
+     File isogrk2.ent 
+-->
+<!ENTITY Aacgr            "&#x00386;" ><!--GREEK CAPITAL LETTER ALPHA WITH TONOS -->
+<!ENTITY aacgr            "&#x003AC;" ><!--GREEK SMALL LETTER ALPHA WITH TONOS -->
+<!ENTITY Eacgr            "&#x00388;" ><!--GREEK CAPITAL LETTER EPSILON WITH TONOS -->
+<!ENTITY eacgr            "&#x003AD;" ><!--GREEK SMALL LETTER EPSILON WITH TONOS -->
+<!ENTITY EEacgr           "&#x00389;" ><!--GREEK CAPITAL LETTER ETA WITH TONOS -->
+<!ENTITY eeacgr           "&#x003AE;" ><!--GREEK SMALL LETTER ETA WITH TONOS -->
+<!ENTITY Iacgr            "&#x0038A;" ><!--GREEK CAPITAL LETTER IOTA WITH TONOS -->
+<!ENTITY iacgr            "&#x003AF;" ><!--GREEK SMALL LETTER IOTA WITH TONOS -->
+<!ENTITY idiagr           "&#x00390;" ><!--GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS -->
+<!ENTITY Idigr            "&#x003AA;" ><!--GREEK CAPITAL LETTER IOTA WITH DIALYTIKA -->
+<!ENTITY idigr            "&#x003CA;" ><!--GREEK SMALL LETTER IOTA WITH DIALYTIKA -->
+<!ENTITY Oacgr            "&#x0038C;" ><!--GREEK CAPITAL LETTER OMICRON WITH TONOS -->
+<!ENTITY oacgr            "&#x003CC;" ><!--GREEK SMALL LETTER OMICRON WITH TONOS -->
+<!ENTITY OACGR            "&#x0038C;" ><!--GREEK CAPITAL LETTER OMICRON WITH TONOS -->
+<!ENTITY OHacgr           "&#x0038F;" ><!--GREEK CAPITAL LETTER OMEGA WITH TONOS -->
+<!ENTITY ohacgr           "&#x003CE;" ><!--GREEK SMALL LETTER OMEGA WITH TONOS -->
+<!ENTITY Uacgr            "&#x0038E;" ><!--GREEK CAPITAL LETTER UPSILON WITH TONOS -->
+<!ENTITY uacgr            "&#x003CD;" ><!--GREEK SMALL LETTER UPSILON WITH TONOS -->
+<!ENTITY udiagr           "&#x003B0;" ><!--GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS -->
+<!ENTITY Udigr            "&#x003AB;" ><!--GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA -->
+<!ENTITY udigr            "&#x003CB;" ><!--GREEK SMALL LETTER UPSILON WITH DIALYTIKA -->
+
+
+
+<!--
+     File isogrk3.ent 
+-->
+
+<!ENTITY alpha            "&#x003B1;" ><!--/alpha small alpha, Greek -->
+<!ENTITY beta             "&#x003B2;" ><!--/beta small beta, Greek -->
+<!ENTITY chi              "&#x003C7;" ><!--/chi small chi, Greek -->
+<!ENTITY delta            "&#x003B4;" ><!--/delta small delta, Greek -->
+<!ENTITY Delta            "&#x00394;" ><!--/Delta capital Delta, Greek -->
+<!ENTITY epsi             "&#x003B5;" ><!--/straightepsilon, small epsilon, Greek -->
+<!ENTITY epsiv            "&#x0025B;" ><!--/varepsilon -->
+<!ENTITY eta              "&#x003B7;" ><!--/eta small eta, Greek -->
+<!ENTITY gamma            "&#x003B3;" ><!--/gamma small gamma, Greek -->
+<!ENTITY Gamma            "&#x00393;" ><!--/Gamma capital Gamma, Greek -->
+<!ENTITY gammad           "&#x003DC;" ><!--/digamma -->
+<!ENTITY Gammad           "&#x003DC;" ><!--capital digamma -->
+<!ENTITY iota             "&#x003B9;" ><!--/iota small iota, Greek -->
+<!ENTITY kappa            "&#x003BA;" ><!--/kappa small kappa, Greek -->
+<!ENTITY kappav           "&#x003F0;" ><!--/varkappa -->
+<!ENTITY lambda           "&#x003BB;" ><!--/lambda small lambda, Greek -->
+<!ENTITY Lambda           "&#x0039B;" ><!--/Lambda capital Lambda, Greek -->
+<!ENTITY LAMBDA           "&#x0039B;" ><!--/Lambda capital Lambda, Greek -->
+<!ENTITY mu               "&#x003BC;" ><!--/mu small mu, Greek -->
+<!ENTITY Mu               "&#x0039C;" ><!--/GREEK CAPITAL LETTER MU -->
+<!ENTITY nu               "&#x003BD;" ><!--/nu small nu, Greek -->
+<!ENTITY omega            "&#x003C9;" ><!--/omega small omega, Greek -->
+<!ENTITY Omega            "&#x003A9;" ><!--/Omega capital Omega, Greek -->
+<!ENTITY phi              "&#x003C6;" ><!--/straightphi - small phi, Greek -->
+<!ENTITY Phi              "&#x003A6;" ><!--/Phi capital Phi, Greek -->
+<!ENTITY phiv             "&#x003D5;" ><!--/varphi - curly or open phi -->
+<!ENTITY pi               "&#x003C0;" ><!--/pi small pi, Greek -->
+<!ENTITY Pi               "&#x003A0;" ><!--/Pi capital Pi, Greek -->
+<!ENTITY piv              "&#x003D6;" ><!--/varpi -->
+<!ENTITY psi              "&#x003C8;" ><!--/psi small psi, Greek -->
+<!ENTITY Psi              "&#x003A8;" ><!--/Psi capital Psi, Greek -->
+<!ENTITY rho              "&#x003C1;" ><!--/rho small rho, Greek -->
+<!ENTITY rhov             "&#x003F1;" ><!--/varrho -->
+<!ENTITY sigma            "&#x003C3;" ><!--/sigma small sigma, Greek -->
+<!ENTITY Sigma            "&#x003A3;" ><!--/Sigma capital Sigma, Greek -->
+<!ENTITY sigmav           "&#x003C2;" ><!--/varsigma -->
+<!ENTITY tau              "&#x003C4;" ><!--/tau small tau, Greek -->
+<!ENTITY theta            "&#x003B8;" ><!--/theta straight theta, small theta, Greek -->
+<!ENTITY Theta            "&#x00398;" ><!--/Theta capital Theta, Greek -->
+<!ENTITY THETA            "&#x00398;" ><!--/Theta capital Theta, Greek -->
+<!ENTITY thetav           "&#x003D1;" ><!--/vartheta - curly or open theta -->
+<!ENTITY upsi             "&#x003C5;" ><!--/upsilon small upsilon, Greek -->
+<!ENTITY Upsi             "&#x003D2;" ><!--/Upsilon capital Upsilon, Greek -->
+<!ENTITY xi               "&#x003BE;" ><!--/xi small xi, Greek -->
+<!ENTITY Xi               "&#x0039E;" ><!--/Xi capital Xi, Greek -->
+<!ENTITY zeta             "&#x003B6;" ><!--/zeta small zeta, Greek -->
+
+
+
+<!--
+     File isogrk4.ent 
+-->
+<!ENTITY b.alpha          "&#x1D6C2;" ><!--MATHEMATICAL BOLD SMALL ALPHA -->
+<!ENTITY b.beta           "&#x1D6C3;" ><!--MATHEMATICAL BOLD SMALL BETA -->
+<!ENTITY b.chi            "&#x1D6D8;" ><!--MATHEMATICAL BOLD SMALL CHI -->
+<!ENTITY b.Delta          "&#x1D6AB;" ><!--MATHEMATICAL BOLD CAPITAL DELTA -->
+<!ENTITY b.delta          "&#x1D6C5;" ><!--MATHEMATICAL BOLD SMALL DELTA -->
+<!ENTITY b.epsi           "&#x1D6C6;" ><!--MATHEMATICAL BOLD SMALL EPSILON -->
+<!ENTITY b.epsiv          "&#x1D6DC;" ><!--MATHEMATICAL BOLD EPSILON SYMBOL -->
+<!ENTITY b.eta            "&#x1D6C8;" ><!--MATHEMATICAL BOLD SMALL ETA -->
+<!ENTITY b.Gamma          "&#x1D6AA;" ><!--MATHEMATICAL BOLD CAPITAL GAMMA -->
+<!ENTITY b.gamma          "&#x1D6C4;" ><!--MATHEMATICAL BOLD SMALL GAMMA -->
+<!ENTITY b.Gammad         "&#x003DC;" ><!--GREEK LETTER DIGAMMA -->
+<!ENTITY b.gammad         "&#x003DD;" ><!--GREEK SMALL LETTER DIGAMMA -->
+<!ENTITY b.iota           "&#x1D6CA;" ><!--MATHEMATICAL BOLD SMALL IOTA -->
+<!ENTITY b.kappa          "&#x1D6CB;" ><!--MATHEMATICAL BOLD SMALL KAPPA -->
+<!ENTITY b.kappav         "&#x1D6DE;" ><!--MATHEMATICAL BOLD KAPPA SYMBOL -->
+<!ENTITY b.Lambda         "&#x1D6B2;" ><!--MATHEMATICAL BOLD CAPITAL LAMDA -->
+<!ENTITY b.lambda         "&#x1D6CC;" ><!--MATHEMATICAL BOLD SMALL LAMDA -->
+<!ENTITY b.mu             "&#x1D6CD;" ><!--MATHEMATICAL BOLD SMALL MU -->
+<!ENTITY b.nu             "&#x1D6CE;" ><!--MATHEMATICAL BOLD SMALL NU -->
+<!ENTITY b.Omega          "&#x1D6C0;" ><!--MATHEMATICAL BOLD CAPITAL OMEGA -->
+<!ENTITY b.omega          "&#x1D6DA;" ><!--MATHEMATICAL BOLD SMALL OMEGA -->
+<!ENTITY b.Phi            "&#x1D6BD;" ><!--MATHEMATICAL BOLD CAPITAL PHI -->
+<!ENTITY b.phi            "&#x1D6D7;" ><!--MATHEMATICAL BOLD SMALL PHI -->
+<!ENTITY b.phiv           "&#x1D6DF;" ><!--MATHEMATICAL BOLD PHI SYMBOL -->
+<!ENTITY b.Pi             "&#x1D6B7;" ><!--MATHEMATICAL BOLD CAPITAL PI -->
+<!ENTITY b.pi             "&#x1D6D1;" ><!--MATHEMATICAL BOLD SMALL PI -->
+<!ENTITY b.piv            "&#x1D6E1;" ><!--MATHEMATICAL BOLD PI SYMBOL -->
+<!ENTITY b.Psi            "&#x1D6BF;" ><!--MATHEMATICAL BOLD CAPITAL PSI -->
+<!ENTITY b.psi            "&#x1D6D9;" ><!--MATHEMATICAL BOLD SMALL PSI -->
+<!ENTITY b.rho            "&#x1D6D2;" ><!--MATHEMATICAL BOLD SMALL RHO -->
+<!ENTITY b.rhov           "&#x1D6E0;" ><!--MATHEMATICAL BOLD RHO SYMBOL -->
+<!ENTITY b.Sigma          "&#x1D6BA;" ><!--MATHEMATICAL BOLD CAPITAL SIGMA -->
+<!ENTITY b.sigma          "&#x1D6D4;" ><!--MATHEMATICAL BOLD SMALL SIGMA -->
+<!ENTITY b.sigmav         "&#x1D6D3;" ><!--MATHEMATICAL BOLD SMALL FINAL SIGMA -->
+<!ENTITY b.tau            "&#x1D6D5;" ><!--MATHEMATICAL BOLD SMALL TAU -->
+<!ENTITY b.Theta          "&#x1D6AF;" ><!--MATHEMATICAL BOLD CAPITAL THETA -->
+<!ENTITY b.thetas         "&#x1D6C9;" ><!--MATHEMATICAL BOLD SMALL THETA -->
+<!ENTITY b.thetav         "&#x1D6DD;" ><!--MATHEMATICAL BOLD THETA SYMBOL -->
+<!ENTITY b.Upsi           "&#x1D6BC;" ><!--MATHEMATICAL BOLD CAPITAL UPSILON -->
+<!ENTITY b.upsi           "&#x1D6D6;" ><!--MATHEMATICAL BOLD SMALL UPSILON -->
+<!ENTITY b.Xi             "&#x1D6B5;" ><!--MATHEMATICAL BOLD CAPITAL XI -->
+<!ENTITY b.xi             "&#x1D6CF;" ><!--MATHEMATICAL BOLD SMALL XI -->
+<!ENTITY b.zeta           "&#x1D6C7;" ><!--MATHEMATICAL BOLD SMALL ZETA -->
+
+
+<!--
+     File isomfrk.ent 
+-->
+
+<!ENTITY afr              "&#x1D51E;" ><!--/frak a, lower case a -->
+<!ENTITY Afr              "&#x1D504;" ><!--/frak A, upper case a -->
+<!ENTITY bfr              "&#x1D51F;" ><!--/frak b, lower case b -->
+<!ENTITY Bfr              "&#x1D505;" ><!--/frak B, upper case b -->
+<!ENTITY cfr              "&#x1D520;" ><!--/frak c, lower case c -->
+<!ENTITY Cfr              "&#x0212D;" ><!--/frak C, upper case c -->
+<!ENTITY dfr              "&#x1D521;" ><!--/frak d, lower case d -->
+<!ENTITY Dfr              "&#x1D507;" ><!--/frak D, upper case d -->
+<!ENTITY efr              "&#x1D522;" ><!--/frak e, lower case e -->
+<!ENTITY Efr              "&#x1D508;" ><!--/frak E, upper case e -->
+<!ENTITY ffr              "&#x1D523;" ><!--/frak f, lower case f -->
+<!ENTITY Ffr              "&#x1D509;" ><!--/frak F, upper case f -->
+<!ENTITY gfr              "&#x1D524;" ><!--/frak g, lower case g -->
+<!ENTITY Gfr              "&#x1D50A;" ><!--/frak G, upper case g -->
+<!ENTITY hfr              "&#x1D525;" ><!--/frak h, lower case h -->
+<!ENTITY Hfr              "&#x0210C;" ><!--/frak H, upper case h -->
+<!ENTITY ifr              "&#x1D526;" ><!--/frak i, lower case i -->
+<!ENTITY Ifr              "&#x02111;" ><!--/frak I, upper case i -->
+<!ENTITY jfr              "&#x1D527;" ><!--/frak j, lower case j -->
+<!ENTITY Jfr              "&#x1D50D;" ><!--/frak J, upper case j -->
+<!ENTITY kfr              "&#x1D528;" ><!--/frak k, lower case k -->
+<!ENTITY Kfr              "&#x1D50E;" ><!--/frak K, upper case k -->
+<!ENTITY lfr              "&#x1D529;" ><!--/frak l, lower case l -->
+<!ENTITY Lfr              "&#x1D50F;" ><!--/frak L, upper case l -->
+<!ENTITY mfr              "&#x1D52A;" ><!--/frak m, lower case m -->
+<!ENTITY Mfr              "&#x1D510;" ><!--/frak M, upper case m -->
+<!ENTITY nfr              "&#x1D52B;" ><!--/frak n, lower case n -->
+<!ENTITY Nfr              "&#x1D511;" ><!--/frak N, upper case n -->
+<!ENTITY ofr              "&#x1D52C;" ><!--/frak o, lower case o -->
+<!ENTITY Ofr              "&#x1D512;" ><!--/frak O, upper case o -->
+<!ENTITY pfr              "&#x1D52D;" ><!--/frak p, lower case p -->
+<!ENTITY Pfr              "&#x1D513;" ><!--/frak P, upper case p -->
+<!ENTITY qfr              "&#x1D52E;" ><!--/frak q, lower case q -->
+<!ENTITY Qfr              "&#x1D514;" ><!--/frak Q, upper case q -->
+<!ENTITY rfr              "&#x1D52F;" ><!--/frak r, lower case r -->
+<!ENTITY Rfr              "&#x0211C;" ><!--/frak R, upper case r -->
+<!ENTITY sfr              "&#x1D530;" ><!--/frak s, lower case s -->
+<!ENTITY Sfr              "&#x1D516;" ><!--/frak S, upper case s -->
+<!ENTITY tfr              "&#x1D531;" ><!--/frak t, lower case t -->
+<!ENTITY Tfr              "&#x1D517;" ><!--/frak T, upper case t -->
+<!ENTITY ufr              "&#x1D532;" ><!--/frak u, lower case u -->
+<!ENTITY Ufr              "&#x1D518;" ><!--/frak U, upper case u -->
+<!ENTITY vfr              "&#x1D533;" ><!--/frak v, lower case v -->
+<!ENTITY Vfr              "&#x1D519;" ><!--/frak V, upper case v -->
+<!ENTITY wfr              "&#x1D534;" ><!--/frak w, lower case w -->
+<!ENTITY Wfr              "&#x1D51A;" ><!--/frak W, upper case w -->
+<!ENTITY xfr              "&#x1D535;" ><!--/frak x, lower case x -->
+<!ENTITY Xfr              "&#x1D51B;" ><!--/frak X, upper case x -->
+<!ENTITY yfr              "&#x1D536;" ><!--/frak y, lower case y -->
+<!ENTITY Yfr              "&#x1D51C;" ><!--/frak Y, upper case y -->
+<!ENTITY zfr              "&#x1D537;" ><!--/frak z, lower case z -->
+<!ENTITY Zfr              "&#x02128;" ><!--/frak Z, upper case z  -->
+
+<!--
+     File isomopf.ent
+-->
+
+<!ENTITY Aopf             "&#x1D538;" ><!--/Bbb A, open face A -->
+<!ENTITY Bopf             "&#x1D539;" ><!--/Bbb B, open face B -->
+<!ENTITY Copf             "&#x02102;" ><!--/Bbb C, open face C -->
+<!ENTITY Dopf             "&#x1D53B;" ><!--/Bbb D, open face D -->
+<!ENTITY Eopf             "&#x1D53C;" ><!--/Bbb E, open face E -->
+<!ENTITY Fopf             "&#x1D53D;" ><!--/Bbb F, open face F -->
+<!ENTITY Gopf             "&#x1D53E;" ><!--/Bbb G, open face G -->
+<!ENTITY Hopf             "&#x0210D;" ><!--/Bbb H, open face H -->
+<!ENTITY Iopf             "&#x1D540;" ><!--/Bbb I, open face I -->
+<!ENTITY Jopf             "&#x1D541;" ><!--/Bbb J, open face J -->
+<!ENTITY Kopf             "&#x1D542;" ><!--/Bbb K, open face K  -->
+<!ENTITY Lopf             "&#x1D543;" ><!--/Bbb L, open face L  -->
+<!ENTITY Mopf             "&#x1D544;" ><!--/Bbb M, open face M  -->
+<!ENTITY Nopf             "&#x02115;" ><!--/Bbb N, open face N -->
+<!ENTITY Oopf             "&#x1D546;" ><!--/Bbb O, open face O -->
+<!ENTITY Popf             "&#x02119;" ><!--/Bbb P, open face P -->
+<!ENTITY Qopf             "&#x0211A;" ><!--/Bbb Q, open face Q -->
+<!ENTITY Ropf             "&#x0211D;" ><!--/Bbb R, open face R -->
+<!ENTITY Sopf             "&#x1D54A;" ><!--/Bbb S, open face S -->
+<!ENTITY Topf             "&#x1D54B;" ><!--/Bbb T, open face T -->
+<!ENTITY Uopf             "&#x1D54C;" ><!--/Bbb U, open face U -->
+<!ENTITY Vopf             "&#x1D54D;" ><!--/Bbb V, open face V -->
+<!ENTITY Wopf             "&#x1D54E;" ><!--/Bbb W, open face W -->
+<!ENTITY Xopf             "&#x1D54F;" ><!--/Bbb X, open face X -->
+<!ENTITY Yopf             "&#x1D550;" ><!--/Bbb Y, open face Y -->
+<!ENTITY Zopf             "&#x02124;" ><!--/Bbb Z, open face Z -->
+
+<!--
+     File isomscr.ent 
+-->
+
+<!ENTITY ascr             "&#x1D4B6;" ><!--/scr a, script letter a -->
+<!ENTITY Ascr             "&#x1D49C;" ><!--/scr A, script letter A -->
+<!ENTITY bscr             "&#x1D4B7;" ><!--/scr b, script letter b -->
+<!ENTITY Bscr             "&#x0212C;" ><!--/scr B, script letter B -->
+<!ENTITY cscr             "&#x1D4B8;" ><!--/scr c, script letter c -->
+<!ENTITY Cscr             "&#x1D49E;" ><!--/scr C, script letter C -->
+<!ENTITY dscr             "&#x1D4B9;" ><!--/scr d, script letter d -->
+<!ENTITY Dscr             "&#x1D49F;" ><!--/scr D, script letter D -->
+<!ENTITY escr             "&#x0212F;" ><!--/scr e, script letter e -->
+<!ENTITY Escr             "&#x02130;" ><!--/scr E, script letter E -->
+<!ENTITY fscr             "&#x1D4BB;" ><!--/scr f, script letter f -->
+<!ENTITY Fscr             "&#x02131;" ><!--/scr F, script letter F -->
+<!ENTITY gscr             "&#x0210A;" ><!--/scr g, script letter g -->
+<!ENTITY Gscr             "&#x1D4A2;" ><!--/scr G, script letter G -->
+<!ENTITY hscr             "&#x1D4BD;" ><!--/scr h, script letter h -->
+<!ENTITY Hscr             "&#x0210B;" ><!--/scr H, script letter H -->
+<!ENTITY iscr             "&#x1D4BE;" ><!--/scr i, script letter i -->
+<!ENTITY Iscr             "&#x02110;" ><!--/scr I, script letter I -->
+<!ENTITY jscr             "&#x1D4BF;" ><!--/scr j, script letter j -->
+<!ENTITY Jscr             "&#x1D4A5;" ><!--/scr J, script letter J -->
+<!ENTITY kscr             "&#x1D4C0;" ><!--/scr k, script letter k -->
+<!ENTITY Kscr             "&#x1D4A6;" ><!--/scr K, script letter K -->
+<!ENTITY lscr             "&#x02113;" ><!--/scr l, script letter l -->
+<!ENTITY Lscr             "&#x02112;" ><!--/scr L, script letter L -->
+<!ENTITY mscr             "&#x1D4C2;" ><!--/scr m, script letter m -->
+<!ENTITY Mscr             "&#x02133;" ><!--/scr M, script letter M -->
+<!ENTITY nscr             "&#x1D4C3;" ><!--/scr n, script letter n -->
+<!ENTITY Nscr             "&#x1D4A9;" ><!--/scr N, script letter N -->
+<!ENTITY oscr             "&#x02134;" ><!--/scr o, script letter o -->
+<!ENTITY Oscr             "&#x1D4AA;" ><!--/scr O, script letter O -->
+<!ENTITY pscr             "&#x1D4C5;" ><!--/scr p, script letter p -->
+<!ENTITY Pscr             "&#x1D4AB;" ><!--/scr P, script letter P -->
+<!ENTITY qscr             "&#x1D4C6;" ><!--/scr q, script letter q -->
+<!ENTITY Qscr             "&#x1D4AC;" ><!--/scr Q, script letter Q -->
+<!ENTITY rscr             "&#x1D4C7;" ><!--/scr r, script letter r -->
+<!ENTITY Rscr             "&#x0211B;" ><!--/scr R, script letter R -->
+<!ENTITY sscr             "&#x1D4C8;" ><!--/scr s, script letter s -->
+<!ENTITY Sscr             "&#x1D4AE;" ><!--/scr S, script letter S -->
+<!ENTITY tscr             "&#x1D4C9;" ><!--/scr t, script letter t -->
+<!ENTITY Tscr             "&#x1D4AF;" ><!--/scr T, script letter T -->
+<!ENTITY uscr             "&#x1D4CA;" ><!--/scr u, script letter u -->
+<!ENTITY Uscr             "&#x1D4B0;" ><!--/scr U, script letter U -->
+<!ENTITY vscr             "&#x1D4CB;" ><!--/scr v, script letter v -->
+<!ENTITY Vscr             "&#x1D4B1;" ><!--/scr V, script letter V -->
+<!ENTITY wscr             "&#x1D4CC;" ><!--/scr w, script letter w -->
+<!ENTITY Wscr             "&#x1D4B2;" ><!--/scr W, script letter W -->
+<!ENTITY xscr             "&#x1D4CD;" ><!--/scr x, script letter x -->
+<!ENTITY Xscr             "&#x1D4B3;" ><!--/scr X, script letter X -->
+<!ENTITY yscr             "&#x1D4CE;" ><!--/scr y, script letter y -->
+<!ENTITY Yscr             "&#x1D4B4;" ><!--/scr Y, script letter Y -->
+<!ENTITY zscr             "&#x1D4CF;" ><!--/scr z, script letter z -->
+<!ENTITY Zscr             "&#x1D4B5;" ><!--/scr Z, script letter Z -->
+
+
+<!--
+     File isotech.ent 
+-->
+
+<!ENTITY acd              "&#x0223F;" ><!--ac current -->
+<!ENTITY aleph            "&#x02135;" ><!--/aleph aleph, Hebrew -->
+<!ENTITY and              "&#x02227;" ><!--/wedge /land B: logical and -->
+<!ENTITY And              "&#x02A53;" ><!--dbl logical and -->
+<!ENTITY andand           "&#x02A55;" ><!--two logical and -->
+<!ENTITY andd             "&#x02A5C;" ><!--and, horizontal dash -->
+<!ENTITY andslope         "&#x02A58;" ><!--sloping large and -->
+<!ENTITY andv             "&#x02A5A;" ><!--and with middle stem -->
+<!ENTITY angrt            "&#x0221F;" ><!--right (90 degree) angle -->
+<!ENTITY angsph           "&#x02222;" ><!--/sphericalangle angle-spherical -->
+<!ENTITY angst            "&#x0212B;" ><!--Angstrom capital A, ring -->
+<!ENTITY ap               "&#x02248;" ><!--/approx R: approximate -->
+<!ENTITY apacir           "&#x02A6F;" ><!--approximate, circumflex accent -->
+<!ENTITY awconint         "&#x02233;" ><!--contour integral, anti-clockwise -->
+<!ENTITY awint            "&#x02A11;" ><!--anti clock-wise integration -->
+<!ENTITY becaus           "&#x02235;" ><!--/because R: because -->
+<!ENTITY bernou           "&#x0212C;" ><!--Bernoulli function (script capital B)  -->
+<!ENTITY bne              "&#x0003D;&#x020E5;" ><!--reverse not equal -->
+<!ENTITY bnequiv          "&#x02261;&#x020E5;" ><!--reverse not equivalent -->
+<!ENTITY bnot             "&#x02310;" ><!--reverse not -->
+<!ENTITY bNot             "&#x02AED;" ><!--reverse not with two horizontal strokes -->
+<!ENTITY bottom           "&#x022A5;" ><!--/bot bottom -->
+<!ENTITY cap              "&#x02229;" ><!--/cap B: intersection -->
+<!ENTITY Cconint          "&#x02230;" ><!--triple contour integral operator -->
+<!ENTITY cirfnint         "&#x02A10;" ><!--circulation function -->
+<!ENTITY compfn           "&#x02218;" ><!--/circ B: composite function (small circle) -->
+<!ENTITY cong             "&#x02245;" ><!--/cong R: congruent with -->
+<!ENTITY conint           "&#x0222E;" ><!--/oint L: contour integral operator -->
+<!ENTITY Conint           "&#x0222F;" ><!--double contour integral operator -->
+<!ENTITY ctdot            "&#x022EF;" ><!--/cdots, three dots, centered -->
+<!ENTITY cup              "&#x0222A;" ><!--/cup B: union or logical sum -->
+<!ENTITY cwconint         "&#x02232;" ><!--contour integral, clockwise -->
+<!ENTITY cwint            "&#x02231;" ><!--clockwise integral -->
+<!ENTITY cylcty           "&#x0232D;" ><!--cylindricity -->
+<!ENTITY disin            "&#x022F2;" ><!--set membership, long horizontal stroke -->
+<!ENTITY Dot              "&#x000A8;" ><!--dieresis or umlaut mark -->
+<!ENTITY DotDot           "&#x020DC;" ><!--four dots above -->
+<!ENTITY dsol             "&#x029F6;" ><!--solidus, bar above -->
+<!ENTITY dtdot            "&#x022F1;" ><!--/ddots, three dots, descending -->
+<!ENTITY dwangle          "&#x029A6;" ><!--large downward pointing angle -->
+<!ENTITY epar             "&#x022D5;" ><!--parallel, equal; equal or parallel -->
+<!ENTITY eparsl           "&#x029E3;" ><!--parallel, slanted, equal; homothetically congruent to -->
+<!ENTITY equiv            "&#x02261;" ><!--/equiv R: identical with -->
+<!ENTITY eqvparsl         "&#x029E5;" ><!--equivalent, equal; congruent and parallel -->
+<!ENTITY exist            "&#x02203;" ><!--/exists at least one exists -->
+<!ENTITY fnof             "&#x00192;" ><!--function of (italic small f) -->
+<!ENTITY forall           "&#x02200;" ><!--/forall for all -->
+<!ENTITY fpartint         "&#x02A0D;" ><!--finite part integral -->
+<!ENTITY ge               "&#x02265;" ><!--/geq /ge R: greater-than-or-equal -->
+<!ENTITY hamilt           "&#x0210B;" ><!--Hamiltonian (script capital H)  -->
+<!ENTITY iff              "&#x021D4;" ><!--/iff if and only if  -->
+<!ENTITY iinfin           "&#x029DC;" ><!--infinity sign, incomplete -->
+<!ENTITY imped            "&#x1D543;" ><!--impedance -->
+<!ENTITY infin            "&#x0221E;" ><!--/infty infinity -->
+<!ENTITY int              "&#x0222B;" ><!--/int L: integral operator -->
+<!ENTITY Int              "&#x0222C;" ><!--double integral operator -->
+<!ENTITY intlarhk         "&#x02A17;" ><!--integral, left arrow with hook -->
+<!ENTITY isin             "&#x02208;" ><!--/in R: set membership  -->
+<!ENTITY isindot          "&#x022F5;" ><!--set membership, dot above -->
+<!ENTITY isinE            "&#x022F9;" ><!--set membership, two horizontal strokes -->
+<!ENTITY isins            "&#x022F4;" ><!--set membership, vertical bar on horizontal stroke -->
+<!ENTITY isinsv           "&#x022F3;" ><!--large set membership, vertical bar on horizontal stroke -->
+<!ENTITY isinv            "&#x02208;" ><!--set membership, variant -->
+<!ENTITY lagran           "&#x02112;" ><!--Lagrangian (script capital L)  -->
+<!ENTITY lang             "&#x02329;" ><!--/langle O: left angle bracket -->
+<!ENTITY Lang             "&#x0300A;" ><!--left angle bracket, double -->
+<!ENTITY lArr             "&#x021D0;" ><!--/Leftarrow A: is implied by -->
+<!ENTITY lbbrk            "&#x03014;" ><!--left broken bracket -->
+<!ENTITY le               "&#x02264;" ><!--/leq /le R: less-than-or-equal -->
+<!ENTITY loang            "&#x0F558;" ><!--left open angular bracket -->
+<!ENTITY lobrk            "&#x0301A;" ><!--left open bracket -->
+<!ENTITY lopar            "&#x03018;" ><!--left open parenthesis -->
+<!ENTITY lowast           "&#x02217;" ><!--low asterisk -->
+<!ENTITY minus            "&#x02212;" ><!--B: minus sign -->
+<!ENTITY mnplus           "&#x02213;" ><!--/mp B: minus-or-plus sign -->
+<!ENTITY nabla            "&#x02207;" ><!--/nabla del, Hamilton operator -->
+<!ENTITY ne               "&#x02260;" ><!--/ne /neq R: not equal -->
+<!ENTITY nedot            "&#x02260;&#x0FE00;" ><!--not equal, dot -->
+<!ENTITY nhpar            "&#x02AF2;" ><!--not, horizontal, parallel -->
+<!ENTITY ni               "&#x0220B;" ><!--/ni /owns R: contains -->
+<!ENTITY nis              "&#x022FC;" ><!--contains, vertical bar on horizontal stroke -->
+<!ENTITY nisd             "&#x022FA;" ><!--contains, long horizontal stroke -->
+<!ENTITY niv              "&#x0220B;" ><!--contains, variant -->
+<!ENTITY Not              "&#x02AEC;" ><!--not with two horizontal strokes -->
+<!ENTITY notin            "&#x02209;" ><!--/notin N: negated set membership -->
+<!ENTITY notindot         "&#x022F6;&#x0FE00;" ><!--negated set membership, dot above -->
+<!ENTITY notinva          "&#x02209;&#x00338;" ><!--negated set membership, variant -->
+<!ENTITY notinvb          "&#x022F7;" ><!--negated set membership, variant -->
+<!ENTITY notinvc          "&#x022F6;" ><!--negated set membership, variant -->
+<!ENTITY notni            "&#x0220C;" ><!--negated contains -->
+<!ENTITY notniva          "&#x0220C;" ><!--negated contains, variant -->
+<!ENTITY notnivb          "&#x022FE;" ><!--contains, variant -->
+<!ENTITY notnivc          "&#x022FD;" ><!--contains, variant -->
+<!ENTITY nparsl           "&#x02225;&#x0FE00;&#x020E5;" ><!--not parallel, slanted -->
+<!ENTITY npart            "&#x02202;&#x00338;" ><!--not partial differential -->
+<!ENTITY npolint          "&#x02A14;" ><!--line integration, not including the pole -->
+<!ENTITY nvinfin          "&#x029DE;" ><!--not, vert, infinity -->
+<!ENTITY olcross          "&#x029BB;" ><!--circle, cross -->
+<!ENTITY or               "&#x02228;" ><!--/vee /lor B: logical or -->
+<!ENTITY Or               "&#x02A54;" ><!--dbl logical or -->
+<!ENTITY ord              "&#x02A5D;" ><!--or, horizontal dash -->
+<!ENTITY order            "&#x02134;" ><!--order of (script small o)  -->
+<!ENTITY oror             "&#x02A56;" ><!--two logical or -->
+<!ENTITY orslope          "&#x02A57;" ><!--sloping large or -->
+<!ENTITY orv              "&#x02A5B;" ><!--or with middle stem -->
+<!ENTITY par              "&#x02225;" ><!--/parallel R: parallel -->
+<!ENTITY parsl            "&#x02225;&#x0FE00;" ><!--parallel, slanted -->
+<!ENTITY part             "&#x02202;" ><!--/partial partial differential -->
+<!ENTITY permil           "&#x02030;" ><!--per thousand -->
+<!ENTITY perp             "&#x022A5;" ><!--/perp R: perpendicular -->
+<!ENTITY pertenk          "&#x02031;" ><!--per 10 thousand -->
+<!ENTITY phmmat           "&#x02133;" ><!--physics M-matrix (script capital M)  -->
+<!ENTITY pointint         "&#x02A15;" ><!--integral around a point operator -->
+<!ENTITY prime            "&#x02032;" ><!--/prime prime or minute -->
+<!ENTITY Prime            "&#x02033;" ><!--double prime or second -->
+<!ENTITY profalar         "&#x0232E;" ><!--all-around profile -->
+<!ENTITY profline         "&#x02312;" ><!--profile of a line -->
+<!ENTITY profsurf         "&#x02313;" ><!--profile of a surface -->
+<!ENTITY prop             "&#x0221D;" ><!--/propto R: is proportional to -->
+<!ENTITY qint             "&#x02A0C;" ><!--/iiiint quadruple integral operator -->
+<!ENTITY qprime           "&#x02057;" ><!--quadruple prime -->
+<!ENTITY quatint          "&#x02A16;" ><!--quaternion integral operator -->
+<!ENTITY radic            "&#x0221A;" ><!--/surd radical -->
+<!ENTITY rang             "&#x0232A;" ><!--/rangle C: right angle bracket -->
+<!ENTITY Rang             "&#x0300B;" ><!--right angle bracket, double -->
+<!ENTITY rArr             "&#x021D2;" ><!--/Rightarrow A: implies -->
+<!ENTITY rbbrk            "&#x03015;" ><!--right broken bracket -->
+<!ENTITY roang            "&#x0F559;" ><!--right open angular bracket -->
+<!ENTITY robrk            "&#x0301B;" ><!--right open bracket -->
+<!ENTITY ropar            "&#x03019;" ><!--right open parenthesis -->
+<!ENTITY rppolint         "&#x02A12;" ><!--line integration, rectangular path around pole -->
+<!ENTITY scpolint         "&#x02A13;" ><!--line integration, semi-circular path around pole -->
+<!ENTITY sim              "&#x0223C;" ><!--/sim R: similar -->
+<!ENTITY simdot           "&#x02A6A;" ><!--similar, dot -->
+<!ENTITY sime             "&#x02243;" ><!--/simeq R: similar, equals -->
+<!ENTITY smeparsl         "&#x029E4;" ><!--similar, parallel, slanted, equal -->
+<!ENTITY square           "&#x025A1;" ><!--/square, square -->
+<!ENTITY squarf           "&#x025AA;" ><!--/blacksquare, square, filled  -->
+<!ENTITY sub              "&#x02282;" ><!--/subset R: subset or is implied by -->
+<!ENTITY sube             "&#x02286;" ><!--/subseteq R: subset, equals -->
+<!ENTITY sup              "&#x02283;" ><!--/supset R: superset or implies -->
+<!ENTITY supe             "&#x02287;" ><!--/supseteq R: superset, equals -->
+<!ENTITY tdot             "&#x020DB;" ><!--three dots above -->
+<!ENTITY there4           "&#x02234;" ><!--/therefore R: therefore -->
+<!ENTITY tint             "&#x0222D;" ><!--/iiint triple integral operator -->
+<!ENTITY top              "&#x022A4;" ><!--/top top -->
+<!ENTITY topbot           "&#x02336;" ><!--top and bottom -->
+<!ENTITY topcir           "&#x02AF1;" ><!--top, circle below -->
+<!ENTITY tprime           "&#x02034;" ><!--triple prime -->
+<!ENTITY utdot            "&#x022F0;" ><!--three dots, ascending -->
+<!ENTITY uwangle          "&#x029A7;" ><!--large upward pointing angle -->
+<!ENTITY vangrt           "&#x022BE;" ><!--right angle, variant -->
+<!ENTITY veeeq            "&#x0225A;" ><!--logical or, equals -->
+<!ENTITY Verbar           "&#x02016;" ><!--/Vert dbl vertical bar -->
+<!ENTITY wedgeq           "&#x02259;" ><!--/wedgeq R: corresponds to (wedge, equals) -->
+<!ENTITY xnis             "&#x022FB;" ><!--large contains, vertical bar on horizontal stroke -->
+
+<!--
+     File isobox.ent
+-->
+
+<!ENTITY boxdl            "&#x02510;" ><!--lower left quadrant -->
+<!ENTITY boxdL            "&#x02555;" ><!--lower left quadrant -->
+<!ENTITY boxDl            "&#x02556;" ><!--lower left quadrant -->
+<!ENTITY boxDL            "&#x02557;" ><!--lower left quadrant -->
+<!ENTITY boxdr            "&#x0250C;" ><!--lower right quadrant -->
+<!ENTITY boxdR            "&#x02552;" ><!--lower right quadrant -->
+<!ENTITY boxDr            "&#x02553;" ><!--lower right quadrant -->
+<!ENTITY boxDR            "&#x02554;" ><!--lower right quadrant -->
+<!ENTITY boxh             "&#x02500;" ><!--horizontal line  -->
+<!ENTITY boxH             "&#x02550;" ><!--horizontal line -->
+<!ENTITY boxhd            "&#x0252C;" ><!--lower left and right quadrants -->
+<!ENTITY boxhD            "&#x02565;" ><!--lower left and right quadrants -->
+<!ENTITY boxHd            "&#x02564;" ><!--lower left and right quadrants -->
+<!ENTITY boxHD            "&#x02566;" ><!--lower left and right quadrants -->
+<!ENTITY boxhu            "&#x02534;" ><!--upper left and right quadrants -->
+<!ENTITY boxhU            "&#x02568;" ><!--upper left and right quadrants -->
+<!ENTITY boxHu            "&#x02567;" ><!--upper left and right quadrants -->
+<!ENTITY boxHU            "&#x02569;" ><!--upper left and right quadrants -->
+<!ENTITY boxul            "&#x02518;" ><!--upper left quadrant -->
+<!ENTITY boxuL            "&#x0255B;" ><!--upper left quadrant -->
+<!ENTITY boxUl            "&#x0255C;" ><!--upper left quadrant -->
+<!ENTITY boxUL            "&#x0255D;" ><!--upper left quadrant -->
+<!ENTITY boxur            "&#x02514;" ><!--upper right quadrant -->
+<!ENTITY boxuR            "&#x02558;" ><!--upper right quadrant -->
+<!ENTITY boxUr            "&#x02559;" ><!--upper right quadrant -->
+<!ENTITY boxUR            "&#x0255A;" ><!--upper right quadrant -->
+<!ENTITY boxv             "&#x02502;" ><!--vertical line -->
+<!ENTITY boxV             "&#x02551;" ><!--vertical line -->
+<!ENTITY boxvh            "&#x0253C;" ><!--all four quadrants -->
+<!ENTITY boxvH            "&#x0256A;" ><!--all four quadrants -->
+<!ENTITY boxVh            "&#x0256B;" ><!--all four quadrants -->
+<!ENTITY boxVH            "&#x0256C;" ><!--all four quadrants -->
+<!ENTITY boxvl            "&#x02524;" ><!--upper and lower left quadrants -->
+<!ENTITY boxvL            "&#x02561;" ><!--upper and lower left quadrants -->
+<!ENTITY boxVl            "&#x02562;" ><!--upper and lower left quadrants -->
+<!ENTITY boxVL            "&#x02563;" ><!--upper and lower left quadrants -->
+<!ENTITY boxvr            "&#x0251C;" ><!--upper and lower right quadrants -->
+<!ENTITY boxvR            "&#x0255E;" ><!--upper and lower right quadrants -->
+<!ENTITY boxVr            "&#x0255F;" ><!--upper and lower right quadrants -->
+<!ENTITY boxVR            "&#x02560;" ><!--upper and lower right quadrants -->
+
+<!--
+     File isocyr1.ent 
+-->
+
+<!ENTITY acy              "&#x00430;" ><!--=small a, Cyrillic -->
+<!ENTITY Acy              "&#x00410;" ><!--=capital A, Cyrillic -->
+<!ENTITY ACY              "&#x00410;" ><!--=capital A, Cyrillic -->
+<!ENTITY bcy              "&#x00431;" ><!--=small be, Cyrillic -->
+<!ENTITY Bcy              "&#x00411;" ><!--=capital BE, Cyrillic -->
+<!ENTITY chcy             "&#x00447;" ><!--=small che, Cyrillic -->
+<!ENTITY CHcy             "&#x00427;" ><!--=capital CHE, Cyrillic -->
+<!ENTITY CHCY             "&#x00427;" ><!--=capital CHE, Cyrillic -->
+<!ENTITY dcy              "&#x00434;" ><!--=small de, Cyrillic -->
+<!ENTITY Dcy              "&#x00414;" ><!--=capital DE, Cyrillic -->
+<!ENTITY ecy              "&#x0044D;" ><!--=small e, Cyrillic -->
+<!ENTITY Ecy              "&#x0042D;" ><!--=capital E, Cyrillic -->
+<!ENTITY fcy              "&#x00444;" ><!--=small ef, Cyrillic -->
+<!ENTITY Fcy              "&#x00424;" ><!--=capital EF, Cyrillic -->
+<!ENTITY gcy              "&#x00433;" ><!--=small ghe, Cyrillic -->
+<!ENTITY Gcy              "&#x00413;" ><!--=capital GHE, Cyrillic -->
+<!ENTITY GCY              "&#x00413;" ><!--=capital GHE, Cyrillic -->
+<!ENTITY hardcy           "&#x0044A;" ><!--=small hard sign, Cyrillic -->
+<!ENTITY HARDcy           "&#x0042A;" ><!--=capital HARD sign, Cyrillic -->
+<!ENTITY icy              "&#x00438;" ><!--=small i, Cyrillic -->
+<!ENTITY Icy              "&#x00418;" ><!--=capital I, Cyrillic -->
+<!ENTITY ICY              "&#x00418;" ><!--=capital I, Cyrillic -->
+<!ENTITY iecy             "&#x00435;" ><!--=small ie, Cyrillic -->
+<!ENTITY IEcy             "&#x00415;" ><!--=capital IE, Cyrillic -->
+<!ENTITY iocy             "&#x00451;" ><!--=small io, Russian -->
+<!ENTITY IOcy             "&#x00401;" ><!--=capital IO, Russian -->
+<!ENTITY IOCY             "&#x00401;" ><!--=capital IO, Russian -->
+<!ENTITY jcy              "&#x00439;" ><!--=small short i, Cyrillic -->
+<!ENTITY Jcy              "&#x00419;" ><!--=capital short I, Cyrillic -->
+<!ENTITY kcy              "&#x0043A;" ><!--=small ka, Cyrillic -->
+<!ENTITY Kcy              "&#x0041A;" ><!--=capital KA, Cyrillic -->
+<!ENTITY KCY              "&#x0041A;" ><!--=capital KA, Cyrillic -->
+<!ENTITY khcy             "&#x00445;" ><!--=small ha, Cyrillic -->
+<!ENTITY KHcy             "&#x00425;" ><!--=capital HA, Cyrillic -->
+<!ENTITY lcy              "&#x0043B;" ><!--=small el, Cyrillic -->
+<!ENTITY Lcy              "&#x0041B;" ><!--=capital EL, Cyrillic -->
+<!ENTITY mcy              "&#x0043C;" ><!--=small em, Cyrillic -->
+<!ENTITY Mcy              "&#x0041C;" ><!--=capital EM, Cyrillic -->
+<!ENTITY ncy              "&#x0043D;" ><!--=small en, Cyrillic -->
+<!ENTITY Ncy              "&#x0041D;" ><!--=capital EN, Cyrillic -->
+<!ENTITY numero           "&#x02116;" ><!--=numero sign -->
+<!ENTITY ocy              "&#x0043E;" ><!--=small o, Cyrillic -->
+<!ENTITY Ocy              "&#x0041E;" ><!--=capital O, Cyrillic -->
+<!ENTITY pcy              "&#x0043F;" ><!--=small pe, Cyrillic -->
+<!ENTITY Pcy              "&#x0041F;" ><!--=capital PE, Cyrillic -->
+<!ENTITY rcy              "&#x00440;" ><!--=small er, Cyrillic -->
+<!ENTITY Rcy              "&#x00420;" ><!--=capital ER, Cyrillic -->
+<!ENTITY scy              "&#x00441;" ><!--=small es, Cyrillic -->
+<!ENTITY Scy              "&#x00421;" ><!--=capital ES, Cyrillic -->
+<!ENTITY shchcy           "&#x00449;" ><!--=small shcha, Cyrillic -->
+<!ENTITY SHCHcy           "&#x00429;" ><!--=capital SHCHA, Cyrillic -->
+<!ENTITY shcy             "&#x00448;" ><!--=small sha, Cyrillic -->
+<!ENTITY SHcy             "&#x00428;" ><!--=capital SHA, Cyrillic -->
+<!ENTITY SHCY             "&#x00428;" ><!--=capital SHA, Cyrillic -->
+<!ENTITY softcy           "&#x0044C;" ><!--=small soft sign, Cyrillic -->
+<!ENTITY SOFTcy           "&#x0042C;" ><!--=capital SOFT sign, Cyrillic -->
+<!ENTITY SOFTCY           "&#x0042C;" ><!--=capital SOFT sign, Cyrillic -->
+<!ENTITY tcy              "&#x00442;" ><!--=small te, Cyrillic -->
+<!ENTITY Tcy              "&#x00422;" ><!--=capital TE, Cyrillic -->
+<!ENTITY tscy             "&#x00446;" ><!--=small tse, Cyrillic -->
+<!ENTITY TScy             "&#x00426;" ><!--=capital TSE, Cyrillic -->
+<!ENTITY ucy              "&#x00443;" ><!--=small u, Cyrillic -->
+<!ENTITY Ucy              "&#x00423;" ><!--=capital U, Cyrillic -->
+<!ENTITY vcy              "&#x00432;" ><!--=small ve, Cyrillic -->
+<!ENTITY Vcy              "&#x00412;" ><!--=capital VE, Cyrillic -->
+<!ENTITY VCY              "&#x00412;" ><!--=capital VE, Cyrillic -->
+<!ENTITY yacy             "&#x0044F;" ><!--=small ya, Cyrillic -->
+<!ENTITY YAcy             "&#x0042F;" ><!--=capital YA, Cyrillic -->
+<!ENTITY ycy              "&#x0044B;" ><!--=small yeru, Cyrillic -->
+<!ENTITY Ycy              "&#x0042B;" ><!--=capital YERU, Cyrillic -->
+<!ENTITY yucy             "&#x0044E;" ><!--=small yu, Cyrillic -->
+<!ENTITY YUcy             "&#x0042E;" ><!--=capital YU, Cyrillic -->
+<!ENTITY zcy              "&#x00437;" ><!--=small ze, Cyrillic -->
+<!ENTITY Zcy              "&#x00417;" ><!--=capital ZE, Cyrillic -->
+<!ENTITY zhcy             "&#x00436;" ><!--=small zhe, Cyrillic -->
+<!ENTITY ZHcy             "&#x00416;" ><!--=capital ZHE, Cyrillic -->
+
+<!--
+     File isocyr2.ent 
+-->
+
+<!ENTITY djcy             "&#x00452;" ><!--=small dje, Serbian -->
+<!ENTITY DJcy             "&#x00402;" ><!--=capital DJE, Serbian -->
+<!ENTITY dscy             "&#x00455;" ><!--=small dse, Macedonian -->
+<!ENTITY DScy             "&#x00405;" ><!--=capital DSE, Macedonian -->
+<!ENTITY dzcy             "&#x0045F;" ><!--=small dze, Serbian -->
+<!ENTITY DZcy             "&#x0040F;" ><!--=capital dze, Serbian -->
+<!ENTITY gjcy             "&#x00453;" ><!--=small gje, Macedonian -->
+<!ENTITY GJcy             "&#x00403;" ><!--=capital GJE Macedonian -->
+<!ENTITY iukcy            "&#x00456;" ><!--=small i, Ukrainian -->
+<!ENTITY Iukcy            "&#x00406;" ><!--=capital I, Ukrainian -->
+<!ENTITY IUKCY            "&#x00406;" ><!--=capital I, Ukrainian -->
+<!ENTITY jsercy           "&#x00458;" ><!--=small je, Serbian -->
+<!ENTITY Jsercy           "&#x00408;" ><!--=capital JE, Serbian -->
+<!ENTITY jukcy            "&#x00454;" ><!--=small je, Ukrainian -->
+<!ENTITY Jukcy            "&#x00404;" ><!--=capital JE, Ukrainian -->
+<!ENTITY kjcy             "&#x0045C;" ><!--=small kje Macedonian -->
+<!ENTITY KJcy             "&#x0040C;" ><!--=capital KJE, Macedonian -->
+<!ENTITY ljcy             "&#x00459;" ><!--=small lje, Serbian -->
+<!ENTITY LJcy             "&#x00409;" ><!--=capital LJE, Serbian -->
+<!ENTITY njcy             "&#x0045A;" ><!--=small nje, Serbian -->
+<!ENTITY NJcy             "&#x0040A;" ><!--=capital NJE, Serbian -->
+<!ENTITY tshcy            "&#x0045B;" ><!--=small tshe, Serbian -->
+<!ENTITY TSHcy            "&#x0040B;" ><!--=capital TSHE, Serbian -->
+<!ENTITY ubrcy            "&#x0045E;" ><!--=small u, Byelorussian -->
+<!ENTITY Ubrcy            "&#x0040E;" ><!--=capital U, Byelorussian -->
+<!ENTITY yicy             "&#x00457;" ><!--=small yi, Ukrainian -->
+<!ENTITY YIcy             "&#x00407;" ><!--=capital YI, Ukrainian -->
+
+<!--
+     File isodia.ent
+-->
+
+<!ENTITY acute            "&#x000B4;" ><!--=acute accent -->
+<!ENTITY ACUTE            "&#x000B4;" ><!--=acute accent -->
+<!ENTITY breve            "&#x002D8;" ><!--=breve -->
+<!ENTITY caron            "&#x002C7;" ><!--=caron -->
+<!ENTITY cedil            "&#x000B8;" ><!--=cedilla -->
+<!ENTITY CEDIL            "&#x000B8;" ><!--=cedilla -->
+<!ENTITY circ             "&#x0005E;" ><!--circumflex accent -->
+<!ENTITY dblac            "&#x002DD;" ><!--=double acute accent -->
+<!ENTITY die              "&#x000A8;" ><!--=dieresis -->
+<!ENTITY dot              "&#x002D9;" ><!--=dot above -->
+<!ENTITY grave            "&#x00060;" ><!--=grave accent -->
+<!ENTITY macr             "&#x000AF;" ><!--=macron -->
+<!ENTITY ogon             "&#x002DB;" ><!--=ogonek -->
+<!ENTITY ring             "&#x002DA;" ><!--=ring -->
+<!ENTITY tilde            "&#x002DC;" ><!--=tilde -->
+<!ENTITY uml              "&#x000A8;" ><!--=umlaut mark -->
+
+<!--
+     File isolat1.ent 
+-->
+
+<!ENTITY aacute           "&#x000E1;" ><!--=small a, acute accent -->
+<!ENTITY Aacute           "&#x000C1;" ><!--=capital A, acute accent -->
+<!ENTITY acirc            "&#x000E2;" ><!--=small a, circumflex accent -->
+<!ENTITY Acirc            "&#x000C2;" ><!--=capital A, circumflex accent -->
+<!ENTITY aelig            "&#x000E6;" ><!--=small ae diphthong (ligature) -->
+<!ENTITY AElig            "&#x000C6;" ><!--=capital AE diphthong (ligature) -->
+<!ENTITY agrave           "&#x000E0;" ><!--=small a, grave accent -->
+<!ENTITY Agrave           "&#x000C0;" ><!--=capital A, grave accent -->
+<!ENTITY aring            "&#x000E5;" ><!--=small a, ring -->
+<!ENTITY Aring            "&#x000C5;" ><!--=capital A, ring -->
+<!ENTITY atilde           "&#x000E3;" ><!--=small a, tilde -->
+<!ENTITY Atilde           "&#x000C3;" ><!--=capital A, tilde -->
+<!ENTITY auml             "&#x000E4;" ><!--=small a, dieresis or umlaut mark -->
+<!ENTITY Auml             "&#x000C4;" ><!--=capital A, dieresis or umlaut mark -->
+<!ENTITY ccedil           "&#x000E7;" ><!--=small c, cedilla -->
+<!ENTITY Ccedil           "&#x000C7;" ><!--=capital C, cedilla -->
+<!ENTITY CCEDIL           "&#x000C7;" ><!--=capital C, cedilla -->
+<!ENTITY eacute           "&#x000E9;" ><!--=small e, acute accent -->
+<!ENTITY Eacute           "&#x000C9;" ><!--=capital E, acute accent -->
+<!ENTITY ecirc            "&#x000EA;" ><!--=small e, circumflex accent -->
+<!ENTITY Ecirc            "&#x000CA;" ><!--=capital E, circumflex accent -->
+<!ENTITY egrave           "&#x000E8;" ><!--=small e, grave accent -->
+<!ENTITY Egrave           "&#x000C8;" ><!--=capital E, grave accent -->
+<!ENTITY eth              "&#x000F0;" ><!--=small eth, Icelandic -->
+<!ENTITY ETH              "&#x000D0;" ><!--=capital Eth, Icelandic -->
+<!ENTITY euml             "&#x000EB;" ><!--=small e, dieresis or umlaut mark -->
+<!ENTITY Euml             "&#x000CB;" ><!--=capital E, dieresis or umlaut mark -->
+<!ENTITY iacute           "&#x000ED;" ><!--=small i, acute accent -->
+<!ENTITY Iacute           "&#x000CD;" ><!--=capital I, acute accent -->
+<!ENTITY icirc            "&#x000EE;" ><!--=small i, circumflex accent -->
+<!ENTITY Icirc            "&#x000CE;" ><!--=capital I, circumflex accent -->
+<!ENTITY igrave           "&#x000EC;" ><!--=small i, grave accent -->
+<!ENTITY Igrave           "&#x000CC;" ><!--=capital I, grave accent -->
+<!ENTITY iuml             "&#x000EF;" ><!--=small i, dieresis or umlaut mark -->
+<!ENTITY Iuml             "&#x000CF;" ><!--=capital I, dieresis or umlaut mark -->
+<!ENTITY ntilde           "&#x000F1;" ><!--=small n, tilde -->
+<!ENTITY Ntilde           "&#x000D1;" ><!--=capital N, tilde -->
+<!ENTITY oacute           "&#x000F3;" ><!--=small o, acute accent -->
+<!ENTITY Oacute           "&#x000D3;" ><!--=capital O, acute accent -->
+<!ENTITY ocirc            "&#x000F4;" ><!--=small o, circumflex accent -->
+<!ENTITY Ocirc            "&#x000D4;" ><!--=capital O, circumflex accent -->
+<!ENTITY ograve           "&#x000F2;" ><!--=small o, grave accent -->
+<!ENTITY Ograve           "&#x000D2;" ><!--=capital O, grave accent -->
+<!ENTITY oslash           "&#x000F8;" ><!--latin small letter o with stroke -->
+<!ENTITY Oslash           "&#x000D8;" ><!--=capital O, slash -->
+<!ENTITY otilde           "&#x000F5;" ><!--=small o, tilde -->
+<!ENTITY Otilde           "&#x000D5;" ><!--=capital O, tilde -->
+<!ENTITY OTILDE           "&#x000D5;" ><!--=capital O, tilde -->
+<!ENTITY ouml             "&#x000F6;" ><!--=small o, dieresis or umlaut mark -->
+<!ENTITY Ouml             "&#x000D6;" ><!--=capital O, dieresis or umlaut mark -->
+<!ENTITY szlig            "&#x000DF;" ><!--=small sharp s, German (sz ligature) -->
+<!ENTITY thorn            "&#x000FE;" ><!--=small thorn, Icelandic -->
+<!ENTITY THORN            "&#x000DE;" ><!--=capital THORN, Icelandic -->
+<!ENTITY uacute           "&#x000FA;" ><!--=small u, acute accent -->
+<!ENTITY Uacute           "&#x000DA;" ><!--=capital U, acute accent -->
+<!ENTITY ucirc            "&#x000FB;" ><!--=small u, circumflex accent -->
+<!ENTITY Ucirc            "&#x000DB;" ><!--=capital U, circumflex accent -->
+<!ENTITY ugrave           "&#x000F9;" ><!--=small u, grave accent -->
+<!ENTITY Ugrave           "&#x000D9;" ><!--=capital U, grave accent -->
+<!ENTITY uuml             "&#x000FC;" ><!--=small u, dieresis or umlaut mark -->
+<!ENTITY Uuml             "&#x000DC;" ><!--=capital U, dieresis or umlaut mark -->
+<!ENTITY yacute           "&#x000FD;" ><!--=small y, acute accent -->
+<!ENTITY Yacute           "&#x000DD;" ><!--=capital Y, acute accent -->
+<!ENTITY yuml             "&#x000FF;" ><!--=small y, dieresis or umlaut mark -->
+
+<!--
+     File isolat2.ent
+-->
+
+<!ENTITY abreve           "&#x00103;" ><!--=small a, breve -->
+<!ENTITY Abreve           "&#x00102;" ><!--=capital A, breve -->
+<!ENTITY amacr            "&#x00101;" ><!--=small a, macron -->
+<!ENTITY Amacr            "&#x00100;" ><!--=capital A, macron -->
+<!ENTITY aogon            "&#x00105;" ><!--=small a, ogonek -->
+<!ENTITY Aogon            "&#x00104;" ><!--=capital A, ogonek -->
+<!ENTITY cacute           "&#x00107;" ><!--=small c, acute accent -->
+<!ENTITY Cacute           "&#x00106;" ><!--=capital C, acute accent -->
+<!ENTITY ccaron           "&#x0010D;" ><!--=small c, caron -->
+<!ENTITY Ccaron           "&#x0010C;" ><!--=capital C, caron -->
+<!ENTITY ccirc            "&#x00109;" ><!--=small c, circumflex accent -->
+<!ENTITY Ccirc            "&#x00108;" ><!--=capital C, circumflex accent -->
+<!ENTITY cdot             "&#x0010B;" ><!--=small c, dot above -->
+<!ENTITY Cdot             "&#x0010A;" ><!--=capital C, dot above -->
+<!ENTITY dcaron           "&#x0010F;" ><!--=small d, caron -->
+<!ENTITY Dcaron           "&#x0010E;" ><!--=capital D, caron -->
+<!ENTITY dstrok           "&#x00111;" ><!--=small d, stroke -->
+<!ENTITY Dstrok           "&#x00110;" ><!--=capital D, stroke -->
+<!ENTITY ecaron           "&#x0011B;" ><!--=small e, caron -->
+<!ENTITY Ecaron           "&#x0011A;" ><!--=capital E, caron -->
+<!ENTITY ECARON           "&#x0011A;" ><!--=capital E, caron -->
+<!ENTITY edot             "&#x00117;" ><!--=small e, dot above -->
+<!ENTITY Edot             "&#x00116;" ><!--=capital E, dot above -->
+<!ENTITY emacr            "&#x00113;" ><!--=small e, macron -->
+<!ENTITY Emacr            "&#x00112;" ><!--=capital E, macron -->
+<!ENTITY eng              "&#x0014B;" ><!--=small eng, Lapp -->
+<!ENTITY ENG              "&#x0014A;" ><!--=capital ENG, Lapp -->
+<!ENTITY eogon            "&#x00119;" ><!--=small e, ogonek -->
+<!ENTITY Eogon            "&#x00118;" ><!--=capital E, ogonek -->
+<!ENTITY gacute           "&#x001F5;" ><!--=small g, acute accent -->
+<!ENTITY gbreve           "&#x0011F;" ><!--=small g, breve -->
+<!ENTITY Gbreve           "&#x0011E;" ><!--=capital G, breve -->
+<!ENTITY Gcedil           "&#x00122;" ><!--=capital G, cedilla -->
+<!ENTITY gcirc            "&#x0011D;" ><!--=small g, circumflex accent -->
+<!ENTITY Gcirc            "&#x0011C;" ><!--=capital G, circumflex accent -->
+<!ENTITY gdot             "&#x00121;" ><!--=small g, dot above -->
+<!ENTITY Gdot             "&#x00120;" ><!--=capital G, dot above -->
+<!ENTITY hcirc            "&#x00125;" ><!--=small h, circumflex accent -->
+<!ENTITY Hcirc            "&#x00124;" ><!--=capital H, circumflex accent -->
+<!ENTITY hstrok           "&#x00127;" ><!--=small h, stroke -->
+<!ENTITY Hstrok           "&#x00126;" ><!--=capital H, stroke -->
+<!ENTITY Idot             "&#x00130;" ><!--=capital I, dot above -->
+<!ENTITY ijlig            "&#x00133;" ><!--=small ij ligature -->
+<!ENTITY IJlig            "&#x00132;" ><!--=capital IJ ligature -->
+<!ENTITY imacr            "&#x0012B;" ><!--=small i, macron -->
+<!ENTITY Imacr            "&#x0012A;" ><!--=capital I, macron -->
+<!ENTITY inodot           "&#x00131;" ><!--=small i without dot -->
+<!ENTITY iogon            "&#x0012F;" ><!--=small i, ogonek -->
+<!ENTITY Iogon            "&#x0012E;" ><!--=capital I, ogonek -->
+<!ENTITY itilde           "&#x00129;" ><!--=small i, tilde -->
+<!ENTITY Itilde           "&#x00128;" ><!--=capital I, tilde -->
+<!ENTITY jcirc            "&#x00135;" ><!--=small j, circumflex accent -->
+<!ENTITY Jcirc            "&#x00134;" ><!--=capital J, circumflex accent -->
+<!ENTITY kcedil           "&#x00137;" ><!--=small k, cedilla -->
+<!ENTITY Kcedil           "&#x00136;" ><!--=capital K, cedilla -->
+<!ENTITY kgreen           "&#x00138;" ><!--=small k, Greenlandic -->
+<!ENTITY lacute           "&#x0013A;" ><!--=small l, acute accent -->
+<!ENTITY Lacute           "&#x00139;" ><!--=capital L, acute accent -->
+<!ENTITY lcaron           "&#x0013E;" ><!--=small l, caron -->
+<!ENTITY Lcaron           "&#x0013D;" ><!--=capital L, caron -->
+<!ENTITY lcedil           "&#x0013C;" ><!--=small l, cedilla -->
+<!ENTITY Lcedil           "&#x0013B;" ><!--=capital L, cedilla -->
+<!ENTITY lmidot           "&#x00140;" ><!--=small l, middle dot -->
+<!ENTITY Lmidot           "&#x0013F;" ><!--=capital L, middle dot -->
+<!ENTITY lstrok           "&#x00142;" ><!--=small l, stroke -->
+<!ENTITY Lstrok           "&#x00141;" ><!--=capital L, stroke -->
+<!ENTITY nacute           "&#x00144;" ><!--=small n, acute accent -->
+<!ENTITY Nacute           "&#x00143;" ><!--=capital N, acute accent -->
+<!ENTITY napos            "&#x00149;" ><!--=small n, apostrophe -->
+<!ENTITY ncaron           "&#x00148;" ><!--=small n, caron -->
+<!ENTITY Ncaron           "&#x00147;" ><!--=capital N, caron -->
+<!ENTITY ncedil           "&#x00146;" ><!--=small n, cedilla -->
+<!ENTITY Ncedil           "&#x00145;" ><!--=capital N, cedilla -->
+<!ENTITY odblac           "&#x00151;" ><!--=small o, double acute accent -->
+<!ENTITY Odblac           "&#x00150;" ><!--=capital O, double acute accent -->
+<!ENTITY oelig            "&#x00153;" ><!--=small oe ligature -->
+<!ENTITY OElig            "&#x00152;" ><!--=capital OE ligature -->
+<!ENTITY OELIG            "&#x00152;" ><!--=capital OE ligature -->
+<!ENTITY omacr            "&#x0014D;" ><!--=small o, macron -->
+<!ENTITY Omacr            "&#x0014C;" ><!--=capital O, macron -->
+<!ENTITY racute           "&#x00155;" ><!--=small r, acute accent -->
+<!ENTITY Racute           "&#x00154;" ><!--=capital R, acute accent -->
+<!ENTITY rcaron           "&#x00159;" ><!--=small r, caron -->
+<!ENTITY Rcaron           "&#x00158;" ><!--=capital R, caron -->
+<!ENTITY rcedil           "&#x00157;" ><!--=small r, cedilla -->
+<!ENTITY Rcedil           "&#x00156;" ><!--=capital R, cedilla -->
+<!ENTITY sacute           "&#x0015B;" ><!--=small s, acute accent -->
+<!ENTITY Sacute           "&#x0015A;" ><!--=capital S, acute accent -->
+<!ENTITY scaron           "&#x00161;" ><!--=small s, caron -->
+<!ENTITY Scaron           "&#x00160;" ><!--=capital S, caron -->
+<!ENTITY scedil           "&#x0015F;" ><!--=small s, cedilla -->
+<!ENTITY Scedil           "&#x0015E;" ><!--=capital S, cedilla -->
+<!ENTITY scirc            "&#x0015D;" ><!--=small s, circumflex accent -->
+<!ENTITY Scirc            "&#x0015C;" ><!--=capital S, circumflex accent -->
+<!ENTITY tcaron           "&#x00165;" ><!--=small t, caron -->
+<!ENTITY Tcaron           "&#x00164;" ><!--=capital T, caron -->
+<!ENTITY tcedil           "&#x00163;" ><!--=small t, cedilla -->
+<!ENTITY Tcedil           "&#x00162;" ><!--=capital T, cedilla -->
+<!ENTITY tstrok           "&#x00167;" ><!--=small t, stroke -->
+<!ENTITY Tstrok           "&#x00166;" ><!--=capital T, stroke -->
+<!ENTITY ubreve           "&#x0016D;" ><!--=small u, breve -->
+<!ENTITY Ubreve           "&#x0016C;" ><!--=capital U, breve -->
+<!ENTITY udblac           "&#x00171;" ><!--=small u, double acute accent -->
+<!ENTITY Udblac           "&#x00170;" ><!--=capital U, double acute accent -->
+<!ENTITY umacr            "&#x0016B;" ><!--=small u, macron -->
+<!ENTITY Umacr            "&#x0016A;" ><!--=capital U, macron -->
+<!ENTITY uogon            "&#x00173;" ><!--=small u, ogonek -->
+<!ENTITY Uogon            "&#x00172;" ><!--=capital U, ogonek -->
+<!ENTITY uring            "&#x0016F;" ><!--=small u, ring -->
+<!ENTITY Uring            "&#x0016E;" ><!--=capital U, ring -->
+<!ENTITY utilde           "&#x00169;" ><!--=small u, tilde -->
+<!ENTITY Utilde           "&#x00168;" ><!--=capital U, tilde -->
+<!ENTITY wcirc            "&#x00175;" ><!--=small w, circumflex accent -->
+<!ENTITY Wcirc            "&#x00174;" ><!--=capital W, circumflex accent -->
+<!ENTITY ycirc            "&#x00177;" ><!--=small y, circumflex accent -->
+<!ENTITY Ycirc            "&#x00176;" ><!--=capital Y, circumflex accent -->
+<!ENTITY Yuml             "&#x00178;" ><!--=capital Y, dieresis or umlaut mark -->
+<!ENTITY YUML             "&#x00178;" ><!--=capital Y, dieresis or umlaut mark -->
+<!ENTITY zacute           "&#x0017A;" ><!--=small z, acute accent -->
+<!ENTITY Zacute           "&#x00179;" ><!--=capital Z, acute accent -->
+<!ENTITY zcaron           "&#x0017E;" ><!--=small z, caron -->
+<!ENTITY Zcaron           "&#x0017D;" ><!--=capital Z, caron -->
+<!ENTITY zdot             "&#x0017C;" ><!--=small z, dot above -->
+<!ENTITY Zdot             "&#x0017B;" ><!--=capital Z, dot above -->
+
+<!--
+     File isonum.ent
+-->
+
+<!--ENTITY amp              "&#x00026;" --><!--=ampersand -->
+<!ENTITY apos             "&#x00027;" ><!--=apostrophe -->
+<!ENTITY ast              "&#x0002A;" ><!--/ast B: =asterisk -->
+<!ENTITY brvbar           "&#x000A6;" ><!--=broken (vertical) bar -->
+<!ENTITY bsol             "&#x0005C;" ><!--/backslash =reverse solidus -->
+<!ENTITY cent             "&#x000A2;" ><!--=cent sign -->
+<!ENTITY colon            "&#x0003A;" ><!--/colon P: -->
+<!ENTITY comma            "&#x0002C;" ><!--P: =comma -->
+<!ENTITY commat           "&#x00040;" ><!--=commercial at -->
+<!ENTITY copy             "&#x000A9;" ><!--=copyright sign -->
+<!ENTITY curren           "&#x000A4;" ><!--=general currency sign -->
+<!ENTITY darr             "&#x02193;" ><!--/downarrow A: =downward arrow -->
+<!ENTITY deg              "&#x000B0;" ><!--=degree sign -->
+<!ENTITY divide           "&#x000F7;" ><!--/div B: =divide sign -->
+<!ENTITY dollar           "&#x00024;" ><!--=dollar sign -->
+<!ENTITY equals           "&#x0003D;" ><!--=equals sign R: -->
+<!ENTITY excl             "&#x00021;" ><!--=exclamation mark -->
+<!ENTITY frac12           "&#x000BD;" ><!--=fraction one-half -->
+<!ENTITY frac14           "&#x000BC;" ><!--=fraction one-quarter -->
+<!ENTITY frac18           "&#x0215B;" ><!--=fraction one-eighth -->
+<!ENTITY frac34           "&#x000BE;" ><!--=fraction three-quarters -->
+<!ENTITY frac38           "&#x0215C;" ><!--=fraction three-eighths -->
+<!ENTITY frac58           "&#x0215D;" ><!--=fraction five-eighths -->
+<!ENTITY frac78           "&#x0215E;" ><!--=fraction seven-eighths -->
+<!ENTITY gt               "&#x0003E;" ><!--=greater-than sign R: -->
+<!ENTITY half             "&#x000BD;" ><!--=fraction one-half -->
+<!ENTITY horbar           "&#x02015;" ><!--=horizontal bar -->
+<!ENTITY hyphen           "&#x02010;" ><!--=hyphen -->
+<!ENTITY iexcl            "&#x000A1;" ><!--=inverted exclamation mark -->
+<!ENTITY IEXCL            "&#x000A1;" ><!--=inverted exclamation mark -->
+<!ENTITY iquest           "&#x000BF;" ><!--=inverted question mark -->
+<!ENTITY IQUEST           "&#x000BF;" ><!--=inverted question mark -->
+<!ENTITY laquo            "&#x000AB;" ><!--=angle quotation mark, left -->
+<!ENTITY larr             "&#x02190;" ><!--/leftarrow /gets A: =leftward arrow -->
+<!ENTITY lcub             "&#x0007B;" ><!--/lbrace O: =left curly bracket -->
+<!ENTITY ldquo            "&#x0201C;" ><!--=double quotation mark, left -->
+<!ENTITY lowbar           "&#x0005F;" ><!--=low line -->
+<!ENTITY lpar             "&#x00028;" ><!--O: =left parenthesis -->
+<!ENTITY lsqb             "&#x0005B;" ><!--/lbrack O: =left square bracket -->
+<!ENTITY lsquo            "&#x02018;" ><!--=single quotation mark, left -->
+<!--ENTITY lt               "&#x0003C;" --><!--=less-than sign R: -->
+<!ENTITY micro            "&#x000B5;" ><!--=micro sign -->
+<!ENTITY middot           "&#x000B7;" ><!--/centerdot B: =middle dot -->
+<!ENTITY nbsp             "&#x000A0;" ><!--=no break (required) space -->
+<!ENTITY NBSP             "&#x000A0;" ><!--=no break (required) space -->
+<!ENTITY not              "&#x000AC;" ><!--/neg /lnot =not sign -->
+<!ENTITY num              "&#x00023;" ><!--=number sign -->
+<!ENTITY ohm              "&#x02126;" ><!--=ohm sign -->
+<!ENTITY ordf             "&#x000AA;" ><!--=ordinal indicator, feminine -->
+<!ENTITY ordm             "&#x000BA;" ><!--=ordinal indicator, masculine -->
+<!ENTITY para             "&#x000B6;" ><!--=pilcrow (paragraph sign) -->
+<!ENTITY percnt           "&#x00025;" ><!--=percent sign -->
+<!ENTITY period           "&#x0002E;" ><!--=full stop, period -->
+<!ENTITY plus             "&#x0002B;" ><!--=plus sign B: -->
+<!ENTITY plusmn           "&#x000B1;" ><!--/pm B: =plus-or-minus sign -->
+<!ENTITY pound            "&#x000A3;" ><!--=pound sign -->
+<!ENTITY quest            "&#x0003F;" ><!--=question mark -->
+<!ENTITY quot             "&#x00022;" ><!--=quotation mark -->
+<!ENTITY raquo            "&#x000BB;" ><!--=angle quotation mark, right -->
+<!ENTITY rarr             "&#x02192;" ><!--/rightarrow /to A: =rightward arrow -->
+<!ENTITY rcub             "&#x0007D;" ><!--/rbrace C: =right curly bracket -->
+<!ENTITY rdquo            "&#x0201D;" ><!--=double quotation mark, right -->
+<!ENTITY reg              "&#x000AE;" ><!--/circledR =registered sign -->
+<!ENTITY rpar             "&#x00029;" ><!--C: =right parenthesis -->
+<!ENTITY rsqb             "&#x0005D;" ><!--/rbrack C: =right square bracket -->
+<!ENTITY rsquo            "&#x02019;" ><!--=single quotation mark, right -->
+<!ENTITY sect             "&#x000A7;" ><!--=section sign -->
+<!ENTITY semi             "&#x0003B;" ><!--=semicolon P: -->
+<!ENTITY shy              "&#x000AD;" ><!--=soft hyphen -->
+<!ENTITY SHY              "&#x000AD;" ><!--=soft hyphen -->
+<!ENTITY sol              "&#x0002F;" ><!--=solidus -->
+<!ENTITY sung             "&#x0266A;" ><!--=music note (sung text sign) -->
+<!ENTITY sup1             "&#x000B9;" ><!--=superscript one -->
+<!ENTITY sup2             "&#x000B2;" ><!--=superscript two -->
+<!ENTITY sup3             "&#x000B3;" ><!--=superscript three -->
+<!ENTITY times            "&#x000D7;" ><!--/times B: =multiply sign -->
+<!ENTITY trade            "&#x02122;" ><!--=trade mark sign -->
+<!ENTITY TRADE            "&#x02122;" ><!--=trade mark sign -->
+<!ENTITY Trade            "&#x02122;" ><!--=trade mark sign -->
+<!ENTITY uarr             "&#x02191;" ><!--/uparrow A: =upward arrow -->
+<!ENTITY verbar           "&#x0007C;" ><!--/vert =vertical bar -->
+<!ENTITY yen              "&#x000A5;" ><!--/yen =yen sign -->
+
+<!--
+     File isopub.ent 
+-->
+
+<!ENTITY blank            "&#x02423;" ><!--=significant blank symbol -->
+<!ENTITY blk12            "&#x02592;" ><!--=50% shaded block -->
+<!ENTITY blk14            "&#x02591;" ><!--=25% shaded block -->
+<!ENTITY blk34            "&#x02593;" ><!--=75% shaded block -->
+<!ENTITY block            "&#x02588;" ><!--=full block -->
+<!ENTITY bull             "&#x02022;" ><!--/bullet B: =round bullet, filled -->
+<!ENTITY caret            "&#x02041;" ><!--=caret (insertion mark) -->
+<!ENTITY check            "&#x02713;" ><!--/checkmark =tick, check mark -->
+<!ENTITY CHECK            "&#x02713;" ><!--/checkmark =tick, check mark -->
+<!ENTITY Check            "&#x02713;" ><!--/checkmark =tick, check mark -->
+<!ENTITY cir              "&#x025CB;" ><!--/circ B: =circle, open -->
+<!ENTITY clubs            "&#x02663;" ><!--/clubsuit =club suit symbol  -->
+<!ENTITY copysr           "&#x02117;" ><!--=sound recording copyright sign -->
+<!ENTITY cross            "&#x02717;" ><!--=ballot cross -->
+<!--ENTITY dagger           "&#x02020;" --><!--/dagger B: =dagger -->
+<!--ENTITY Dagger           "&#x02021;" --><!--/ddagger B: =double dagger -->
+<!ENTITY dash             "&#x02010;" ><!--=hyphen (true graphic) -->
+<!ENTITY diams            "&#x02666;" ><!--/diamondsuit =diamond suit symbol  -->
+<!ENTITY dlcrop           "&#x0230D;" ><!--downward left crop mark  -->
+<!ENTITY drcrop           "&#x0230C;" ><!--downward right crop mark  -->
+<!ENTITY dtri             "&#x025BF;" ><!--/triangledown =down triangle, open -->
+<!ENTITY dtrif            "&#x025BE;" ><!--/blacktriangledown =dn tri, filled -->
+<!ENTITY emsp             "&#x02003;" ><!--=em space -->
+<!ENTITY EMSP             "&#x02003;" ><!--=em space -->
+<!ENTITY emsp13           "&#x02004;" ><!--=1/3-em space -->
+<!ENTITY EMSP13           "&#x02004;" ><!--=1/3-em space -->
+<!ENTITY emsp14           "&#x02005;" ><!--=1/4-em space -->
+<!ENTITY EMSP14           "&#x02005;" ><!--=1/4-em space -->
+<!ENTITY ensp             "&#x02002;" ><!--=en space (1/2-em) -->
+<!ENTITY ENSP             "&#x02002;" ><!--=en space (1/2-em) -->
+<!ENTITY female           "&#x02640;" ><!--=female symbol -->
+<!ENTITY ffilig           "&#x0FB03;" ><!--small ffi ligature -->
+<!ENTITY fflig            "&#x0FB00;" ><!--small ff ligature -->
+<!ENTITY ffllig           "&#x0FB04;" ><!--small ffl ligature -->
+<!ENTITY filig            "&#x0FB01;" ><!--small fi ligature -->
+<!ENTITY flat             "&#x0266D;" ><!--/flat =musical flat -->
+<!ENTITY fllig            "&#x0FB02;" ><!--small fl ligature -->
+<!ENTITY frac13           "&#x02153;" ><!--=fraction one-third -->
+<!ENTITY frac15           "&#x02155;" ><!--=fraction one-fifth -->
+<!ENTITY frac16           "&#x02159;" ><!--=fraction one-sixth -->
+<!ENTITY frac23           "&#x02154;" ><!--=fraction two-thirds -->
+<!ENTITY frac25           "&#x02156;" ><!--=fraction two-fifths -->
+<!ENTITY frac35           "&#x02157;" ><!--=fraction three-fifths -->
+<!ENTITY frac45           "&#x02158;" ><!--=fraction four-fifths -->
+<!ENTITY frac56           "&#x0215A;" ><!--=fraction five-sixths -->
+<!ENTITY hairsp           "&#x0200A;" ><!--=hair space -->
+<!ENTITY hellip           "&#x02026;" ><!--=ellipsis (horizontal) -->
+<!ENTITY hybull           "&#x02043;" ><!--rectangle, filled (hyphen bullet) -->
+<!ENTITY incare           "&#x02105;" ><!--=in-care-of symbol -->
+<!ENTITY ldquor           "&#x0201E;" ><!--=rising dbl quote, left (low) -->
+<!ENTITY lhblk            "&#x02584;" ><!--=lower half block -->
+<!ENTITY loz              "&#x025CA;" ><!--/lozenge - lozenge or total mark -->
+<!ENTITY lozf             "&#x029EB;" ><!--/blacklozenge - lozenge, filled -->
+<!ENTITY lsquor           "&#x0201A;" ><!--=rising single quote, left (low) -->
+<!ENTITY ltri             "&#x025C3;" ><!--/triangleleft B: l triangle, open -->
+<!ENTITY ltrif            "&#x025C2;" ><!--/blacktriangleleft R: =l tri, filled -->
+<!ENTITY male             "&#x02642;" ><!--=male symbol -->
+<!ENTITY malt             "&#x02720;" ><!--/maltese =maltese cross -->
+<!ENTITY marker           "&#x025AE;" ><!--=histogram marker -->
+<!ENTITY mdash            "&#x02014;" ><!--=em dash  -->
+<!ENTITY mldr             "&#x02026;" ><!--em leader -->
+<!ENTITY Mldr             "&#x02026;" ><!--em leader -->
+<!ENTITY MLDR             "&#x02026;" ><!--em leader -->
+<!ENTITY natur            "&#x0266E;" ><!--/natural - music natural -->
+<!ENTITY ndash            "&#x02013;" ><!--=en dash -->
+<!ENTITY nldr             "&#x02025;" ><!--=double baseline dot (en leader) -->
+<!ENTITY numsp            "&#x02007;" ><!--=digit space (width of a number) -->
+<!ENTITY phone            "&#x0260E;" ><!--=telephone symbol  -->
+<!ENTITY puncsp           "&#x02008;" ><!--=punctuation space (width of comma) -->
+<!ENTITY rdquor           "&#x0201D;" ><!--rising dbl quote, right (high) -->
+<!ENTITY rect             "&#x025AD;" ><!--=rectangle, open -->
+<!ENTITY rsquor           "&#x02019;" ><!--rising single quote, right (high) -->
+<!ENTITY rtri             "&#x025B9;" ><!--/triangleright B: r triangle, open -->
+<!ENTITY rtrif            "&#x025B8;" ><!--/blacktriangleright R: =r tri, filled -->
+<!ENTITY rx               "&#x0211E;" ><!--pharmaceutical prescription (Rx) -->
+<!ENTITY sext             "&#x02736;" ><!--sextile (6-pointed star) -->
+<!ENTITY sharp            "&#x0266F;" ><!--/sharp =musical sharp -->
+<!ENTITY spades           "&#x02660;" ><!--/spadesuit =spades suit symbol  -->
+<!ENTITY squ              "&#x025A1;" ><!--=square, open -->
+<!ENTITY squf             "&#x025AA;" ><!--/blacksquare =sq bullet, filled -->
+<!ENTITY star             "&#x022C6;" ><!--=star, open -->
+<!ENTITY starf            "&#x02605;" ><!--/bigstar - star, filled  -->
+<!ENTITY target           "&#x02316;" ><!--register mark or target -->
+<!ENTITY telrec           "&#x02315;" ><!--=telephone recorder symbol -->
+<!ENTITY thinsp           "&#x02009;" ><!--=thin space (1/6-em) -->
+<!ENTITY uhblk            "&#x02580;" ><!--=upper half block -->
+<!ENTITY ulcrop           "&#x0230F;" ><!--upward left crop mark  -->
+<!ENTITY urcrop           "&#x0230E;" ><!--upward right crop mark  -->
+<!ENTITY utri             "&#x025B5;" ><!--/triangle =up triangle, open -->
+<!ENTITY utrif            "&#x025B4;" ><!--/blacktriangle =up tri, filled -->
+<!ENTITY vellip           "&#x022EE;" ><!--vertical ellipsis -->
+
+
+<!--
+     File mmlextra.ent 
+-->
+
+<!ENTITY af               "&#x02061;" ><!--character showing function application in presentation tagging -->
+<!ENTITY aopf             "&#x1D552;" ><!-- -->
+<!ENTITY bopf             "&#x1D553;" ><!-- -->
+<!ENTITY copf             "&#x1D554;" ><!-- -->
+<!ENTITY Cross            "&#x02A2F;" ><!--cross or vector product -->
+<!ENTITY dd               "&#x02146;" ><!--d for use in differentials, e.g., within integrals -->
+<!ENTITY DD               "&#x02145;" ><!--D for use in differentials, e.g., within integrals -->
+<!ENTITY dopf             "&#x1D555;" ><!-- -->
+<!ENTITY DownArrowBar     "&#x02913;" ><!--down arrow to bar -->
+<!ENTITY DownBreve        "&#x00311;" ><!--breve, inverted (non-spacing) -->
+<!ENTITY DownLeftRightVector "&#x02950;" ><!--left-down-right-down harpoon -->
+<!ENTITY DownLeftTeeVector "&#x0295E;" ><!--left-down harpoon from bar -->
+<!ENTITY DownLeftVectorBar "&#x02956;" ><!--left-down harpoon to bar -->
+<!ENTITY DownRightTeeVector "&#x0295F;" ><!--right-down harpoon from bar -->
+<!ENTITY DownRightVectorBar "&#x02957;" ><!--right-down harpoon to bar -->
+<!ENTITY ee               "&#x02147;" ><!--e use for the exponential base of the natural logarithms -->
+<!ENTITY EmptySmallSquare "&#x025FD;" ><!--empty small square -->
+<!ENTITY EmptyVerySmallSquare "&#x0F59C;" ><!--empty small square -->
+<!ENTITY eopf             "&#x1D556;" ><!-- -->
+<!ENTITY Equal            "&#x02A75;" ><!--two consecutive equal signs -->
+<!ENTITY FilledSmallSquare "&#x025FE;" ><!--filled small square -->
+<!ENTITY FilledVerySmallSquare "&#x0F59B;" ><!--filled very small square -->
+<!ENTITY fopf             "&#x1D557;" ><!-- -->
+<!ENTITY gopf             "&#x1D558;" ><!-- -->
+<!ENTITY GreaterGreater   "&#x02AA2;" ><!--alias for GT -->
+<!ENTITY hopf             "&#x1D559;" ><!-- -->
+<!ENTITY HorizontalLine   "&#x02500;" ><!--short horizontal line  -->
+<!ENTITY ic               "&#x0200B;" ><!--short form of  &InvisibleComma; -->
+<!ENTITY ii               "&#x02148;" ><!--i for use as a square root of -1 -->
+<!ENTITY iopf             "&#x1D55A;" ><!-- -->
+<!ENTITY it               "&#x02062;" ><!--marks multiplication when it is understood without a mark -->
+<!ENTITY jopf             "&#x1D55B;" ><!-- -->
+<!ENTITY kopf             "&#x1D55C;" ><!-- -->
+<!ENTITY larrb            "&#x021E4;" ><!--leftwards arrow to bar -->
+<!ENTITY LeftDownTeeVector "&#x02961;" ><!--down-left harpoon from bar -->
+<!ENTITY LeftDownVectorBar "&#x02959;" ><!--down-left harpoon to bar -->
+<!ENTITY LeftRightVector  "&#x0294E;" ><!--left-up-right-up harpoon -->
+<!ENTITY LeftTeeVector    "&#x0295A;" ><!--left-up harpoon from bar -->
+<!ENTITY LeftTriangleBar  "&#x029CF;" ><!--not left triangle, vertical bar -->
+<!ENTITY LeftUpDownVector "&#x02951;" ><!--up-left-down-left harpoon -->
+<!ENTITY LeftUpTeeVector  "&#x02960;" ><!--up-left harpoon from bar -->
+<!ENTITY LeftUpVectorBar  "&#x02958;" ><!--up-left harpoon to bar -->
+<!ENTITY LeftVectorBar    "&#x02952;" ><!--left-up harpoon to bar -->
+<!ENTITY LessLess         "&#x02AA1;" ><!--alias for Lt -->
+<!ENTITY lopf             "&#x1D55D;" ><!-- -->
+<!ENTITY mapstodown       "&#x021A7;" ><!--downwards arrow from bar -->
+<!ENTITY mapstoleft       "&#x021A4;" ><!--leftwards arrow from bar -->
+<!ENTITY mapstoup         "&#x021A5;" ><!--upwards arrow from bar -->
+<!ENTITY MediumSpace      "&#x0205F;" ><!--space of width 4/18 em -->
+<!ENTITY mopf             "&#x1D55E;" ><!-- -->
+<!ENTITY nbump            "&#x0224E;&#x00338;" ><!--not bumpy equals -->
+<!ENTITY nbumpe           "&#x0224F;&#x00338;" ><!--not bumpy single equals -->
+<!ENTITY NegativeMediumSpace "&#x0205F;&#x0FE00;" ><!--space of width -4/18 em -->
+<!ENTITY NegativeThickSpace "&#x02005;&#x0FE00;" ><!--space of width -5/18 em -->
+<!ENTITY NegativeThinSpace "&#x02009;&#x0FE00;" ><!--space of width -3/18 em -->
+<!ENTITY NegativeVeryThinSpace "&#x0200A;&#x0FE00;" ><!--space of width -1/18 em -->
+<!ENTITY nesim            "&#x02242;&#x00338;" ><!--not equal or similar -->
+<!ENTITY NewLine          "&#x0000A;" ><!--force a line break; line feed -->
+<!ENTITY NoBreak          "&#x0FEFF;" ><!--never break line here -->
+<!ENTITY nopf             "&#x1D55F;" ><!-- -->
+<!ENTITY NotCupCap        "&#x0226D;" ><!--alias for &nasymp; -->
+<!ENTITY NotHumpEqual     "&#x0224F;&#x00338;" ><!--alias for &nbumpe; -->
+<!ENTITY NotLeftTriangleBar "&#x029CF;&#x00338;" ><!--not left triangle, vertical bar -->
+<!ENTITY NotNestedGreaterGreater "&#x024A2;&#x00338;" ><!--not double greater-than sign -->
+<!ENTITY NotNestedLessLess "&#x024A1;&#x00338;" ><!--not double less-than sign -->
+<!ENTITY NotRightTriangleBar "&#x029D0;&#x00338;" ><!--not vertical bar, right triangle -->
+<!ENTITY NotSquareSubset  "&#x0228F;&#x00338;" ><!--square not subset -->
+<!ENTITY NotSquareSuperset "&#x02290;&#x00338;" ><!--negated set-like partial order operator -->
+<!ENTITY NotSucceedsTilde "&#x0227F;&#x00338;" ><!--not succeeds or similar -->
+<!ENTITY oopf             "&#x1D560;" ><!-- -->
+<!ENTITY OverBar          "&#x000AF;" ><!--over bar -->
+<!ENTITY OverBrace        "&#x0FE37;" ><!--over brace  -->
+<!ENTITY OverBracket      "&#x023B4;" ><!--over bracket -->
+<!ENTITY OverParenthesis  "&#x0FE35;" ><!--over parenthesis -->
+<!ENTITY planckh          "&#x0210E;" ><!--the ring (skew field) of quaternions -->
+<!ENTITY popf             "&#x1D561;" ><!-- -->
+<!ENTITY Product          "&#x0220F;" ><!--alias for &prod -->
+<!ENTITY qopf             "&#x1D562;" ><!-- -->
+<!ENTITY rarrb            "&#x021E5;" ><!--leftwards arrow to bar -->
+<!ENTITY RightDownTeeVector "&#x0295D;" ><!--down-right harpoon from bar -->
+<!ENTITY RightDownVectorBar "&#x02955;" ><!--down-right harpoon to bar -->
+<!ENTITY RightTeeVector   "&#x0295B;" ><!--right-up harpoon from bar -->
+<!ENTITY RightTriangleBar "&#x029D0;" ><!--vertical bar, right triangle -->
+<!ENTITY RightUpDownVector "&#x0294F;" ><!--up-right-down-right harpoon -->
+<!ENTITY RightUpTeeVector "&#x0295C;" ><!--up-right harpoon from bar -->
+<!ENTITY RightUpVectorBar "&#x02954;" ><!--up-right harpoon to bar -->
+<!ENTITY RightVectorBar   "&#x02953;" ><!--up-right harpoon to bar -->
+<!ENTITY ropf             "&#x1D563;" ><!-- -->
+<!ENTITY RoundImplies     "&#x02970;" ><!--round implies -->
+<!ENTITY RuleDelayed      "&#x029F4;" ><!--rule-delayed (colon right arrow) -->
+<!ENTITY ShortDownArrow   "&#x02304;&#x0FE00;" ><!--short down arrow -->
+<!ENTITY ShortUpArrow     "&#x02303;&#x0FE00;" ><!--short up arrow  -->
+<!ENTITY sopf             "&#x1D564;" ><!-- -->
+<!ENTITY Tab              "&#x00009;" ><!--tabulator stop; horizontal tabulation -->
+<!ENTITY ThickSpace       "&#x02009;&#x0200A;&#x0200A;" ><!--space of width 5/18 em -->
+<!ENTITY topf             "&#x1D565;" ><!-- -->
+<!ENTITY UnderBar         "&#x00332;" ><!--combining low line -->
+<!ENTITY UnderBrace       "&#x0FE38;" ><!--under brace  -->
+<!ENTITY UnderBracket     "&#x023B5;" ><!--under bracket -->
+<!ENTITY UnderParenthesis "&#x0FE36;" ><!--under parenthesis -->
+<!ENTITY uopf             "&#x1D566;" ><!-- -->
+<!ENTITY UpArrowBar       "&#x02912;" ><!--up arrow to bar -->
+<!ENTITY VerticalLine     "&#x0007C;" ><!--alias ISONUM verbar -->
+<!ENTITY VerticalSeparator "&#x02758;" ><!--vertical separating operator -->
+<!ENTITY vopf             "&#x1D567;" ><!-- -->
+<!ENTITY wopf             "&#x1D568;" ><!-- -->
+<!ENTITY xopf             "&#x1D569;" ><!-- -->
+<!ENTITY yopf             "&#x1D56A;" ><!-- -->
+<!ENTITY zopf             "&#x1D56B;" ><!-- -->
+
+<!--
+     File mmlalias.ent 
+-->
+
+<!ENTITY angle            "&#x02220;" ><!--alias ISOAMSO ang -->
+<!ENTITY ApplyFunction    "&#x02061;" ><!--character showing function application in presentation tagging -->
+<!ENTITY approx           "&#x02248;" ><!--alias ISOTECH ap -->
+<!ENTITY approxeq         "&#x0224A;" ><!--alias ISOAMSR ape -->
+<!ENTITY Assign           "&#x02254;" ><!--assignment operator, alias ISOAMSR colone -->
+<!ENTITY backcong         "&#x0224C;" ><!--alias ISOAMSR bcong -->
+<!ENTITY backepsilon      "&#x003F6;" ><!--alias ISOAMSR bepsi -->
+<!ENTITY backprime        "&#x02035;" ><!--alias ISOAMSO bprime -->
+<!ENTITY backsim          "&#x0223D;" ><!--alias ISOAMSR bsim -->
+<!ENTITY backsimeq        "&#x022CD;" ><!--alias ISOAMSR bsime -->
+<!ENTITY Backslash        "&#x02216;" ><!--alias ISOAMSB setmn -->
+<!ENTITY barwedge         "&#x022BC;" ><!--alias ISOAMSB barwed -->
+<!ENTITY because          "&#x02235;" ><!--alias ISOTECH becaus -->
+<!ENTITY Because          "&#x02235;" ><!--alias ISOTECH becaus -->
+<!ENTITY Bernoullis       "&#x0212C;" ><!--alias ISOTECH bernou -->
+<!ENTITY between          "&#x0226C;" ><!--alias ISOAMSR twixt -->
+<!ENTITY bigcap           "&#x022C2;" ><!--alias ISOAMSB xcap -->
+<!ENTITY bigcirc          "&#x025EF;" ><!--alias ISOAMSB xcirc -->
+<!ENTITY bigcup           "&#x022C3;" ><!--alias ISOAMSB xcup -->
+<!ENTITY bigodot          "&#x02299;" ><!--alias ISOAMSB xodot -->
+<!ENTITY bigoplus         "&#x02295;" ><!--alias ISOAMSB xoplus -->
+<!ENTITY bigotimes        "&#x02297;" ><!--alias ISOAMSB xotime -->
+<!ENTITY bigsqcup         "&#x02294;" ><!--alias ISOAMSB xsqcup -->
+<!ENTITY bigstar          "&#x02605;" ><!--ISOPUB    starf  -->
+<!ENTITY bigtriangledown  "&#x025BD;" ><!--alias ISOAMSB xdtri -->
+<!ENTITY bigtriangleup    "&#x025B3;" ><!--alias ISOAMSB xutri -->
+<!ENTITY biguplus         "&#x0228E;" ><!--alias ISOAMSB xuplus -->
+<!ENTITY bigvee           "&#x022C1;" ><!--alias ISOAMSB xvee -->
+<!ENTITY bigwedge         "&#x022C0;" ><!--alias ISOAMSB xwedge -->
+<!ENTITY bkarow           "&#x0290D;" ><!--alias ISOAMSA rbarr -->
+<!ENTITY blacklozenge     "&#x029EB;" ><!--alias ISOPUB lozf -->
+<!ENTITY blacksquare      "&#x025AA;" ><!--ISOTECH  squarf  -->
+<!ENTITY blacktriangle    "&#x025B4;" ><!--alias ISOPUB utrif -->
+<!ENTITY blacktriangledown "&#x025BE;" ><!--alias ISOPUB dtrif -->
+<!ENTITY blacktriangleleft "&#x025C2;" ><!--alias ISOPUB ltrif -->
+<!ENTITY blacktriangleright "&#x025B8;" ><!--alias ISOPUB rtrif -->
+<!ENTITY bot              "&#x022A5;" ><!--alias ISOTECH bottom -->
+<!ENTITY boxminus         "&#x0229F;" ><!--alias ISOAMSB minusb -->
+<!ENTITY boxplus          "&#x0229E;" ><!--alias ISOAMSB plusb -->
+<!ENTITY boxtimes         "&#x022A0;" ><!--alias ISOAMSB timesb -->
+<!ENTITY Breve            "&#x002D8;" ><!--alias ISODIA breve -->
+<!ENTITY bullet           "&#x02022;" ><!--alias ISOPUB bull -->
+<!ENTITY bumpeq           "&#x0224F;" ><!--alias ISOAMSR bumpe -->
+<!ENTITY Bumpeq           "&#x0224E;" ><!--alias ISOAMSR bump -->
+<!ENTITY CapitalDifferentialD "&#x02145;" ><!--D for use in differentials, e.g., within integrals -->
+<!ENTITY Cayleys          "&#x0212D;" ><!--the non-associative ring of octonions or Cayley numbers -->
+<!ENTITY Cedilla          "&#x000B8;" ><!--alias ISODIA cedil -->
+<!ENTITY centerdot        "&#x000B7;" ><!--alias ISONUM middot -->
+<!ENTITY CenterDot        "&#x000B7;" ><!--alias ISONUM middot -->
+<!ENTITY checkmark        "&#x02713;" ><!--alias ISOPUB check -->
+<!ENTITY circeq           "&#x02257;" ><!--alias ISOAMSR cire -->
+<!ENTITY circlearrowleft  "&#x021BA;" ><!--alias ISOAMSA olarr -->
+<!ENTITY circlearrowright "&#x021BB;" ><!--alias ISOAMSA orarr -->
+<!ENTITY circledast       "&#x0229B;" ><!--alias ISOAMSB oast -->
+<!ENTITY circledcirc      "&#x0229A;" ><!--alias ISOAMSB ocir -->
+<!ENTITY circleddash      "&#x0229D;" ><!--alias ISOAMSB odash -->
+<!ENTITY CircleDot        "&#x02299;" ><!--alias ISOAMSB odot -->
+<!ENTITY circledR         "&#x000AE;" ><!--alias ISONUM reg -->
+<!ENTITY circledS         "&#x024C8;" ><!--alias ISOAMSO oS -->
+<!ENTITY CircleMinus      "&#x02296;" ><!--alias ISOAMSB ominus -->
+<!ENTITY CirclePlus       "&#x02295;" ><!--alias ISOAMSB oplus -->
+<!ENTITY CircleTimes      "&#x02297;" ><!--alias ISOAMSB otimes -->
+<!ENTITY ClockwiseContourIntegral "&#x02232;" ><!--alias ISOTECH cwconint -->
+<!ENTITY CloseCurlyDoubleQuote "&#x0201D;" ><!--alias ISONUM rdquo -->
+<!ENTITY CloseCurlyQuote  "&#x02019;" ><!--alias ISONUM rsquo -->
+<!ENTITY clubsuit         "&#x02663;" ><!--ISOPUB    clubs  -->
+<!ENTITY coloneq          "&#x02254;" ><!--alias ISOAMSR colone -->
+<!ENTITY complement       "&#x02201;" ><!--alias ISOAMSO comp -->
+<!ENTITY complexes        "&#x02102;" ><!--the field of complex numbers -->
+<!ENTITY Congruent        "&#x02261;" ><!--alias ISOTECH equiv -->
+<!ENTITY ContourIntegral  "&#x0222E;" ><!--alias ISOTECH conint -->
+<!ENTITY Coproduct        "&#x02210;" ><!--alias ISOAMSB coprod -->
+<!ENTITY CounterClockwiseContourIntegral "&#x02233;" ><!--alias ISOTECH awconint -->
+<!ENTITY CupCap           "&#x0224D;" ><!--alias ISOAMSR asymp -->
+<!ENTITY curlyeqprec      "&#x022DE;" ><!--alias ISOAMSR cuepr -->
+<!ENTITY curlyeqsucc      "&#x022DF;" ><!--alias ISOAMSR cuesc -->
+<!ENTITY curlyvee         "&#x022CE;" ><!--alias ISOAMSB cuvee -->
+<!ENTITY curlywedge       "&#x022CF;" ><!--alias ISOAMSB cuwed -->
+<!ENTITY curvearrowleft   "&#x021B6;" ><!--alias ISOAMSA cularr -->
+<!ENTITY curvearrowright  "&#x021B7;" ><!--alias ISOAMSA curarr -->
+<!ENTITY dbkarow          "&#x0290F;" ><!--alias ISOAMSA rBarr -->
+<!ENTITY ddagger          "&#x02021;" ><!--alias ISOPUB Dagger -->
+<!ENTITY ddotseq          "&#x02A77;" ><!--alias ISOAMSR eDDot -->
+<!ENTITY Del              "&#x02207;" ><!--alias ISOTECH nabla -->
+<!ENTITY DiacriticalAcute "&#x000B4;" ><!--alias ISODIA acute -->
+<!ENTITY DiacriticalDot   "&#x002D9;" ><!--alias ISODIA dot -->
+<!ENTITY DiacriticalDoubleAcute "&#x002DD;" ><!--alias ISODIA dblac -->
+<!ENTITY DiacriticalGrave "&#x00060;" ><!--alias ISODIA grave -->
+<!ENTITY DiacriticalTilde "&#x002DC;" ><!--alias ISODIA tilde -->
+<!ENTITY diamond          "&#x022C4;" ><!--alias ISOAMSB diam -->
+<!ENTITY Diamond          "&#x022C4;" ><!--alias ISOAMSB diam -->
+<!ENTITY diamondsuit      "&#x02666;" ><!--ISOPUB    diams  -->
+<!ENTITY DifferentialD    "&#x02146;" ><!--d for use in differentials, e.g., within integrals -->
+<!ENTITY digamma          "&#x003DC;" ><!--alias ISOGRK3 gammad -->
+<!ENTITY div              "&#x000F7;" ><!--alias ISONUM divide -->
+<!ENTITY divideontimes    "&#x022C7;" ><!--alias ISOAMSB divonx -->
+<!ENTITY doteq            "&#x02250;" ><!--alias ISOAMSR esdot -->
+<!ENTITY doteqdot         "&#x02251;" ><!--alias ISOAMSR eDot -->
+<!ENTITY DotEqual         "&#x02250;" ><!--alias ISOAMSR esdot -->
+<!ENTITY dotminus         "&#x02238;" ><!--alias ISOAMSB minusd -->
+<!ENTITY dotplus          "&#x02214;" ><!--alias ISOAMSB plusdo -->
+<!ENTITY dotsquare        "&#x022A1;" ><!--alias ISOAMSB sdotb -->
+<!ENTITY doublebarwedge   "&#x02306;" ><!--alias ISOAMSB Barwed -->
+<!ENTITY DoubleContourIntegral "&#x0222F;" ><!--alias ISOTECH Conint -->
+<!ENTITY DoubleDot        "&#x000A8;" ><!--alias ISODIA die -->
+<!ENTITY DoubleDownArrow  "&#x021D3;" ><!--alias ISOAMSA dArr -->
+<!ENTITY DoubleLeftArrow  "&#x021D0;" ><!--alias ISOTECH lArr -->
+<!ENTITY DoubleLeftRightArrow "&#x021D4;" ><!--alias ISOAMSA hArr -->
+<!ENTITY DoubleLeftTee    "&#x02AE4;" ><!--alias for  &Dashv;  -->
+<!ENTITY DoubleLongLeftArrow "&#x0F579;" ><!--alias ISOAMSA xlArr -->
+<!ENTITY DoubleLongLeftRightArrow "&#x0F57B;" ><!--alias ISOAMSA xhArr -->
+<!ENTITY DoubleLongRightArrow "&#x0F57A;" ><!--alias ISOAMSA xrArr -->
+<!ENTITY DoubleRightArrow "&#x021D2;" ><!--alias ISOTECH rArr -->
+<!ENTITY DoubleRightTee   "&#x022A8;" ><!--alias ISOAMSR vDash -->
+<!ENTITY DoubleUpArrow    "&#x021D1;" ><!--alias ISOAMSA uArr -->
+<!ENTITY DoubleUpDownArrow "&#x021D5;" ><!--alias ISOAMSA vArr -->
+<!ENTITY DoubleVerticalBar "&#x02225;" ><!--alias ISOTECH par -->
+<!ENTITY downarrow        "&#x02193;" ><!--alias ISONUM darr -->
+<!ENTITY Downarrow        "&#x021D3;" ><!--alias ISOAMSA dArr -->
+<!ENTITY DownArrow        "&#x02193;" ><!--alias ISONUM darr -->
+<!ENTITY DownArrowUpArrow "&#x021F5;" ><!--alias ISOAMSA duarr -->
+<!ENTITY downdownarrows   "&#x021CA;" ><!--alias ISOAMSA ddarr -->
+<!ENTITY downharpoonleft  "&#x021C3;" ><!--alias ISOAMSA dharl -->
+<!ENTITY downharpoonright "&#x021C2;" ><!--alias ISOAMSA dharr -->
+<!ENTITY DownLeftVector   "&#x021BD;" ><!--alias ISOAMSA lhard -->
+<!ENTITY DownRightVector  "&#x021C1;" ><!--alias ISOAMSA rhard -->
+<!ENTITY DownTee          "&#x022A4;" ><!--alias ISOTECH top -->
+<!ENTITY DownTeeArrow     "&#x021A7;" ><!--alias for mapstodown -->
+<!ENTITY drbkarow         "&#x02910;" ><!--alias ISOAMSA RBarr -->
+<!ENTITY Element          "&#x02208;" ><!--alias ISOTECH isinv -->
+<!ENTITY emptyset         "&#x02205;&#x0FE00;" ><!--alias ISOAMSO empty -->
+<!ENTITY eqcirc           "&#x02256;" ><!--alias ISOAMSR ecir -->
+<!ENTITY eqcolon          "&#x02255;" ><!--alias ISOAMSR ecolon -->
+<!ENTITY eqsim            "&#x02242;" ><!--alias ISOAMSR esim -->
+<!ENTITY eqslantgtr       "&#x022DD;" ><!--alias ISOAMSR egs -->
+<!ENTITY eqslantless      "&#x022DC;" ><!--alias ISOAMSR els -->
+<!ENTITY EqualTilde       "&#x02242;" ><!--alias ISOAMSR esim -->
+<!ENTITY Equilibrium      "&#x021CC;" ><!--alias ISOAMSA rlhar -->
+<!ENTITY Exists           "&#x02203;" ><!--alias ISOTECH exist -->
+<!ENTITY expectation      "&#x02130;" ><!--expectation (operator) -->
+<!ENTITY exponentiale     "&#x02147;" ><!--base of the Napierian logarithms -->
+<!ENTITY ExponentialE     "&#x02147;" ><!--e use for the exponential base of the natural logarithms -->
+<!ENTITY fallingdotseq    "&#x02252;" ><!--alias ISOAMSR efDot -->
+<!ENTITY ForAll           "&#x02200;" ><!--alias ISOTECH forall -->
+<!ENTITY Fouriertrf       "&#x02131;" ><!--Fourier transform -->
+<!ENTITY geq              "&#x02265;" ><!--alias ISOTECH ge -->
+<!ENTITY geqq             "&#x02267;" ><!--alias ISOAMSR gE -->
+<!ENTITY geqslant         "&#x02A7E;" ><!--alias ISOAMSR ges -->
+<!ENTITY gg               "&#x0226B;" ><!--alias ISOAMSR Gt -->
+<!ENTITY ggg              "&#x022D9;" ><!--alias ISOAMSR Gg -->
+<!ENTITY gnapprox         "&#x02A8A;" ><!--alias ISOAMSN gnap -->
+<!ENTITY gneq             "&#x02269;" ><!--alias ISOAMSN gne -->
+<!ENTITY gneqq            "&#x02269;" ><!--alias ISOAMSN gnE -->
+<!ENTITY GreaterEqual     "&#x02265;" ><!--alias ISOTECH ge -->
+<!ENTITY GreaterEqualLess "&#x022DB;" ><!--alias ISOAMSR gel -->
+<!ENTITY GreaterFullEqual "&#x02267;" ><!--alias ISOAMSR gE -->
+<!ENTITY GreaterLess      "&#x02277;" ><!--alias ISOAMSR gl -->
+<!ENTITY GreaterSlantEqual "&#x02A7E;" ><!--alias ISOAMSR ges -->
+<!ENTITY GreaterTilde     "&#x02273;" ><!--alias ISOAMSR gsim -->
+<!ENTITY gtrapprox        "&#x02273;" ><!--alias ISOAMSR gap -->
+<!ENTITY gtrdot           "&#x022D7;" ><!--alias ISOAMSR gtdot -->
+<!ENTITY gtreqless        "&#x022DB;" ><!--alias ISOAMSR gel -->
+<!ENTITY gtreqqless       "&#x022DB;" ><!--alias ISOAMSR gEl -->
+<!ENTITY gtrless          "&#x02277;" ><!--alias ISOAMSR gl -->
+<!ENTITY gtrsim           "&#x02273;" ><!--alias ISOAMSR gsim -->
+<!ENTITY gvertneqq        "&#x02269;&#x0FE00;" ><!--alias ISOAMSN gvnE -->
+<!ENTITY Hacek            "&#x002C7;" ><!--alias ISODIA caron -->
+<!ENTITY Hat              "&#x00302;" ><!--circumflex accent (circ in ISODIA) -->
+<!ENTITY hbar             "&#x0210F;&#x0FE00;" ><!--alias ISOAMSO plank -->
+<!ENTITY heartsuit        "&#x02661;" ><!--ISOPUB    hearts  -->
+<!ENTITY HilbertSpace     "&#x0210B;" ><!--Hilbert space -->
+<!ENTITY hksearow         "&#x02925;" ><!--alias ISOAMSA searhk -->
+<!ENTITY hkswarow         "&#x02926;" ><!--alias ISOAMSA swarhk -->
+<!ENTITY hookleftarrow    "&#x021A9;" ><!--alias ISOAMSA larrhk -->
+<!ENTITY hookrightarrow   "&#x021AA;" ><!--alias ISOAMSA rarrhk -->
+<!ENTITY hslash           "&#x0210F;" ><!--alias ISOAMSO plankv -->
+<!ENTITY HumpDownHump     "&#x0224E;" ><!--alias ISOAMSR bump -->
+<!ENTITY HumpEqual        "&#x0224F;" ><!--alias ISOAMSR bumpe -->
+<!ENTITY iiiint           "&#x02A0C;" ><!--alias ISOTECH qint -->
+<!ENTITY iiint            "&#x0222D;" ><!--alias ISOTECH tint -->
+<!ENTITY Im               "&#x02111;" ><!--alias ISOAMSO image -->
+<!ENTITY ImaginaryI       "&#x02148;" ><!--i for use as a square root of -1 -->
+<!ENTITY imagline         "&#x02110;" ><!--the geometric imaginary line -->
+<!ENTITY imagpart         "&#x02111;" ><!--alias ISOAMSO image -->
+<!ENTITY Implies          "&#x021D2;" ><!--alias ISOTECH rArr -->
+<!ENTITY in               "&#x02208;" ><!--ISOTECH   isin  -->
+<!ENTITY integers         "&#x02124;" ><!--the ring of integers -->
+<!ENTITY Integral         "&#x0222B;" ><!--alias ISOTECH int -->
+<!ENTITY intercal         "&#x022BA;" ><!--alias ISOAMSB intcal -->
+<!ENTITY Intersection     "&#x022C2;" ><!--alias ISOAMSB xcap -->
+<!ENTITY intprod          "&#x02A3C;" ><!--alias ISOAMSB iprod -->
+<!ENTITY InvisibleComma   "&#x0200B;" ><!--used as a separator, e.g., in indices -->
+<!ENTITY InvisibleTimes   "&#x02062;" ><!--marks multiplication when it is understood without a mark -->
+<!ENTITY langle           "&#x02329;" ><!--alias ISOTECH lang -->
+<!ENTITY Laplacetrf       "&#x02112;" ><!--Laplace transform -->
+<!ENTITY lbrace           "&#x0007B;" ><!--alias ISONUM lcub -->
+<!ENTITY lbrack           "&#x0005B;" ><!--alias ISONUM lsqb -->
+<!ENTITY LeftAngleBracket "&#x02329;" ><!--alias ISOTECH lang -->
+<!ENTITY leftarrow        "&#x02190;" ><!--alias ISONUM larr -->
+<!ENTITY Leftarrow        "&#x021D0;" ><!--alias ISOTECH lArr -->
+<!ENTITY LeftArrow        "&#x02190;" ><!--alias ISONUM larr -->
+<!ENTITY LeftArrowBar     "&#x021E4;" ><!--alias for larrb -->
+<!ENTITY LeftArrowRightArrow "&#x021C6;" ><!--alias ISOAMSA lrarr -->
+<!ENTITY leftarrowtail    "&#x021A2;" ><!--alias ISOAMSA larrtl -->
+<!ENTITY LeftCeiling      "&#x02308;" ><!--alias ISOAMSC lceil -->
+<!ENTITY LeftDoubleBracket "&#x0301A;" ><!--left double bracket delimiter -->
+<!ENTITY LeftDownVector   "&#x021C3;" ><!--alias ISOAMSA dharl -->
+<!ENTITY LeftFloor        "&#x0230A;" ><!--alias ISOAMSC lfloor -->
+<!ENTITY leftharpoondown  "&#x021BD;" ><!--alias ISOAMSA lhard -->
+<!ENTITY leftharpoonup    "&#x021BC;" ><!--alias ISOAMSA lharu -->
+<!ENTITY leftleftarrows   "&#x021C7;" ><!--alias ISOAMSA llarr -->
+<!ENTITY leftrightarrow   "&#x02194;" ><!--alias ISOAMSA harr -->
+<!ENTITY Leftrightarrow   "&#x021D4;" ><!--alias ISOAMSA hArr -->
+<!ENTITY LeftRightArrow   "&#x02194;" ><!--alias ISOAMSA harr -->
+<!ENTITY leftrightarrows  "&#x021C6;" ><!--alias ISOAMSA lrarr -->
+<!ENTITY leftrightharpoons "&#x021CB;" ><!--alias ISOAMSA lrhar -->
+<!ENTITY leftrightsquigarrow "&#x021AD;" ><!--alias ISOAMSA harrw -->
+<!ENTITY LeftTee          "&#x022A3;" ><!--alias ISOAMSR dashv -->
+<!ENTITY LeftTeeArrow     "&#x021A4;" ><!--alias for mapstoleft -->
+<!ENTITY leftthreetimes   "&#x022CB;" ><!--alias ISOAMSB lthree -->
+<!ENTITY LeftTriangle     "&#x022B2;" ><!--alias ISOAMSR vltri -->
+<!ENTITY LeftTriangleEqual "&#x022B4;" ><!--alias ISOAMSR ltrie -->
+<!ENTITY LeftUpVector     "&#x021BF;" ><!--alias ISOAMSA uharl -->
+<!ENTITY LeftVector       "&#x021BC;" ><!--alias ISOAMSA lharu -->
+<!ENTITY leq              "&#x02264;" ><!--alias ISOTECH le -->
+<!ENTITY leqq             "&#x02266;" ><!--alias ISOAMSR lE -->
+<!ENTITY leqslant         "&#x02A7D;" ><!--alias ISOAMSR les -->
+<!ENTITY lessapprox       "&#x02272;" ><!--alias ISOAMSR lap -->
+<!ENTITY lessdot          "&#x022D6;" ><!--alias ISOAMSR ltdot -->
+<!ENTITY lesseqgtr        "&#x022DA;" ><!--alias ISOAMSR leg -->
+<!ENTITY lesseqqgtr       "&#x022DA;" ><!--alias ISOAMSR lEg -->
+<!ENTITY LessEqualGreater "&#x022DA;" ><!--alias ISOAMSR leg -->
+<!ENTITY LessFullEqual    "&#x02266;" ><!--alias ISOAMSR lE -->
+<!ENTITY LessGreater      "&#x02276;" ><!--alias ISOAMSR lg -->
+<!ENTITY lessgtr          "&#x02276;" ><!--alias ISOAMSR lg -->
+<!ENTITY lesssim          "&#x02272;" ><!--alias ISOAMSR lsim -->
+<!ENTITY LessSlantEqual   "&#x02A7D;" ><!--alias ISOAMSR les -->
+<!ENTITY LessTilde        "&#x02272;" ><!--alias ISOAMSR lsim -->
+<!ENTITY ll               "&#x0226A;" ><!--alias ISOAMSR Lt -->
+<!ENTITY llcorner         "&#x0231E;" ><!--alias ISOAMSC dlcorn -->
+<!ENTITY Lleftarrow       "&#x021DA;" ><!--alias ISOAMSA lAarr -->
+<!ENTITY lmoustache       "&#x023B0;" ><!--alias ISOAMSC lmoust -->
+<!ENTITY lnapprox         "&#x02A89;" ><!--alias ISOAMSN lnap -->
+<!ENTITY lneq             "&#x02268;" ><!--alias ISOAMSN lne -->
+<!ENTITY lneqq            "&#x02268;" ><!--alias ISOAMSN lnE -->
+<!ENTITY longleftarrow    "&#x0F576;" ><!--alias ISOAMSA xlarr -->
+<!ENTITY Longleftarrow    "&#x0F579;" ><!--alias ISOAMSA xlArr -->
+<!ENTITY LongLeftArrow    "&#x0F576;" ><!--alias ISOAMSA xlarr -->
+<!ENTITY longleftrightarrow "&#x0F578;" ><!--alias ISOAMSA xharr -->
+<!ENTITY Longleftrightarrow "&#x0F57B;" ><!--alias ISOAMSA xhArr -->
+<!ENTITY LongLeftRightArrow "&#x0F578;" ><!--alias ISOAMSA xharr -->
+<!ENTITY longmapsto       "&#x0F57D;" ><!--alias ISOAMSA xmap -->
+<!ENTITY longrightarrow   "&#x0F577;" ><!--alias ISOAMSA xrarr -->
+<!ENTITY Longrightarrow   "&#x0F57A;" ><!--alias ISOAMSA xrArr -->
+<!ENTITY LongRightArrow   "&#x0F577;" ><!--alias ISOAMSA xrarr -->
+<!ENTITY looparrowleft    "&#x021AB;" ><!--alias ISOAMSA larrlp -->
+<!ENTITY looparrowright   "&#x021AC;" ><!--alias ISOAMSA rarrlp -->
+<!ENTITY LowerLeftArrow   "&#x02199;" ><!--alias ISOAMSA swarr -->
+<!ENTITY LowerRightArrow  "&#x02198;" ><!--alias ISOAMSA searr -->
+<!ENTITY lozenge          "&#x025CA;" ><!--alias ISOPUB loz -->
+<!ENTITY lrcorner         "&#x0231F;" ><!--alias ISOAMSC drcorn -->
+<!ENTITY Lsh              "&#x021B0;" ><!--alias ISOAMSA lsh -->
+<!ENTITY lvertneqq        "&#x02268;&#x0FE00;" ><!--alias ISOAMSN lvnE -->
+<!ENTITY maltese          "&#x02720;" ><!--alias ISOPUB malt -->
+<!ENTITY mapsto           "&#x021A6;" ><!--alias ISOAMSA map -->
+<!ENTITY measuredangle    "&#x02221;" ><!--alias ISOAMSO angmsd -->
+<!ENTITY Mellintrf        "&#x02133;" ><!--Mellin transform -->
+<!ENTITY MinusPlus        "&#x02213;" ><!--alias ISOTECH mnplus -->
+<!ENTITY mp               "&#x02213;" ><!--alias ISOTECH mnplus -->
+<!ENTITY multimap         "&#x022B8;" ><!--alias ISOAMSA mumap -->
+<!ENTITY napprox          "&#x02249;" ><!--alias ISOAMSN nap -->
+<!ENTITY natural          "&#x0266E;" ><!--alias ISOPUB natur -->
+<!ENTITY naturals         "&#x02115;" ><!--the semi-ring of natural numbers -->
+<!ENTITY nearrow          "&#x02197;" ><!--alias ISOAMSA nearr -->
+<!ENTITY NestedGreaterGreater "&#x0226B;" ><!--alias ISOAMSR Gt -->
+<!ENTITY NestedLessLess   "&#x0226A;" ><!--alias ISOAMSR Lt -->
+<!ENTITY nexists          "&#x02204;" ><!--alias ISOAMSO nexist -->
+<!ENTITY ngeq             "&#x02271;&#x020E5;" ><!--alias ISOAMSN nge -->
+<!ENTITY ngeqq            "&#x02271;" ><!--alias ISOAMSN ngE -->
+<!ENTITY ngeqslant        "&#x02271;" ><!--alias ISOAMSN nges -->
+<!ENTITY ngtr             "&#x0226F;" ><!--alias ISOAMSN ngt -->
+<!ENTITY nleftarrow       "&#x0219A;" ><!--alias ISOAMSA nlarr -->
+<!ENTITY nLeftarrow       "&#x021CD;" ><!--alias ISOAMSA nlArr -->
+<!ENTITY nleftrightarrow  "&#x021AE;" ><!--alias ISOAMSA nharr -->
+<!ENTITY nLeftrightarrow  "&#x021CE;" ><!--alias ISOAMSA nhArr -->
+<!ENTITY nleq             "&#x02270;&#x020E5;" ><!--alias ISOAMSN nle -->
+<!ENTITY nleqq            "&#x02270;" ><!--alias ISOAMSN nlE -->
+<!ENTITY nleqslant        "&#x02270;" ><!--alias ISOAMSN nles -->
+<!ENTITY nless            "&#x0226E;" ><!--alias ISOAMSN nlt -->
+<!ENTITY NonBreakingSpace "&#x000A0;" ><!--alias ISONUM nbsp -->
+<!ENTITY NotCongruent     "&#x02262;" ><!--alias ISOAMSN nequiv -->
+<!ENTITY NotDoubleVerticalBar "&#x02226;" ><!--alias ISOAMSN npar -->
+<!ENTITY NotElement       "&#x02209;" ><!--alias ISOTECH notin -->
+<!ENTITY NotEqual         "&#x02260;" ><!--alias ISOTECH ne -->
+<!ENTITY NotEqualTilde    "&#x02242;&#x00338;" ><!--alias for  &nesim; -->
+<!ENTITY NotExists        "&#x02204;" ><!--alias ISOAMSO nexist -->
+<!ENTITY NotGreater       "&#x0226F;" ><!--alias ISOAMSN ngt -->
+<!ENTITY NotGreaterEqual  "&#x02271;&#x020E5;" ><!--alias ISOAMSN nge -->
+<!ENTITY NotGreaterFullEqual "&#x02270;" ><!--alias ISOAMSN nlE -->
+<!ENTITY NotGreaterGreater "&#x0226B;&#x00338;&#x0FE00;" ><!--alias ISOAMSN nGtv -->
+<!ENTITY NotGreaterLess   "&#x02279;" ><!--alias ISOAMSN ntvgl -->
+<!ENTITY NotGreaterSlantEqual "&#x02271;" ><!--alias ISOAMSN nges -->
+<!ENTITY NotGreaterTilde  "&#x02275;" ><!--alias ISOAMSN ngsim -->
+<!ENTITY NotHumpDownHump  "&#x0224E;&#x00338;" ><!--alias for &nbump; -->
+<!ENTITY NotLeftTriangle  "&#x022EA;" ><!--alias ISOAMSN nltri -->
+<!ENTITY NotLeftTriangleEqual "&#x022EC;" ><!--alias ISOAMSN nltrie -->
+<!ENTITY NotLess          "&#x0226E;" ><!--alias ISOAMSN nlt -->
+<!ENTITY NotLessEqual     "&#x02270;&#x020E5;" ><!--alias ISOAMSN nle -->
+<!ENTITY NotLessGreater   "&#x02278;" ><!--alias ISOAMSN ntvlg -->
+<!ENTITY NotLessLess      "&#x0226A;&#x00338;&#x0FE00;" ><!--alias ISOAMSN nLtv -->
+<!ENTITY NotLessSlantEqual "&#x02270;" ><!--alias ISOAMSN nles -->
+<!ENTITY NotLessTilde     "&#x02274;" ><!--alias ISOAMSN nlsim -->
+<!ENTITY NotPrecedes      "&#x02280;" ><!--alias ISOAMSN npr -->
+<!ENTITY NotPrecedesEqual "&#x02AAF;&#x00338;" ><!--alias ISOAMSN npre -->
+<!ENTITY NotPrecedesSlantEqual "&#x022E0;" ><!--alias ISOAMSN nprcue -->
+<!ENTITY NotReverseElement "&#x0220C;" ><!--alias ISOTECH notniva -->
+<!ENTITY NotRightTriangle "&#x022EB;" ><!--alias ISOAMSN nrtri -->
+<!ENTITY NotRightTriangleEqual "&#x022ED;" ><!--alias ISOAMSN nrtrie -->
+<!ENTITY NotSquareSubsetEqual "&#x022E2;" ><!--alias ISOAMSN nsqsube -->
+<!ENTITY NotSquareSupersetEqual "&#x022E3;" ><!--alias ISOAMSN nsqsupe -->
+<!ENTITY NotSubset        "&#x02284;" ><!--alias ISOAMSN vnsub -->
+<!ENTITY NotSubsetEqual   "&#x02288;" ><!--alias ISOAMSN nsube -->
+<!ENTITY NotSucceeds      "&#x02281;" ><!--alias ISOAMSN nsc -->
+<!ENTITY NotSucceedsEqual "&#x02AB0;&#x00338;" ><!--alias ISOAMSN nsce -->
+<!ENTITY NotSucceedsSlantEqual "&#x022E1;" ><!--alias ISOAMSN nsccue -->
+<!ENTITY NotSuperset      "&#x02285;" ><!--alias ISOAMSN vnsup -->
+<!ENTITY NotSupersetEqual "&#x02289;" ><!--alias ISOAMSN nsupe -->
+<!ENTITY NotTilde         "&#x02241;" ><!--alias ISOAMSN nsim -->
+<!ENTITY NotTildeEqual    "&#x02244;" ><!--alias ISOAMSN nsime -->
+<!ENTITY NotTildeFullEqual "&#x02247;" ><!--alias ISOAMSN ncong -->
+<!ENTITY NotTildeTilde    "&#x02249;" ><!--alias ISOAMSN nap -->
+<!ENTITY NotVerticalBar   "&#x02224;" ><!--alias ISOAMSN nmid -->
+<!ENTITY nparallel        "&#x02226;" ><!--alias ISOAMSN npar -->
+<!ENTITY nprec            "&#x02280;" ><!--alias ISOAMSN npr -->
+<!ENTITY npreceq          "&#x02AAF;&#x00338;" ><!--alias ISOAMSN npre -->
+<!ENTITY nrightarrow      "&#x0219B;" ><!--alias ISOAMSA nrarr -->
+<!ENTITY nRightarrow      "&#x021CF;" ><!--alias ISOAMSA nrArr -->
+<!ENTITY nshortmid        "&#x02224;&#x0FE00;" ><!--alias ISOAMSN nsmid -->
+<!ENTITY nshortparallel   "&#x02226;&#x0FE00;" ><!--alias ISOAMSN nspar -->
+<!ENTITY nsimeq           "&#x02244;" ><!--alias ISOAMSN nsime -->
+<!ENTITY nsubset          "&#x02284;" ><!--alias ISOAMSN vnsub -->
+<!ENTITY nsubseteq        "&#x02288;" ><!--alias ISOAMSN nsube -->
+<!ENTITY nsubseteqq       "&#x02288;" ><!--alias ISOAMSN nsubE -->
+<!ENTITY nsucc            "&#x02281;" ><!--alias ISOAMSN nsc -->
+<!ENTITY nsucceq          "&#x02AB0;&#x00338;" ><!--alias ISOAMSN nsce -->
+<!ENTITY nsupset          "&#x02285;" ><!--alias ISOAMSN vnsup -->
+<!ENTITY nsupseteq        "&#x02289;" ><!--alias ISOAMSN nsupe -->
+<!ENTITY nsupseteqq       "&#x02289;" ><!--alias ISOAMSN nsupE -->
+<!ENTITY ntriangleleft    "&#x022EA;" ><!--alias ISOAMSN nltri -->
+<!ENTITY ntrianglelefteq  "&#x022EC;" ><!--alias ISOAMSN nltrie -->
+<!ENTITY ntriangleright   "&#x022EB;" ><!--alias ISOAMSN nrtri -->
+<!ENTITY ntrianglerighteq "&#x022ED;" ><!--alias ISOAMSN nrtrie -->
+<!ENTITY nwarrow          "&#x02196;" ><!--alias ISOAMSA nwarr -->
+<!ENTITY oint             "&#x0222E;" ><!--alias ISOTECH conint -->
+<!ENTITY OpenCurlyDoubleQuote "&#x0201C;" ><!--alias ISONUM ldquo -->
+<!ENTITY OpenCurlyQuote   "&#x02018;" ><!--alias ISONUM lsquo -->
+<!ENTITY orderof          "&#x02134;" ><!--alias ISOTECH order -->
+<!ENTITY parallel         "&#x02225;" ><!--alias ISOTECH par -->
+<!ENTITY PartialD         "&#x02202;" ><!--alias ISOTECH part -->
+<!ENTITY pitchfork        "&#x022D4;" ><!--alias ISOAMSR fork -->
+<!ENTITY PlusMinus        "&#x000B1;" ><!--alias ISONUM plusmn -->
+<!ENTITY pm               "&#x000B1;" ><!--alias ISONUM plusmn -->
+<!ENTITY Poincareplane    "&#x0210C;" ><!--the Poincare upper half-plane -->
+<!ENTITY prec             "&#x0227A;" ><!--alias ISOAMSR pr -->
+<!ENTITY precapprox       "&#x0227E;" ><!--alias ISOAMSR prap -->
+<!ENTITY preccurlyeq      "&#x0227C;" ><!--alias ISOAMSR prcue -->
+<!ENTITY Precedes         "&#x0227A;" ><!--alias ISOAMSR pr -->
+<!ENTITY PrecedesEqual    "&#x02AAF;" ><!--alias ISOAMSR pre -->
+<!ENTITY PrecedesSlantEqual "&#x0227C;" ><!--alias ISOAMSR prcue -->
+<!ENTITY PrecedesTilde    "&#x0227E;" ><!--alias ISOAMSR prsim -->
+<!ENTITY preceq           "&#x02AAF;" ><!--alias ISOAMSR pre -->
+<!ENTITY precnapprox      "&#x022E8;" ><!--alias ISOAMSN prnap -->
+<!ENTITY precneqq         "&#x02AB5;" ><!--alias ISOAMSN prnE -->
+<!ENTITY precnsim         "&#x022E8;" ><!--alias ISOAMSN prnsim -->
+<!ENTITY precsim          "&#x0227E;" ><!--alias ISOAMSR prsim -->
+<!ENTITY primes           "&#x02119;" ><!--the prime natural numbers -->
+<!ENTITY Proportion       "&#x02237;" ><!--alias ISOAMSR Colon -->
+<!ENTITY Proportional     "&#x0221D;" ><!--alias ISOTECH prop -->
+<!ENTITY propto           "&#x0221D;" ><!--alias ISOTECH prop -->
+<!ENTITY quaternions      "&#x0210D;" ><!--the ring (skew field) of quaternions -->
+<!ENTITY questeq          "&#x0225F;" ><!--alias ISOAMSR equest -->
+<!ENTITY rangle           "&#x0232A;" ><!--alias ISOTECH rang -->
+<!ENTITY rationals        "&#x0211A;" ><!--the field of rational numbers -->
+<!ENTITY rbrace           "&#x0007D;" ><!--alias ISONUM rcub -->
+<!ENTITY rbrack           "&#x0005D;" ><!--alias ISONUM rsqb -->
+<!ENTITY Re               "&#x0211C;" ><!--alias ISOAMSO real -->
+<!ENTITY realine          "&#x0211B;" ><!--the geometric real line -->
+<!ENTITY realpart         "&#x0211C;" ><!--alias ISOAMSO real -->
+<!ENTITY reals            "&#x0211D;" ><!--the field of real numbers -->
+<!ENTITY ReverseElement   "&#x0220B;" ><!--alias ISOTECH niv -->
+<!ENTITY ReverseEquilibrium "&#x021CB;" ><!--alias ISOAMSA lrhar -->
+<!ENTITY ReverseUpEquilibrium "&#x0296F;" ><!--alias ISOAMSA duhar -->
+<!ENTITY RightAngleBracket "&#x0232A;" ><!--alias ISOTECH rang -->
+<!ENTITY rightarrow       "&#x02192;" ><!--alias ISONUM rarr -->
+<!ENTITY Rightarrow       "&#x021D2;" ><!--alias ISOTECH rArr -->
+<!ENTITY RightArrow       "&#x02192;" ><!--alias ISONUM rarr -->
+<!ENTITY RightArrowBar    "&#x021E5;" ><!--alias for rarrb -->
+<!ENTITY RightArrowLeftArrow "&#x021C4;" ><!--alias ISOAMSA rlarr -->
+<!ENTITY rightarrowtail   "&#x021A3;" ><!--alias ISOAMSA rarrtl -->
+<!ENTITY RightCeiling     "&#x02309;" ><!--alias ISOAMSC rceil -->
+<!ENTITY RightDoubleBracket "&#x0301B;" ><!--right double bracket delimiter -->
+<!ENTITY RightDownVector  "&#x021C2;" ><!--alias ISOAMSA dharr -->
+<!ENTITY RightFloor       "&#x0230B;" ><!--alias ISOAMSC rfloor -->
+<!ENTITY rightharpoondown "&#x021C1;" ><!--alias ISOAMSA rhard -->
+<!ENTITY rightharpoonup   "&#x021C0;" ><!--alias ISOAMSA rharu -->
+<!ENTITY rightleftarrows  "&#x021C4;" ><!--alias ISOAMSA rlarr -->
+<!ENTITY rightleftharpoons "&#x021CC;" ><!--alias ISOAMSA rlhar -->
+<!ENTITY rightrightarrows "&#x021C9;" ><!--alias ISOAMSA rrarr -->
+<!ENTITY rightsquigarrow  "&#x0219D;" ><!--alias ISOAMSA rarrw -->
+<!ENTITY RightTee         "&#x022A2;" ><!--alias ISOAMSR vdash -->
+<!ENTITY RightTeeArrow    "&#x021A6;" ><!--alias ISOAMSA map -->
+<!ENTITY rightthreetimes  "&#x022CC;" ><!--alias ISOAMSB rthree -->
+<!ENTITY RightTriangle    "&#x022B3;" ><!--alias ISOAMSR vrtri -->
+<!ENTITY RightTriangleEqual "&#x022B5;" ><!--alias ISOAMSR rtrie -->
+<!ENTITY RightUpVector    "&#x021BE;" ><!--alias ISOAMSA uharr -->
+<!ENTITY RightVector      "&#x021C0;" ><!--alias ISOAMSA rharu -->
+<!ENTITY risingdotseq     "&#x02253;" ><!--alias ISOAMSR erDot -->
+<!ENTITY rmoustache       "&#x023B1;" ><!--alias ISOAMSC rmoust -->
+<!ENTITY Rrightarrow      "&#x021DB;" ><!--alias ISOAMSA rAarr -->
+<!ENTITY Rsh              "&#x021B1;" ><!--alias ISOAMSA rsh -->
+<!ENTITY searrow          "&#x02198;" ><!--alias ISOAMSA searr -->
+<!ENTITY setminus         "&#x02216;" ><!--alias ISOAMSB setmn -->
+<!ENTITY ShortLeftArrow   "&#x02190;&#x0FE00;" ><!--alias ISOAMSA slarr -->
+<!ENTITY shortmid         "&#x02223;&#x0FE00;" ><!--alias ISOAMSR smid -->
+<!ENTITY shortparallel    "&#x02225;&#x0FE00;" ><!--alias ISOAMSR spar -->
+<!ENTITY ShortRightArrow  "&#x02192;&#x0FE00;" ><!--alias ISOAMSA srarr -->
+<!ENTITY simeq            "&#x02243;" ><!--alias ISOTECH sime -->
+<!ENTITY SmallCircle      "&#x02218;" ><!--alias ISOTECH compfn -->
+<!ENTITY smallsetminus    "&#x02216;&#x0FE00;" ><!--alias ISOAMSB ssetmn -->
+<!ENTITY spadesuit        "&#x02660;" ><!--ISOPUB    spades  -->
+<!ENTITY Sqrt             "&#x0221A;" ><!--alias ISOTECH radic -->
+<!ENTITY sqsubset         "&#x0228F;" ><!--alias ISOAMSR sqsub -->
+<!ENTITY sqsubseteq       "&#x02291;" ><!--alias ISOAMSR sqsube -->
+<!ENTITY sqsupset         "&#x02290;" ><!--alias ISOAMSR sqsup -->
+<!ENTITY sqsupseteq       "&#x02292;" ><!--alias ISOAMSR sqsupe -->
+<!ENTITY Square           "&#x025A1;" ><!--alias for square -->
+<!ENTITY SquareIntersection "&#x02293;" ><!--alias ISOAMSB sqcap -->
+<!ENTITY SquareSubset     "&#x0228F;" ><!--alias ISOAMSR sqsub -->
+<!ENTITY SquareSubsetEqual "&#x02291;" ><!--alias ISOAMSR sqsube -->
+<!ENTITY SquareSuperset   "&#x02290;" ><!--alias ISOAMSR sqsup -->
+<!ENTITY SquareSupersetEqual "&#x02292;" ><!--alias ISOAMSR sqsupe -->
+<!ENTITY SquareUnion      "&#x02294;" ><!--alias ISOAMSB sqcup -->
+<!ENTITY Star             "&#x022C6;" ><!--alias ISOAMSB sstarf -->
+<!ENTITY straightepsilon  "&#x003B5;" ><!--alias ISOGRK3 epsi -->
+<!ENTITY straightphi      "&#x003C6;" ><!--alias ISOGRK3 phi -->
+<!ENTITY subset           "&#x02282;" ><!--alias ISOTECH sub -->
+<!ENTITY Subset           "&#x022D0;" ><!--alias ISOAMSR Sub -->
+<!ENTITY subseteq         "&#x02286;" ><!--alias ISOTECH sube -->
+<!ENTITY subseteqq        "&#x02286;" ><!--alias ISOAMSR subE -->
+<!ENTITY SubsetEqual      "&#x02286;" ><!--alias ISOTECH sube -->
+<!ENTITY subsetneq        "&#x0228A;" ><!--alias ISOAMSN subne -->
+<!ENTITY subsetneqq       "&#x0228A;" ><!--alias ISOAMSN subnE -->
+<!ENTITY succ             "&#x0227B;" ><!--alias ISOAMSR sc -->
+<!ENTITY succapprox       "&#x0227F;" ><!--alias ISOAMSR scap -->
+<!ENTITY succcurlyeq      "&#x0227D;" ><!--alias ISOAMSR sccue -->
+<!ENTITY Succeeds         "&#x0227B;" ><!--alias ISOAMSR sc -->
+<!ENTITY SucceedsEqual    "&#x0227D;" ><!--alias ISOAMSR sce -->
+<!ENTITY SucceedsSlantEqual "&#x0227D;" ><!--alias ISOAMSR sccue -->
+<!ENTITY SucceedsTilde    "&#x0227F;" ><!--alias ISOAMSR scsim -->
+<!ENTITY succeq           "&#x0227D;" ><!--alias ISOAMSR sce -->
+<!ENTITY succnapprox      "&#x022E9;" ><!--alias ISOAMSN scnap -->
+<!ENTITY succneqq         "&#x02AB6;" ><!--alias ISOAMSN scnE -->
+<!ENTITY succnsim         "&#x022E9;" ><!--alias ISOAMSN scnsim -->
+<!ENTITY succsim          "&#x0227F;" ><!--alias ISOAMSR scsim -->
+<!ENTITY SuchThat         "&#x0220B;" ><!--ISOTECH  ni -->
+<!ENTITY Sum              "&#x02211;" ><!--alias ISOAMSB sum -->
+<!ENTITY Superset         "&#x02283;" ><!--alias ISOTECH sup -->
+<!ENTITY SupersetEqual    "&#x02287;" ><!--alias ISOTECH supe -->
+<!ENTITY supset           "&#x02283;" ><!--alias ISOTECH sup -->
+<!ENTITY Supset           "&#x022D1;" ><!--alias ISOAMSR Sup -->
+<!ENTITY supseteq         "&#x02287;" ><!--alias ISOTECH supe -->
+<!ENTITY supseteqq        "&#x02287;" ><!--alias ISOAMSR supE -->
+<!ENTITY supsetneq        "&#x0228B;" ><!--alias ISOAMSN supne -->
+<!ENTITY supsetneqq       "&#x0228B;" ><!--alias ISOAMSN supnE -->
+<!ENTITY swarrow          "&#x02199;" ><!--alias ISOAMSA swarr -->
+<!ENTITY therefore        "&#x02234;" ><!--alias ISOTECH there4 -->
+<!ENTITY Therefore        "&#x02234;" ><!--alias ISOTECH there4 -->
+<!ENTITY thickapprox      "&#x02248;&#x0FE00;" ><!--ISOAMSR   thkap  -->
+<!ENTITY thicksim         "&#x0223C;&#x0FE00;" ><!--ISOAMSR   thksim -->
+<!ENTITY ThinSpace        "&#x02009;" ><!--space of width 3/18 em alias ISOPUB thinsp -->
+<!ENTITY Tilde            "&#x0223C;" ><!--alias ISOTECH sim -->
+<!ENTITY TildeEqual       "&#x02243;" ><!--alias ISOTECH sime -->
+<!ENTITY TildeFullEqual   "&#x02245;" ><!--alias ISOTECH cong -->
+<!ENTITY TildeTilde       "&#x02248;" ><!--alias ISOTECH ap -->
+<!ENTITY toea             "&#x02928;" ><!--alias ISOAMSA nesear -->
+<!ENTITY tosa             "&#x02929;" ><!--alias ISOAMSA seswar -->
+<!ENTITY triangle         "&#x025B5;" ><!--alias ISOPUB utri -->
+<!ENTITY triangledown     "&#x025BF;" ><!--alias ISOPUB dtri -->
+<!ENTITY triangleleft     "&#x025C3;" ><!--alias ISOPUB ltri -->
+<!ENTITY trianglelefteq   "&#x022B4;" ><!--alias ISOAMSR ltrie -->
+<!ENTITY triangleq        "&#x0225C;" ><!--alias ISOAMSR trie -->
+<!ENTITY triangleright    "&#x025B9;" ><!--alias ISOPUB rtri -->
+<!ENTITY trianglerighteq  "&#x022B5;" ><!--alias ISOAMSR rtrie -->
+<!ENTITY TripleDot        "&#x020DB;" ><!--alias ISOTECH tdot -->
+<!ENTITY twoheadleftarrow "&#x0219E;" ><!--alias ISOAMSA Larr -->
+<!ENTITY twoheadrightarrow "&#x021A0;" ><!--alias ISOAMSA Rarr -->
+<!ENTITY ulcorner         "&#x0231C;" ><!--alias ISOAMSC ulcorn -->
+<!ENTITY Union            "&#x022C3;" ><!--alias ISOAMSB xcup -->
+<!ENTITY UnionPlus        "&#x0228E;" ><!--alias ISOAMSB uplus -->
+<!ENTITY uparrow          "&#x02191;" ><!--alias ISONUM uarr -->
+<!ENTITY Uparrow          "&#x021D1;" ><!--alias ISOAMSA uArr -->
+<!ENTITY UpArrow          "&#x02191;" ><!--alias ISONUM uarr -->
+<!ENTITY UpArrowDownArrow "&#x021C5;" ><!--alias ISOAMSA udarr -->
+<!ENTITY updownarrow      "&#x02195;" ><!--alias ISOAMSA varr -->
+<!ENTITY Updownarrow      "&#x021D5;" ><!--alias ISOAMSA vArr -->
+<!ENTITY UpDownArrow      "&#x02195;" ><!--alias ISOAMSA varr -->
+<!ENTITY UpEquilibrium    "&#x0296E;" ><!--alias ISOAMSA udhar -->
+<!ENTITY upharpoonleft    "&#x021BF;" ><!--alias ISOAMSA uharl -->
+<!ENTITY upharpoonright   "&#x021BE;" ><!--alias ISOAMSA uharr -->
+<!ENTITY UpperLeftArrow   "&#x02196;" ><!--alias ISOAMSA nwarr -->
+<!ENTITY UpperRightArrow  "&#x02197;" ><!--alias ISOAMSA nearr -->
+<!ENTITY upsilon          "&#x003C5;" ><!--alias ISOGRK3 upsi -->
+<!ENTITY Upsilon          "&#x003D2;" ><!--alias ISOGRK3 Upsi -->
+<!ENTITY UpTee            "&#x022A5;" ><!--alias ISOTECH perp -->
+<!ENTITY UpTeeArrow       "&#x021A5;" ><!--Alias mapstoup -->
+<!ENTITY upuparrows       "&#x021C8;" ><!--alias ISOAMSA uuarr -->
+<!ENTITY urcorner         "&#x0231D;" ><!--alias ISOAMSC urcorn -->
+<!ENTITY varepsilon       "&#x0025B;" ><!--alias ISOGRK3 epsiv -->
+<!ENTITY varkappa         "&#x003F0;" ><!--alias ISOGRK3 kappav -->
+<!ENTITY varnothing       "&#x02205;" ><!--alias ISOAMSO emptyv -->
+<!ENTITY varphi           "&#x003D5;" ><!--alias ISOGRK3 phiv -->
+<!ENTITY varpi            "&#x003D6;" ><!--alias ISOGRK3 piv -->
+<!ENTITY varpropto        "&#x0221D;" ><!--alias ISOAMSR vprop -->
+<!ENTITY varrho           "&#x003F1;" ><!--alias ISOGRK3 rhov -->
+<!ENTITY varsigma         "&#x003C2;" ><!--alias ISOGRK3 sigmav -->
+<!ENTITY varsubsetneq     "&#x0228A;&#x0FE00;" ><!--alias ISOAMSN vsubne -->
+<!ENTITY varsubsetneqq    "&#x0228A;&#x0FE00;" ><!--alias ISOAMSN vsubnE -->
+<!ENTITY varsupsetneq     "&#x0228B;&#x0FE00;" ><!--alias ISOAMSN vsupne -->
+<!ENTITY varsupsetneqq    "&#x0228B;&#x0FE00;" ><!--alias ISOAMSN vsupnE -->
+<!ENTITY vartheta         "&#x003D1;" ><!--alias ISOGRK3 thetav -->
+<!ENTITY vartriangleleft  "&#x022B2;" ><!--alias ISOAMSR vltri -->
+<!ENTITY vartriangleright "&#x022B3;" ><!--alias ISOAMSR vrtri -->
+<!ENTITY vee              "&#x02228;" ><!--alias ISOTECH or -->
+<!ENTITY Vee              "&#x022C1;" ><!--alias ISOAMSB xvee -->
+<!ENTITY vert             "&#x0007C;" ><!--alias ISONUM verbar -->
+<!ENTITY Vert             "&#x02016;" ><!--alias ISOTECH Verbar -->
+<!ENTITY VerticalBar      "&#x02223;" ><!--alias ISOAMSR mid -->
+<!ENTITY VerticalTilde    "&#x02240;" ><!--alias ISOAMSB wreath -->
+<!ENTITY VeryThinSpace    "&#x0200A;" ><!--space of width 1/18 em alias ISOPUB hairsp -->
+<!ENTITY wedge            "&#x02227;" ><!--alias ISOTECH and -->
+<!ENTITY Wedge            "&#x022C0;" ><!--alias ISOAMSB xwedge -->
+<!ENTITY wp               "&#x02118;" ><!--alias ISOAMSO weierp -->
+<!ENTITY wr               "&#x02240;" ><!--alias ISOAMSB wreath -->
+<!ENTITY zeetrf           "&#x02128;" ><!--zee transform -->
+<!ENTITY ZeroWidthSpace   "&#x0200B;" ><!--zero width space -->
+
+
+<!-- 
+      Added 17/08/2006 :  JOUVE remarks (by Jon Soule)
+      Added 28/08/2006 :  PHIV, AELIG, LE, UUML, IACUTE
+      Added 04/09/2006 :  EGRAVE, AACUTE, EXCL
+      Added 18/09/2006 :  OUML
+      Added 25/09/2006 :  ATILDE, NTILDE, AGRAVE      
+	  Added 09/12/2014 :  AMP, LT
+-->
+
+<!--ENTITY AMP              "&#x00026;" --><!--ampersand -->
+<!--ENTITY LT               "&#x0003C;" --><!--less-than sign R: -->
+<!ENTITY GT               "&#x0003E;" ><!--greater-than sign R: -->
+<!ENTITY EACUTE           "&#x000E9;" ><!--small e, acute accent -->
+<!ENTITY OCIRC            "&#x000F4;" ><!--small o, circumflex accent -->
+<!ENTITY AUML             "&#x000E4;" ><!--small a, dieresis or umlaut mark -->
+<!ENTITY thetas           "&#x003B8;" ><!--theta straight theta, small theta, Greek -->
+<!ENTITY epsilon          "&#x003B5;" ><!--straightepsilon, small epsilon, Greek -->
+<!--ENTITY mgr              "&#x003BC;" --><!--mu small mu, Greek -->
+<!ENTITY PHIV             "&#x003D5;" ><!--/varphi - curly or open phi -->
+<!ENTITY AELIG            "&#x000E6;" ><!--=small ae diphthong (ligature) -->
+<!ENTITY LE               "&#x02264;" ><!--/leq /le R: less-than-or-equal -->
+<!ENTITY UUML             "&#x000FC;" ><!--=small u, dieresis or umlaut mark -->
+<!ENTITY IACUTE           "&#x000ED;" ><!--=small i, acute accent -->
+<!ENTITY EGRAVE           "&#x000E8;" ><!--=small e, grave accent -->
+<!ENTITY AACUTE           "&#x000E1;" ><!--=small a, acute accent -->
+<!ENTITY EXCL             "&#x00021;" ><!--=exclamation mark -->
+<!ENTITY OUML             "&#x000F6;" ><!--=small o, dieresis or umlaut mark -->
+<!ENTITY ATILDE           "&#x000E3;" ><!--=small a, tilde -->
+<!ENTITY NTILDE           "&#x000F1;" ><!--=small n, tilde -->
+<!ENTITY AGRAVE           "&#x000E0;" ><!--=small a, grave accent -->
+
+<!-- 
+      Added 13/12/2006 : allows &sup1; to be misspelled &supl;
+      Added 13/12/2006 :  SUM, DEG, MIDDOT, QUOT
+      Added 22/05/2007 : EUML, ICIRC
+      Added 28/05/2007 : BGR, CACUTE, OSLASH
+      Added 18/06/2007 : ODBLAC, Tau
+-->
+<!ENTITY supl             "&#x000B9;" ><!--=superscript one -->
+<!ENTITY SUM              "&#x02211;" ><!--/sum L: summation operator -->
+<!ENTITY DEG              "&#x000B0;" ><!--=degree sign -->
+<!ENTITY MIDDOT           "&#x000B7;" ><!--/centerdot B: =middle dot -->
+<!ENTITY QUOT             "&#x00022;" ><!--=quotation mark -->
+<!ENTITY EUML             "&#x000EB;" ><!--=small e, dieresis or umlaut mark -->
+<!ENTITY ICIRC            "&#x000EE;" ><!--=small i, circumflex accent -->
+<!ENTITY BGR              "&#x00392;" ><!--GREEK CAPITAL LETTER BETA -->
+<!ENTITY CACUTE           "&#x00106;" ><!--=capital C, acute accent -->
+<!ENTITY OSLASH           "&#x000D8;" ><!--=capital O, slash -->
+<!ENTITY ODBLAC           "&#x00151;" ><!--=small o, double acute accent -->
+<!ENTITY Tau              "&#x003C4;" ><!--/tau small tau, Greek -->
+
+<!--
+	Added 01/06/2010: all below
+-->
+<!ENTITY degree			      "&#x000B0;" ><!--=degree sign -->
+<!ENTITY THETAS           "&#x003B8;" ><!--theta straight theta, small theta, Greek -->
+<!ENTITY LDQUO            "&#x0201C;" ><!--=double quotation mark, left -->
+<!ENTITY LSQUO            "&#x02018;" ><!--=single quotation mark, left -->
+<!ENTITY RDQUO            "&#x0201D;" ><!--=double quotation mark, right -->
+<!ENTITY RSQUO            "&#x02019;" ><!--=single quotation mark, right -->
+<!ENTITY MDASH            "&#x02014;" ><!--=em dash  -->
+<!ENTITY ANGST            "&#x0212B;" ><!--Angstrom capital A, ring -->
+<!ENTITY phis     		    "&#x3C6;" ><!--/straightphi - straight phi-->
+<!ENTITY newline          "&#x0000A;" ><!--force a line break; line feed -->
+<!ENTITY BULL             "&#x02022;" ><!--/bullet B: =round bullet, filled -->
+<!ENTITY ACIRC            "&#x000E2;" ><!--=small a, circumflex accent -->
+<!ENTITY Alpha            "&#x00391;" ><!--/alpha capital alpha, Greek -->
+
+<!--
+	Added 21/10/2010: all below
+	Modified 28/10/2010 : uses capital
+-->
+<!ENTITY ZDOT             "&#x0017B;" ><!--=capital Z, dot above -->
+<!ENTITY SACUTE           "&#x0015A;" ><!--=capital S, acute accent -->
+<!ENTITY AOGON            "&#x00104;" ><!--=capital A, ogonek -->
+<!ENTITY PRIME            "&#x02032;" ><!--/prime prime or minute -->
+<!ENTITY LSTROK           "&#x00141;" ><!--=capital L, stroke -->
+<!ENTITY NACUTE           "&#x00143;" ><!--=capital N, acute accent -->
+<!ENTITY BETA              "&#x00392;" ><!--GREEK CAPITAL LETTER BETA -->
+<!ENTITY SZLIG            "&#x000DF;" ><!--=small sharp s, German (sz ligature) -->
+<!ENTITY NDASH            "&#x02013;" ><!--=en dash -->
+<!ENTITY OMACR            "&#x0014C;" ><!--=capital O, macron -->
+<!ENTITY LeftBracketingBar "&#62979;" ><!--UF603 left vertical delimiter -->
+<!ENTITY SCARON           "&#x00160;" ><!--=capital S, caron -->
+<!ENTITY ZCARON           "&#x0017D;" ><!--=capital Z, caron -->
+<!ENTITY CCARON           "&#x0010C;" ><!--=capital C, caron -->
+<!ENTITY EOGON            "&#x00118;" ><!--=capital E, ogonek -->
+<!ENTITY circlef          "&#x25CF;" ><!--=U+25CF black circle -->
+
+<!--
+	Added 25/10/2010: all below
+	Modified 28/10/2010 : uses capital
+-->
+<!ENTITY CDOT             "&#x0010A;" ><!--=capital C, dot above -->
+<!ENTITY ZACUTE           "&#x00179;" ><!--=capital Z, acute accent -->
+
+<!--
+	Added 02/11/2010
+-->
+<!--ENTITY radic            "&#8730;" --><!--=radical sign -->
+<!ENTITY RADIC            "&#8730;" ><!--=radical sign -->
+<!ENTITY UACUTE           "&#x00DA;" ><!--=capital u, acute -->
+
+<!--
+	Added 08/11/2010
+-->
+<!ENTITY litre            "&#8467;" ><!--=litre symbole -->
+
+<!--
+	Added 15/11/2010
+-->
+<!ENTITY lparstr          "&#8242;" ><!--=left parenthesis stroke - double prime -->
+<!ENTITY rparstr          "&#8246;" ><!--=right parenthesis stroke - double back prime -->
+
+<!--
+	Added 22/11/2010
+-->
+<!ENTITY EDOT             "&#x00116;" ><!--=capital E, dot above -->
+<!ENTITY RACUTE           "&#x00154;" ><!--=capital R, acute accent -->
+
+<!--
+	since version 2.2.3
+-->
+
+<!--
+	Added 06/12/2010 
+-->
+<!ENTITY UMACR            "&#x0016A;" ><!--=capital U, macron -->
+
+
+<!--
+	Added 13/12/2010
+-->
+<!ENTITY ABREVE           "&#x00102;" ><!--=capital A, breve -->
+<!ENTITY SCEDIL           "&#x0015E;" ><!--=capital S, cedilla -->
+<!ENTITY TCEDIL           "&#x00162;" ><!--=capital T, cedilla -->
+
+<!--
+	Added 20/12/2010
+-->
+<!ENTITY ARING            "&#x000C5;" ><!--=capital A, ring -->
+
+<!--
+	Added 27/12/2010
+-->
+<!ENTITY IUML             "&#x000CF;" ><!--=capital I, dieresis or umlaut mark -->
+
+<!--
+	Added 10/01/2011
+-->
+<!ENTITY RightBracketingBar "&#62980;" ><!--UF604 right vertical delimiter -->
+
+<!--
+	Added 17/01/2011
+-->
+<!ENTITY AMACR            "&#x00100;" ><!--=capital A, macron -->
+
+<!--
+	Added 24/01/2011
+	- &#xe00. entities http://www.uspto.gov/web/offices/ac/ido/oeip/sgml/st32/redbook/rb2004/openissues0722.htm
+-->
+<!ENTITY MINUS            "&#x02212;" ><!--B: minus sign -->
+<!ENTITY Dotthalfcircle		"&#xe001;"  ><!--dotted top half of a circle -->
+<!ENTITY Dotlhalfcircle		"&#xe002;"	><!--dotted left half of a circle -->
+<!ENTITY Dotrhalfcircle		"&#xe003;"	><!--dotted right half of a circle -->
+<!ENTITY Lhalfcircle			"&#xe005;"	><!--left half of a circle -->
+<!ENTITY Quadbond					"&#xe006;"	><!--quad bond -->
+<!ENTITY Rhalfcircle			"&#xe007;"	><!--right half of a circle -->
+<!ENTITY Ovalhollow				"&#xe008;"	><!--oval hollow -->
+<!ENTITY Ovalsolid				"&#xe00a;"	><!--oval solid -->
+<!ENTITY Linevertsplit		"&#xe00b;"	><!--line verticle split		alias &brvbar; is also used -->
+<!ENTITY Parenopenst			"&#xe00c;"	><!--parenthesis open st -->
+<!ENTITY Parenclosest			"&#xe00d;"	><!--parenthesis close st -->
+<!ENTITY Brketopenst			"&#xe00e;"	><!--bracket open st -->
+<!ENTITY Brketclosest			"&#xe00f;"	><!--bracket close st -->
+
+
+<!-- 
+	Added 07/02/2011
+-->
+<!ENTITY RARR             "&#x021A0;" ><!--/twoheadrightarrow A: -->
+
+<!--
+	Added 14/02/2011
+-->
+<!ENTITY Beta              "&#x00392;" ><!--GREEK CAPITAL LETTER BETA -->
+
+<!--
+	Added 21/02/2011
+-->
+<!ENTITY percent           "&#x00025;" ><!--=percent sign -->
+
+
+<!--
+	Added 28/02/2011
+-->
+<!ENTITY Kappa              "&#x0039A;" ><!--GREEK CAPITAL LETTER KAPPA -->
+<!ENTITY oline 							"&#8254;"   ><!--oline -->
+<!ENTITY ECIRC              "&#x000CA;" ><!--=capital E, circumflex accent -->
+
+
+<!--
+	Added 7/03/2011
+-->
+<!ENTITY OMEGA            "&#x003A9;" ><!--/Omega capital Omega, Greek -->
+<!ENTITY ALPHA            "&#x00391;" ><!--/alpha capital alpha, Greek -->
+
+<!--
+	Added 4/04/2011
+-->
+<!ENTITY OACUTE           "&#x000D3;" ><!--=capital O, acute accent -->
+
+
+<!--
+ Added 11/04/2011
+-->
+<!ENTITY RCARON           "&#x00158;" ><!--=capital R, caron -->
+
+<!--
+ Added 18/04/2011
+-->
+<!ENTITY UPSI             "&#x003D2;" ><!--/Upsilon capital Upsilon, Greek -->
+<!ENTITY MCY              "&#x0041C;" ><!--=capital EM, Cyrillic -->
+
+<!--
+ Added 26/04/2011
+-->
+<!ENTITY efdot            "&#x02252;" ><!--/fallingdotseq R: eq, falling dots -->
+
+<!--
+ Added 09/05/2011
+-->
+<!ENTITY Rho              "&#x003A1;" ><!--GREEK CAPITAL LETTER RHO -->
+
+<!--
+	Added 25/05/2011
+-->
+<!ENTITY APOS             "&#x00027;" ><!--=apostrophe -->
+
+<!--
+	Added 09/12/2014 (key/value pairs added above)
+	* AMP, LT 	re-activated
+	* KCY, KGR, PGR, ACY, ICY, VCY, OGR, GCY 	added
+	* MLDR, IOCY, YUML, KHGR, EEGR, CHCY, SHCY 	added
+	* OACGR, TRADE, IUKCY, THETA, CHECK 		added
+	* LAMBDA, SOFTCY, OTILDE, ECARON			added
+-->
+
+
+<!--
+	Added 19/08/2015
+--> 
+<!ENTITY URING            "&#x0016E;" ><!--=capital U, ring -->
+<!ENTITY NCARON           "&#x00147;" ><!--=capital N, caron -->
+<!ENTITY EMACR            "&#x00112;" ><!--=capital E, macr -->
+<!ENTITY UDBLAC           "&#x00170;" ><!--=capital U, double acute accent -->
+
+<!--
+	Added 20/01/2016 [DOCMAINT-4366]
+--> 
+<!ENTITY LSQB             "&#x0005B;" ><!--/lbrack O: =left square bracket -->
+<!ENTITY RSQB             "&#x0005D;" ><!--/rbrack C: =right square bracket -->
+<!ENTITY LAQUO            "&#x000AB;" ><!--=angle quotation mark, left -->
+<!ENTITY RAQUO            "&#x000BB;" ><!--=angle quotation mark, right -->
+
+<!--
+	Added 21/03/2016 [DOCMAINT-4366]
+	& one occurrence of lt, dagger, Dagger, mgr, radic commented
+--> 
+<!ENTITY YACUTE           "&#x000DD;" ><!--=capital Y, acute accent -->
+<!ENTITY PHI              "&#x003A6;" ><!--/Phi capital Phi, Greek -->
+<!ENTITY PHGR             "&#x003A6;" ><!--GREEK CAPITAL LETTER PHI -->
+<!ENTITY STAR             "&#x022C6;" ><!--=star, open -->
+<!ENTITY BREVE            "&#x002D8;" ><!--=breve -->
+<!ENTITY SCY              "&#x00421;" ><!--=capital ES, Cyrillic -->
+<!ENTITY IDOT             "&#x00130;" ><!--=capital I, dot above -->
+<!--
+	Added 04/04/2016 [DOCMAINT-4366]
+--> 
+<!ENTITY Epsilon          "&#x00395;" ><!--GREEK CAPITAL LETTER EPSILON -->
+<!ENTITY omicron          "&#x003BF;" ><!--GREEK SMALL LETTER OMICRON -->
+<!ENTITY sigmaf           "&#x003C2;" ><!-- greek small letter final sigma, ISOgrk3 -->
+<!ENTITY sl0              "&#x000D8;" ><!--=capital O, slash -->
+<!ENTITY OGRAVE           "&#x000D2;" ><!--=capital O, grave accent -->
+<!ENTITY GBREVE           "&#x0011E;" ><!--=capital G, breve -->
+<!ENTITY OCY              "&#x0041E;" ><!--=capital O, Cyrillic -->
+<!ENTITY YUCY             "&#x0042E;" ><!--=capital YU, Cyrillic -->
+<!ENTITY RCY              "&#x00420;" ><!--=capital ER, Cyrillic -->
+<!ENTITY JCY              "&#x00419;" ><!--=capital short I, Cyrillic -->
+<!ENTITY AGR              "&#x00391;" ><!--GREEK CAPITAL LETTER ALPHA -->
+<!ENTITY IECY             "&#x00415;" ><!--=capital IE, Cyrillic -->
+<!ENTITY NUMERO           "&#x02116;" ><!--=numero sign -->
+<!ENTITY UCIRC            "&#x000DB;" ><!--=capital U, circumflex accent -->
+<!ENTITY STARF            "&#x02605;" ><!--/bigstar - star, filled  -->
+<!ENTITY PCY              "&#x0041F;" ><!--=capital PE, Cyrillic -->
+<!ENTITY NCY              "&#x0041D;" ><!--=capital EN, Cyrillic -->
+<!ENTITY TCY              "&#x00422;" ><!--=capital TE, Cyrillic -->
+<!ENTITY YACY             "&#x0042F;" ><!--=capital YA, Cyrillic -->
+<!ENTITY LCY              "&#x0041B;" ><!--=capital EL, Cyrillic -->
+<!ENTITY thetasym         "&#x003D1;" ><!--=Greek small letter theta symbol -->
+<!ENTITY COPY             "&#x000A9;" ><!--=copyright sign -->
+<!ENTITY PARA             "&#x000B6;" ><!--=pilcrow (paragraph sign) -->
+<!ENTITY MACR             "&#x000AF;" ><!--=macron -->
+<!ENTITY REG              "&#x000AE;" ><!--/circledR =registered sign -->
+<!--
+	Added 09/06/2016 [DOCMAINT-4366]
+--> 
+<!ENTITY upsih            "&#x003D2;" ><!--SYMBOLE GREC UPSILON CROCHET -->
+<!ENTITY SOL              "&#x0002F;" ><!--=solidus -->
+<!ENTITY CIRC             "&#x0005E;" ><!--circumflex accent -->
+<!ENTITY UDBLAC           "&#x00170;" ><!--=capital U, double acute accent -->
+<!ENTITY UOGON            "&#x00172;" ><!--=capital U, ogonek -->
+<!ENTITY MGR              "&#x0039C;" ><!--GREEK CAPITAL LETTER MU -->
+<!--
+	Added 14/10/2016
+--> 
+<!ENTITY hearts           "&#x02665;" ><!--black heart -->
