@@ -5,12 +5,16 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"errors"
 	"fmt"
+	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/epo_bbds"
 	log "github.com/sirupsen/logrus"
 	"io"
 	"io/fs"
 	"os"
+	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"sync"
 )
@@ -29,14 +33,85 @@ func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
 		logger.WithError(err).Error("failed to open bulk zip file")
 		return err
 	}
+
+	// extract index.xml file from zip
+	for _, f := range reader.File {
+		if !strings.Contains(f.Name, "index.xml") {
+			continue
+		}
+		// Create the destination file path
+		filePath := filepath.Join(destinationFolder, "index.xml")
+
+		// Create the parent directory if it doesn't exist
+		if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
+			panic(err)
+		}
+
+		// Create an empty destination file
+		dstFile, err := os.OpenFile(filePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+		if err != nil {
+			panic(err)
+		}
+
+		// Found it, print its content to terminal:
+		rc, err := f.Open()
+		if err != nil {
+			log.Fatal(err)
+		}
+		_, err = io.Copy(dstFile, rc)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		dstFile.Close()
+		rc.Close()
+		fmt.Println()
+		break
+	}
+
+	// get file size from index.xml to be compared
+	indexXML, err := epo_bbds.ParseIndexXML(filepath.Join(destinationFolder, "index.xml"))
+	if err != nil {
+		logger.WithError(err).Error("failed to parsed index.xml")
+		return err
+	}
+
+	filesizes := make(map[string]int64)
+	for _, docdbPackageFile := range indexXML.DocdbPackageFile {
+		filesizes[docdbPackageFile.Filename], _ = strconv.ParseInt(docdbPackageFile.Size, 10, 64)
+	}
+
 	err = fs.WalkDir(reader, ".", func(path string, d fs.DirEntry, err error) error {
 		// check if dir
 		if d.IsDir() {
 			return nil
 		}
+
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
+
 			f, errOpen := reader.Open(path)
+
+			// get zip file size and compare it with filesize in index.xml
+			pathSplit := strings.Split(path, "/")
+			zipFile := pathSplit[len(pathSplit)-1]
+			stats, _ := f.Stat()
+			size := stats.Size()
+
+			comparedResult := filesizes[zipFile] - size
+			switch {
+			case comparedResult > 0:
+				errMissed := errors.New("not matched, data missing")
+				logger.WithError(errMissed).Error("Not matched")
+				return errMissed
+			case comparedResult < 0:
+				errOutdated := errors.New("not matched, data outdated")
+				logger.WithError(errOutdated).Error("Not matched")
+				return errOutdated
+			case comparedResult == 0:
+				logger.Info("Data matched")
+			}
+
 			if errOpen != nil {
 				err = errOpen
 				logger.WithError(err).Error("failed to open file")
