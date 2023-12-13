@@ -3,8 +3,8 @@ package epo_docdb
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"io/ioutil"
 	"log"
+	"os"
 	"strconv"
 	"testing"
 )
@@ -12,7 +12,7 @@ import (
 func TestReadFile(t *testing.T) {
 
 	// process file
-	exchangeObject, err := ReadFile("./test-data/AP-1206-A_302101161.xml")
+	exchangeObject, err := ReadFile("./test-data/DOCDB-202344-CreateDelete-PubDate20231027AndBefore-CH-0001.xml")
 	if err != nil {
 		t.Error(err)
 	}
@@ -1029,7 +1029,7 @@ func TestReadFileParsingErr(t *testing.T) {
 
 func TestReadFileParsingErrAll(t *testing.T) {
 
-	files, err := ioutil.ReadDir("./test-data")
+	files, err := os.ReadDir("./test-data")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1041,6 +1041,48 @@ func TestReadFileParsingErrAll(t *testing.T) {
 	}
 	for _, filename := range filenames {
 		exchangeObject, err := ReadFile("./test-data/" + filename)
+		if err != nil {
+			t.Error(err)
+		}
+		fmt.Println(exchangeObject.ExchBibliographicdata.ExchInventiontitle[0].Value)
+	}
+}
+
+func TestReadFileParsingErrAllBackfile(t *testing.T) {
+
+	files, err := os.ReadDir("./test-data/backfile/xml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	var filenames []string
+	for _, file := range files {
+		if !file.IsDir() {
+			filenames = append(filenames, file.Name())
+		}
+	}
+	for _, filename := range filenames {
+		exchangeObject, err := ReadFile("./test-data/backfile/xml" + filename)
+		if err != nil {
+			t.Error(err)
+		}
+		fmt.Println(exchangeObject.ExchBibliographicdata.ExchInventiontitle[0].Value)
+	}
+}
+
+func TestReadFileParsingErrAllfrontfile(t *testing.T) {
+
+	files, err := os.ReadDir("./test-data/frontfile/xml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	var filenames []string
+	for _, file := range files {
+		if !file.IsDir() {
+			filenames = append(filenames, file.Name())
+		}
+	}
+	for _, filename := range filenames {
+		exchangeObject, err := ReadFile("./test-data/frontfile/xml" + filename)
 		if err != nil {
 			t.Error(err)
 		}
