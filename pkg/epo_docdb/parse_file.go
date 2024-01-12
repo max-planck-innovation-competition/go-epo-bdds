@@ -3,7 +3,7 @@ package epo_docdb
 import (
 	"bytes"
 	"encoding/xml"
-	log "github.com/sirupsen/logrus"
+	"log/slog"
 	"os"
 	"strings"
 )
@@ -24,12 +24,13 @@ func (tr Trimmer) Token() (xml.Token, error) {
 	return t, err
 }
 
-// ReadFile reads a file and returns the ExchangeDocument
-func ReadFile(filepath string) (doc *Exchangedocument, err error) {
+// ParseXmlFileToStruct reads a file and returns the ExchangeDocument
+func ParseXmlFileToStruct(filepath string) (doc *Exchangedocument, err error) {
+	logger := slog.With("filepath", filepath)
 	// read file
 	data, err := os.ReadFile(filepath)
 	if err != nil {
-		log.WithError(err).Error("failed to read file")
+		logger.With("err", err).Error("failed to read file")
 		return nil, err
 	}
 	// replace bytes
@@ -44,7 +45,7 @@ func ReadFile(filepath string) (doc *Exchangedocument, err error) {
 	d = xml.NewTokenDecoder(Trimmer{d})
 	err = d.Decode(&exchangeObject)
 	if err != nil {
-		log.WithError(err).Error("failed to unmarshal xml")
+		logger.With("err", err).Error("failed to unmarshall xml")
 		return nil, err
 	}
 	return &exchangeObject, err

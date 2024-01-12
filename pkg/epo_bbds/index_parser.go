@@ -203,8 +203,6 @@ func readCsvToStruct(filePath string) ([]StatsStruct, error) {
 	return data, nil
 }
 
-///
-
 type ExchangeDocuments struct {
 	XMLName           xml.Name           `xml:"exchange-documents"`
 	ExchangeDocuments []ExchangeDocument `xml:"exchange-document"`

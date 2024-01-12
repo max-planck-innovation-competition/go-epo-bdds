@@ -9,8 +9,28 @@ import (
 func TestProcessBulkZipFile(t *testing.T) {
 	// skipTest(t)
 	log.SetLevel(log.TraceLevel)
+	p := NewProcessor()
+	err := p.ProcessBulkZipFile("./test-data/docdb_xml_202402_CreateDelete_001.zip")
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func TestProcessBulkZipFile2023(t *testing.T) {
+	// skipTest(t)
+	log.SetLevel(log.TraceLevel)
 	ass := assert.New(t)
-	err := ProcessBulkZipFile(
-		"./test-data/docdb_xml_202243_Amend_001.zip", "./test-data/xml")
+	p := NewFileExportProcessor("./test-data/xml")
+	err := p.ProcessBulkZipFile("./test-data/docdb_xml_202402_CreateDelete_001.zip")
+	ass.NoError(err)
+}
+
+func TestProcessEpFiles2023(t *testing.T) {
+	// skipTest(t)
+	log.SetLevel(log.TraceLevel)
+	ass := assert.New(t)
+	p := NewFileExportProcessor("./test-data/xml")
+	p.IncludeCountries("EP")
+	err := p.ProcessBulkZipFile("./test-data/docdb_xml_202402_CreateDelete_001.zip")
 	ass.NoError(err)
 }

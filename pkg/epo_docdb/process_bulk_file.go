@@ -10,21 +10,89 @@ import (
 	"io"
 	"io/fs"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
-	"sync"
 )
+
+// Processor creates a
+type Processor struct {
+	ContentHandler   ContentHandler
+	includeCountries map[string]struct{}
+}
+
+func NewProcessor() *Processor {
+	p := Processor{
+		ContentHandler: PrintLineHandler,
+	}
+	return &p
+}
+
+func NewFileExportProcessor(destinationPath string) *Processor {
+	handler := FileExporterLineHandler(destinationPath)
+	p := Processor{
+		ContentHandler: handler,
+	}
+	return &p
+}
+
+func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
+	p.ContentHandler = fn
+	return p
+}
+
+func (p *Processor) IncludeCountries(cs ...string) {
+	p.includeCountries = map[string]struct{}{}
+	for _, c := range cs {
+		c = strings.ToUpper(c)
+		p.includeCountries[c] = struct{}{}
+	}
+}
+
+type ContentHandler func(fileName, fileContent string)
 
 // regexFileName is used to extract the filename from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
 
-// ProcessBulkZipFile processes a bulk zip file
-func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
-	logger := log.WithField("bulkZipFilePath", bulkZipFilePath)
+// ProcessDirectory processes a directory
+func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
+	logger := log.WithField("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
 
 	// read the bulk zip file
-	reader, err := zip.OpenReader(bulkZipFilePath)
+	err = fs.WalkDir(os.DirFS(workingDirectoryPath), ".", func(path string, d fs.DirEntry, err error) error {
+		// check if dir
+		if d.IsDir() {
+			return nil
+		}
+		// check if zip file
+		if strings.Contains(path, ".zip") {
+			err = p.ProcessBulkZipFile(path)
+			if err != nil {
+				logger.WithError(err).Error("failed to process bulk zip file")
+				return err
+			}
+		}
+		// default (other files)
+		return nil
+	})
+	if err != nil {
+		logger.WithError(err).Error("failed to walk dir")
+		return err
+	}
+
+	logger.Info("successfully done")
+	return
+
+}
+
+// ProcessBulkZipFile processes a bulk zip file
+func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
+	logger := log.WithField("filePath", filePath)
+	logger.Info("start reading file")
+
+	// read the bulk zip file
+	reader, err := zip.OpenReader(filePath)
 	if err != nil {
 		logger.WithError(err).Error("failed to open bulk zip file")
 		return err
@@ -36,6 +104,27 @@ func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
 		}
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
+
+			// skip countries that are not in the list of countries to include
+			if len(p.includeCountries) > 0 {
+				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
+				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
+				fileName := filepath.Base(path)
+				// check if the file name contains a country
+				country := countryRegex.FindStringSubmatch(fileName)
+				if len(country) == 2 {
+					c := strings.ToUpper(country[1])
+					// check if the country is in the list of countries to include
+					if _, ok := p.includeCountries[c]; !ok {
+						// skip this file
+						logger.WithField("country", c).Info("skipping file")
+						return nil
+					} else {
+						logger.WithField("country", c).Info("including file")
+					}
+				}
+			}
+
 			f, errOpen := reader.Open(path)
 			if errOpen != nil {
 				err = errOpen
@@ -43,7 +132,7 @@ func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
 				return err
 			}
 			logger.WithField("zipFile", path).Info("found zip file")
-			processZipFile(logger, f, destinationFolder)
+			p.processZipFile(logger, f)
 		}
 		// default (other files)
 		return nil
@@ -64,7 +153,7 @@ func ProcessBulkZipFile(bulkZipFilePath, destinationFolder string) (err error) {
 }
 
 // processZipFile processes a bulk zip file
-func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
+func (p *Processor) processZipFile(logger *log.Entry, f fs.File) {
 	stats, _ := f.Stat()
 	logger = logger.WithField("zipFile", stats.Name())
 	// read file
@@ -81,7 +170,7 @@ func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
 	// Read all the files from zip archive
 	for _, zipFile := range zipReader.File {
 		logger.WithField("xmlFile", zipFile.Name).Info("child found")
-		err = processZipFileContent(logger, zipFile, destinationFolder)
+		err = p.processZipFileContent(logger, zipFile)
 		if err != nil {
 			logger.WithError(err).Error("failed to process zip file content")
 			return
@@ -91,7 +180,7 @@ func processZipFile(logger *log.Entry, f fs.File, destinationFolder string) {
 }
 
 // processZipFileContent processes a zip file content
-func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder string) (err error) {
+func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
 	logger = log.WithField("xmlFile", file.Name)
 	logger.Info("process xml file")
 	ctx := context.TODO()
@@ -109,17 +198,12 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 			logger.Fatalf("Failed to close file: %s", errClose)
 		}
 	}()
-	// init channels and sync
-	var wg sync.WaitGroup
-	chContent := make(chan string)  // content channel
-	chFilename := make(chan string) // filename channel
-	chFileEnd := make(chan bool)    // file end channel
-	// start 2nd process
-	go fileWriter(ctx, destinationFolder, &wg, chContent, chFilename, chFileEnd)
 	// scan file
 	scanner := bufio.NewScanner(fc)
-	buf := make([]byte, 0, 64*1024)
-	scanner.Buffer(buf, 1024*1024*200) // 200 MB
+	// set the max capacity of the scanner
+	const maxCapacity = 500 * 1024 * 1024 // 500 MB
+	buf := make([]byte, maxCapacity)
+	scanner.Buffer(buf, maxCapacity)
 	// custom line break
 	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
 		if atEOF && len(data) == 0 {
@@ -143,6 +227,9 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 		// Request more data.
 		return 0, nil, nil
 	})
+
+	var lineContent strings.Builder
+	var fileName string
 
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -168,16 +255,15 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 					logger.Error(err)
 					return
 				}
-				filename := regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + "_" + regexExtractionResults[0][4] + ".xml"
-				wg.Add(1)
-				chFilename <- filename
-				// add the content
-				wg.Add(1)
-				chContent <- line
+				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + "_" + regexExtractionResults[0][4] + ".xml"
+
+				lineContent.WriteString(line)
 				// if the line also contains the end of the file
 				if strings.Contains(line, "</exch:exchange-document>") {
-					wg.Add(1)
-					chFileEnd <- true
+					p.ContentHandler(fileName, lineContent.String())
+					lineContent.Reset()
+					fileName = ""
+					continue
 				}
 			} else {
 				log.WithField("line", line).Error("failed to split line")
@@ -185,103 +271,15 @@ func processZipFileContent(logger *log.Entry, file *zip.File, destinationFolder 
 		} else {
 			// if the line contains the end of the file
 			if strings.Contains(line, "</exch:exchange-document>") {
-				// end of the file
-				wg.Add(1)
-				chContent <- line
-				wg.Add(1)
-				chFileEnd <- true
+				lineContent.WriteString(line)
+				p.ContentHandler(fileName, lineContent.String())
+				lineContent.Reset()
+				fileName = ""
 				continue
 			}
-			// otherwise it's a normal line
-			wg.Add(1)
-			chContent <- line
+			lineContent.WriteString(line)
 		}
 	}
-
 	logger.Info("done with file")
-
 	return
-}
-
-// fileWriter writes the content to a file
-func fileWriter(
-	ctx context.Context,
-	destinationFolder string,
-	wg *sync.WaitGroup,
-	chContent <-chan string,
-	chFilename <-chan string,
-	chFileEnd <-chan bool,
-) {
-	logger := log.WithField("routine", "writer")
-	logger.Trace("started")
-	filename := ""
-	var buf strings.Builder
-
-	for {
-		select {
-		case <-ctx.Done():
-			logger.Info("received context done")
-			return
-		case end := <-chFileEnd:
-			if end {
-				// if the last string was transmitted
-				logger.Trace("last stuff was transmitted")
-				// create a new file based on the filename
-				if len(filename) == 0 {
-					msg := "failed to extract filename: %s"
-					logger.Fatalf(msg, filename)
-					return
-				}
-				file, err := os.Create(destinationFolder + "/" + filename)
-				if err != nil {
-					logger.Error(err)
-					return
-				}
-				// write the data to the file
-				_, errWrite := file.WriteString(buf.String())
-				if errWrite != nil {
-					ctx.Done()
-					msg := "failed to write to buffer: %s"
-					logger.Fatalf(msg, errWrite)
-					return
-				}
-				// close the file
-				errClose := file.Close()
-				if errClose != nil {
-					ctx.Done()
-					msg := "failed to write close file: %s"
-					logger.Fatalf(msg, errClose)
-					return
-				}
-				// clear the string builder
-				buf.Reset()
-				// clear the filename
-				filename = ""
-				break
-			}
-		case content := <-chContent:
-			logger.
-				// WithField("content", content).
-				Trace("received data")
-			// skip the empty line if there is nothing in the buffer
-			if buf.Len() == 0 && len(content) == 0 {
-				break
-			}
-			// if there is content write it to the buffer
-			_, errWrite := buf.WriteString(content + "\n")
-			if errWrite != nil {
-				ctx.Done()
-				msg := "failed to write to buffer: %s"
-				logger.Fatalf(msg, errWrite)
-				return
-			}
-			break
-		case filename = <-chFilename:
-			logger.WithField("filename", filename).Debug("Set filename")
-			break
-		}
-		log.Trace("done")
-		wg.Done()
-	}
-
 }

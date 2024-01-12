@@ -3,16 +3,18 @@ package epo_docdb
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"io/ioutil"
 	"log"
+	"os"
+	"path/filepath"
 	"strconv"
+	"strings"
 	"testing"
 )
 
 func TestReadFile(t *testing.T) {
 
 	// process file
-	exchangeObject, err := ReadFile("./test-data/AP-1206-A_302101161.xml")
+	exchangeObject, err := ParseXmlFileToStruct("./test-data/AP-1206-A_302101161.xml")
 	if err != nil {
 		t.Error(err)
 	}
@@ -421,7 +423,7 @@ func TestReadFile(t *testing.T) {
 func TestReadFileWO(t *testing.T) {
 
 	// process file
-	exchangeObject, err := ReadFile("./test-data/WO-2022259205-A1_544370561.xml")
+	exchangeObject, err := ParseXmlFileToStruct("./test-data/WO-2022259205-A1_544370561.xml")
 	if err != nil {
 		t.Error(err)
 	}
@@ -735,7 +737,7 @@ func TestReadFileWO(t *testing.T) {
 func TestReadFileYU(t *testing.T) {
 
 	// process file
-	exchangeObject, err := ReadFile("./test-data/YU-6701-A_381353354.xml")
+	exchangeObject, err := ParseXmlFileToStruct("./test-data/YU-6701-A_381353354.xml")
 	if err != nil {
 		t.Error(err)
 	}
@@ -1019,7 +1021,7 @@ func TestReadFileYU(t *testing.T) {
 
 func TestReadFileParsingErr(t *testing.T) {
 	// process file
-	exchangeObject, err := ReadFile("./test-data/WO-2023012807-A1_507242069.xml")
+	exchangeObject, err := ParseXmlFileToStruct("./test-data/WO-2023012807-A1_507242069.xml")
 	if err != nil {
 		t.Error(err)
 	}
@@ -1029,18 +1031,21 @@ func TestReadFileParsingErr(t *testing.T) {
 
 func TestReadFileParsingErrAll(t *testing.T) {
 
-	files, err := ioutil.ReadDir("./test-data")
+	var testDataDir = "./test-data"
+
+	files, err := os.ReadDir(testDataDir)
 	if err != nil {
 		log.Fatal(err)
 	}
 	var filenames []string
 	for _, file := range files {
-		if !file.IsDir() {
+		if !file.IsDir() && strings.Contains(file.Name(), ".xml") {
 			filenames = append(filenames, file.Name())
 		}
 	}
 	for _, filename := range filenames {
-		exchangeObject, err := ReadFile("./test-data/" + filename)
+		fp := filepath.Join(testDataDir, filename)
+		exchangeObject, err := ParseXmlFileToStruct(fp)
 		if err != nil {
 			t.Error(err)
 		}
