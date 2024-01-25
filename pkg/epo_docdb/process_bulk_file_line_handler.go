@@ -4,6 +4,7 @@ import (
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"os"
+	"path/filepath"
 )
 
 // FileExporterLineHandler processes the files and saves them in the destination folder
@@ -26,7 +27,9 @@ func FileExporterLineHandler(destinationFolderPath string) ContentHandler {
 		fileName string,
 		fileContent string,
 	) {
-		SaveFile(fileName, fileContent)
+		// join path
+		filePath := filepath.Join(destinationFolderPath, fileName)
+		SaveFile(filePath, fileContent)
 	}
 }
 
