@@ -119,37 +119,31 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 }
 
 func TestDownloadDocDbBackFiles(t *testing.T) {
-	destinationPath := ""
-	ass := assert.New(t)
+	destinationPath := "/media/seb/T18-1/docdb"
 	// get token
 	token, err := GetAuthorizationToken()
-	ass.NoError(err)
 	if err != nil {
 		t.Error(err)
 		return
 	}
-
-	// get back files
-	deliveries, err := GetEpoBddsFileItems(token, EpoDocDBBackFilesProductID)
+	err = DownloadAllFiles(token, EpoDocDBBackFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return
 	}
+}
 
-	for i, d := range deliveries.Deliveries {
-		for j, _ := range d.Files {
-			errDownload := DownloadFile(
-				token,
-				EpoDocDBBackFilesProductID,
-				deliveries.Deliveries[i].DeliveryID,
-				deliveries.Deliveries[i].Files[j].FileID,
-				destinationPath,
-				deliveries.Deliveries[i].Files[j].FileName,
-			)
-			if errDownload != nil {
-				t.Error(errDownload)
-				return
-			}
-		}
+func TestDownloadDocDbFrontFiles(t *testing.T) {
+	destinationPath := "/media/seb/T18-1/docdb-frontfiles"
+	// get token
+	token, err := GetAuthorizationToken()
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	err = DownloadAllFiles(token, EpoDocDBFrontFilesProductID, destinationPath)
+	if err != nil {
+		t.Error(err)
+		return
 	}
 }
