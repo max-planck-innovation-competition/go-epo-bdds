@@ -2,8 +2,8 @@ package epo_bbds
 
 import (
 	"context"
+	"errors"
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"io"
 	"log/slog"
 	"net/http"
@@ -12,6 +12,9 @@ import (
 	"strings"
 )
 
+// ErrCanNotDownload is thrown if the download is not possible
+var ErrCanNotDownload = errors.New("can not download file")
+
 // DownloadFile downloads a file from the bulk data service
 func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID int, destinationFilePath, destinationFileName string) (err error) {
 	// build endpoint url
@@ -19,7 +22,7 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 	// create path if not exists
 	err = os.MkdirAll(destinationFilePath, os.ModePerm)
 	if err != nil {
-		log.WithError(err).Error("failed to create file path")
+		slog.With("err", err).Error("failed to create file path")
 		return
 	}
 	// join file and filepath
@@ -27,14 +30,14 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 	// create file
 	out, err := os.Create(path)
 	if err != nil {
-		log.WithError(err).Error("failed to create file")
+		slog.With("err", err).Error("failed to create file")
 		return
 	}
 	defer out.Close()
 	// download file
 	req, err := http.NewRequestWithContext(context.TODO(), "GET", endpoint, strings.NewReader(""))
 	if err != nil {
-		log.WithError(err).Error("failed to create new request")
+		slog.With("err", err).Error("failed to create new request")
 		return
 	}
 	// add header
@@ -42,14 +45,22 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 	// send request
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		log.WithError(err).Error("failed to send request")
+		slog.With("err", err).Error("failed to send request")
 		return
 	}
 	defer resp.Body.Close()
+	// check status code
+	if resp.StatusCode != http.StatusOK {
+		slog.With("status", resp.Status).Error("failed to download file")
+		err = ErrCanNotDownload
+		slog.With("err", err).Error("failed to download file")
+		return
+	}
+
 	// copy file
 	_, err = io.Copy(out, resp.Body)
 	if err != nil {
-		log.WithError(err).Error("failed to copy file")
+		slog.With("err", err).Error("failed to copy file")
 		return
 	}
 	return
