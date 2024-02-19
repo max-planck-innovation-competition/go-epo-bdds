@@ -21,6 +21,8 @@ type Processor struct {
 	includeCountries map[string]struct{}
 }
 
+// NewProcessor creates a new processor
+// the default handler is PrintLineHandler
 func NewProcessor() *Processor {
 	p := Processor{
 		ContentHandler: PrintLineHandler,
@@ -28,6 +30,8 @@ func NewProcessor() *Processor {
 	return &p
 }
 
+// NewFileExportProcessor creates a new processor
+// the default handler is FileExporterLineHandler
 func NewFileExportProcessor(destinationPath string) *Processor {
 	handler := FileExporterLineHandler(destinationPath)
 	p := Processor{
@@ -36,12 +40,17 @@ func NewFileExportProcessor(destinationPath string) *Processor {
 	return &p
 }
 
+// SetContentHandler sets the content handler
+// you can create your own ContentHandler
 func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	p.ContentHandler = fn
 	return p
 }
 
-func (p *Processor) IncludeCountries(cs ...string) {
+// IncludeAuthorities sets the authorities to include
+// if no countries are included all authorities are included.
+// This is useful if you only want to include e.g. data from the EPO
+func (p *Processor) IncludeAuthorities(cs ...string) {
 	p.includeCountries = map[string]struct{}{}
 	for _, c := range cs {
 		c = strings.ToUpper(c)
@@ -49,6 +58,7 @@ func (p *Processor) IncludeCountries(cs ...string) {
 	}
 }
 
+// ContentHandler is a function that handles the content of a file
 type ContentHandler func(fileName, fileContent string)
 
 // regexFileName is used to extract the filename from the xml file

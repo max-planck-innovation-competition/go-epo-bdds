@@ -30,7 +30,7 @@ func TestProcessEpFiles2023(t *testing.T) {
 	log.SetLevel(log.TraceLevel)
 	ass := assert.New(t)
 	p := NewFileExportProcessor("./test-data/xml/eps")
-	p.IncludeCountries("EP")
+	p.IncludeAuthorities("EP")
 	err := p.ProcessBulkZipFile("./test-data/docdb_xml_202402_CreateDelete_001.zip")
 	ass.NoError(err)
 }

@@ -33,6 +33,7 @@ func FileExporterLineHandler(destinationFolderPath string) ContentHandler {
 	}
 }
 
+// SaveFile saves the file with the given content and the given name
 func SaveFile(
 	fileName string,
 	fileContent string,
@@ -59,6 +60,7 @@ func SaveFile(
 	}
 }
 
+// PrintLineHandler is a dummy handler that prints the file name and the file content
 func PrintLineHandler(
 	fileName string,
 	fileContent string,
