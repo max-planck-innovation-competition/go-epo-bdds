@@ -117,3 +117,39 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 	}
 	ass.NoError(err)
 }
+
+func TestDownloadDocDbBackFiles(t *testing.T) {
+	destinationPath := ""
+	ass := assert.New(t)
+	// get token
+	token, err := GetAuthorizationToken()
+	ass.NoError(err)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
+	// get back files
+	deliveries, err := GetEpoBddsFileItems(token, EpoDocDBBackFilesProductID)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
+	for i, d := range deliveries.Deliveries {
+		for j, _ := range d.Files {
+			errDownload := DownloadFile(
+				token,
+				EpoDocDBBackFilesProductID,
+				deliveries.Deliveries[i].DeliveryID,
+				deliveries.Deliveries[i].Files[j].FileID,
+				destinationPath,
+				deliveries.Deliveries[i].Files[j].FileName,
+			)
+			if errDownload != nil {
+				t.Error(errDownload)
+				return
+			}
+		}
+	}
+}
