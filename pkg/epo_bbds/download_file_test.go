@@ -119,14 +119,8 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 }
 
 func TestDownloadDocDbBackFiles(t *testing.T) {
-	destinationPath := "/media/seb/T18-1/docdb"
-	// get token
-	token, err := GetAuthorizationToken()
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	err = DownloadAllFiles(token, EpoDocDBBackFilesProductID, destinationPath)
+	destinationPath := "/media/oem/Volume/docdb/backfiles"
+	err := DownloadAllFiles(EpoDocDBBackFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return
@@ -134,14 +128,8 @@ func TestDownloadDocDbBackFiles(t *testing.T) {
 }
 
 func TestDownloadDocDbFrontFiles(t *testing.T) {
-	destinationPath := "/media/seb/T18-1/docdb-frontfiles"
-	// get token
-	token, err := GetAuthorizationToken()
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	err = DownloadAllFiles(token, EpoDocDBFrontFilesProductID, destinationPath)
+	destinationPath := "/media/oem/Volume/docdb/frontfiles"
+	err := DownloadAllFiles(EpoDocDBFrontFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return

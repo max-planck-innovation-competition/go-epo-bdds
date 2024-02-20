@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 // ErrCanNotDownload is thrown if the download is not possible
@@ -67,7 +68,15 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 }
 
 // DownloadAllFiles downloads all files from the bulk data service of a product
-func DownloadAllFiles(token string, productID EpoBddsBProductID, destinationPath string) (err error) {
+func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (err error) {
+	// get token
+	token, errToken := GetAuthorizationToken()
+	if errToken != nil {
+		err = errToken
+		slog.With("err", err).Error("can not get the auth token")
+		return
+	}
+
 	// get back files
 	deliveries, err := GetEpoBddsFileItems(token, productID)
 	if err != nil {
@@ -75,6 +84,16 @@ func DownloadAllFiles(token string, productID EpoBddsBProductID, destinationPath
 		return
 	}
 	for i, d := range deliveries.Deliveries {
+		slog.
+			With("deliveryName", d.DeliveryName, "no", i, "total", len(deliveries.Deliveries)).
+			Info("process delivery")
+		// get token
+		token, errToken = GetAuthorizationToken()
+		if errToken != nil {
+			err = errToken
+			slog.With("err", err).Error("can not get the auth token")
+			return
+		}
 		amountFiles := len(d.Files)
 		for j, f := range d.Files {
 			// check if file exists
@@ -96,6 +115,7 @@ func DownloadAllFiles(token string, productID EpoBddsBProductID, destinationPath
 				err = errDownload
 				return
 			}
+			time.Sleep(time.Second * 30)
 		}
 	}
 	slog.Info("Done")
