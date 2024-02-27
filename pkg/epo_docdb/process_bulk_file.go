@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -69,19 +70,18 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	logger := log.WithField("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
 
+	filePaths := []string{}
+
 	// read the bulk zip file
 	err = fs.WalkDir(os.DirFS(workingDirectoryPath), ".", func(path string, d fs.DirEntry, err error) error {
 		// check if dir
 		if d.IsDir() {
 			return nil
 		}
-		// check if zip file
-		if strings.Contains(path, ".zip") {
-			err = p.ProcessBulkZipFile(path)
-			if err != nil {
-				logger.WithError(err).Error("failed to process bulk zip file")
-				return err
-			}
+		// check if zip file and starts with "doc_db"
+		if strings.Contains(path, ".zip") && strings.HasPrefix(path, "docdb_") {
+			filePath := filepath.Join(workingDirectoryPath, path)
+			filePaths = append(filePaths, filePath)
 		}
 		// default (other files)
 		return nil
@@ -89,6 +89,17 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	if err != nil {
 		logger.WithError(err).Error("failed to walk dir")
 		return err
+	}
+	// order files ascending
+	sort.Strings(filePaths)
+
+	// iterate over files
+	for _, filePath := range filePaths {
+		err = p.ProcessBulkZipFile(filePath)
+		if err != nil {
+			logger.WithError(err).Error("failed to process bulk zip file")
+			return err
+		}
 	}
 
 	logger.Info("successfully done")
