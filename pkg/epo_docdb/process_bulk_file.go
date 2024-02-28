@@ -62,8 +62,8 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 // ContentHandler is a function that handles the content of a file
 type ContentHandler func(fileName, fileContent string)
 
-// regexFileName is used to extract the filename from the xml file
-var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
+// regexFileName is used to extract the filename by using attributes from the xml file
+var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
 
 // ProcessDirectory processes a directory
 func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
@@ -276,7 +276,7 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 					logger.Error(err)
 					return
 				}
-				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + "_" + regexExtractionResults[0][4] + ".xml"
+				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + ".xml"
 
 				lineContent.WriteString(line)
 				// if the line also contains the end of the file
