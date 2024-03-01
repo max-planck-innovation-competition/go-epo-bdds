@@ -33,8 +33,13 @@ func ParseXmlFileToStruct(filepath string) (doc *Exchangedocument, err error) {
 		logger.With("err", err).Error("failed to read file")
 		return nil, err
 	}
+	return ParseXmlStringToStruct(string(data))
+}
+
+// ParseXmlStringToStruct reads a string and returns the ExchangeDocument
+func ParseXmlStringToStruct(data string) (doc *Exchangedocument, err error) {
 	// replace bytes
-	xmlString := strings.Replace(string(data), "<exch:", "<", -1)
+	xmlString := strings.Replace(data, "<exch:", "<", -1)
 	xmlString = strings.Replace(xmlString, "</exch:", "</", -1)
 	// parse data from cml in to exchange object
 	var exchangeObject Exchangedocument
@@ -45,7 +50,7 @@ func ParseXmlFileToStruct(filepath string) (doc *Exchangedocument, err error) {
 	d = xml.NewTokenDecoder(Trimmer{d})
 	err = d.Decode(&exchangeObject)
 	if err != nil {
-		logger.With("err", err).Error("failed to unmarshall xml")
+		slog.With("err", err).Error("failed to unmarshall xml")
 		return nil, err
 	}
 	return &exchangeObject, err

@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -61,13 +62,15 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 // ContentHandler is a function that handles the content of a file
 type ContentHandler func(fileName, fileContent string)
 
-// regexFileName is used to extract the filename from the xml file
-var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})".*doc-id="([A-Z0-9]{1,20})"`)
+// regexFileName is used to extract the filename by using attributes from the xml file
+var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
 
 // ProcessDirectory processes a directory
 func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	logger := log.WithField("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
+
+	filePaths := []string{}
 
 	// read the bulk zip file
 	err = fs.WalkDir(os.DirFS(workingDirectoryPath), ".", func(path string, d fs.DirEntry, err error) error {
@@ -75,13 +78,10 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		if d.IsDir() {
 			return nil
 		}
-		// check if zip file
-		if strings.Contains(path, ".zip") {
-			err = p.ProcessBulkZipFile(path)
-			if err != nil {
-				logger.WithError(err).Error("failed to process bulk zip file")
-				return err
-			}
+		// check if zip file and starts with "doc_db"
+		if strings.Contains(path, ".zip") && strings.HasPrefix(path, "docdb_") {
+			filePath := filepath.Join(workingDirectoryPath, path)
+			filePaths = append(filePaths, filePath)
 		}
 		// default (other files)
 		return nil
@@ -89,6 +89,17 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	if err != nil {
 		logger.WithError(err).Error("failed to walk dir")
 		return err
+	}
+	// order files ascending
+	sort.Strings(filePaths)
+
+	// iterate over files
+	for _, filePath := range filePaths {
+		err = p.ProcessBulkZipFile(filePath)
+		if err != nil {
+			logger.WithError(err).Error("failed to process bulk zip file")
+			return err
+		}
 	}
 
 	logger.Info("successfully done")
@@ -265,7 +276,7 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 					logger.Error(err)
 					return
 				}
-				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + "_" + regexExtractionResults[0][4] + ".xml"
+				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + ".xml"
 
 				lineContent.WriteString(line)
 				// if the line also contains the end of the file
