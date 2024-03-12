@@ -2,30 +2,38 @@ package epo_bbds
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"sort"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDownloadDocDbFrontFileWithEncodingIssues(t *testing.T) {
 	ass := assert.New(t)
 
+	t.Log("Getting EPO Token")
 	// get token
 	token, err := GetAuthorizationToken()
 	ass.NoError(err)
 	if err != nil {
 		t.Error(err)
+	} else {
+		t.Log("Success")
 	}
 
 	// get front files
+	t.Log("Getting EPO File Items")
 	resFrontFiles, err := GetEpoBddsFileItems(token, EpoDocDBFrontFilesProductID)
 	if err != nil {
 		t.Error(err)
+	} else {
+		t.Log("Got File Items")
 	}
 	ass.NoError(err)
 
 	// download front files
+	t.Log("Downloading Files")
 	err = DownloadFile(token,
 		EpoDocDBFrontFilesProductID,
 		resFrontFiles.Deliveries[0].DeliveryID,
@@ -35,6 +43,8 @@ func TestDownloadDocDbFrontFileWithEncodingIssues(t *testing.T) {
 	)
 	if err != nil {
 		t.Error(err)
+	} else {
+		t.Log("Files Downloaded")
 	}
 	ass.NoError(err)
 }

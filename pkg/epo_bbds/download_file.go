@@ -28,6 +28,7 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 	}
 	// join file and filepath
 	path := filepath.Join(destinationFilePath, destinationFileName)
+
 	// create file
 	out, err := os.Create(path)
 	if err != nil {
