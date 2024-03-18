@@ -119,7 +119,7 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 }
 
 func TestDownloadDocDbBackFiles(t *testing.T) {
-	destinationPath := "/media/oem/Volume/docdb/backfiles_2024_02_27"
+	destinationPath := "/media/seb/T18-1/docdb-backfiles_2024_02_27"
 	err := DownloadAllFiles(EpoDocDBBackFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)

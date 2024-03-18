@@ -87,19 +87,19 @@ func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (err 
 		slog.
 			With("deliveryName", d.DeliveryName, "no", i, "total", len(deliveries.Deliveries)).
 			Info("process delivery")
-		// get token
-		token, errToken = GetAuthorizationToken()
-		if errToken != nil {
-			err = errToken
-			slog.With("err", err).Error("can not get the auth token")
-			return
-		}
 		amountFiles := len(d.Files)
 		for j, f := range d.Files {
 			// check if file exists
 			if pathExists(filepath.Join(destinationPath, f.FileName)) {
 				slog.With("file", f.FileName, "no", j, "total", amountFiles).Info("file exists already")
 				continue
+			}
+			// get token
+			token, errToken = GetAuthorizationToken()
+			if errToken != nil {
+				err = errToken
+				slog.With("err", err).Error("can not get the auth token")
+				return
 			}
 			slog.With("file", f.FileName, "no", j, "total", amountFiles).Info("start downloading")
 			errDownload := DownloadFile(
