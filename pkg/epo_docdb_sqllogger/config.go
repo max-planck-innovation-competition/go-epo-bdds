@@ -16,10 +16,6 @@ type SqlLogger struct {
 	db                 *gorm.DB
 }
 
-func (p *SqlLogger) HasDirectoryBeenProcessed() bool {
-	return false
-}
-
 // NewProcessor creates a new processor
 // the default handler is PrintLineHandler
 func NewSqlLogger(DatabaseName string, DatabaseDir string, ProcessingDir string) *SqlLogger {

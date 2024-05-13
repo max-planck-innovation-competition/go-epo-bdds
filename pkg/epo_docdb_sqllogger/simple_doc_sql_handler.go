@@ -52,8 +52,7 @@ func (p *SqlLogger) Inizialize() {
 	result := p.db.Where("processing_dir = ?", p.ProcessingDir).First(&processDirSQL)
 	if result.Error != nil {
 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-			// Handle the case where the record was not found
-			fmt.Println("No record found for the given dirPath")
+			fmt.Println("No record for this processing path, so its a new process")
 		} else {
 			// Handle other possible errors
 			log.Printf("Failed to query database: %v", result.Error)

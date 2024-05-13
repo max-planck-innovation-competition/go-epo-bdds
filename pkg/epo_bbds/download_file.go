@@ -12,11 +12,7 @@ import (
 	"strings"
 	"time"
 
-<<<<<<< Updated upstream
 	"github.com/schollz/progressbar/v3"
-=======
-	"github.com/schollz/progressbar/v3" //alternative
->>>>>>> Stashed changes
 )
 
 // ErrCanNotDownload is thrown if the download is not possible
