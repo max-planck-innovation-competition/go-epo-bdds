@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"io"
 	"io/fs"
 	"os"
@@ -14,12 +13,16 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+
+	//"github.com/max-planck-innovation-competition/lm-sources/epo_docdb/pkg/epo_docdb_etl"
+	log "github.com/sirupsen/logrus"
 )
 
 // Processor creates a
 type Processor struct {
 	ContentHandler   ContentHandler
 	includeCountries map[string]struct{}
+	//etl              epo_docdb_etl.ETL
 }
 
 // NewProcessor creates a new processor
@@ -173,6 +176,11 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	return
 }
 
+// Added this to make it public for the test file, remove later.
+func (p *Processor) ProcessZipFileProxy(logger *log.Entry, f fs.File) {
+	p.processZipFile(logger, f)
+}
+
 // processZipFile processes a bulk zip file
 func (p *Processor) processZipFile(logger *log.Entry, f fs.File) {
 	stats, _ := f.Stat()
@@ -201,6 +209,7 @@ func (p *Processor) processZipFile(logger *log.Entry, f fs.File) {
 }
 
 // processZipFileContent processes a zip file content
+// same as
 func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
 	logger = log.WithField("xmlFile", file.Name)
 	logger.Info("process xml file")
