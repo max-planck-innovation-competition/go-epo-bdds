@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestSQLHandlesr(t *testing.T) {
+func TestSQLHandler(t *testing.T) {
 	sqllogger := NewSqlLogger("log.db", "./", "C:\\docdb")
 	fmt.Println(sqllogger)
 }

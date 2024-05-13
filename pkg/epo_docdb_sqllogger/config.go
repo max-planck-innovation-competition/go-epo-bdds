@@ -5,14 +5,13 @@ import "gorm.io/gorm"
 type SqlLogger struct {
 	//initialize these
 	DatabaseName  string //e.g. log.db, for the initializer
-	DatabaseDir   string //absolute db path, e.g. C:\docdb\
+	DatabaseDir   string //path of the .db, e.g. C:\docdb\ or .\ for relative path
 	ProcessingDir string //directory containing the downloaded zip files
-	//these are implied and generated in NewSqlLogger(...)
-	CurrentZip         string //currentZipFile
-	CurrentExchangeDoc string //current Exchange Doc in ZipFile
-	CurrentStatusAttr  string //current Status Attribute (e.g. A, D etc.)
+	//these are initialized in NewSqlLogger(...)
+	ProcessingDirSQL   ProcessDirectorySQL //SQL Struct of current processing directory for faster access
+	currentBulkFileSQL BulkFileSQL
+	currentXMLFileSQL  XMLFileSQL
 	DatabasePath       string //Database Dir + Database Name
-	Done               bool   //The SQL Logger is done when every zip file in dir is processed
 	db                 *gorm.DB
 }
 
