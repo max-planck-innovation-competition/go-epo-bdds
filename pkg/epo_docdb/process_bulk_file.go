@@ -14,22 +14,27 @@ import (
 	"sort"
 	"strings"
 
-	//"github.com/max-planck-innovation-competition/lm-sources/epo_docdb/pkg/epo_docdb_etl"
-	log "github.com/sirupsen/logrus"
+	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/epo_bbds/epo_docdb_sqlactivityrecorder"
+	log "github.com/sirupsen/logrus" //TODO evtl mit slog austauschen
 )
 
 // Processor creates a
 type Processor struct {
 	ContentHandler   ContentHandler
 	includeCountries map[string]struct{}
-	//etl              epo_docdb_etl.ETL
+	SqlRecorder      epo_docdb_sqlactivityrecorder.SQLActivityRecorder
 }
 
 // NewProcessor creates a new processor
 // the default handler is PrintLineHandler
 func NewProcessor() *Processor {
+	//We do not initialize it, since initializing it would set the directory
+	//We do that in ProcessDirectory
+	sqlrecorder := epo_docdb_sqlactivityrecorder.SQLActivityRecorder{}
+
 	p := Processor{
 		ContentHandler: PrintLineHandler,
+		SqlRecorder:    sqlrecorder,
 	}
 	return &p
 }
@@ -38,8 +43,11 @@ func NewProcessor() *Processor {
 // the default handler is FileExporterLineHandler
 func NewFileExportProcessor(destinationPath string) *Processor {
 	handler := FileExporterLineHandler(destinationPath)
+	sqlrecorder := epo_docdb_sqlactivityrecorder.SQLActivityRecorder{}
+
 	p := Processor{
 		ContentHandler: handler,
+		SqlRecorder:    sqlrecorder,
 	}
 	return &p
 }
@@ -48,6 +56,11 @@ func NewFileExportProcessor(destinationPath string) *Processor {
 // you can create your own ContentHandler
 func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	p.ContentHandler = fn
+	return p
+}
+
+func (p *Processor) SetSqlRecorder(recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder) *Processor {
+	p.SqlRecorder = recorder
 	return p
 }
 
@@ -63,7 +76,7 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 }
 
 // ContentHandler is a function that handles the content of a file
-type ContentHandler func(fileName, fileContent string)
+type ContentHandler func(fileName, fileContent string, recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder)
 
 // regexFileName is used to extract the filename by using attributes from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
@@ -72,6 +85,11 @@ var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-
 func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	logger := log.WithField("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
+
+	//SqlRecorder
+	recorder := epo_docdb_sqlactivityrecorder.NewSqlActivityRecorder("log.db", "./", workingDirectoryPath)
+	recorder.SetSafeDelete(true)
+	p.SqlRecorder = *recorder
 
 	filePaths := []string{}
 
@@ -129,34 +147,48 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
 
-			// skip countries that are not in the list of countries to include
-			if len(p.includeCountries) > 0 {
-				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
-				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
-				fileName := filepath.Base(path)
-				// check if the file name contains a country
-				country := countryRegex.FindStringSubmatch(fileName)
-				if len(country) == 2 {
-					c := strings.ToUpper(country[1])
-					// check if the country is in the list of countries to include
-					if _, ok := p.includeCountries[c]; !ok {
-						// skip this file
-						logger.WithField("country", c).Info("skipping file")
-						return nil
-					} else {
-						logger.WithField("country", c).Info("including file")
+			//Disable Country check for now
+			/*
+				// skip countries that are not in the list of countries to include
+				if len(p.includeCountries) > 0 {
+					// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
+					var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
+					fileName := filepath.Base(path)
+					// check if the file name contains a country
+					country := countryRegex.FindStringSubmatch(fileName)
+					if len(country) == 2 {
+						c := strings.ToUpper(country[1])
+						// check if the country is in the list of countries to include
+						if _, ok := p.includeCountries[c]; !ok {
+							// skip this file
+							logger.WithField("country", c).Info("skipping file")
+							return nil
+						} else {
+							logger.WithField("country", c).Info("including file")
+						}
 					}
-				}
-			}
+				}*/
 
 			f, errOpen := reader.Open(path)
+
 			if errOpen != nil {
 				err = errOpen
 				logger.WithError(err).Error("failed to open file")
 				return err
 			}
 			logger.WithField("zipFile", path).Info("found zip file")
+
+			//SqlRecorder
+			bulkstatus, _ := p.SqlRecorder.RegisterOrSkipZipFile(path)
+			if bulkstatus == epo_docdb_sqlactivityrecorder.Done {
+				//if already done, skip
+				return nil
+			}
+			fmt.Println("Test Zip Name: " + path)
+
 			p.processZipFile(logger, f)
+
+			p.SqlRecorder.MarkZipFileAsFinished()
 		}
 		// default (other files)
 		return nil
@@ -199,7 +231,14 @@ func (p *Processor) processZipFile(logger *log.Entry, f fs.File) {
 	// Read all the files from zip archive
 	for _, zipFile := range zipReader.File {
 		logger.WithField("xmlFile", zipFile.Name).Info("child found")
+		//zipFile.Name
+		xmlstatus, _ := p.SqlRecorder.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
+		if xmlstatus == epo_docdb_sqlactivityrecorder.Done {
+			//if already done, skip
+			continue
+		}
 		err = p.processZipFileContent(logger, zipFile)
+		p.SqlRecorder.MarkXMLAsFinished()
 		if err != nil {
 			logger.WithError(err).Error("failed to process zip file content")
 			return
@@ -290,7 +329,7 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 				lineContent.WriteString(line)
 				// if the line also contains the end of the file
 				if strings.Contains(line, "</exch:exchange-document>") {
-					p.ContentHandler(fileName, lineContent.String())
+					p.ContentHandler(fileName, lineContent.String(), p.SqlRecorder)
 					lineContent.Reset()
 					fileName = ""
 					continue
@@ -302,7 +341,7 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 			// if the line contains the end of the file
 			if strings.Contains(line, "</exch:exchange-document>") {
 				lineContent.WriteString(line)
-				p.ContentHandler(fileName, lineContent.String())
+				p.ContentHandler(fileName, lineContent.String(), p.SqlRecorder)
 				lineContent.Reset()
 				fileName = ""
 				continue
