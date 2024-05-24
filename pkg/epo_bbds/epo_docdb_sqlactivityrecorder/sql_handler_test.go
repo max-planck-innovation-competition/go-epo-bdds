@@ -6,43 +6,38 @@ import (
 	"testing"
 )
 
-// TODO
-// Logger umbenennen
-// Exchange files hinzufügen
-// Löschen nach unten
-// Einfügen in Handler
 func TestSQLHandlerBreakMiddle(t *testing.T) {
-	sqllogger := NewSqlActivityRecorder("log.db", "./", "C:\\docdb")
-	fmt.Println(sqllogger)
-	if sqllogger.IsDirectoryFinished() {
+	stateHandler := NewSqlActivityRecorder("log.db", "./", "C:\\docdb")
+	fmt.Println(stateHandler)
+	if stateHandler.IsDirectoryFinished() {
 		return
 	}
 
-	for bulkindex := 1; bulkindex < 5; bulkindex++ {
-		bulkname := "test" + strconv.Itoa(bulkindex)
-		bulkstatus, _ := sqllogger.RegisterOrSkipZipFile(bulkname + ".zip")
-		if bulkstatus == Done {
+	for bulkIndex := 1; bulkIndex < 5; bulkIndex++ {
+		bulkName := "test" + strconv.Itoa(bulkIndex)
+		bulkStatus, _ := stateHandler.RegisterOrSkipZipFile(bulkName + ".zip")
+		if bulkStatus == Done {
 			continue
 		}
 
-		for xmlindex := 1; xmlindex < 5; xmlindex++ {
+		for xmlIndex := 1; xmlIndex < 5; xmlIndex++ {
 
-			xmlname := "frontfile" + strconv.Itoa(xmlindex)
-			xmlstatus, _ := sqllogger.RegisterOrSkipXMLFile(bulkname+"_"+xmlname+".xml", "/DOC/files/")
-			if bulkindex == 2 && xmlindex == 4 {
+			xmlName := "frontfile" + strconv.Itoa(xmlIndex)
+			xmlStatus, _ := stateHandler.RegisterOrSkipXMLFile(bulkName+"_"+xmlName+".xml", "/DOC/files/")
+			if bulkIndex == 2 && xmlIndex == 4 {
 				return
 			}
-			if xmlstatus == Done {
+			if xmlStatus == Done {
 				continue
 			}
 
-			sqllogger.MarkXMLAsFinished()
+			stateHandler.MarkXMLAsFinished()
 		}
 
-		sqllogger.MarkZipFileAsFinished()
+		stateHandler.MarkZipFileAsFinished()
 	}
 
-	sqllogger.MarkProcessingDirectoryAsFinished()
+	stateHandler.MarkProcessingDirectoryAsFinished()
 }
 
 func TestSQLHandlerFull(t *testing.T) {

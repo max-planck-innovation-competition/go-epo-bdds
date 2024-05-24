@@ -5,7 +5,6 @@ import "gorm.io/gorm"
 // Fitting Name
 // Exchange Lines
 // Delete Down
-//
 type SQLActivityRecorder struct {
 	//initialize these
 	DatabaseName   string //e.g. log.db, for the initializer
@@ -32,6 +31,6 @@ func NewSqlActivityRecorder(DatabaseName string, DatabaseDir string, ProcessingD
 		DatabasePath:   DatabaseDir + DatabaseName,
 		SafeDeleteOnly: false,
 	}
-	p.Inizialize() //Initializes the other fields
+	p.Initialize() //Initializes the other fields
 	return &p
 }

@@ -63,11 +63,11 @@ type ExchangeLineSQL struct {
 	//Finished   *time.Time //changed to pointer
 }
 
-// Loads Last Known State
+// Initialize loads Last Known State
 // Creates DB if there is none
 // returns false if the processing is already finished
 // returns true if there is some processing left to be done
-func (p *SQLActivityRecorder) Inizialize() {
+func (p *SQLActivityRecorder) Initialize() {
 	mydb, err := gorm.Open(sqlite.Open(p.DatabasePath), &gorm.Config{})
 	if err != nil {
 		panic("failed to open " + p.DatabasePath)
@@ -102,26 +102,24 @@ func (p *SQLActivityRecorder) Inizialize() {
 	p.ProcessingDirSQL = processDirSQL
 }
 
-// no if directory.done = false or no entry exists
+// SetSafeDelete no if directory.done = false or no entry exists
 func (p *SQLActivityRecorder) SetSafeDelete(status bool) {
 	p.SafeDeleteOnly = status
 }
 
-// no if directory.done = false or no entry exists
+// GetDirectoryProcessStatus no if directory.done = false or no entry exists
 func (p *SQLActivityRecorder) GetDirectoryProcessStatus() (ProcessStatus, error) {
 	return p.ProcessingDirSQL.Status, nil
 }
 
-// RegisterOrSkip: Returns Done if the Bulk file is already processed
-// _______
+// RegisterOrSkipZipFile returns Done if the Bulk file is already processed
 // If the Bulk file entry does not exist,
 // creates a new one (using the current processDir as foreign key)
-// _______
 // or loads the existing bulk file information if the entry exists but is not done
 func (p *SQLActivityRecorder) RegisterOrSkipZipFile(fileName string) (ProcessStatus, error) {
-	//So a directory has started processing, but never finished, get the last known ZIP File
-	//The Processor starts at the last known ZIP File, not at the specific Exchange Document
-	//find the last unfinished zip file
+	// So a directory has started processing, but never finished, get the last known ZIP File
+	// The Processor starts at the last known ZIP File, not at the specific Exchange Document
+	// find the last unfinished zip file
 	var zipFile ZipFileSQL
 	errBulkFile := p.db.Where("zip_name = ?", fileName).First(&zipFile)
 	if errBulkFile.Error != nil {
@@ -150,16 +148,14 @@ func (p *SQLActivityRecorder) RegisterOrSkipZipFile(fileName string) (ProcessSta
 	return zipFile.Status, nil
 }
 
-// RegisterOrSkip: Returns Done if the Bulk file is already processed
-// _______
+// RegisterOrSkipXMLFile returns Done if the Bulk file is already processed
 // If the XML file entry does not exist,
 // creates a new one (using the current Zip file as foreign key)
-// _______
 // or loads the existing bulk file information if the entry exists but is not done
 func (p *SQLActivityRecorder) RegisterOrSkipXMLFile(fileName string, innerZipPath string) (ProcessStatus, error) {
-	//So a directory has started processing, but never finished, get the last known ZIP File
-	//The Processor starts at the last known ZIP File, not at the specific Exchange Document
-	//find the last unfinished zip file
+	// So a directory has started processing, but never finished, get the last known ZIP File
+	// The Processor starts at the last known ZIP File, not at the specific Exchange Document
+	// find the last unfinished zip file
 	var xmlFile XMLFileSQL
 	errXMLFile := p.db.Where("xml_name = ?", fileName).First(&xmlFile)
 	if errXMLFile.Error != nil {
@@ -188,11 +184,9 @@ func (p *SQLActivityRecorder) RegisterOrSkipXMLFile(fileName string, innerZipPat
 	return xmlFile.Status, nil
 }
 
-// RegisterOrSkip: Returns Done if the Bulk file is already processed
-// _______
+// RegisterOrSkipExchangeLine returns Done if the Bulk file is already processed
 // If the XML file entry does not exist,
 // creates a new one (using the current Zip file as foreign key)
-// _______
 // or loads the existing bulk file information if the entry exists but is not done
 func (p *SQLActivityRecorder) RegisterOrSkipExchangeLine(exchangeID string, lineNumber int) (ProcessStatus, error) {
 	//So a directory has started processing, but never finished, get the last known ZIP File
@@ -218,7 +212,7 @@ func (p *SQLActivityRecorder) RegisterOrSkipExchangeLine(exchangeID string, line
 		}
 	}
 
-	//wont be registered if already done
+	// won't be registered if already done
 	if exchangeLine.Status != Done {
 		p.currentExchangeLineSQL = exchangeLine
 	}
@@ -226,7 +220,7 @@ func (p *SQLActivityRecorder) RegisterOrSkipExchangeLine(exchangeID string, line
 	return exchangeLine.Status, nil
 }
 
-// Set status of directory as finished, no deleting downwards
+// MarkProcessingDirectoryAsFinished sets the status of directory as finished, no deleting downwards
 func (p *SQLActivityRecorder) MarkProcessingDirectoryAsFinished() {
 	resultStatus := p.db.Model(&p.ProcessingDirSQL).Update("status", Done)
 
@@ -240,7 +234,7 @@ func (p *SQLActivityRecorder) MarkProcessingDirectoryAsFinished() {
 	}
 }
 
-// If an Zip finishes, delete all recorded XML lines
+// MarkZipFileAsFinished if a finishes, delete all recorded XML lines
 // And mark the Zip as finished, but always keep it
 func (p *SQLActivityRecorder) MarkZipFileAsFinished() {
 	//Delete All Exchange Files belonging to the current XML File
@@ -273,9 +267,9 @@ func (p *SQLActivityRecorder) MarkZipFileAsFinished() {
 	}
 }
 
-// If an XML finishes, delete all recorded exchange lines
+// MarkXMLAsFinished if an XML finishes, delete all recorded exchange lines
 // And mark the XML as finished, but keep it
-// It gets deleted when the whole Zip is finished
+// the xml gets deleted when the whole Zip is finished
 func (p *SQLActivityRecorder) MarkXMLAsFinished() {
 	//Delete All Exchange Files belonging to the current XML File
 	var resultExchangeDelete *gorm.DB
@@ -307,7 +301,7 @@ func (p *SQLActivityRecorder) MarkXMLAsFinished() {
 	}
 }
 
-// Exchange Records only get deleted when the XML is done
+// MarkExchangeAsFinished exchange Records only get deleted when the XML is done
 func (p *SQLActivityRecorder) MarkExchangeAsFinished() {
 	resultStatus := p.db.Model(&p.currentExchangeLineSQL).Update("status", Done)
 
@@ -321,6 +315,7 @@ func (p *SQLActivityRecorder) MarkExchangeAsFinished() {
 	}
 }
 
+// IsDirectoryFinished returns true if the directory is finished
 func (p *SQLActivityRecorder) IsDirectoryFinished() bool {
 	return p.ProcessingDirSQL.Status == Done
 }
