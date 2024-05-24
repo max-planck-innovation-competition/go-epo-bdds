@@ -35,7 +35,12 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 		slog.With("err", err).Error("failed to create file")
 		return
 	}
-	defer out.Close()
+	defer func(out *os.File) {
+		err := out.Close()
+		if err != nil {
+			slog.With("err", err).Error("failed to close file")
+		}
+	}(out)
 	// download file
 	req, err := http.NewRequestWithContext(context.TODO(), "GET", endpoint, strings.NewReader(""))
 	if err != nil {

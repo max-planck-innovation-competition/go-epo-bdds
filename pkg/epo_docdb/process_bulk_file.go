@@ -6,23 +6,22 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/state_handler"
 	"io"
 	"io/fs"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"regexp"
 	"sort"
 	"strings"
-
-	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/epo_bbds/epo_docdb_sqlactivityrecorder"
-	log "github.com/sirupsen/logrus" //TODO evtl mit slog austauschen
 )
 
 // Processor creates a
 type Processor struct {
 	ContentHandler   ContentHandler
 	includeCountries map[string]struct{}
-	SqlRecorder      epo_docdb_sqlactivityrecorder.SQLActivityRecorder
+	StateHandler     state_handler.StateHandler
 }
 
 // NewProcessor creates a new processor
@@ -30,11 +29,11 @@ type Processor struct {
 func NewProcessor() *Processor {
 	//We do not initialize it, since initializing it would set the directory
 	//We do that in ProcessDirectory
-	sqlrecorder := epo_docdb_sqlactivityrecorder.SQLActivityRecorder{}
+	stateHandler := state_handler.StateHandler{}
 
 	p := Processor{
 		ContentHandler: PrintLineHandler,
-		SqlRecorder:    sqlrecorder,
+		StateHandler:   stateHandler,
 	}
 	return &p
 }
@@ -43,11 +42,11 @@ func NewProcessor() *Processor {
 // the default handler is FileExporterLineHandler
 func NewFileExportProcessor(destinationPath string) *Processor {
 	handler := FileExporterLineHandler(destinationPath)
-	sqlrecorder := epo_docdb_sqlactivityrecorder.SQLActivityRecorder{}
+	stateHandler := state_handler.StateHandler{}
 
 	p := Processor{
 		ContentHandler: handler,
-		SqlRecorder:    sqlrecorder,
+		StateHandler:   stateHandler,
 	}
 	return &p
 }
@@ -59,8 +58,8 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	return p
 }
 
-func (p *Processor) SetSqlRecorder(recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder) *Processor {
-	p.SqlRecorder = recorder
+func (p *Processor) SetSqlRecorder(recorder state_handler.StateHandler) *Processor {
+	p.StateHandler = recorder
 	return p
 }
 
@@ -76,20 +75,20 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 }
 
 // ContentHandler is a function that handles the content of a file
-type ContentHandler func(fileName, fileContent string, recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder)
+type ContentHandler func(fileName, fileContent string, recorder state_handler.StateHandler)
 
 // regexFileName is used to extract the filename by using attributes from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
 
 // ProcessDirectory processes a directory
 func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
-	logger := log.WithField("workingDirectoryPath", workingDirectoryPath)
+	logger := slog.With("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
 
-	//SqlRecorder
-	recorder := epo_docdb_sqlactivityrecorder.NewSqlActivityRecorder("log.db", "./", workingDirectoryPath)
+	//StateHandler
+	recorder := state_handler.NewStateHandler("log.db", "./", workingDirectoryPath)
 	recorder.SetSafeDelete(true)
-	p.SqlRecorder = *recorder
+	p.StateHandler = *recorder
 
 	filePaths := []string{}
 
@@ -108,7 +107,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		return nil
 	})
 	if err != nil {
-		logger.WithError(err).Error("failed to walk dir")
+		logger.With("err", err).Error("failed to walk dir")
 		return err
 	}
 	// order files ascending
@@ -118,7 +117,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	for _, filePath := range filePaths {
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
-			logger.WithError(err).Error("failed to process bulk zip file")
+			logger.With("err", err).Error("failed to process bulk zip file")
 			return err
 		}
 	}
@@ -130,13 +129,13 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 
 // ProcessBulkZipFile processes a bulk zip file
 func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
-	logger := log.WithField("filePath", filePath)
+	logger := slog.With("filePath", filePath)
 	logger.Info("start reading file")
 
 	// read the bulk zip file
 	reader, err := zip.OpenReader(filePath)
 	if err != nil {
-		logger.WithError(err).Error("failed to open bulk zip file")
+		logger.With("err", err).Error("failed to open bulk zip file")
 		return err
 	}
 	err = fs.WalkDir(reader, ".", func(path string, d fs.DirEntry, err error) error {
@@ -147,60 +146,57 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
 
-			//Disable Country check for now
-			/*
-				// skip countries that are not in the list of countries to include
-				if len(p.includeCountries) > 0 {
-					// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
-					var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
-					fileName := filepath.Base(path)
-					// check if the file name contains a country
-					country := countryRegex.FindStringSubmatch(fileName)
-					if len(country) == 2 {
-						c := strings.ToUpper(country[1])
-						// check if the country is in the list of countries to include
-						if _, ok := p.includeCountries[c]; !ok {
-							// skip this file
-							logger.WithField("country", c).Info("skipping file")
-							return nil
-						} else {
-							logger.WithField("country", c).Info("including file")
-						}
+			// skip countries that are not in the list of countries to include
+			if len(p.includeCountries) > 0 {
+				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
+				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
+				fileName := filepath.Base(path)
+				// check if the file name contains a country
+				country := countryRegex.FindStringSubmatch(fileName)
+				if len(country) == 2 {
+					c := strings.ToUpper(country[1])
+					// check if the country is in the list of countries to include
+					if _, ok := p.includeCountries[c]; !ok {
+						// skip this file
+						logger.With("country", c).Info("skipping file")
+						return nil
+					} else {
+						logger.With("country", c).Info("including file")
 					}
-				}*/
+				}
+			}
 
 			f, errOpen := reader.Open(path)
-
 			if errOpen != nil {
 				err = errOpen
-				logger.WithError(err).Error("failed to open file")
+				logger.With("err", err).Error("failed to open file")
 				return err
 			}
-			logger.WithField("zipFile", path).Info("found zip file")
+			logger.With("zipFile", path).Info("found zip file")
 
-			//SqlRecorder
-			bulkstatus, _ := p.SqlRecorder.RegisterOrSkipZipFile(path)
-			if bulkstatus == epo_docdb_sqlactivityrecorder.Done {
-				//if already done, skip
+			//StateHandler
+			bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
+			if bulkState == state_handler.Done {
+				// if already done, skip
 				return nil
 			}
 			fmt.Println("Test Zip Name: " + path)
 
-			p.processZipFile(logger, f)
+			p.ProcessZipFile(logger, f)
 
-			p.SqlRecorder.MarkZipFileAsFinished()
+			p.StateHandler.MarkZipFileAsFinished()
 		}
 		// default (other files)
 		return nil
 	})
 	if err != nil {
-		logger.WithError(err).Error("failed to walk dir")
+		logger.With("err", err).Error("failed to walk dir")
 		return err
 	}
 	// close
 	err = reader.Close()
 	if err != nil {
-		logger.WithError(err).Error("failed to close bulk zip file")
+		logger.With("err", err).Error("failed to close bulk zip file")
 		return err
 	}
 
@@ -208,63 +204,59 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	return
 }
 
-// Added this to make it public for the test file, remove later.
-func (p *Processor) ProcessZipFileProxy(logger *log.Entry, f fs.File) {
-	p.processZipFile(logger, f)
-}
-
-// processZipFile processes a bulk zip file
-func (p *Processor) processZipFile(logger *log.Entry, f fs.File) {
+// ProcessZipFile processes a bulk zip file
+func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
 	stats, _ := f.Stat()
-	logger = logger.WithField("zipFile", stats.Name())
+	logger = logger.With("zipFile", stats.Name())
 	// read file
 	data, err := io.ReadAll(f)
 	if err != nil {
-		log.Fatal(err)
+		logger.With("err", err).Error("failed to read zip file")
+		return
 	}
 
 	zipReader, err := zip.NewReader(bytes.NewReader(data), int64(len(data)))
 	if err != nil {
-		log.Fatal(err)
+		logger.With("err", err).Error("failed to read zip file")
+		return
 	}
 
 	// Read all the files from zip archive
 	for _, zipFile := range zipReader.File {
-		logger.WithField("xmlFile", zipFile.Name).Info("child found")
+		logger.With("xmlFile", zipFile.Name).Info("child found")
 		//zipFile.Name
-		xmlstatus, _ := p.SqlRecorder.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
-		if xmlstatus == epo_docdb_sqlactivityrecorder.Done {
+		xmlstatus, _ := p.StateHandler.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
+		if xmlstatus == state_handler.Done {
 			//if already done, skip
 			continue
 		}
-		err = p.processZipFileContent(logger, zipFile)
-		p.SqlRecorder.MarkXMLAsFinished()
+		err = p.ProcessZipFileContent(logger, zipFile)
+		p.StateHandler.MarkXMLAsFinished()
 		if err != nil {
-			logger.WithError(err).Error("failed to process zip file content")
+			logger.With("err", err).Error("failed to process zip file content")
 			return
 		}
 	}
 
 }
 
-// processZipFileContent processes a zip file content
-// same as
-func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (err error) {
-	logger = log.WithField("xmlFile", file.Name)
+// ProcessZipFileContent processes a zip file content
+func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (err error) {
+	logger = logger.With("xmlFile", file.Name)
 	logger.Info("process xml file")
 	ctx := context.TODO()
 	fc, err := file.Open()
 	if err != nil {
 		msg := "failed to open zip %s for reading: %s"
 		err = fmt.Errorf(msg, file.Name, err)
-		logger.Error(err)
+		logger.With("err", err).Error("failed to open zip file")
 		return
 	}
 	defer func() {
 		errClose := fc.Close()
 		if errClose != nil {
 			ctx.Done()
-			logger.Fatalf("Failed to close file: %s", errClose)
+			logger.With("err", errClose).Error("Failed to close file")
 		}
 	}()
 	// scan file
@@ -315,13 +307,13 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 				if len(regexExtractionResults) == 0 {
 					msg := "failed extract filename"
 					err = fmt.Errorf(msg)
-					logger.Error(err)
+					logger.With("line", line).With("err", err).Error("failed to extract filename")
 					return
 				}
 				if len(regexExtractionResults) != 1 && len(regexExtractionResults[0]) != 1 {
 					msg := "failed extract filename"
 					err = fmt.Errorf(msg)
-					logger.Error(err)
+					logger.With("line", line).With("err", err).Error("failed to extract filename")
 					return
 				}
 				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + ".xml"
@@ -329,19 +321,19 @@ func (p *Processor) processZipFileContent(logger *log.Entry, file *zip.File) (er
 				lineContent.WriteString(line)
 				// if the line also contains the end of the file
 				if strings.Contains(line, "</exch:exchange-document>") {
-					p.ContentHandler(fileName, lineContent.String(), p.SqlRecorder)
+					p.ContentHandler(fileName, lineContent.String(), p.StateHandler)
 					lineContent.Reset()
 					fileName = ""
 					continue
 				}
 			} else {
-				log.WithField("line", line).Error("failed to split line")
+				slog.With("line", line).Error("failed to split line")
 			}
 		} else {
 			// if the line contains the end of the file
 			if strings.Contains(line, "</exch:exchange-document>") {
 				lineContent.WriteString(line)
-				p.ContentHandler(fileName, lineContent.String(), p.SqlRecorder)
+				p.ContentHandler(fileName, lineContent.String(), p.StateHandler)
 				lineContent.Reset()
 				fileName = ""
 				continue

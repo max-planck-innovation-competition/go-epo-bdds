@@ -1,4 +1,4 @@
-package epo_docdb_sqlactivityrecorder
+package state_handler
 
 import (
 	"errors"
@@ -67,7 +67,7 @@ type ExchangeLineSQL struct {
 // Creates DB if there is none
 // returns false if the processing is already finished
 // returns true if there is some processing left to be done
-func (p *SQLActivityRecorder) Initialize() {
+func (p *StateHandler) Initialize() {
 	mydb, err := gorm.Open(sqlite.Open(p.DatabasePath), &gorm.Config{})
 	if err != nil {
 		panic("failed to open " + p.DatabasePath)
@@ -103,12 +103,12 @@ func (p *SQLActivityRecorder) Initialize() {
 }
 
 // SetSafeDelete no if directory.done = false or no entry exists
-func (p *SQLActivityRecorder) SetSafeDelete(status bool) {
+func (p *StateHandler) SetSafeDelete(status bool) {
 	p.SafeDeleteOnly = status
 }
 
 // GetDirectoryProcessStatus no if directory.done = false or no entry exists
-func (p *SQLActivityRecorder) GetDirectoryProcessStatus() (ProcessStatus, error) {
+func (p *StateHandler) GetDirectoryProcessStatus() (ProcessStatus, error) {
 	return p.ProcessingDirSQL.Status, nil
 }
 
@@ -116,7 +116,7 @@ func (p *SQLActivityRecorder) GetDirectoryProcessStatus() (ProcessStatus, error)
 // If the Bulk file entry does not exist,
 // creates a new one (using the current processDir as foreign key)
 // or loads the existing bulk file information if the entry exists but is not done
-func (p *SQLActivityRecorder) RegisterOrSkipZipFile(fileName string) (ProcessStatus, error) {
+func (p *StateHandler) RegisterOrSkipZipFile(fileName string) (ProcessStatus, error) {
 	// So a directory has started processing, but never finished, get the last known ZIP File
 	// The Processor starts at the last known ZIP File, not at the specific Exchange Document
 	// find the last unfinished zip file
@@ -152,7 +152,7 @@ func (p *SQLActivityRecorder) RegisterOrSkipZipFile(fileName string) (ProcessSta
 // If the XML file entry does not exist,
 // creates a new one (using the current Zip file as foreign key)
 // or loads the existing bulk file information if the entry exists but is not done
-func (p *SQLActivityRecorder) RegisterOrSkipXMLFile(fileName string, innerZipPath string) (ProcessStatus, error) {
+func (p *StateHandler) RegisterOrSkipXMLFile(fileName string, innerZipPath string) (ProcessStatus, error) {
 	// So a directory has started processing, but never finished, get the last known ZIP File
 	// The Processor starts at the last known ZIP File, not at the specific Exchange Document
 	// find the last unfinished zip file
@@ -188,7 +188,7 @@ func (p *SQLActivityRecorder) RegisterOrSkipXMLFile(fileName string, innerZipPat
 // If the XML file entry does not exist,
 // creates a new one (using the current Zip file as foreign key)
 // or loads the existing bulk file information if the entry exists but is not done
-func (p *SQLActivityRecorder) RegisterOrSkipExchangeLine(exchangeID string, lineNumber int) (ProcessStatus, error) {
+func (p *StateHandler) RegisterOrSkipExchangeLine(exchangeID string, lineNumber int) (ProcessStatus, error) {
 	//So a directory has started processing, but never finished, get the last known ZIP File
 	//The Processor starts at the last known ZIP File, not at the specific Exchange Document
 	//find the last unfinished zip file
@@ -221,7 +221,7 @@ func (p *SQLActivityRecorder) RegisterOrSkipExchangeLine(exchangeID string, line
 }
 
 // MarkProcessingDirectoryAsFinished sets the status of directory as finished, no deleting downwards
-func (p *SQLActivityRecorder) MarkProcessingDirectoryAsFinished() {
+func (p *StateHandler) MarkProcessingDirectoryAsFinished() {
 	resultStatus := p.db.Model(&p.ProcessingDirSQL).Update("status", Done)
 
 	if resultStatus.Error != nil {
@@ -236,7 +236,7 @@ func (p *SQLActivityRecorder) MarkProcessingDirectoryAsFinished() {
 
 // MarkZipFileAsFinished if a finishes, delete all recorded XML lines
 // And mark the Zip as finished, but always keep it
-func (p *SQLActivityRecorder) MarkZipFileAsFinished() {
+func (p *StateHandler) MarkZipFileAsFinished() {
 	//Delete All Exchange Files belonging to the current XML File
 	var resultXMLDelete *gorm.DB
 
@@ -270,7 +270,7 @@ func (p *SQLActivityRecorder) MarkZipFileAsFinished() {
 // MarkXMLAsFinished if an XML finishes, delete all recorded exchange lines
 // And mark the XML as finished, but keep it
 // the xml gets deleted when the whole Zip is finished
-func (p *SQLActivityRecorder) MarkXMLAsFinished() {
+func (p *StateHandler) MarkXMLAsFinished() {
 	//Delete All Exchange Files belonging to the current XML File
 	var resultExchangeDelete *gorm.DB
 
@@ -302,7 +302,7 @@ func (p *SQLActivityRecorder) MarkXMLAsFinished() {
 }
 
 // MarkExchangeAsFinished exchange Records only get deleted when the XML is done
-func (p *SQLActivityRecorder) MarkExchangeAsFinished() {
+func (p *StateHandler) MarkExchangeAsFinished() {
 	resultStatus := p.db.Model(&p.currentExchangeLineSQL).Update("status", Done)
 
 	if resultStatus.Error != nil {
@@ -316,6 +316,6 @@ func (p *SQLActivityRecorder) MarkExchangeAsFinished() {
 }
 
 // IsDirectoryFinished returns true if the directory is finished
-func (p *SQLActivityRecorder) IsDirectoryFinished() bool {
+func (p *StateHandler) IsDirectoryFinished() bool {
 	return p.ProcessingDirSQL.Status == Done
 }

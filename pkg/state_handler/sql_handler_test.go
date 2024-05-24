@@ -1,4 +1,4 @@
-package epo_docdb_sqlactivityrecorder
+package state_handler
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestSQLHandlerBreakMiddle(t *testing.T) {
-	stateHandler := NewSqlActivityRecorder("log.db", "./", "C:\\docdb")
+	stateHandler := NewStateHandler("log.db", "./", "C:\\docdb")
 	fmt.Println(stateHandler)
 	if stateHandler.IsDirectoryFinished() {
 		return
@@ -41,7 +41,7 @@ func TestSQLHandlerBreakMiddle(t *testing.T) {
 }
 
 func TestSQLHandlerFull(t *testing.T) {
-	sqllogger := NewSqlActivityRecorder("log.db", "./", "C:\\docdb")
+	sqllogger := NewStateHandler("log.db", "./", "C:\\docdb")
 	sqllogger.SetSafeDelete(true)
 	fmt.Println(sqllogger)
 	if sqllogger.IsDirectoryFinished() {

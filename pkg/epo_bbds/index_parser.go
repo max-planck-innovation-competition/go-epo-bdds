@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -61,12 +62,12 @@ func ParseIndexXML(filename string) (indexObject DocdbPackageIndex, err error) {
 	// Read the XML file
 	data, err := os.ReadFile(filename)
 	if err != nil {
-		log.Printf("Failed to read file: %s\n", err.Error())
+		slog.With("err", err).Error("failed to read file")
 		return
 	}
 	err = xml.Unmarshal(data, &indexObject)
 	if err != nil {
-		log.Printf("Failed to parse XML: %s\n", err.Error())
+		slog.With("err", err).Error("failed to unmarshal xml")
 		return
 	}
 	return indexObject, nil
@@ -81,6 +82,7 @@ func readCsv(filePath string) ([][]string, error) {
 	defer func(file *os.File) {
 		err := file.Close()
 		if err != nil {
+			slog.With("err", err).Error("couldn't close file")
 		}
 	}(file)
 

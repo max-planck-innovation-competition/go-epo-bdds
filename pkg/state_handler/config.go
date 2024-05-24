@@ -1,11 +1,12 @@
-package epo_docdb_sqlactivityrecorder
+package state_handler
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+	"path/filepath"
+)
 
-// Fitting Name
-// Exchange Lines
-// Delete Down
-type SQLActivityRecorder struct {
+// StateHandler contains the config for the state handler
+type StateHandler struct {
 	//initialize these
 	DatabaseName   string //e.g. log.db, for the initializer
 	DatabaseDir    string //path of the .db, e.g. C:\docdb\ or .\ for relative path
@@ -21,16 +22,16 @@ type SQLActivityRecorder struct {
 	db                     *gorm.DB
 }
 
-// NewProcessor creates a new processor
+// NewStateHandler creates a new state handler
 // the default handler is PrintLineHandler
-func NewSqlActivityRecorder(DatabaseName string, DatabaseDir string, ProcessingDir string) *SQLActivityRecorder {
-	p := SQLActivityRecorder{
-		DatabaseName:   DatabaseName,
-		DatabaseDir:    DatabaseDir,
-		ProcessingDir:  ProcessingDir,
-		DatabasePath:   DatabaseDir + DatabaseName,
+func NewStateHandler(databaseName string, databaseDir string, processingDir string) *StateHandler {
+	stateHandler := StateHandler{
+		DatabaseName:   databaseName,
+		DatabaseDir:    databaseDir,
+		ProcessingDir:  processingDir,
+		DatabasePath:   filepath.Join(databaseDir, databaseName),
 		SafeDeleteOnly: false,
 	}
-	p.Initialize() //Initializes the other fields
-	return &p
+	stateHandler.Initialize() //Initializes the other fields
+	return &stateHandler
 }

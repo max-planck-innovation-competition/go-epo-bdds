@@ -5,7 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	log "github.com/sirupsen/logrus"
+	"io"
+	"log/slog"
 	"net/http"
 	"os"
 	"strings"
@@ -33,14 +34,14 @@ func GetAuthorizationToken() (token string, err error) {
 	epoUserName := os.Getenv("EPO_USERNAME")
 	if epoUserName == "" {
 		err = errors.New("no epo username set")
-		log.WithError(err).Error("no epo username set")
+		slog.With("err", err).Error("no epo username set")
 		return
 	}
 
 	epoPassword := os.Getenv("EPO_PASSWORD")
 	if epoPassword == "" {
 		err = errors.New("no epo password set")
-		log.WithError(err).Error("no epo password set")
+		slog.With("err", err).Error("no epo password set")
 		return
 	}
 
@@ -52,7 +53,7 @@ func GetAuthorizationToken() (token string, err error) {
 
 	req, err := http.NewRequestWithContext(ctx, "POST", EpoLoginEndpoint, strings.NewReader(payload))
 	if err != nil {
-		log.WithError(err).Error("failed to create new request")
+		slog.With("err", err).Error("failed to create new request")
 		return
 	}
 	// add header
@@ -62,28 +63,33 @@ func GetAuthorizationToken() (token string, err error) {
 	// send request
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		log.WithError(err).Error("failed to send request")
+		slog.With("err", err).Error("failed to send request")
 		return
 	}
 	// check status code
 	if resp.StatusCode != 200 {
 		err = ErrNo200StatusCode
-		log.WithError(err).Error("server responded with non 200 status code")
+		slog.With("err", err).With("statusCode", resp.StatusCode).Error("no 200 status code")
 		return
 	}
 	// close response body
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			slog.With("err", err).Error("failed to close body")
+		}
+	}(resp.Body)
 	var response TokenResponse
 	// parse response
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		log.WithError(err).Error("failed to parse response")
+		slog.With("err", err).Error("failed to decode response")
 		return
 	}
 	// check if token is contained in response
 	if response.AccessToken == "" {
 		err = ErrNoAccessToken
-		log.WithError(err).Error("no access token in response")
+		slog.With("err", err).Error("no access token in response")
 		return
 	}
 	return buildAuthToken(response)
@@ -94,13 +100,13 @@ func buildAuthToken(tokenResponse TokenResponse) (token string, err error) {
 	// check if not empty
 	if tokenResponse.TokenType == "" {
 		err = ErrNoAccessToken
-		log.WithError(err).Error("no token type in response")
+		slog.With("err", err).Error("no access token in response")
 		return
 	}
 	// check if not empty
 	if tokenResponse.AccessToken == "" {
 		err = ErrNoAccessToken
-		log.WithError(err).Error("no access token in response")
+		slog.With("err", err).Error("no access token in response")
 		return
 	}
 	// build token
