@@ -2,10 +2,10 @@ package epo_bbds
 
 import (
 	"fmt"
+	"os"
 	"sort"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 )
 
@@ -129,7 +129,11 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 }
 
 func TestDownloadDocDbBackFiles(t *testing.T) {
-	destinationPath := "/media/oem/Volume/docdb/backfiles_2024_02_27"
+	destinationPath := os.Getenv("DOCDB_FILE_PATH")
+	if len(destinationPath) == 0 {
+		t.Error("no file path found")
+		return
+	}
 	err := DownloadAllFiles(EpoDocDBBackFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
@@ -138,7 +142,11 @@ func TestDownloadDocDbBackFiles(t *testing.T) {
 }
 
 func TestDownloadDocDbFrontFiles(t *testing.T) {
-	destinationPath := "/media/seb/T18-1/docdb-frontfiles"
+	destinationPath := os.Getenv("DOCDB_FILE_PATH")
+	if len(destinationPath) == 0 {
+		t.Error("no file path found")
+		return
+	}
 	err := DownloadAllFiles(EpoDocDBFrontFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
