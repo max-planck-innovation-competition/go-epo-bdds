@@ -11,8 +11,6 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-
-	"github.com/schollz/progressbar/v3"
 )
 
 // ErrCanNotDownload is thrown if the download is not possible
@@ -52,20 +50,12 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 		slog.With("err", err).Error("failed to send request")
 		return
 	}
-	defer resp.Body.Close()
-
-	// progress bar
-	tempFilePath := path + ".tmp"
-	tempFileHandle, _ := os.OpenFile(tempFilePath, os.O_CREATE|os.O_WRONLY, 0644)
-
-	bar := progressbar.DefaultBytes(
-		resp.ContentLength,
-		"downloading",
-	)
-	fmt.Println("starting multiwriter")
-	io.Copy(io.MultiWriter(tempFileHandle, bar), resp.Body)
-	fmt.Println("renaming temp file")
-	os.Rename(tempFilePath, path)
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			slog.With("err", err).Error("failed to close body")
+		}
+	}(resp.Body)
 
 	// check status code
 	if resp.StatusCode != http.StatusOK {
