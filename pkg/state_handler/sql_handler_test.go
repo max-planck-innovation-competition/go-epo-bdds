@@ -7,6 +7,7 @@ import (
 )
 
 func TestSQLHandlerBreakMiddle(t *testing.T) {
+	// TODO: windows directory as env variable
 	stateHandler := NewStateHandler("log.db", "./", "C:\\docdb")
 	fmt.Println(stateHandler)
 	if stateHandler.IsDirectoryFinished() {

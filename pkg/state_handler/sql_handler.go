@@ -3,6 +3,7 @@ package state_handler
 import (
 	"errors"
 	"fmt"
+	"log/slog"
 	"strconv"
 
 	"gorm.io/driver/sqlite"
@@ -75,7 +76,11 @@ func (p *StateHandler) Initialize() {
 
 	p.db = mydb
 	//this will create the database, or simply use it if it does not exist
-	p.db.AutoMigrate(&ProcessDirectorySQL{}, &ZipFileSQL{}, &XMLFileSQL{}, &ExchangeLineSQL{})
+	err = p.db.AutoMigrate(&ProcessDirectorySQL{}, &ZipFileSQL{}, &XMLFileSQL{}, &ExchangeLineSQL{})
+	if err != nil {
+		slog.With("err", err).Error("could not migrate")
+		return
+	}
 
 	//Load the Process Dir Struct if it doesnt exist
 	var processDirSQL ProcessDirectorySQL
