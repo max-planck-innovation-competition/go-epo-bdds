@@ -2,9 +2,11 @@ package epo_docdb
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"os"
 	"path/filepath"
+
+	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/epo_bbds/epo_docdb_sqlactivityrecorder"
+	log "github.com/sirupsen/logrus"
 )
 
 // FileExporterLineHandler processes the files and saves them in the destination folder
@@ -26,6 +28,7 @@ func FileExporterLineHandler(destinationFolderPath string) ContentHandler {
 	return func(
 		fileName string,
 		fileContent string,
+		recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder, //dummy
 	) {
 		// join path
 		filePath := filepath.Join(destinationFolderPath, fileName)
@@ -64,6 +67,7 @@ func SaveFile(
 func PrintLineHandler(
 	fileName string,
 	fileContent string,
+	recorder epo_docdb_sqlactivityrecorder.SQLActivityRecorder,
 ) {
 	fmt.Println(fileName, fileContent)
 }

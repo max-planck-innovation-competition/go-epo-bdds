@@ -24,7 +24,7 @@ func (tr Trimmer) Token() (xml.Token, error) {
 	return t, err
 }
 
-// ParseXmlFileToStruct reads a file and returns the ExchangeDocument
+// ParseXmlFileToStruct reads a whole filepath (XML) and returns the ExchangeDocument
 func ParseXmlFileToStruct(filepath string) (doc *Exchangedocument, err error) {
 	logger := slog.With("filepath", filepath)
 	// read file
@@ -36,7 +36,7 @@ func ParseXmlFileToStruct(filepath string) (doc *Exchangedocument, err error) {
 	return ParseXmlStringToStruct(string(data))
 }
 
-// ParseXmlStringToStruct reads a string and returns the ExchangeDocument
+// ParseXmlStringToStruct gets the XML content and returns the ExchangeDocument
 func ParseXmlStringToStruct(data string) (doc *Exchangedocument, err error) {
 	// replace bytes
 	xmlString := strings.Replace(data, "<exch:", "<", -1)
