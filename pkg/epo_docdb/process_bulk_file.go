@@ -162,7 +162,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 			}
 
 			// StateHandler
-			if p.StateHandler == nil {
+			if p.StateHandler != nil {
 				bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
 				if bulkState == state_handler.Done {
 					// if already done, skip
