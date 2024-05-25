@@ -70,7 +70,7 @@ func TestSQLHandlerFull(t *testing.T) {
 					continue
 				}
 
-				sqllogger.MarkExchangeAsFinished()
+				sqllogger.MarkExchangeFileAsFinished()
 			}
 
 			sqllogger.MarkXMLAsFinished()

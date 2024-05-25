@@ -21,19 +21,14 @@ import (
 type Processor struct {
 	ContentHandler   ContentHandler
 	includeCountries map[string]struct{}
-	StateHandler     state_handler.StateHandler
+	StateHandler     *state_handler.StateHandler
 }
 
 // NewProcessor creates a new processor
 // the default handler is PrintLineHandler
 func NewProcessor() *Processor {
-	//We do not initialize it, since initializing it would set the directory
-	//We do that in ProcessDirectory
-	stateHandler := state_handler.StateHandler{}
-
 	p := Processor{
 		ContentHandler: PrintLineHandler,
-		StateHandler:   stateHandler,
 	}
 	return &p
 }
@@ -42,11 +37,8 @@ func NewProcessor() *Processor {
 // the default handler is FileExporterLineHandler
 func NewFileExportProcessor(destinationPath string) *Processor {
 	handler := FileExporterLineHandler(destinationPath)
-	stateHandler := state_handler.StateHandler{}
-
 	p := Processor{
 		ContentHandler: handler,
-		StateHandler:   stateHandler,
 	}
 	return &p
 }
@@ -58,8 +50,8 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	return p
 }
 
-func (p *Processor) SetSqlRecorder(recorder state_handler.StateHandler) *Processor {
-	p.StateHandler = recorder
+func (p *Processor) SetStateHandler(stateHandler state_handler.StateHandler) *Processor {
+	p.StateHandler = &stateHandler
 	return p
 }
 
@@ -75,7 +67,7 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 }
 
 // ContentHandler is a function that handles the content of a file
-type ContentHandler func(fileName, fileContent string, recorder state_handler.StateHandler)
+type ContentHandler func(fileName, fileContent string)
 
 // regexFileName is used to extract the filename by using attributes from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
@@ -85,13 +77,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	logger := slog.With("workingDirectoryPath", workingDirectoryPath)
 	logger.Info("start reading file")
 
-	//StateHandler
-	recorder := state_handler.NewStateHandler("log.db", "./", workingDirectoryPath)
-	recorder.SetSafeDelete(true)
-	p.StateHandler = *recorder
-
 	filePaths := []string{}
-
 	// read the bulk zip file
 	err = fs.WalkDir(os.DirFS(workingDirectoryPath), ".", func(path string, d fs.DirEntry, err error) error {
 		// check if dir
@@ -115,6 +101,15 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 
 	// iterate over files
 	for _, filePath := range filePaths {
+		// check if state handler is set
+		if p.StateHandler != nil {
+			// check if the file is already done
+			state, _ := p.StateHandler.RegisterOrSkipZipFile(filePath)
+			if state == state_handler.Done {
+				// if already done, skip
+				continue
+			}
+		}
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
 			logger.With("err", err).Error("failed to process bulk zip file")
@@ -166,25 +161,33 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				}
 			}
 
+			// StateHandler
+			if p.StateHandler == nil {
+				bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
+				if bulkState == state_handler.Done {
+					// if already done, skip
+					logger.With("zipFile", path).Info("skipping zip file")
+					return nil
+				}
+			}
+
+			// open file
 			f, errOpen := reader.Open(path)
 			if errOpen != nil {
 				err = errOpen
 				logger.With("err", err).Error("failed to open file")
 				return err
 			}
+
 			logger.With("zipFile", path).Info("found zip file")
-
-			//StateHandler
-			bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
-			if bulkState == state_handler.Done {
-				// if already done, skip
-				return nil
-			}
-			fmt.Println("Test Zip Name: " + path)
-
+			// process zip file
 			p.ProcessZipFile(logger, f)
 
-			p.StateHandler.MarkZipFileAsFinished()
+			// mark zip file as finished
+			if p.StateHandler != nil {
+				p.StateHandler.MarkZipFileAsFinished()
+			}
+
 		}
 		// default (other files)
 		return nil
@@ -214,27 +217,35 @@ func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
 		logger.With("err", err).Error("failed to read zip file")
 		return
 	}
-
+	// create a new zip reader
 	zipReader, err := zip.NewReader(bytes.NewReader(data), int64(len(data)))
 	if err != nil {
 		logger.With("err", err).Error("failed to read zip file")
 		return
 	}
 
-	// Read all the files from zip archive
+	// read all the files from zip archive
 	for _, zipFile := range zipReader.File {
 		logger.With("xmlFile", zipFile.Name).Info("child found")
-		//zipFile.Name
-		xmlstatus, _ := p.StateHandler.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
-		if xmlstatus == state_handler.Done {
-			//if already done, skip
-			continue
+		// check state handler
+		if p.StateHandler != nil {
+			// check if the file is already done
+			xmlStatus, _ := p.StateHandler.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
+			if xmlStatus == state_handler.Done {
+				// if already done, skip
+				logger.Info("skipping xml file")
+				continue
+			}
 		}
+		// process zip file content
 		err = p.ProcessZipFileContent(logger, zipFile)
-		p.StateHandler.MarkXMLAsFinished()
 		if err != nil {
 			logger.With("err", err).Error("failed to process zip file content")
 			return
+		}
+		// mark xml as finished
+		if p.StateHandler != nil {
+			p.StateHandler.MarkXMLAsFinished()
 		}
 	}
 
@@ -321,9 +332,12 @@ func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (
 				lineContent.WriteString(line)
 				// if the line also contains the end of the file
 				if strings.Contains(line, "</exch:exchange-document>") {
-					p.ContentHandler(fileName, lineContent.String(), p.StateHandler)
+					p.ContentHandler(fileName, lineContent.String())
 					lineContent.Reset()
 					fileName = ""
+					if p.StateHandler != nil {
+						p.StateHandler.MarkExchangeFileAsFinished()
+					}
 					continue
 				}
 			} else {
@@ -333,9 +347,12 @@ func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (
 			// if the line contains the end of the file
 			if strings.Contains(line, "</exch:exchange-document>") {
 				lineContent.WriteString(line)
-				p.ContentHandler(fileName, lineContent.String(), p.StateHandler)
+				p.ContentHandler(fileName, lineContent.String())
 				lineContent.Reset()
 				fileName = ""
+				if p.StateHandler != nil {
+					p.StateHandler.MarkExchangeFileAsFinished()
+				}
 				continue
 			}
 			lineContent.WriteString(line)

@@ -2,7 +2,6 @@ package epo_docdb
 
 import (
 	"fmt"
-	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/state_handler"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -27,7 +26,6 @@ func FileExporterLineHandler(destinationFolderPath string) ContentHandler {
 	return func(
 		fileName string,
 		fileContent string,
-		recorder state_handler.StateHandler, //dummy
 	) {
 		// join path
 		filePath := filepath.Join(destinationFolderPath, fileName)
@@ -64,7 +62,6 @@ func SaveFile(
 func PrintLineHandler(
 	fileName string,
 	fileContent string,
-	recorder state_handler.StateHandler,
 ) {
 	fmt.Println(fileName, fileContent)
 }
