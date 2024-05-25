@@ -50,8 +50,8 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	return p
 }
 
-func (p *Processor) SetStateHandler(stateHandler state_handler.StateHandler) *Processor {
-	p.StateHandler = &stateHandler
+func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *Processor {
+	p.StateHandler = stateHandler
 	return p
 }
 

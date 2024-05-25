@@ -22,9 +22,8 @@ type StateHandler struct {
 	db                     *gorm.DB
 }
 
-// NewStateHandler creates a new state handler
-// the default handler is PrintLineHandler
-func NewStateHandler(databaseName string, databaseDir string, processingDir string) *StateHandler {
+// New creates a new state handler
+func New(databaseName string, databaseDir string, processingDir string) *StateHandler {
 	stateHandler := StateHandler{
 		DatabaseName:   databaseName,
 		DatabaseDir:    databaseDir,

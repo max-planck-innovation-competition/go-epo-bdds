@@ -73,20 +73,20 @@ type ExchangeLineSQL struct {
 // returns false if the processing is already finished
 // returns true if there is some processing left to be done
 func (sh *StateHandler) Initialize() {
-	mydb, err := gorm.Open(sqlite.Open(sh.DatabasePath), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(sh.DatabasePath), &gorm.Config{})
 	if err != nil {
 		panic("failed to open " + sh.DatabasePath)
 	}
 
-	sh.db = mydb
-	//this will create the database, or simply use it if it does not exist
+	sh.db = db
+	// this will create the tables in the database, or migrate them if they already exist
 	err = sh.db.AutoMigrate(&ProcessDirectorySQL{}, &ZipFileSQL{}, &XMLFileSQL{}, &ExchangeLineSQL{})
 	if err != nil {
 		slog.With("err", err).Error("could not migrate")
 		return
 	}
 
-	//Load the Process Dir Struct if it doesnt exist
+	// Load the Process Dir Struct if it doesn't exist
 	var processDirSQL ProcessDirectorySQL
 
 	dirResult := sh.db.Where("processing_dir = ?", sh.ProcessingDir).First(&processDirSQL)
@@ -107,7 +107,7 @@ func (sh *StateHandler) Initialize() {
 		}
 	}
 
-	//loaded successfully, so cache it in the SqlLogger struct
+	// loaded successfully, so cache it in the SqlLogger struct
 	sh.ProcessingDirSQL = processDirSQL
 }
 

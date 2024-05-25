@@ -8,7 +8,7 @@ import (
 
 func TestSQLHandlerBreakMiddle(t *testing.T) {
 	// TODO: windows directory as env variable
-	stateHandler := NewStateHandler("log.db", "./", "C:\\docdb")
+	stateHandler := New("log.db", "./", "C:\\docdb")
 	fmt.Println(stateHandler)
 	if stateHandler.IsDirectoryFinished() {
 		return
@@ -42,7 +42,7 @@ func TestSQLHandlerBreakMiddle(t *testing.T) {
 }
 
 func TestSQLHandlerFull(t *testing.T) {
-	sqllogger := NewStateHandler("log.db", "./", "C:\\docdb")
+	sqllogger := New("log.db", "./", "C:\\docdb")
 	sqllogger.SetSafeDelete(true)
 	fmt.Println(sqllogger)
 	if sqllogger.IsDirectoryFinished() {
