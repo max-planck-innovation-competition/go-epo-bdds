@@ -2,6 +2,7 @@ package epo_docdb
 
 import (
 	"github.com/stretchr/testify/assert"
+	"os"
 	"testing"
 )
 
@@ -32,9 +33,13 @@ func TestProcessEpFiles2023(t *testing.T) {
 }
 
 func TestProcessDirectory(t *testing.T) {
+	path := os.Getenv("DOCDB_BACKFILES_PATH")
+	if len(path) == 0 {
+		panic("no file path to the backfiles defined")
+	}
 	p := NewProcessor()
 	p.IncludeAuthorities("EP")
-	err := p.ProcessDirectory("/media/oem/Volume/docdb/backfiles")
+	err := p.ProcessDirectory(path)
 	if err != nil {
 		t.Error(err)
 	}
