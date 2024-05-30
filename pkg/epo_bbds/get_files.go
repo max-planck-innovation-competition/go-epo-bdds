@@ -70,7 +70,7 @@ func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response Ep
 	// check status code
 	if resp.StatusCode != 200 {
 		err = ErrNo200StatusCode
-		slog.With("err", err).Error("server responded with non 200 status code")
+		slog.With("err", err).With("statusCode", resp.StatusCode).Error("server responded with non 200 status code")
 		return
 	}
 	// close response body
