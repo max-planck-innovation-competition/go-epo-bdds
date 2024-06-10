@@ -78,6 +78,21 @@ func (p *Processor) IncludeFileTypes(cs ...string) {
 	}
 }
 
+// skipFileBasedOnFileType checks if the file should be skipped
+func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
+	// check if file types are included
+	if len(p.includeFileTypes) > 0 {
+		// iterate over file types
+		for fileType := range p.includeFileTypes {
+			// check if the file type is in the path
+			if !strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 // ContentHandler is a function that handles the content of a file
 type ContentHandler func(fileName, fileContent string)
 
@@ -122,20 +137,12 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 				continue
 			}
 		}
-		// check if file types are included
-		if len(p.includeFileTypes) > 0 {
-			// iterate over file types
-			for fileType := range p.includeFileTypes {
-				// check if the file type is in the path
-				if !strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
-					// skip this file
-					logger.With("fileType", fileType).Info("skipping file")
-					continue
-				} else {
-					logger.With("fileType", fileType).Info("including file")
-				}
-			}
+		// skip file based on file type
+		if p.skipFileBasedOnFileType(filePath) {
+			logger.With("filePath", filePath).Info("skipping file based on file type")
+			continue
 		}
+
 		// process bulk zip file
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
