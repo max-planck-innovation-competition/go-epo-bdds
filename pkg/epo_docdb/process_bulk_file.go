@@ -19,9 +19,9 @@ import (
 
 // Processor creates a
 type Processor struct {
-	ContentHandler   ContentHandler
-	includeCountries map[string]struct{}
-	StateHandler     *state_handler.StateHandler
+	ContentHandler     ContentHandler
+	includeAuthorities map[string]struct{}
+	StateHandler       *state_handler.StateHandler
 }
 
 // NewProcessor creates a new processor
@@ -59,10 +59,10 @@ func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *P
 // if no countries are included all authorities are included.
 // This is useful if you only want to include e.g. data from the EPO
 func (p *Processor) IncludeAuthorities(cs ...string) {
-	p.includeCountries = map[string]struct{}{}
+	p.includeAuthorities = map[string]struct{}{}
 	for _, c := range cs {
 		c = strings.ToUpper(c)
-		p.includeCountries[c] = struct{}{}
+		p.includeAuthorities[c] = struct{}{}
 	}
 }
 
@@ -142,7 +142,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
 
 			// skip countries that are not in the list of countries to include
-			if len(p.includeCountries) > 0 {
+			if len(p.includeAuthorities) > 0 {
 				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
 				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
 				fileName := filepath.Base(path)
@@ -151,7 +151,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				if len(country) == 2 {
 					c := strings.ToUpper(country[1])
 					// check if the country is in the list of countries to include
-					if _, ok := p.includeCountries[c]; !ok {
+					if _, ok := p.includeAuthorities[c]; !ok {
 						// skip this file
 						logger.With("country", c).Info("skipping file")
 						return nil
