@@ -20,7 +20,8 @@ import (
 // Processor creates a
 type Processor struct {
 	ContentHandler     ContentHandler
-	includeAuthorities map[string]struct{}
+	includeAuthorities map[string]struct{} // e.g. EP, WO, etc.
+	includeFileTypes   map[string]struct{} // e.g. CreateDelete, Amend, etc.
 	StateHandler       *state_handler.StateHandler
 }
 
@@ -63,6 +64,17 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 	for _, c := range cs {
 		c = strings.ToUpper(c)
 		p.includeAuthorities[c] = struct{}{}
+	}
+}
+
+// IncludeFileTypes sets the file types to include
+// if no file types are included all file types are included.
+// This is useful if you only want to include e.g. CreateDelete or Amend files
+func (p *Processor) IncludeFileTypes(cs ...string) {
+	p.includeFileTypes = map[string]struct{}{}
+	for _, c := range cs {
+		c = strings.ToUpper(c)
+		p.includeFileTypes[c] = struct{}{}
 	}
 }
 
@@ -110,6 +122,21 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 				continue
 			}
 		}
+		// check if file types are included
+		if len(p.includeFileTypes) > 0 {
+			// iterate over file types
+			for fileType := range p.includeFileTypes {
+				// check if the file type is in the path
+				if !strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
+					// skip this file
+					logger.With("fileType", fileType).Info("skipping file")
+					continue
+				} else {
+					logger.With("fileType", fileType).Info("including file")
+				}
+			}
+		}
+		// process bulk zip file
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
 			logger.With("err", err).Error("failed to process bulk zip file")
