@@ -19,10 +19,10 @@ import (
 
 // Processor creates a
 type Processor struct {
-	ContentHandler     ContentHandler
-	includeAuthorities map[string]struct{} // e.g. EP, WO, etc.
-	includeFileTypes   map[string]struct{} // e.g. CreateDelete, Amend, etc.
-	StateHandler       *state_handler.StateHandler
+	ContentHandler     ContentHandler              // content handler
+	includeAuthorities map[string]struct{}         // e.g. EP, WO, etc.
+	includeFileTypes   map[string]struct{}         // e.g. CreateDelete, Amend, etc.
+	StateHandler       *state_handler.StateHandler // optional state handler
 }
 
 // NewProcessor creates a new processor
@@ -51,6 +51,7 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	return p
 }
 
+// SetStateHandler adds a state handler
 func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *Processor {
 	p.StateHandler = stateHandler
 	return p
