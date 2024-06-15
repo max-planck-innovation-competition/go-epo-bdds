@@ -86,12 +86,12 @@ func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
 		// iterate over file types
 		for fileType := range p.includeFileTypes {
 			// check if the file type is in the path
-			if !strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
-				return true
+			if strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
+				return false
 			}
 		}
 	}
-	return false
+	return true
 }
 
 // ContentHandler is a function that handles the content of a file
