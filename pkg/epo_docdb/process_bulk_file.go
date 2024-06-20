@@ -270,6 +270,11 @@ func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (
 			logger.With("err", errClose).Error("Failed to close file")
 		}
 	}()
+	return p.ProcessExchangeFileContent(logger, fc)
+}
+
+// ProcessExchangeFileContent processes a exchange file content
+func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
 	// scan file
 	scanner := bufio.NewScanner(fc)
 	// set the max capacity of the scanner

@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"log"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestReadFile(t *testing.T) {
@@ -1050,5 +1052,44 @@ func TestReadFileParsingErrAll(t *testing.T) {
 			t.Error(err)
 		}
 		fmt.Println(exchangeObject.ExchBibliographicdata.ExchInventiontitle[0].Value)
+	}
+}
+
+func TestReadBigFileProcessExchangeFileContent(t *testing.T) {
+	// t.Skip()
+
+	var parserHandler = func(fileName, fileContent string) {
+		doc, err := ParseXmlStringToStruct(fileContent)
+		if err != nil {
+			t.Error(err)
+			return
+		}
+		dateString := strconv.Itoa(doc.DatepublAttr)
+		publicationDate, err := time.Parse("20060102", dateString)
+		if err != nil {
+			slog.With("err", err).Error("can not parse date")
+			// set data to 9999-12-31
+		} else {
+			slog.With("publicationDate", publicationDate.Format("2006-01-02")).Info("publicationDate")
+		}
+	}
+
+	var testDataPath = "./big-test-data/DOCDB-202407-025-US-0090.xml"
+
+	// open file
+	file, err := os.Open(testDataPath)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	defer file.Close()
+
+	p := NewProcessor()
+	p.SetContentHandler(parserHandler)
+
+	// process file
+	err = p.ProcessExchangeFileContent(slog.With("test", testDataPath), file)
+	if err != nil {
+		t.Error(err)
 	}
 }
