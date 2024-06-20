@@ -68,6 +68,31 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 	}
 }
 
+// skipFileBasedOnAuthority checks if the file should be skipped
+// based on the authority
+func (p *Processor) skipFileBasedOnAuthority(filePath string) bool {
+	logger := slog.With("filePath", filePath)
+	// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
+	var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
+	fileName := filepath.Base(filePath)
+	// check if the file name contains a country
+	country := countryRegex.FindStringSubmatch(fileName)
+	if len(country) == 2 {
+		c := strings.ToUpper(country[1])
+		// check if the country is in the list of countries to include
+		if _, ok := p.includeAuthorities[c]; !ok {
+			// skip this file
+			logger.With("country", c).Info("skipping file")
+			return true
+		} else {
+			logger.With("country", c).Info("including file")
+			return false
+		}
+	}
+	logger.Warn("could not extract country from file name")
+	return true // skip
+}
+
 // IncludeFileTypes sets the file types to include
 // if no file types are included all file types are included.
 // This is useful if you only want to include e.g. CreateDelete or Amend files
@@ -80,6 +105,8 @@ func (p *Processor) IncludeFileTypes(cs ...string) {
 }
 
 // skipFileBasedOnFileType checks if the file should be skipped
+// based on the file type.
+// e.g. CreateDelete, Amend, etc.
 func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
 	// check if file types are included
 	if len(p.includeFileTypes) > 0 {
@@ -178,21 +205,8 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 
 			// skip countries that are not in the list of countries to include
 			if len(p.includeAuthorities) > 0 {
-				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
-				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
-				fileName := filepath.Base(path)
-				// check if the file name contains a country
-				country := countryRegex.FindStringSubmatch(fileName)
-				if len(country) == 2 {
-					c := strings.ToUpper(country[1])
-					// check if the country is in the list of countries to include
-					if _, ok := p.includeAuthorities[c]; !ok {
-						// skip this file
-						logger.With("country", c).Info("skipping file")
-						return nil
-					} else {
-						logger.With("country", c).Info("including file")
-					}
+				if p.skipFileBasedOnAuthority(path) {
+					return nil
 				}
 			}
 

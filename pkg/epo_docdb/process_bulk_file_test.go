@@ -62,3 +62,29 @@ func TestSkipFileBasedOnFileType(t *testing.T) {
 	}
 
 }
+
+func TestSkipFileBasedOnAuthority(t *testing.T) {
+	p := NewProcessor()
+	p.IncludeFileTypes("CreateDelete", "bck")
+	p.IncludeAuthorities("EP", "US", "WO")
+
+	// Frontfiles
+	if p.skipFileBasedOnAuthority("DOCDB-202301-CreateDelete-PubDate20221230AndBefore-CH-0001.zip") == false {
+		t.Error("should be skipped")
+	}
+	if p.skipFileBasedOnAuthority("DOCDB-202419-CreateDelete-PubDate20240503AndBefore-WO-0001.zip") == true {
+		t.Error("should not skipped")
+	}
+
+	// Backfiles
+	if p.skipFileBasedOnAuthority("DOCDB-202407-021-US-0499.zip") == true {
+		t.Error("should not skipped")
+	}
+	if p.skipFileBasedOnAuthority("DOCDB-202407-021-EP-0499.zip") == true {
+		t.Error("should not skipped")
+	}
+	if p.skipFileBasedOnAuthority("DOCDB-202407-021-CN-0499.zip") == false {
+		t.Error("should be skipped")
+	}
+
+}
