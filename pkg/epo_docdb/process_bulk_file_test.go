@@ -44,3 +44,21 @@ func TestProcessDirectory(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestSkipFileBasedOnFileType(t *testing.T) {
+	p := NewProcessor()
+	p.IncludeFileTypes("CreateDelete", "bck")
+
+	if p.skipFileBasedOnFileType("/docdb-backfiles_2024_02_27/docdb_xml_bck_202407_006_A.zip") == true {
+		t.Error("should not skip")
+	}
+
+	if p.skipFileBasedOnFileType("/docdb-frontfiles/docdb_xml_202302_CreateDelete_001.zip") == true {
+		t.Error("should not skip")
+	}
+
+	if p.skipFileBasedOnFileType("/docdb-frontfiles/docdb_xml_202302_cat_001.zip") != true {
+		t.Error("should skip")
+	}
+
+}

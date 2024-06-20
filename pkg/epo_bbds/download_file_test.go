@@ -2,11 +2,11 @@ package epo_bbds
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"os"
 	"sort"
 	"strings"
 	"testing"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestDownloadDocDbFrontFileWithEncodingIssues(t *testing.T) {
@@ -129,7 +129,7 @@ func TestDownloadDocDbFrontFile(t *testing.T) {
 }
 
 func TestDownloadDocDbBackFiles(t *testing.T) {
-	destinationPath := os.Getenv("DOCDB_FILE_PATH")
+	destinationPath := os.Getenv("DOCDB_BACKFILES_PATH")
 	if len(destinationPath) == 0 {
 		t.Error("no file path found")
 		return
@@ -142,7 +142,7 @@ func TestDownloadDocDbBackFiles(t *testing.T) {
 }
 
 func TestDownloadDocDbFrontFiles(t *testing.T) {
-	destinationPath := os.Getenv("DOCDB_FILE_PATH")
+	destinationPath := os.Getenv("DOCDB_FRONTFILES_PATH")
 	if len(destinationPath) == 0 {
 		t.Error("no file path found")
 		return

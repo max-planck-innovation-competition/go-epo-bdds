@@ -19,9 +19,10 @@ import (
 
 // Processor creates a
 type Processor struct {
-	ContentHandler   ContentHandler
-	includeCountries map[string]struct{}
-	StateHandler     *state_handler.StateHandler
+	ContentHandler     ContentHandler              // content handler
+	includeAuthorities map[string]struct{}         // e.g. EP, WO, etc.
+	includeFileTypes   map[string]struct{}         // e.g. CreateDelete, Amend, etc.
+	StateHandler       *state_handler.StateHandler // optional state handler
 }
 
 // NewProcessor creates a new processor
@@ -50,6 +51,7 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 	return p
 }
 
+// SetStateHandler adds a state handler
 func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *Processor {
 	p.StateHandler = stateHandler
 	return p
@@ -59,11 +61,37 @@ func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *P
 // if no countries are included all authorities are included.
 // This is useful if you only want to include e.g. data from the EPO
 func (p *Processor) IncludeAuthorities(cs ...string) {
-	p.includeCountries = map[string]struct{}{}
+	p.includeAuthorities = map[string]struct{}{}
 	for _, c := range cs {
 		c = strings.ToUpper(c)
-		p.includeCountries[c] = struct{}{}
+		p.includeAuthorities[c] = struct{}{}
 	}
+}
+
+// IncludeFileTypes sets the file types to include
+// if no file types are included all file types are included.
+// This is useful if you only want to include e.g. CreateDelete or Amend files
+func (p *Processor) IncludeFileTypes(cs ...string) {
+	p.includeFileTypes = map[string]struct{}{}
+	for _, c := range cs {
+		c = strings.ToUpper(c)
+		p.includeFileTypes[c] = struct{}{}
+	}
+}
+
+// skipFileBasedOnFileType checks if the file should be skipped
+func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
+	// check if file types are included
+	if len(p.includeFileTypes) > 0 {
+		// iterate over file types
+		for fileType := range p.includeFileTypes {
+			// check if the file type is in the path
+			if strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
+				return false
+			}
+		}
+	}
+	return true
 }
 
 // ContentHandler is a function that handles the content of a file
@@ -110,6 +138,13 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 				continue
 			}
 		}
+		// skip file based on file type
+		if p.skipFileBasedOnFileType(filePath) {
+			logger.With("filePath", filePath).Info("skipping file based on file type")
+			continue
+		}
+
+		// process bulk zip file
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
 			logger.With("err", err).Error("failed to process bulk zip file")
@@ -142,7 +177,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
 
 			// skip countries that are not in the list of countries to include
-			if len(p.includeCountries) > 0 {
+			if len(p.includeAuthorities) > 0 {
 				// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
 				var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
 				fileName := filepath.Base(path)
@@ -151,7 +186,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				if len(country) == 2 {
 					c := strings.ToUpper(country[1])
 					// check if the country is in the list of countries to include
-					if _, ok := p.includeCountries[c]; !ok {
+					if _, ok := p.includeAuthorities[c]; !ok {
 						// skip this file
 						logger.With("country", c).Info("skipping file")
 						return nil
