@@ -170,7 +170,7 @@ func (sh *StateHandler) RegisterOrSkipXMLFile(fileName string, innerZipPath stri
 	// find the last unfinished zip file
 	var xmlFile XMLFileSQL
 	errXMLFile := sh.db.Where("xml_name = ?", fileName).First(&xmlFile).Error
-	if errXMLFile.Error != nil {
+	if errXMLFile != nil {
 		if errors.Is(errXMLFile, gorm.ErrRecordNotFound) {
 			fmt.Println("No record for this xml file, creating")
 			newXmlFile := XMLFileSQL{
