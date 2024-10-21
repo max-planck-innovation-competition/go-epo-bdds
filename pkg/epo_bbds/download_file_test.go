@@ -153,3 +153,16 @@ func TestDownloadDocDbFrontFiles(t *testing.T) {
 		return
 	}
 }
+
+func TestDownloadPatstat(t *testing.T) {
+	destinationPath := os.Getenv("PATSTAT_FILES_PATH")
+	if len(destinationPath) == 0 {
+		t.Error("no file path found")
+		return
+	}
+	err := DownloadAllFiles(EpoPatstatGlobalProductID, destinationPath)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+}
