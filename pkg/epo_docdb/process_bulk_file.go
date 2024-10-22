@@ -15,6 +15,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"sync"
 )
 
 // Processor creates a
@@ -23,6 +24,7 @@ type Processor struct {
 	includeAuthorities map[string]struct{}         // e.g. EP, WO, etc.
 	includeFileTypes   map[string]struct{}         // e.g. CreateDelete, Amend, etc.
 	StateHandler       *state_handler.StateHandler // optional state handler
+	Workers            int                         // number of workers
 }
 
 // NewProcessor creates a new processor
@@ -30,6 +32,7 @@ type Processor struct {
 func NewProcessor() *Processor {
 	p := Processor{
 		ContentHandler: PrintLineHandler,
+		Workers:        1,
 	}
 	return &p
 }
@@ -154,6 +157,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	// order files ascending
 	sort.Strings(filePaths)
 
+	queueFiles := []string{}
 	// iterate over files
 	for _, filePath := range filePaths {
 		// check if state handler is set
@@ -171,12 +175,22 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 			continue
 		}
 
+		// add to queueFiles
+		queueFiles = append(queueFiles, filePath)
+	}
+
+	for i, filePath := range queueFiles {
 		// process bulk zip file
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
 			logger.With("err", err).Error("failed to process bulk zip file")
 			return err
 		}
+		// log the current progress
+		logger.
+			With("file", i+1).
+			With("total", len(queueFiles)).
+			Info("processed file")
 	}
 
 	logger.Info("successfully done")
@@ -195,6 +209,9 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		logger.With("err", err).Error("failed to open bulk zip file")
 		return err
 	}
+
+	queueFiles := []string{}
+
 	err = fs.WalkDir(reader, ".", func(path string, d fs.DirEntry, err error) error {
 		// check if dir
 		if d.IsDir() {
@@ -210,7 +227,8 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				}
 			}
 
-			// StateHandler
+			// check if state handler is set
+			// if yes then check if the file is already done
 			if p.StateHandler != nil {
 				bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
 				if bulkState == state_handler.Done {
@@ -220,23 +238,8 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				}
 			}
 
-			// open file
-			f, errOpen := reader.Open(path)
-			if errOpen != nil {
-				err = errOpen
-				logger.With("err", err).Error("failed to open file")
-				return err
-			}
-
-			logger.With("zipFile", path).Info("found zip file")
-			// process zip file
-			p.ProcessZipFile(logger, f)
-
-			// mark zip file as finished
-			if p.StateHandler != nil {
-				p.StateHandler.MarkZipFileAsFinished()
-			}
-
+			// add to queueFiles
+			queueFiles = append(queueFiles, path)
 		}
 		// default (other files)
 		return nil
@@ -245,6 +248,62 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		logger.With("err", err).Error("failed to walk dir")
 		return err
 	}
+
+	// Set the number of workers
+	numWorkers := 5
+	fileCh := make(chan string, len(queueFiles)) // Buffered channel with the number of files
+	var wg sync.WaitGroup
+	total := len(queueFiles)
+
+	// Start the worker pool
+	for w := 0; w < numWorkers; w++ {
+		wg.Add(1)
+		go func(workerId int) {
+			defer wg.Done()
+			for path := range fileCh {
+
+				workerLogger := slog.With("workerId", workerId).With("file", path)
+
+				// open file
+				f, errOpen := reader.Open(path)
+				if errOpen != nil {
+					workerLogger.With("err", errOpen).Error("failed to open file")
+					continue
+				}
+
+				workerLogger.Info("worker processing zip file")
+				// process zip file
+				p.ProcessZipFile(logger, f)
+
+				// mark zip file as finished
+				if p.StateHandler != nil {
+					p.StateHandler.MarkZipFileAsFinished()
+				}
+
+				errClose := f.Close()
+				if errClose != nil {
+					workerLogger.With("err", errClose).Error("failed to close file")
+					return
+				} // Ensure the file is closed after processing
+
+				// log the current progress
+				workerLogger.
+					With("todo", len(fileCh)).
+					With("total", total).
+					Info("worker processed zip file")
+			}
+		}(w)
+	}
+
+	// Send files to the workers
+	for _, path := range queueFiles {
+		fileCh <- path
+	}
+	close(fileCh) // Close the channel to signal workers that no more files will be sent
+
+	// Wait for all workers to finish
+	wg.Wait()
+
 	// close
 	err = reader.Close()
 	if err != nil {

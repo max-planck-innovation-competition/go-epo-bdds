@@ -65,18 +65,7 @@ func main() {
 
 ### DocDB
 
-The DocDB data can be processed with the `Processor` struct.
-Depending on the data you want to process, you can include or exclude authorities.
+The `epo_docdb` package provides the code to process the EPO DocDB data.
+It can be used to ingest the data into any database or any file format.
 
-You can also define your own content handler to process the data.
-For example, you can write the data to a database or a file.
-
-```go
-p := NewProcessor()
-p.IncludeAuthorities("EP")
-err := p.ProcessDirectory("/docdb/backfiles")
-if err != nil {
-    t.Error(err)
-}
-p.SetContentHandler(yourContentHandler)
-```
+See the [DocDB README](pkg/epo_docdb/README.md) for more information.
