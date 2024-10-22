@@ -250,13 +250,12 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	}
 
 	// Set the number of workers
-	numWorkers := 5
 	fileCh := make(chan string, len(queueFiles)) // Buffered channel with the number of files
 	var wg sync.WaitGroup
 	total := len(queueFiles)
 
 	// Start the worker pool
-	for w := 0; w < numWorkers; w++ {
+	for w := 0; w < p.Workers; w++ {
 		wg.Add(1)
 		go func(workerId int) {
 			defer wg.Done()
