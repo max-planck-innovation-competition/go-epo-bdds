@@ -384,6 +384,9 @@ func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (
 	return p.ProcessExchangeFileContent(logger, fc)
 }
 
+// regex for line break
+var regexLineBreak = regexp.MustCompile(`[\r\n]+`)
+
 // ProcessExchangeFileContent processes a exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
 	// scan file
@@ -394,23 +397,23 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 	scanner.Buffer(buf, maxCapacity)
 	// custom line break
 	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-		// Iterate over the data to find a line break
-		for i := 0; i < len(data); i++ {
-			if data[i] == '\n' || data[i] == '\r' {
-				// Skip any consecutive line breaks
-				j := i + 1
-				for j < len(data) && (data[j] == '\n' || data[j] == '\r') {
-					j++
-				}
-				// Return the line and the position to advance
-				return j, data[0:i], nil
-			}
+		if atEOF && len(data) == 0 {
+			return 0, nil, nil
 		}
-		// If we're at EOF, return any remaining data
+		loc := regexLineBreak.FindIndex(data)
+		if len(loc) == 0 {
+			return 0, nil, nil
+		}
+		i := loc[0]
+		if i >= 0 {
+			// We have a full newline-terminated line.
+			return i + 1, data[0:i], nil
+		}
+		// If we're at EOF, we have a final, non-terminated line. Return it.
 		if atEOF {
 			return len(data), data, nil
 		}
-		// Request more data
+		// Request more data.
 		return 0, nil, nil
 	})
 
