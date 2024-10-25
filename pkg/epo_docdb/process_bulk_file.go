@@ -18,6 +18,8 @@ import (
 	"sync"
 )
 
+const logLevelProcess = 5
+
 // Processor creates a
 type Processor struct {
 	ContentHandler     ContentHandler              // content handler
@@ -179,8 +181,6 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		queueFiles = append(queueFiles, filePath)
 	}
 
-	totalLen := len(queueFiles)
-
 	for i, filePath := range queueFiles {
 		directoryLogger.With("file", filePath).Info("processing file")
 		// process bulk zip file
@@ -192,8 +192,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		// log the current progress
 		directoryLogger.
 			With("file", i+1).
-			With("total", totalLen).
-			With("queue", len(queueFiles)).
+			With("total", len(queueFiles)).
 			Info("current progress")
 	}
 
