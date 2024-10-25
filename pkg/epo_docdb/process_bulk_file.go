@@ -190,7 +190,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		logger.
 			With("file", i+1).
 			With("total", len(queueFiles)).
-			Info("processed file")
+			Info("current progress file")
 	}
 
 	logger.Info("successfully done")
@@ -209,6 +209,14 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		logger.With("err", err).Error("failed to open bulk zip file")
 		return err
 	}
+
+	// close the reader
+	defer func() {
+		errClose := reader.Close()
+		if errClose != nil {
+			logger.With("err", errClose).Error("failed to close reader")
+		}
+	}()
 
 	queueFiles := []string{}
 
@@ -303,18 +311,11 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	// Wait for all workers to finish
 	wg.Wait()
 
-	// close
-	err = reader.Close()
-	if err != nil {
-		logger.With("err", err).Error("failed to close bulk zip file")
-		return err
-	}
-
 	logger.Info("successfully done")
 	return
 }
 
-// ProcessZipFile processes a bulk zip file
+// ProcessZipFile processes a zip file within a bulk zip file
 func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
 	stats, _ := f.Stat()
 	logger = logger.With("zipFile", stats.Name())
@@ -390,25 +391,23 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 	scanner.Buffer(buf, maxCapacity)
 	// custom line break
 	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-		if atEOF && len(data) == 0 {
-			return 0, nil, nil
+		// Iterate over the data to find a line break
+		for i := 0; i < len(data); i++ {
+			if data[i] == '\n' || data[i] == '\r' {
+				// Skip any consecutive line breaks
+				j := i + 1
+				for j < len(data) && (data[j] == '\n' || data[j] == '\r') {
+					j++
+				}
+				// Return the line and the position to advance
+				return j, data[0:i], nil
+			}
 		}
-		// regex for line break
-		var regexLineBreak = regexp.MustCompile(`[\r\n]+`)
-		loc := regexLineBreak.FindIndex(data)
-		if len(loc) == 0 {
-			return 0, nil, nil
-		}
-		i := loc[0]
-		if i >= 0 {
-			// We have a full newline-terminated line.
-			return i + 1, data[0:i], nil
-		}
-		// If we're at EOF, we have a final, non-terminated line. Return it.
+		// If we're at EOF, return any remaining data
 		if atEOF {
 			return len(data), data, nil
 		}
-		// Request more data.
+		// Request more data
 		return 0, nil, nil
 	})
 

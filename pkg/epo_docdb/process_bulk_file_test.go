@@ -4,6 +4,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
+	"time"
 )
 
 func TestProcessBulkZipFile(t *testing.T) {
@@ -43,6 +44,26 @@ func TestProcessDirectory(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+}
+
+func TestProcessSingleFile(t *testing.T) {
+	path := os.Getenv("DOCDB_BACKFILES_PATH")
+	if len(path) == 0 {
+		panic("no file path to the backfiles defined")
+	}
+
+	p := NewProcessor()
+	p.IncludeAuthorities("AP")
+	p.Workers = 1
+	filePath := path + "/docdb_xml_bck_202407_001_A.zip"
+	startTime := time.Now()
+	err := p.ProcessBulkZipFile(filePath)
+	if err != nil {
+		t.Error(err)
+	}
+	// duration
+	diff := startTime.Sub(time.Now())
+	t.Log("took min:", diff.Minutes())
 }
 
 func TestSkipFileBasedOnFileType(t *testing.T) {
