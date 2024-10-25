@@ -85,10 +85,10 @@ func (p *Processor) skipFileBasedOnAuthority(filePath string) bool {
 		// check if the country is in the list of countries to include
 		if _, ok := p.includeAuthorities[c]; !ok {
 			// skip this file
-			logger.With("country", c).Info("skipping file")
+			logger.With("country", c).Debug("skipping file")
 			return true
 		} else {
-			logger.With("country", c).Info("including file")
+			logger.With("country", c).Debug("including file")
 			return false
 		}
 	}
@@ -132,8 +132,8 @@ var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-
 
 // ProcessDirectory processes a directory
 func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
-	logger := slog.With("workingDirectoryPath", workingDirectoryPath)
-	logger.Info("start reading file")
+	directoryLogger := slog.With("wd", workingDirectoryPath)
+	directoryLogger.Info("process directory")
 
 	filePaths := []string{}
 	// read the bulk zip file
@@ -151,7 +151,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		return nil
 	})
 	if err != nil {
-		logger.With("err", err).Error("failed to walk dir")
+		directoryLogger.With("err", err).Error("failed to walk dir")
 		return err
 	}
 	// order files ascending
@@ -171,7 +171,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		}
 		// skip file based on file type
 		if p.skipFileBasedOnFileType(filePath) {
-			logger.With("filePath", filePath).Info("skipping file based on file type")
+			directoryLogger.With("filePath", filePath).Info("skipping file based on file type")
 			continue
 		}
 
@@ -179,21 +179,25 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		queueFiles = append(queueFiles, filePath)
 	}
 
+	totalLen := len(queueFiles)
+
 	for i, filePath := range queueFiles {
+		directoryLogger.With("file", filePath).Info("processing file")
 		// process bulk zip file
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
-			logger.With("err", err).Error("failed to process bulk zip file")
+			directoryLogger.With("err", err).Error("failed to process bulk zip file")
 			return err
 		}
 		// log the current progress
-		logger.
+		directoryLogger.
 			With("file", i+1).
-			With("total", len(queueFiles)).
-			Info("current progress file")
+			With("total", totalLen).
+			With("queue", len(queueFiles)).
+			Info("current progress")
 	}
 
-	logger.Info("successfully done")
+	directoryLogger.Info("successfully done")
 	return
 
 }
@@ -201,7 +205,6 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 // ProcessBulkZipFile processes a bulk zip file
 func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	logger := slog.With("filePath", filePath)
-	logger.Info("start reading file")
 
 	// read the bulk zip file
 	reader, err := zip.OpenReader(filePath)
@@ -241,7 +244,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
 				if bulkState == state_handler.Done {
 					// if already done, skip
-					logger.With("zipFile", path).Info("skipping zip file")
+					logger.With("zipFile", path).Debug("skipping zip file")
 					return nil
 				}
 			}
@@ -278,7 +281,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 					continue
 				}
 
-				workerLogger.Info("worker processing zip file")
+				workerLogger.Debug("worker processing zip file")
 				// process zip file
 				p.ProcessZipFile(logger, f)
 
@@ -297,7 +300,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				workerLogger.
 					With("todo", len(fileCh)).
 					With("total", total).
-					Info("worker processed zip file")
+					Debug("worker processed zip file")
 			}
 		}(w)
 	}
@@ -311,7 +314,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	// Wait for all workers to finish
 	wg.Wait()
 
-	logger.Info("successfully done")
+	logger.Debug("successfully done")
 	return
 }
 
@@ -334,14 +337,14 @@ func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
 
 	// read all the files from zip archive
 	for _, zipFile := range zipReader.File {
-		logger.With("xmlFile", zipFile.Name).Info("child found")
+		logger.With("xmlFile", zipFile.Name).Debug("child found")
 		// check state handler
 		if p.StateHandler != nil {
 			// check if the file is already done
 			xmlStatus, _ := p.StateHandler.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
 			if xmlStatus == state_handler.Done {
 				// if already done, skip
-				logger.Info("skipping xml file")
+				logger.Debug("skipping xml file")
 				continue
 			}
 		}
@@ -362,7 +365,7 @@ func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
 // ProcessZipFileContent processes a zip file content
 func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (err error) {
 	logger = logger.With("xmlFile", file.Name)
-	logger.Info("process xml file")
+	logger.Debug("process xml file")
 	ctx := context.TODO()
 	fc, err := file.Open()
 	if err != nil {
@@ -469,6 +472,6 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 			lineContent.WriteString(line)
 		}
 	}
-	logger.Info("done with file")
+	logger.Debug("done with file")
 	return
 }
