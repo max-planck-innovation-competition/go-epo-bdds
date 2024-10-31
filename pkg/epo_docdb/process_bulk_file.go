@@ -2,7 +2,7 @@ package epo_docdb
 
 import (
 	"archive/zip"
-	"context"
+	"bufio"
 	"encoding/xml"
 	"fmt"
 	"github.com/krolaw/zipstream"
@@ -370,38 +370,47 @@ func (doc *ExchangeDocument) FileName() string {
 	return fmt.Sprintf("%s-%s-%s.xml", doc.Country, doc.DocNumber, doc.Kind)
 }
 
+func extractFileName(line string) string {
+	// Regular expression to extract country, doc-number, and kind attributes
+	matches := regexFileName.FindStringSubmatch(line)
+	if len(matches) == 4 {
+		country := matches[1]
+		docNumber := matches[2]
+		kind := matches[3]
+		return fmt.Sprintf("%s-%s-%s.xml", country, docNumber, kind)
+	}
+	// If attributes are not found, handle the error as needed
+	return "unknown.xml"
+}
+
 // ProcessExchangeFileContent processes an exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
-	decoder := xml.NewDecoder(fc)
-	ctx := context.TODO()
+	scanner := bufio.NewScanner(fc)
+	var lineContent strings.Builder
+	var fileName string
 
-	for {
-		token, err := decoder.Token()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			logger.With("err", err).Error("failed to decode XML")
-			return err
-		}
-		switch elem := token.(type) {
-		case xml.StartElement:
-			if elem.Name.Local == "exchange-document" {
-				var doc ExchangeDocument
-				if err := decoder.DecodeElement(&doc, &elem); err != nil {
-					logger.With("err", err).Error("failed to decode exchange-document")
-					return err
-				}
-				// Handle the document using ContentHandler
-				p.ContentHandler(doc.FileName(), doc.InnerXML)
-				// Mark exchange file as finished
-				if p.StateHandler != nil {
-					p.StateHandler.MarkExchangeFileAsFinished()
-				}
-			}
+	for scanner.Scan() {
+		line := scanner.Text()
+		if strings.Contains(line, "<exch:exchange-document") {
+			lineContent.Reset()
+			lineContent.WriteString(line)
+			// Extract fileName from the line
+			fileName = extractFileName(line)
+		} else if strings.Contains(line, "</exch:exchange-document>") {
+			lineContent.WriteString(line)
+			p.ContentHandler(fileName, lineContent.String())
+			lineContent.Reset()
+			fileName = ""
+		} else {
+			lineContent.WriteString(line)
 		}
 	}
+
+	if err := scanner.Err(); err != nil {
+		logger.With("err", err).Error("scanner error")
+		return err
+	}
+
 	logger.Debug("done with file")
-	ctx.Done()
 	return nil
 }
