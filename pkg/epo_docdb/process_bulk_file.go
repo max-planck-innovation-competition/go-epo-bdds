@@ -383,9 +383,39 @@ func extractFileName(line string) string {
 	return "unknown.xml"
 }
 
+// regex for line break
+var regexLineBreak = regexp.MustCompile(`[\r\n]+`)
+
 // ProcessExchangeFileContent processes an exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
+	// scan file
 	scanner := bufio.NewScanner(fc)
+	// set the max capacity of the scanner
+	const maxCapacity = 10 * 1024 * 1024 // 10 MB
+	buf := make([]byte, maxCapacity)
+	scanner.Buffer(buf, maxCapacity)
+	// custom line break
+	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
+		if atEOF && len(data) == 0 {
+			return 0, nil, nil
+		}
+		loc := regexLineBreak.FindIndex(data)
+		if len(loc) == 0 {
+			return 0, nil, nil
+		}
+		i := loc[0]
+		if i >= 0 {
+			// We have a full newline-terminated line.
+			return i + 1, data[0:i], nil
+		}
+		// If we're at EOF, we have a final, non-terminated line. Return it.
+		if atEOF {
+			return len(data), data, nil
+		}
+		// Request more data.
+		return 0, nil, nil
+	})
+
 	var lineContent strings.Builder
 	var fileName string
 
