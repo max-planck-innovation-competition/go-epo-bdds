@@ -2,10 +2,10 @@ package epo_docdb
 
 import (
 	"archive/zip"
-	"bufio"
-	"bytes"
 	"context"
+	"encoding/xml"
 	"fmt"
+	"github.com/krolaw/zipstream"
 	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/state_handler"
 	"io"
 	"io/fs"
@@ -122,12 +122,13 @@ func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
 				return false
 			}
 		}
+		return true // skip if file type not matched
 	}
-	return true
+	return false // include if no file types are specified
 }
 
 // ContentHandler is a function that handles the content of a file
-type ContentHandler func(fileName, fileContent string)
+type ContentHandler func(fileName string, fileContent string)
 
 // regexFileName is used to extract the filename by using attributes from the xml file
 var regexFileName = regexp.MustCompile(`country="([A-Z]{1,3})".*doc-number="([A-Z0-9]{1,15})".*kind="([A-Z0-9]{1,3})"`)
@@ -144,7 +145,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		if d.IsDir() {
 			return nil
 		}
-		// check if zip file and starts with "doc_db"
+		// check if zip file and starts with "docdb_"
 		if strings.Contains(path, ".zip") && strings.HasPrefix(path, "docdb_") {
 			filePath := filepath.Join(workingDirectoryPath, path)
 			filePaths = append(filePaths, filePath)
@@ -205,27 +206,23 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	logger := slog.With("filePath", filePath)
 
-	// read the bulk zip file
+	// Open the bulk zip file
 	reader, err := zip.OpenReader(filePath)
 	if err != nil {
 		logger.With("err", err).Error("failed to open bulk zip file")
 		return err
 	}
+	defer reader.Close()
 
-	// close the reader
-	defer func() {
-		errClose := reader.Close()
-		if errClose != nil {
-			logger.With("err", errClose).Error("failed to close reader")
-		}
-	}()
+	queueFiles := []*zip.File{}
 
-	queueFiles := []string{}
+	// Iterate over the files in the zip archive
+	for _, f := range reader.File {
+		path := f.Name
 
-	err = fs.WalkDir(reader, ".", func(path string, d fs.DirEntry, err error) error {
 		// check if dir
-		if d.IsDir() {
-			return nil
+		if f.FileInfo().IsDir() {
+			continue
 		}
 		// check if zip file
 		if strings.Contains(path, "Root/DOC/") && strings.Contains(path, ".zip") {
@@ -233,7 +230,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 			// skip countries that are not in the list of countries to include
 			if len(p.includeAuthorities) > 0 {
 				if p.skipFileBasedOnAuthority(path) {
-					return nil
+					continue
 				}
 			}
 
@@ -244,23 +241,17 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 				if bulkState == state_handler.Done {
 					// if already done, skip
 					logger.With("zipFile", path).Debug("skipping zip file")
-					return nil
+					continue
 				}
 			}
 
 			// add to queueFiles
-			queueFiles = append(queueFiles, path)
+			queueFiles = append(queueFiles, f)
 		}
-		// default (other files)
-		return nil
-	})
-	if err != nil {
-		logger.With("err", err).Error("failed to walk dir")
-		return err
 	}
 
 	// Set the number of workers
-	fileCh := make(chan string, len(queueFiles)) // Buffered channel with the number of files
+	fileCh := make(chan *zip.File, len(queueFiles)) // Buffered channel with the number of files
 	var wg sync.WaitGroup
 	total := len(queueFiles)
 
@@ -269,31 +260,17 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		wg.Add(1)
 		go func(workerId int) {
 			defer wg.Done()
-			for path := range fileCh {
+			for zipFile := range fileCh {
 
-				workerLogger := slog.With("workerId", workerId).With("file", path)
+				workerLogger := slog.With("workerId", workerId).With("file", zipFile.Name)
 
-				// open file
-				f, errOpen := reader.Open(path)
-				if errOpen != nil {
-					workerLogger.With("err", errOpen).Error("failed to open file")
-					continue
-				}
-
-				workerLogger.Debug("worker processing zip file")
 				// process zip file
-				p.ProcessZipFile(logger, f)
+				p.ProcessZipFile(workerLogger, zipFile)
 
 				// mark zip file as finished
 				if p.StateHandler != nil {
 					p.StateHandler.MarkZipFileAsFinished()
 				}
-
-				errClose := f.Close()
-				if errClose != nil {
-					workerLogger.With("err", errClose).Error("failed to close file")
-					return
-				} // Ensure the file is closed after processing
 
 				// log the current progress
 				workerLogger.
@@ -305,10 +282,10 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 	}
 
 	// Send files to the workers
-	for _, path := range queueFiles {
-		fileCh <- path
+	for _, zipFile := range queueFiles {
+		fileCh <- zipFile
 	}
-	close(fileCh) // Close the channel to signal workers that no more files will be sent
+	close(fileCh)
 
 	// Wait for all workers to finish
 	wg.Wait()
@@ -318,162 +295,113 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 }
 
 // ProcessZipFile processes a zip file within a bulk zip file
-func (p *Processor) ProcessZipFile(logger *slog.Logger, f fs.File) {
-	stats, _ := f.Stat()
-	logger = logger.With("zipFile", stats.Name())
-	// read file
-	data, err := io.ReadAll(f)
-	if err != nil {
-		logger.With("err", err).Error("failed to read zip file")
-		return
-	}
-	// create a new zip reader
-	zipReader, err := zip.NewReader(bytes.NewReader(data), int64(len(data)))
-	if err != nil {
-		logger.With("err", err).Error("failed to read zip file")
-		return
-	}
+func (p *Processor) ProcessZipFile(logger *slog.Logger, zipFile *zip.File) {
+	logger = logger.With("zipFile", zipFile.Name)
 
-	// read all the files from zip archive
-	for _, zipFile := range zipReader.File {
-		logger.With("xmlFile", zipFile.Name).Debug("child found")
+	// Open the zip file
+	f, err := zipFile.Open()
+	if err != nil {
+		logger.With("err", err).Error("failed to open zip file")
+		return
+	}
+	defer f.Close()
+
+	// Use zipstream to process the zip entries without loading the entire file into memory
+	zr := zipstream.NewReader(f)
+
+	for {
+		header, err := zr.Next()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			logger.With("err", err).Error("failed to read zip entry")
+			return
+		}
+		logger.With("xmlFile", header.Name).Debug("child found")
+
 		// check state handler
 		if p.StateHandler != nil {
 			// check if the file is already done
-			xmlStatus, _ := p.StateHandler.RegisterOrSkipXMLFile(zipFile.Name, "/Root/DOC/")
+			xmlStatus, _ := p.StateHandler.RegisterOrSkipXMLFile(header.Name, "/Root/DOC/")
 			if xmlStatus == state_handler.Done {
 				// if already done, skip
 				logger.Debug("skipping xml file")
 				continue
 			}
 		}
+
 		// process zip file content
-		err = p.ProcessZipFileContent(logger, zipFile)
+		err = p.ProcessZipFileContent(logger, header, zr)
 		if err != nil {
 			logger.With("err", err).Error("failed to process zip file content")
 			return
 		}
+
 		// mark xml as finished
 		if p.StateHandler != nil {
 			p.StateHandler.MarkXMLAsFinished()
 		}
 	}
-
 }
 
 // ProcessZipFileContent processes a zip file content
-func (p *Processor) ProcessZipFileContent(logger *slog.Logger, file *zip.File) (err error) {
-	logger = logger.With("xmlFile", file.Name)
+func (p *Processor) ProcessZipFileContent(logger *slog.Logger, header *zip.FileHeader, zr *zipstream.Reader) (err error) {
+	logger = logger.With("xmlFile", header.Name)
 	logger.Debug("process xml file")
-	ctx := context.TODO()
-	fc, err := file.Open()
-	if err != nil {
-		msg := "failed to open zip %s for reading: %s"
-		err = fmt.Errorf(msg, file.Name, err)
-		logger.With("err", err).Error("failed to open zip file")
-		return
-	}
-	defer func() {
-		errClose := fc.Close()
-		if errClose != nil {
-			ctx.Done()
-			logger.With("err", errClose).Error("Failed to close file")
-		}
-	}()
-	return p.ProcessExchangeFileContent(logger, fc)
+
+	// zr is already positioned at the file content
+	// zr implements io.Reader for the file content
+
+	return p.ProcessExchangeFileContent(logger, zr)
 }
 
-// regex for line break
-var regexLineBreak = regexp.MustCompile(`[\r\n]+`)
+// ExchangeDocument represents the structure of the exchange-document
+type ExchangeDocument struct {
+	XMLName   xml.Name `xml:"exchange-document"`
+	Country   string   `xml:"country,attr"`
+	DocNumber string   `xml:"doc-number,attr"`
+	Kind      string   `xml:"kind,attr"`
+	InnerXML  string   `xml:",innerxml"`
+}
 
-// ProcessExchangeFileContent processes a exchange file content
+// FileName constructs the file name from the document attributes
+func (doc *ExchangeDocument) FileName() string {
+	return fmt.Sprintf("%s-%s-%s.xml", doc.Country, doc.DocNumber, doc.Kind)
+}
+
+// ProcessExchangeFileContent processes an exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
-	// scan file
-	scanner := bufio.NewScanner(fc)
-	// set the max capacity of the scanner
-	const maxCapacity = 500 * 1024 * 1024 // 500 MB
-	buf := make([]byte, maxCapacity)
-	scanner.Buffer(buf, maxCapacity)
-	// custom line break
-	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-		if atEOF && len(data) == 0 {
-			return 0, nil, nil
-		}
-		loc := regexLineBreak.FindIndex(data)
-		if len(loc) == 0 {
-			return 0, nil, nil
-		}
-		i := loc[0]
-		if i >= 0 {
-			// We have a full newline-terminated line.
-			return i + 1, data[0:i], nil
-		}
-		// If we're at EOF, we have a final, non-terminated line. Return it.
-		if atEOF {
-			return len(data), data, nil
-		}
-		// Request more data.
-		return 0, nil, nil
-	})
+	decoder := xml.NewDecoder(fc)
+	ctx := context.TODO()
 
-	var lineContent strings.Builder
-	var fileName string
-
-	for scanner.Scan() {
-		line := scanner.Text()
-		// last line
-		const docStart = "<exch:exchange-document "
-		// start of file e.g. first line
-		if strings.Contains(line, docStart) {
-			// split the line
-			split := strings.Split(line, docStart)
-			if len(split) == 2 {
-				line = docStart + split[1]
-				// extract the filename
-				regexExtractionResults := regexFileName.FindAllStringSubmatch(line, -1)
-				if len(regexExtractionResults) == 0 {
-					msg := "failed extract filename"
-					err = fmt.Errorf(msg)
-					logger.With("line", line).With("err", err).Error("failed to extract filename")
-					return
+	for {
+		token, err := decoder.Token()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			logger.With("err", err).Error("failed to decode XML")
+			return err
+		}
+		switch elem := token.(type) {
+		case xml.StartElement:
+			if elem.Name.Local == "exchange-document" {
+				var doc ExchangeDocument
+				if err := decoder.DecodeElement(&doc, &elem); err != nil {
+					logger.With("err", err).Error("failed to decode exchange-document")
+					return err
 				}
-				if len(regexExtractionResults) != 1 && len(regexExtractionResults[0]) != 1 {
-					msg := "failed extract filename"
-					err = fmt.Errorf(msg)
-					logger.With("line", line).With("err", err).Error("failed to extract filename")
-					return
-				}
-				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + ".xml"
-
-				lineContent.WriteString(line)
-				// if the line also contains the end of the file
-				if strings.Contains(line, "</exch:exchange-document>") {
-					p.ContentHandler(fileName, lineContent.String())
-					lineContent.Reset()
-					fileName = ""
-					if p.StateHandler != nil {
-						p.StateHandler.MarkExchangeFileAsFinished()
-					}
-					continue
-				}
-			} else {
-				slog.With("line", line).Error("failed to split line")
-			}
-		} else {
-			// if the line contains the end of the file
-			if strings.Contains(line, "</exch:exchange-document>") {
-				lineContent.WriteString(line)
-				p.ContentHandler(fileName, lineContent.String())
-				lineContent.Reset()
-				fileName = ""
+				// Handle the document using ContentHandler
+				p.ContentHandler(doc.FileName(), doc.InnerXML)
+				// Mark exchange file as finished
 				if p.StateHandler != nil {
 					p.StateHandler.MarkExchangeFileAsFinished()
 				}
-				continue
 			}
-			lineContent.WriteString(line)
 		}
 	}
 	logger.Debug("done with file")
-	return
+	ctx.Done()
+	return nil
 }
