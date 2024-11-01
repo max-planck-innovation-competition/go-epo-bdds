@@ -508,6 +508,18 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 		"ltrif":    "◂",
 		"gsim":     "≳",
 		"sime":     "≃",
+		"odot":     "⊙",
+		"sdot":     "⋅",
+		"vltri":    "⊲",
+		"vrtri":    "⊳",
+		"ltrie":    "⊴",
+		"rtrie":    "⊵",
+		"lbrke":    "⦋",
+		"rbrke":    "⦌",
+		"lbrksld":  "⦏",
+		"rbrksld":  "⦎",
+		"lbrkslu":  "⦍",
+		"rbrkslu":  "⦐",
 	}
 
 	for {
