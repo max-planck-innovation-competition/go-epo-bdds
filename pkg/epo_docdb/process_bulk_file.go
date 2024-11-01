@@ -422,6 +422,10 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 
 	for scanner.Scan() {
 		line := scanner.Text()
+		// skip empty lines
+		if len(line) == 0 {
+			continue
+		}
 		// last line
 
 		// start of file e.g. first line
