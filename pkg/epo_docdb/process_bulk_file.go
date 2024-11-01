@@ -580,6 +580,8 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 		"icirc":            "î",
 		"Ocirc":            "Ô",
 		"szlig":            "ß",
+		"ldquor":           "„",
+		"rdquor":           "”",
 	}
 
 	for {
