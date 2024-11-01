@@ -2,7 +2,6 @@ package epo_docdb
 
 import (
 	"archive/zip"
-	"bufio"
 	"encoding/xml"
 	"fmt"
 	"github.com/krolaw/zipstream"
@@ -383,102 +382,161 @@ func extractFileName(line string) string {
 	return "unknown.xml"
 }
 
-const docStart = "<exch:exchange-document "
-
-const docEnd = "</exch:exchange-document>"
-
 // ProcessExchangeFileContent processes an exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
-	// scan file
-	scanner := bufio.NewScanner(fc)
-	// set the max capacity of the scanner
-	const maxCapacity = 10 * 1024 * 1024 // 10 MB
-	buf := make([]byte, maxCapacity)
-	scanner.Buffer(buf, maxCapacity)
-	// custom line break
-	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
-		// Iterate over the data to find a line break
-		for i := 0; i < len(data); i++ {
-			if data[i] == '\n' || data[i] == '\r' {
-				// Skip any consecutive line breaks
-				j := i + 1
-				for j < len(data) && (data[j] == '\n' || data[j] == '\r') {
-					j++
-				}
-				// Return the line and the position to advance
-				return j, data[0:i], nil
-			}
+	// Use the custom UnescapingDecoder instead of xml.Decoder
+	decoder := xml.NewDecoder(fc)
+	decoder.Entity = map[string]string{
+		// Greek letters
+		"Alpha":   "Α",
+		"Beta":    "Β",
+		"Gamma":   "Γ",
+		"Delta":   "Δ",
+		"Epsilon": "Ε",
+		"Zeta":    "Ζ",
+		"Eta":     "Η",
+		"Theta":   "Θ",
+		"Iota":    "Ι",
+		"Kappa":   "Κ",
+		"Lambda":  "Λ",
+		"Mu":      "Μ",
+		"Nu":      "Ν",
+		"Xi":      "Ξ",
+		"Omicron": "Ο",
+		"Pi":      "Π",
+		"Rho":     "Ρ",
+		"Sigma":   "Σ",
+		"Tau":     "Τ",
+		"Upsilon": "Υ",
+		"Phi":     "Φ",
+		"Chi":     "Χ",
+		"Psi":     "Ψ",
+		"Omega":   "Ω",
+		"alpha":   "α",
+		"beta":    "β",
+		"gamma":   "γ",
+		"delta":   "δ",
+		"epsilon": "ε",
+		"zeta":    "ζ",
+		"eta":     "η",
+		"theta":   "θ",
+		"iota":    "ι",
+		"kappa":   "κ",
+		"lambda":  "λ",
+		"mu":      "μ",
+		"nu":      "ν",
+		"xi":      "ξ",
+		"omicron": "ο",
+		"pi":      "π",
+		"rho":     "ρ",
+		"sigma":   "σ",
+		"tau":     "τ",
+		"upsilon": "υ",
+		"phi":     "φ",
+		"chi":     "χ",
+		"psi":     "ψ",
+		"omega":   "ω",
+		// Other entities
+		"times":  "×",
+		"oplus":  "⊕",
+		"squ":    "□",
+		"tprime": "‴",
+		"epsi":   "ε",
+		"thetav": "ϑ",
+		"phis":   "ϕ",
+		// Add more entities as needed
+		"dot":      "·",
+		"ominus":   "⊖",
+		"osol":     "⊘",
+		"sim":      "∼",
+		"rarr":     "→",
+		"int":      "∫",
+		"radic":    "√",
+		"ge":       "≥",
+		"le":       "≤",
+		"ne":       "≠",
+		"prop":     "∝",
+		"prime":    "′",
+		"thetas":   "ϑ",
+		"phiv":     "ϕ",
+		"utri":     "▵",
+		"bull":     "•",
+		"ap":       "≈",
+		"minus":    "−",
+		"hairsp":   " ",
+		"ensp":     " ",
+		"emsp":     " ",
+		"thinsp":   " ",
+		"zwnj":     " ",
+		"zwj":      " ",
+		"larr":     "←",
+		"uarr":     "↑",
+		"darr":     "↓",
+		"harr":     "↔",
+		"infin":    "∞",
+		"emsp14":   " ",
+		"micro":    "µ",
+		"oelig":    "œ",
+		"cuesc":    "⋟",
+		"litre":    "ℓ",
+		"lparstr":  "⦓",
+		"lsime":    "⪍",
+		"rsime":    "⪐",
+		"ltri":     "◃",
+		"rtri":     "▹",
+		"lurdshar": "⥊",
+		"rurdshar": "⥋",
+		"lharu":    "⥢",
+		"rharu":    "⥤",
+		"lharul":   "⥪",
+		"rharul":   "⥬",
+		"lhard":    "↽",
+		"rhard":    "⇁",
+		"lharhk":   "↩",
+		"rharhk":   "⇀",
+		"lhar":     "↢",
+		"rhar":     "↣",
+		"cuepr":    "⋞",
+		"permil":   "‰",
+		"numsp":    " ",
+		"num":      "#",
+		"cir":      "○",
+		"Oslash":   "Ø",
+		"rparstr":  "⦔",
+		"lsimg":    "⪏",
+		"rsimg":    "⪐",
+		"ltrif":    "◂",
+		"gsim":     "≳",
+		"sime":     "≃",
+	}
+
+	for {
+		token, errDecoderToken := decoder.Token()
+		if errDecoderToken == io.EOF {
+			break
 		}
-		// If we're at EOF, return any remaining data
-		if atEOF {
-			return len(data), data, nil
+		if errDecoderToken != nil {
+			logger.With("err", errDecoderToken).Error("failed to decode XML")
+			return errDecoderToken
 		}
-		// Request more data
-		return 0, nil, nil
-	})
-
-	var lineContent strings.Builder
-	var fileName string
-
-	for scanner.Scan() {
-		line := scanner.Text()
-		// skip empty lines
-		if len(line) == 0 {
-			continue
-		}
-		// last line
-
-		// start of file e.g. first line
-		if strings.Contains(line, docStart) {
-			// split the line
-			split := strings.Split(line, docStart)
-			if len(split) == 2 {
-				line = docStart + split[1]
-				// extract the filename
-				regexExtractionResults := regexFileName.FindAllStringSubmatch(line, -1)
-				if len(regexExtractionResults) == 0 {
-					msg := "failed extract filename"
-					err = fmt.Errorf(msg)
-					logger.With("line", line).With("err", err).Error("failed to extract filename")
-					return
-				}
-				if len(regexExtractionResults) != 1 && len(regexExtractionResults[0]) != 1 {
-					msg := "failed extract filename"
-					err = fmt.Errorf(msg)
-					logger.With("line", line).With("err", err).Error("failed to extract filename")
-					return
-				}
-				fileName = regexExtractionResults[0][1] + "-" + regexExtractionResults[0][2] + "-" + regexExtractionResults[0][3] + ".xml"
-
-				lineContent.WriteString(line)
-				// if the line also contains the end of the file
-				if strings.Contains(line, docEnd) {
-					p.ContentHandler(fileName, lineContent.String())
-					lineContent.Reset()
-					fileName = ""
-					if p.StateHandler != nil {
-						p.StateHandler.MarkExchangeFileAsFinished()
-					}
+		switch elem := token.(type) {
+		case xml.StartElement:
+			if elem.Name.Local == "exchange-document" {
+				var doc ExchangeDocument
+				if errDecodeElement := decoder.DecodeElement(&doc, &elem); errDecodeElement != nil {
+					logger.With("errDecodeElement", errDecodeElement).Error("failed to decode exchange-document")
+					// Skip the document
 					continue
 				}
-			} else {
-				slog.With("line", line).Error("failed to split line")
-			}
-		} else {
-			// if the line contains the end of the file
-			if strings.Contains(line, docEnd) {
-				lineContent.WriteString(line)
-				p.ContentHandler(fileName, lineContent.String())
-				lineContent.Reset()
-				fileName = ""
+				// Handle the document using ContentHandler
+				p.ContentHandler(doc.FileName(), doc.InnerXML)
+				// Mark exchange file as finished
 				if p.StateHandler != nil {
 					p.StateHandler.MarkExchangeFileAsFinished()
 				}
-				continue
 			}
-			lineContent.WriteString(line)
 		}
 	}
 	logger.Debug("done with file")
-	return
+	return nil
 }

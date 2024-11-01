@@ -28,7 +28,7 @@ func TestProcessBulkZipFile2023(t *testing.T) {
 
 func TestProcessEpFiles2023(t *testing.T) {
 	// skipTest(t)
-	path := os.Getenv("DOCDB_BACKFILES_PATH")
+	path := os.Getenv("DOCDB_FRONTFILES_PATH")
 	ass := assert.New(t)
 	p := NewFileExportProcessor("./test-data/xml/eps")
 	p.IncludeAuthorities("EP")
@@ -42,6 +42,9 @@ func TestProcessDirectory(t *testing.T) {
 		panic("no file path to the backfiles defined")
 	}
 	p := NewProcessor()
+	p.SetContentHandler(func(fileName string, fileContent string) {
+		return
+	})
 	p.IncludeAuthorities("EP")
 	err := p.ProcessDirectory(path)
 	if err != nil {
