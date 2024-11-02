@@ -816,14 +816,16 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 		switch elem := token.(type) {
 		case xml.StartElement:
 			if elem.Name.Local == "exchange-document" {
-				var doc ExchangeDocument
-				if errDecodeElement := decoder.DecodeElement(&doc, &elem); errDecodeElement != nil {
-					logger.With("errDecodeElement", errDecodeElement).Error("failed to decode exchange-document")
-					// Skip the document
-					continue
+				// convert the full element to a string
+				elemXml, errMarshal := xml.Marshal(&elem)
+				if errMarshal != nil {
+					logger.With("err", errMarshal).Error("failed to marshal XML")
+					return errMarshal
 				}
+				// get file name from the element
+				fileName := extractFileName(string(elemXml))
 				// Handle the document using ContentHandler
-				p.ContentHandler(doc.FileName(), doc.InnerXML)
+				p.ContentHandler(fileName, string(elemXml))
 				// Mark exchange file as finished
 				if p.StateHandler != nil {
 					p.StateHandler.MarkExchangeFileAsFinished()
