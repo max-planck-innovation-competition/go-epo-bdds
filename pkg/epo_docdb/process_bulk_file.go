@@ -811,6 +811,9 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 	tempDoc := ""
 	for scanner.Scan() {
 		line := scanner.Text()
+		// remove the exch: prefix
+		line = strings.ReplaceAll(line, "<exch:", "<")
+		line = strings.ReplaceAll(line, "</exch:", "</")
 		// check if the line contains exchange-document
 		if strings.Contains(line, "<exchange-document") && strings.Contains(line, "</exchange-document>") {
 			// remove everything before the exchange-document
@@ -821,6 +824,7 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 			p.ContentHandler(fileName, line)
 		} else if strings.Contains(line, "<exchange-document") {
 			// remove everything before the exchange-document
+			line = line[strings.Index(line, "<exchange-document"):]
 			tempDoc = line
 		} else if strings.Contains(line, "</exchange-document>") {
 			// remove everything after the exchange-document
@@ -835,5 +839,6 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 			tempDoc += line
 		}
 	}
+	logger.Debug("successfully done")
 	return nil
 }

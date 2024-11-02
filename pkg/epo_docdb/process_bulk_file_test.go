@@ -1,7 +1,9 @@
 package epo_docdb
 
 import (
+	"bufio"
 	"github.com/stretchr/testify/assert"
+	"log/slog"
 	"os"
 	"testing"
 	"time"
@@ -114,4 +116,24 @@ func TestSkipFileBasedOnAuthority(t *testing.T) {
 		t.Error("should be skipped")
 	}
 
+}
+
+func TestProcessBackfileExchangeDocuments(t *testing.T) {
+	p := NewProcessor()
+	p.SetContentHandler(func(fileName string, fileContent string) {
+		t.Log(fileName)
+	})
+	// read the test file
+	deTestFile := "./test-data/DE-backfile.xml"
+	// create io reader
+	file, err := os.Open(deTestFile)
+	if err != nil {
+		t.Error(err)
+	}
+	//
+	reader := bufio.NewReader(file)
+	err = p.ProcessExchangeFileContent(slog.With("test"), reader)
+	if err != nil {
+		t.Error(err)
+	}
 }
