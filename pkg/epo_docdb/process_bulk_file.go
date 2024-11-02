@@ -2,6 +2,7 @@ package epo_docdb
 
 import (
 	"archive/zip"
+	"bufio"
 	"encoding/xml"
 	"fmt"
 	"github.com/krolaw/zipstream"
@@ -800,39 +801,39 @@ var EntityMap = map[string]string{
 
 // ProcessExchangeFileContent processes an exchange file content
 func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader) (err error) {
-	// Use the custom UnescapingDecoder instead of xml.Decoder
-	decoder := xml.NewDecoder(fc)
-	decoder.Entity = EntityMap
-
-	for {
-		token, errDecoderToken := decoder.Token()
-		if errDecoderToken == io.EOF {
-			break
-		}
-		if errDecoderToken != nil {
-			logger.With("err", errDecoderToken).Error("failed to decode XML")
-			return errDecoderToken
-		}
-		switch elem := token.(type) {
-		case xml.StartElement:
-			if elem.Name.Local == "exchange-document" {
-				// convert the full element to a string
-				elemXml, errMarshal := xml.Marshal(&elem)
-				if errMarshal != nil {
-					logger.With("err", errMarshal).Error("failed to marshal XML")
-					return errMarshal
-				}
-				// get file name from the element
-				fileName := extractFileName(string(elemXml))
-				// Handle the document using ContentHandler
-				p.ContentHandler(fileName, string(elemXml))
-				// Mark exchange file as finished
-				if p.StateHandler != nil {
-					p.StateHandler.MarkExchangeFileAsFinished()
-				}
-			}
+	// iterate over the lines of the file
+	// not use a xml decoder because the file is too big
+	// and we don't want to load the entire file into memory
+	// we only want to load the exchange-document elements
+	// and process them one by one
+	// this is why we use a scanner
+	scanner := bufio.NewScanner(fc)
+	tempDoc := ""
+	for scanner.Scan() {
+		line := scanner.Text()
+		// check if the line contains exchange-document
+		if strings.Contains(line, "<exchange-document") && strings.Contains(line, "</exchange-document>") {
+			// remove everything before the exchange-document
+			line = line[strings.Index(line, "<exchange-document"):]
+			// parse the exchange-document
+			fileName := extractFileName(line)
+			// process the exchange-document
+			p.ContentHandler(fileName, line)
+		} else if strings.Contains(line, "<exchange-document") {
+			// remove everything before the exchange-document
+			tempDoc = line
+		} else if strings.Contains(line, "</exchange-document>") {
+			// remove everything after the exchange-document
+			tempDoc += line
+			// parse the exchange-document
+			fileName := extractFileName(tempDoc)
+			// process the exchange-document
+			p.ContentHandler(fileName, tempDoc)
+			tempDoc = ""
+		} else if tempDoc != "" {
+			// add line to tempDoc
+			tempDoc += line
 		}
 	}
-	logger.Debug("done with file")
 	return nil
 }
