@@ -815,16 +815,17 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 		line = strings.ReplaceAll(line, "<exch:", "<")
 		line = strings.ReplaceAll(line, "</exch:", "</")
 		// check if the line contains exchange-document
-		if strings.Contains(line, "<exchange-document") && strings.Contains(line, "</exchange-document>") {
+		if strings.Contains(line, "<exchange-document ") && strings.Contains(line, "</exchange-document>") {
 			// remove everything before the exchange-document
-			line = line[strings.Index(line, "<exchange-document"):]
+			// there must be a space after "exchange-document" since it would also match "exchange-documents"
+			line = line[strings.Index(line, "<exchange-document "):]
 			// parse the exchange-document
 			fileName := extractFileName(line)
 			// process the exchange-document
 			p.ContentHandler(fileName, line)
-		} else if strings.Contains(line, "<exchange-document") {
+		} else if strings.Contains(line, "<exchange-document ") {
 			// remove everything before the exchange-document
-			line = line[strings.Index(line, "<exchange-document"):]
+			line = line[strings.Index(line, "<exchange-document "):]
 			tempDoc = line
 		} else if strings.Contains(line, "</exchange-document>") {
 			// remove everything after the exchange-document
