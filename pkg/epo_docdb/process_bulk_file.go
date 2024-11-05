@@ -169,6 +169,11 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	queueFiles := []string{}
 	// iterate over files
 	for _, filePath := range filePaths {
+		// skip file based on file type
+		if p.skipFileBasedOnFileType(filePath) {
+			directoryLogger.With("filePath", filePath).Info("skipping file based on file type")
+			continue
+		}
 		// check if state handler is set
 		if p.StateHandler != nil {
 			// check if the file is already done
@@ -180,11 +185,6 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 				// if already done, skip
 				continue
 			}
-		}
-		// skip file based on file type
-		if p.skipFileBasedOnFileType(filePath) {
-			directoryLogger.With("filePath", filePath).Info("skipping file based on file type")
-			continue
 		}
 
 		// add to queueFiles

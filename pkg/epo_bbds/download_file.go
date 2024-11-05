@@ -100,7 +100,7 @@ func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (newF
 	}
 	for i, d := range deliveries.Deliveries {
 		slog.
-			With("deliveryName", d.DeliveryName, "no", i, "total", len(deliveries.Deliveries)).
+			With("deliveryName", d.DeliveryName, "no", i+1, "total", len(deliveries.Deliveries)).
 			Info("process delivery")
 		amountFiles := len(d.Files)
 		for j, f := range d.Files {
