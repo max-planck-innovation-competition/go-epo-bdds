@@ -118,7 +118,7 @@ func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (newF
 				slog.With("err", err).Error("can not get the auth token")
 				return
 			}
-			slog.With("file", f.FileName, "no", j, "total", amountFiles).Info("start downloading")
+			slog.With("file", f.FileName, "no", j+1, "total", amountFiles).Info("start downloading")
 			errDownload := DownloadFile(
 				token,
 				EpoDocDBFrontFilesProductID,
