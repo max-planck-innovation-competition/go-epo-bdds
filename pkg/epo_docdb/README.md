@@ -7,6 +7,17 @@ It can be used to ingest the data into any database or any file format.
 
 The `Processor` struct can be used to process the data.
 
+## Environment Variables
+
+```env
+EPO_USERNAME=hello@world.com
+EPO_PASSWORD=******
+DOCDB_FRONTFILES_PATH=/media/oem/Volume/docdb/frontfiles
+DOCDB_BACKFILES_PATH=/media/oem/Volume/docdb/backfiles_2024_02_27
+```
+
+## Usage
+
 ```go
 
 // your custom handler

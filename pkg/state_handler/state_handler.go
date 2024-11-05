@@ -2,25 +2,114 @@ package state_handler
 
 import (
 	"errors"
-	"fmt"
 	"log/slog"
 	"path/filepath"
 	"strconv"
+	"strings"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
+// PathDelimiter is the delimiter used to separate the path of the objects
+const PathDelimiter = "/"
+
+// ProcessStatus represents the status of a process
 type ProcessStatus string
 
 const (
 	// Todo is the status of a process that has not started yet
 	Todo ProcessStatus = "todo"
-	// PartlyProcessed is the status of a process that has started but not finished
-	PartlyProcessed ProcessStatus = "partly"
 	// Done is the status of a process that has finished
 	Done ProcessStatus = "done"
+	// Error is the status of a process that has finished with an error
+	Error ProcessStatus = "error"
 )
+
+// Object represents a single object in the database
+// this will be used to store the last known state of the processing
+type Object struct {
+	Path   string        `gorm:"primary_key"` // just the path of the object
+	Status ProcessStatus // the status of the object
+}
+
+// RegisterOrSkip returns Done if the object is already processed
+func (sh *StateHandler) RegisterOrSkip(path string) (skip bool, err error) {
+	// check if the parent is done
+	// if the parent is not done, the object is not done
+	// if the parent is done, the object is done
+	// if the parent does not exist, the object is not done
+	pathParts := strings.Split(path, PathDelimiter)
+	if len(pathParts) > 1 {
+		for i := 1; i < len(pathParts); i++ {
+			parentPath := strings.Join(pathParts[:i], PathDelimiter)
+			parentObj, err := sh.Get(parentPath)
+			if err != nil {
+				slog.With("err", err).Error("could not get parent object")
+				return true, err
+			}
+			// if the parent is done skip the object
+			if parentObj.Status == Done {
+				return true, nil
+			}
+		}
+	}
+	// get the object
+	// if its already in the database, return if it's done
+	// if it's not in the database, create it and return not done
+	obj, err := sh.Get(path)
+	if err != nil {
+		slog.With("err", err).Error("could not get object")
+		return true, err
+	}
+	return obj.Status == Done, nil
+}
+
+// Set sets the status of the object with the given path
+func (sh *StateHandler) Set(path string, status ProcessStatus) error {
+	return sh.db.Save(&Object{Path: path, Status: status}).Error
+}
+
+// Get returns the object with the given path
+// if the object does not exist, it will be created with the status Todo
+func (sh *StateHandler) Get(path string) (obj *Object, err error) {
+	var object Object
+	err = sh.db.Where("path = ?", path).First(&object).Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			err = sh.Set(path, Todo)
+			if err != nil {
+				slog.With("err", err).Error("could not set object")
+				return nil, err
+			}
+			return &Object{Path: path, Status: Todo}, nil
+		}
+		return nil, err
+	}
+	return &object, nil
+}
+
+// MarkAsDone marks the object as done
+// and deletes all objects that are children of the object
+func (sh *StateHandler) MarkAsDone(path string) error {
+	tx := sh.db.Begin()
+	if tx.Error != nil {
+		return tx.Error
+	}
+	// mark object as done
+	err := tx.Model(&Object{}).Where("path = ?", path).Update("status", Done).Error
+	if err != nil {
+		slog.With("err", err).Error("could not mark as done")
+		tx.Rollback()
+	}
+	// delete all objects that are children of the object
+	err = tx.Where("path LIKE ?", path+"/%").Unscoped().Delete(&Object{}).Error
+	if err != nil {
+		slog.With("err", err).Error("could not delete children")
+		tx.Rollback()
+	}
+	return tx.Commit().Error
+}
 
 // ProcessDirectorySQL represents the directory that is being processed
 type ProcessDirectorySQL struct {
@@ -73,14 +162,22 @@ type ExchangeLineSQL struct {
 // returns false if the processing is already finished
 // returns true if there is some processing left to be done
 func (sh *StateHandler) Initialize() {
-	db, err := gorm.Open(sqlite.Open(sh.DatabasePath), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(sh.DatabasePath), &gorm.Config{
+		Logger: nil,
+	})
 	if err != nil {
 		panic("failed to open " + sh.DatabasePath)
 	}
 
 	sh.db = db
 	// this will create the tables in the database, or migrate them if they already exist
-	err = sh.db.AutoMigrate(&ProcessDirectorySQL{}, &ZipFileSQL{}, &XMLFileSQL{}, &ExchangeLineSQL{})
+	err = sh.db.AutoMigrate(
+		&Object{},
+		&ProcessDirectorySQL{},
+		&ZipFileSQL{},
+		&XMLFileSQL{},
+		&ExchangeLineSQL{},
+	)
 	if err != nil {
 		slog.With("err", err).Error("could not migrate")
 		return
@@ -92,7 +189,6 @@ func (sh *StateHandler) Initialize() {
 	dirResult := sh.db.Where("processing_dir = ?", sh.ProcessingDir).First(&processDirSQL)
 	if dirResult.Error != nil {
 		if errors.Is(dirResult.Error, gorm.ErrRecordNotFound) {
-			fmt.Println("No record for this processing path, creating one")
 			processDir := ProcessDirectorySQL{
 				ProcessingDir: sh.ProcessingDir,
 				DatabasePath:  sh.DatabasePath,
@@ -172,7 +268,6 @@ func (sh *StateHandler) RegisterOrSkipXMLFile(fileName string, innerZipPath stri
 	errXMLFile := sh.db.Where("xml_name = ?", fileName).First(&xmlFile).Error
 	if errXMLFile != nil {
 		if errors.Is(errXMLFile, gorm.ErrRecordNotFound) {
-			fmt.Println("No record for this xml file, creating")
 			newXmlFile := XMLFileSQL{
 				XmlName:   fileName,
 				Status:    Todo,
@@ -211,7 +306,6 @@ func (sh *StateHandler) RegisterOrSkipExchangeLine(exchangeID string, lineNumber
 	errExchangeFile := sh.db.Where("exchange_name = ?", exchangeID).First(&exchangeLine).Error
 	if errExchangeFile != nil {
 		if errors.Is(errExchangeFile, gorm.ErrRecordNotFound) {
-			fmt.Println("No record for this xml file, creating")
 			newExchangeLine := ExchangeLineSQL{
 				XMLFileID:    sh.currentXMLFileSQL.ID,
 				ExchangeName: exchangeID,
@@ -269,7 +363,6 @@ func (sh *StateHandler) MarkZipFileAsFinished() {
 	}
 
 	// Check deleted records
-	fmt.Printf("Deleted %v record(s) with name '%s'", resultXMLDelete.RowsAffected, sh.currentXMLFileSQL.XmlName)
 	// set current Exchange File to empty
 	sh.currentXMLFileSQL = XMLFileSQL{}
 
@@ -303,17 +396,20 @@ func (sh *StateHandler) MarkXMLAsFinished() {
 	}
 
 	// Check deleted records
-	fmt.Printf("Deleted %v record(s) with ID '%v'", resultExchangeDelete.RowsAffected, sh.currentXMLFileSQL.ID)
 	// set current Exchange File to empty
 	sh.currentExchangeLineSQL = ExchangeLineSQL{}
 
 	//We're keeping the XML Entry for now
-	resultInfo := sh.db.Model(&sh.currentXMLFileSQL).Update("info", "finished")
+	resultInfo := sh.db.Model(&sh.currentXMLFileSQL).
+		Where("id", &sh.currentZipFileSQL.ID).
+		Update("info", "finished")
 	if resultInfo.Error != nil {
 		panic(resultInfo.Error)
 	}
 
-	resultStatus := sh.db.Model(&sh.currentXMLFileSQL).Update("status", Done)
+	resultStatus := sh.db.Model(&sh.currentXMLFileSQL).
+		Where("id", &sh.currentZipFileSQL.ID).
+		Update("status", Done)
 	if resultStatus.Error != nil {
 		panic(resultStatus.Error)
 	}
