@@ -1082,7 +1082,12 @@ func TestReadBigFileProcessExchangeFileContent(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	defer file.Close()
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+			t.Error(err)
+		}
+	}(file)
 
 	p := NewProcessor()
 	p.SetContentHandler(parserHandler)

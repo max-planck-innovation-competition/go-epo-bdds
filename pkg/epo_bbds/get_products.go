@@ -3,6 +3,7 @@ package epo_bbds
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"log/slog"
 	"net/http"
 	"strings"
@@ -46,7 +47,12 @@ func GetProducts(token string) (response []EpoProductItem, err error) {
 		return
 	}
 	// close response body
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			slog.With("err", err).Error("failed to close body")
+		}
+	}(resp.Body)
 	// parse response
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {

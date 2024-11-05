@@ -33,8 +33,10 @@ type Processor struct {
 // the default handler is PrintLineHandler
 func NewProcessor() *Processor {
 	p := Processor{
-		ContentHandler: PrintLineHandler,
-		Workers:        1,
+		ContentHandler:     PrintLineHandler,
+		Workers:            1,
+		includeAuthorities: map[string]struct{}{},
+		includeFileTypes:   map[string]struct{}{},
 	}
 	return &p
 }
@@ -77,6 +79,10 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 // based on the authority
 func (p *Processor) skipFileBasedOnAuthority(filePath string) bool {
 	logger := slog.With("filePath", filePath)
+	if len(p.includeAuthorities) == 0 {
+		logger.Debug("including file")
+		return false
+	}
 	// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
 	var countryRegex = regexp.MustCompile("-([A-Z]{2})-[0-9]{1,10}\\.zip")
 	fileName := filepath.Base(filePath)
@@ -212,7 +218,12 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 		logger.With("err", err).Error("failed to open bulk zip file")
 		return err
 	}
-	defer reader.Close()
+	defer func(reader *zip.ReadCloser) {
+		err := reader.Close()
+		if err != nil {
+			logger.With("err", err).Error("failed to close bulk zip file")
+		}
+	}(reader)
 
 	queueFiles := []*zip.File{}
 
@@ -304,7 +315,12 @@ func (p *Processor) ProcessZipFile(logger *slog.Logger, zipFile *zip.File) {
 		logger.With("err", err).Error("failed to open zip file")
 		return
 	}
-	defer f.Close()
+	defer func(f io.ReadCloser) {
+		err := f.Close()
+		if err != nil {
+			logger.With("err", err).Error("failed to close zip file")
+		}
+	}(f)
 
 	// Use zipstream to process the zip entries without loading the entire file into memory
 	zr := zipstream.NewReader(f)

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log/slog"
 	"net/http"
 	"strings"
@@ -74,7 +75,12 @@ func GetEpoBddsFileItems(token string, productID EpoBddsBProductID) (response Ep
 		return
 	}
 	// close response body
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			slog.With("err", err).Error("failed to close body")
+		}
+	}(resp.Body)
 	// parse response
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {

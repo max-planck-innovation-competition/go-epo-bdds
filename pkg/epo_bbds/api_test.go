@@ -32,7 +32,7 @@ func TestApi(t *testing.T) {
 	}
 
 	res2B, _ := json.Marshal(resFrontFiles)
-	os.WriteFile("big_marhsall.json", res2B, os.ModePerm)
+	_ = os.WriteFile("big_marhsall.json", res2B, os.ModePerm)
 
 	fmt.Println(string(res2B))
 	ass.NoError(err)

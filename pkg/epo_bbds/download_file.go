@@ -80,7 +80,10 @@ func DownloadFile(token string, productID EpoBddsBProductID, deliveryID, fileID 
 }
 
 // DownloadAllFiles downloads all files from the bulk data service of a product
-func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (err error) {
+// checks if the file already exists
+// downloads the new files
+// returns a list of new files
+func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (newFiles []string, err error) {
 	// get token
 	token, errToken := GetAuthorizationToken()
 	if errToken != nil {
@@ -106,6 +109,8 @@ func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (err 
 				slog.With("file", f.FileName, "no", j, "total", amountFiles).Info("file exists already")
 				continue
 			}
+			// add file to list
+			newFiles = append(newFiles, f.FileName)
 			// get token
 			token, errToken = GetAuthorizationToken()
 			if errToken != nil {
@@ -130,7 +135,7 @@ func DownloadAllFiles(productID EpoBddsBProductID, destinationPath string) (err 
 			time.Sleep(time.Second * 30)
 		}
 	}
-	slog.Info("Done")
+	slog.Info("All downloads done")
 	return
 }
 

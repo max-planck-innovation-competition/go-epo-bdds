@@ -134,7 +134,7 @@ func TestDownloadDocDbBackFiles(t *testing.T) {
 		t.Error("no file path found")
 		return
 	}
-	err := DownloadAllFiles(EpoDocDBBackFilesProductID, destinationPath)
+	_, err := DownloadAllFiles(EpoDocDBBackFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return
@@ -147,7 +147,7 @@ func TestDownloadDocDbFrontFiles(t *testing.T) {
 		t.Error("no file path found")
 		return
 	}
-	err := DownloadAllFiles(EpoDocDBFrontFilesProductID, destinationPath)
+	_, err := DownloadAllFiles(EpoDocDBFrontFilesProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return
@@ -160,7 +160,7 @@ func TestDownloadPatstat(t *testing.T) {
 		t.Error("no file path found")
 		return
 	}
-	err := DownloadAllFiles(EpoPatstatGlobalProductID, destinationPath)
+	_, err := DownloadAllFiles(EpoPatstatGlobalProductID, destinationPath)
 	if err != nil {
 		t.Error(err)
 		return
