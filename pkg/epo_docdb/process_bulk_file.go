@@ -172,8 +172,11 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		// check if state handler is set
 		if p.StateHandler != nil {
 			// check if the file is already done
-			state, _ := p.StateHandler.RegisterOrSkipZipFile(filePath)
-			if state == state_handler.Done {
+			skip, errSkip := p.StateHandler.RegisterOrSkip(filePath)
+			if errSkip != nil {
+				slog.With("err", errSkip).Error("failed to register or skip file")
+			}
+			if skip {
 				// if already done, skip
 				continue
 			}
@@ -248,8 +251,14 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 			// check if state handler is set
 			// if yes then check if the file is already done
 			if p.StateHandler != nil {
-				bulkState, _ := p.StateHandler.RegisterOrSkipZipFile(path)
-				if bulkState == state_handler.Done {
+
+				fullPath := filepath.Join(filePath, path)
+
+				skip, errSkip := p.StateHandler.RegisterOrSkip(fullPath)
+				if errSkip != nil {
+					logger.With("err", errSkip).Error("failed to register or skip file")
+				}
+				if skip {
 					// if already done, skip
 					logger.With("zipFile", path).Debug("skipping zip file")
 					continue
@@ -280,7 +289,10 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 
 				// mark zip file as finished
 				if p.StateHandler != nil {
-					p.StateHandler.MarkZipFileAsFinished()
+					errMarkDone := p.StateHandler.MarkAsDone(filepath.Join(filePath, zipFile.Name))
+					if errMarkDone != nil {
+						slog.With("err", errMarkDone).Error("failed to mark zip file as done")
+					}
 				}
 
 				// log the current progress
@@ -336,27 +348,11 @@ func (p *Processor) ProcessZipFile(logger *slog.Logger, zipFile *zip.File) {
 		}
 		logger.With("xmlFile", header.Name).Debug("child found")
 
-		// check state handler
-		if p.StateHandler != nil {
-			// check if the file is already done
-			xmlStatus, _ := p.StateHandler.RegisterOrSkipXMLFile(header.Name, "/Root/DOC/")
-			if xmlStatus == state_handler.Done {
-				// if already done, skip
-				logger.Debug("skipping xml file")
-				continue
-			}
-		}
-
 		// process zip file content
 		err = p.ProcessZipFileContent(logger, header, zr)
 		if err != nil {
 			logger.With("err", err).Error("failed to process zip file content")
 			return
-		}
-
-		// mark xml as finished
-		if p.StateHandler != nil {
-			p.StateHandler.MarkXMLAsFinished()
 		}
 	}
 }

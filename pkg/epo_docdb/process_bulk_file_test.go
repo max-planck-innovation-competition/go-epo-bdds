@@ -152,7 +152,10 @@ func TestProcessStateHandler(t *testing.T) {
 	t.Log(newFiles)
 	p := NewProcessor()
 	p.SetStateHandler(state_handler.New("epo_frontfiles_state.sqlite", "./test-data", frontFilesPath))
-	p.IncludeAuthorities("EP")
+	p.IncludeAuthorities("AP")
+	p.SetContentHandler(func(fileName string, fileContent string) {
+		// blank handler
+	})
 	err = p.ProcessDirectory(frontFilesPath)
 	if err != nil {
 		t.Error(err)

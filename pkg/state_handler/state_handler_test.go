@@ -3,7 +3,6 @@ package state_handler
 import (
 	"os"
 	"path/filepath"
-	"strconv"
 	"testing"
 )
 
@@ -21,87 +20,6 @@ func init() {
 	}
 	testDir = filepath.Join(pwd, "test-data")
 	testDatabasePath = filepath.Join(testDir, testDbName)
-}
-
-func TestSQLHandlerBreakMiddle(t *testing.T) {
-	// defer func(name string) {
-	// 	err := os.Remove(testDatabasePath)
-	// 	if err != nil {
-	// 		t.Error(err)
-	// 	}
-	// }(testDir)
-
-	stateHandler := New(testDbName, testDir, testDir)
-	if stateHandler.IsDirectoryFinished() {
-		return
-	}
-
-	// generate synthetic data
-	for bulkIndex := 1; bulkIndex < 5; bulkIndex++ {
-		bulkName := "test" + strconv.Itoa(bulkIndex)
-		bulkStatus, _ := stateHandler.RegisterOrSkipZipFile(bulkName + ".zip")
-		if bulkStatus == Done {
-			continue
-		}
-
-		for xmlIndex := 1; xmlIndex < 5; xmlIndex++ {
-
-			xmlName := "frontfile" + strconv.Itoa(xmlIndex)
-			xmlStatus, _ := stateHandler.RegisterOrSkipXMLFile(bulkName+"_"+xmlName+".xml", "/DOC/files/")
-			if bulkIndex == 2 && xmlIndex == 4 {
-				return
-			}
-			if xmlStatus == Done {
-				continue
-			}
-
-			stateHandler.MarkXMLAsFinished()
-		}
-
-		stateHandler.MarkZipFileAsFinished()
-	}
-
-	stateHandler.MarkProcessingDirectoryAsFinished()
-}
-
-func TestSQLHandlerFull(t *testing.T) {
-	stateHandler := New(testDbName, testDir, testDir)
-	stateHandler.SetSafeDelete(true)
-	if stateHandler.IsDirectoryFinished() {
-		return
-	}
-
-	for bulkIndex := 1; bulkIndex < 5; bulkIndex++ {
-		bulkName := "test" + strconv.Itoa(bulkIndex)
-		bulkStatus, _ := stateHandler.RegisterOrSkipZipFile(bulkName + ".zip")
-		if bulkStatus == Done {
-			continue
-		}
-
-		for xmlIndex := 1; xmlIndex < 5; xmlIndex++ {
-			xmlName := "frontfile" + strconv.Itoa(xmlIndex)
-			xmlStatus, _ := stateHandler.RegisterOrSkipXMLFile(bulkName+"_"+xmlName+".xml", "/DOC/files/")
-			if xmlStatus == Done {
-				continue
-			}
-
-			for exchangeIndex := 1; exchangeIndex < 20; exchangeIndex++ {
-				exchangeName := "exchangefile" + strconv.Itoa(xmlIndex) + "-" + strconv.Itoa(exchangeIndex)
-				exchangeStatus, _ := stateHandler.RegisterOrSkipExchangeLine(exchangeName, exchangeIndex)
-				if exchangeStatus == Done {
-					continue
-				}
-
-				stateHandler.MarkExchangeFileAsFinished()
-			}
-
-			stateHandler.MarkXMLAsFinished()
-		}
-
-		stateHandler.MarkZipFileAsFinished()
-	}
-
-	stateHandler.MarkProcessingDirectoryAsFinished()
 }
 
 func TestStateHandler(t *testing.T) {
