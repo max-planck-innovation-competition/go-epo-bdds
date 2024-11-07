@@ -18,8 +18,6 @@ import (
 	"sync"
 )
 
-const logLevelProcess = 5
-
 // Processor creates a
 type Processor struct {
 	ContentHandler     ContentHandler              // content handler
@@ -80,7 +78,7 @@ func (p *Processor) IncludeAuthorities(cs ...string) {
 func (p *Processor) skipFileBasedOnAuthority(filePath string) bool {
 	logger := slog.With("filePath", filePath)
 	if len(p.includeAuthorities) == 0 {
-		logger.Debug("including file")
+		logger.Debug("[authority] including file")
 		return false
 	}
 	// get file Name e.g. DOCDB-202402-CreateDelete-PubDate20240105AndBefore-AR-0001.zip
@@ -93,10 +91,10 @@ func (p *Processor) skipFileBasedOnAuthority(filePath string) bool {
 		// check if the country is in the list of countries to include
 		if _, ok := p.includeAuthorities[c]; !ok {
 			// skip this file
-			logger.With("country", c).Debug("skipping file")
+			logger.With("country", c).Debug("[authority] skipping file")
 			return true
 		} else {
-			logger.With("country", c).Debug("including file")
+			logger.With("country", c).Debug("[authority] including file")
 			return false
 		}
 	}
@@ -119,17 +117,21 @@ func (p *Processor) IncludeFileTypes(cs ...string) {
 // based on the file type.
 // e.g. CreateDelete, Amend, etc.
 func (p *Processor) skipFileBasedOnFileType(filePath string) bool {
+	logger := slog.With("filePath", filePath)
 	// check if file types are included
 	if len(p.includeFileTypes) > 0 {
 		// iterate over file types
 		for fileType := range p.includeFileTypes {
 			// check if the file type is in the path
 			if strings.Contains(strings.ToLower(filePath), strings.ToLower(fileType)) {
+				logger.With("fileType", fileType).Debug("[file-type] including file")
 				return false
 			}
 		}
+		logger.Debug("[file-type] skipping file")
 		return true // skip if file type not matched
 	}
+	logger.Debug("[file-type] including file")
 	return false // include if no file types are specified
 }
 
@@ -171,7 +173,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 	for _, filePath := range filePaths {
 		// skip file based on file type
 		if p.skipFileBasedOnFileType(filePath) {
-			directoryLogger.With("filePath", filePath).Info("skipping file based on file type")
+			directoryLogger.With("filePath", filePath).Info("[file-type] skipping file based on file type")
 			continue
 		}
 		// check if state handler is set
@@ -183,6 +185,7 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 			}
 			if skip {
 				// if already done, skip
+				slog.With("zipFile", filePath).Info("[state-handler] file already processed - skipping")
 				continue
 			}
 		}
@@ -251,9 +254,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 			// check if state handler is set
 			// if yes then check if the file is already done
 			if p.StateHandler != nil {
-
 				fullPath := filepath.Join(filePath, path)
-
 				skip, errSkip := p.StateHandler.RegisterOrSkip(fullPath)
 				if errSkip != nil {
 					logger.With("err", errSkip).Error("failed to register or skip file")
@@ -282,6 +283,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 			defer wg.Done()
 			for zipFile := range fileCh {
 
+				fullPath := filepath.Join(filePath, zipFile.Name)
 				workerLogger := slog.With("workerId", workerId).With("file", zipFile.Name)
 
 				// process zip file
@@ -289,7 +291,7 @@ func (p *Processor) ProcessBulkZipFile(filePath string) (err error) {
 
 				// mark zip file as finished
 				if p.StateHandler != nil {
-					errMarkDone := p.StateHandler.MarkAsDone(filepath.Join(filePath, zipFile.Name))
+					errMarkDone := p.StateHandler.MarkAsDone(fullPath)
 					if errMarkDone != nil {
 						slog.With("err", errMarkDone).Error("failed to mark zip file as done")
 					}
