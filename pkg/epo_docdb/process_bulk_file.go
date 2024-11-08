@@ -6,7 +6,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/krolaw/zipstream"
-	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/state_handler"
 	"io"
 	"io/fs"
 	"log/slog"
@@ -18,13 +17,19 @@ import (
 	"sync"
 )
 
+// StateHandler can be used to track the state of the application
+type StateHandler interface {
+	RegisterOrSkip(filePath string) (skip bool, err error)
+	MarkAsDone(filePath string) error
+}
+
 // Processor creates a
 type Processor struct {
-	ContentHandler     ContentHandler              // content handler
-	includeAuthorities map[string]struct{}         // e.g. EP, WO, etc.
-	includeFileTypes   map[string]struct{}         // e.g. CreateDelete, Amend, etc.
-	StateHandler       *state_handler.StateHandler // optional state handler
-	Workers            int                         // number of workers
+	ContentHandler     ContentHandler      // content handler
+	includeAuthorities map[string]struct{} // e.g. EP, WO, etc.
+	includeFileTypes   map[string]struct{} // e.g. CreateDelete, Amend, etc.
+	StateHandler       StateHandler        // optional state handler
+	Workers            int                 // number of workers
 }
 
 // NewProcessor creates a new processor
@@ -57,7 +62,7 @@ func (p *Processor) SetContentHandler(fn ContentHandler) *Processor {
 }
 
 // SetStateHandler adds a state handler
-func (p *Processor) SetStateHandler(stateHandler *state_handler.StateHandler) *Processor {
+func (p *Processor) SetStateHandler(stateHandler StateHandler) *Processor {
 	p.StateHandler = stateHandler
 	return p
 }

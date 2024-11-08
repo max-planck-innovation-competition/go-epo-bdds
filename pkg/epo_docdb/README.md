@@ -20,7 +20,7 @@ DOCDB_BACKFILES_PATH=/media/oem/Volume/docdb/backfiles_2024_02_27
 
 ```go
 
-// your custom handler
+// your custom content handler
 var parserHandler = func(fileName, fileContent string) {
 	// converts the docdb xml string to a golang struct
     doc, err := epo_docdb.ParseXmlStringToStruct(fileContent)
@@ -49,5 +49,30 @@ p.SetContentHandler(parserHandler)
 
 err := p.ProcessDirectory("/docdb/backfiles")
 ```
+
+
+## State
+
+To track the state of the processing, the `StateHandler` interface can be used.
+
+This state handler should implement the following methods:
+```go
+// StateHandler can be used to track the state of the application
+type StateHandler interface {
+	RegisterOrSkip(filePath string) (skip bool, err error)
+	MarkAsDone(filePath string) error
+}
+```
+
+The `StateHandler` can be initialized as follows:
+```go
+sh := state_handler.NewStateHandler()
+
+p := epo_docdb.NewProcessor()
+p.SetStateHandler(sh)
+```
+
+
+
 
 

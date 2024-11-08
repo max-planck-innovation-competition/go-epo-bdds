@@ -2,8 +2,6 @@ package epo_docdb
 
 import (
 	"bufio"
-	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/epo_bbds"
-	"github.com/max-planck-innovation-competition/go-epo-bdds/pkg/state_handler"
 	"github.com/stretchr/testify/assert"
 	"log/slog"
 	"os"
@@ -137,28 +135,5 @@ func TestProcessBackfileExchangeDocuments(t *testing.T) {
 	err = p.ProcessExchangeFileContent(slog.With("test"), reader)
 	if err != nil {
 		t.Error(err)
-	}
-}
-
-func TestProcessStateHandler(t *testing.T) {
-	// skipTest(t)
-	frontFilesPath := os.Getenv("DOCDB_FRONTFILES_PATH")
-	newFiles, err := epo_bbds.DownloadAllFiles(epo_bbds.EpoDocDBFrontFilesProductID, frontFilesPath)
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	// print the new files
-	t.Log(newFiles)
-	p := NewProcessor()
-	p.SetStateHandler(state_handler.New("epo_frontfiles_state.sqlite", "./test-data", frontFilesPath))
-	p.IncludeAuthorities("AP")
-	p.SetContentHandler(func(fileName string, fileContent string) {
-		// blank handler
-	})
-	err = p.ProcessDirectory(frontFilesPath)
-	if err != nil {
-		t.Error(err)
-		return
 	}
 }
