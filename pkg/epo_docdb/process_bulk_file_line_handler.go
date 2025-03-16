@@ -63,5 +63,5 @@ func PrintLineHandler(
 	fileName string,
 	fileContent string,
 ) {
-	fmt.Println(fileName, fileContent)
+	fmt.Println(fileName)
 }

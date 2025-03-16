@@ -3,6 +3,7 @@ package epo_docdb
 import (
 	"archive/zip"
 	"bufio"
+	"bytes"
 	"encoding/xml"
 	"fmt"
 	"github.com/krolaw/zipstream"
@@ -414,38 +415,56 @@ func (p *Processor) ProcessExchangeFileContent(logger *slog.Logger, fc io.Reader
 	// and we don't want to load the entire file into memory
 	// we only want to load the exchange-document elements
 	// and process them one by one
-	// this is why we use a scanner
-	scanner := bufio.NewScanner(fc)
+
+	// the xml file does not allow us to scan line by line
+	// buffer is used to store each exchange-document for processing
+	// after processing the exchange-document, buffer is cleared, and start the next exchange-document
+	reader := bufio.NewReader(fc)
+	var buffer bytes.Buffer
 	tempDoc := ""
-	for scanner.Scan() {
-		line := scanner.Text()
-		// remove the exch: prefix
-		line = strings.ReplaceAll(line, "<exch:", "<")
-		line = strings.ReplaceAll(line, "</exch:", "</")
-		// check if the line contains exchange-document
-		if strings.Contains(line, "<exchange-document ") && strings.Contains(line, "</exchange-document>") {
-			// remove everything before the exchange-document
-			// there must be a space after "exchange-document" since it would also match "exchange-documents"
-			line = line[strings.Index(line, "<exchange-document "):]
-			// parse the exchange-document
-			fileName := extractFileName(line)
-			// process the exchange-document
-			p.ContentHandler(fileName, line)
-		} else if strings.Contains(line, "<exchange-document ") {
-			// remove everything before the exchange-document
-			line = line[strings.Index(line, "<exchange-document "):]
-			tempDoc = line
-		} else if strings.Contains(line, "</exchange-document>") {
-			// remove everything after the exchange-document
-			tempDoc += line
-			// parse the exchange-document
-			fileName := extractFileName(tempDoc)
-			// process the exchange-document
-			p.ContentHandler(fileName, tempDoc)
-			tempDoc = ""
-		} else if tempDoc != "" {
-			// add line to tempDoc
-			tempDoc += line
+	for {
+		// Read a chunk of data (64KB at a time, adjust as needed)
+		chunk, err := reader.ReadString('>') // Read until the next `>`
+		if err != nil {
+			break
+		}
+		buffer.WriteString(chunk) // Accumulate chunk in buffer
+
+		// Check if `</exch:exchange-document>` appears in this chunk
+		if strings.Contains(chunk, "</exch:exchange-document>") {
+
+			buffer.WriteString(chunk) // Accumulate chunk in buffer
+
+			line := buffer.String()
+			// remove the exch: prefix
+			line = strings.ReplaceAll(line, "<exch:", "<")
+			line = strings.ReplaceAll(line, "</exch:", "</")
+			// check if the line contains exchange-document
+			if strings.Contains(line, "<exchange-document ") && strings.Contains(line, "</exchange-document>") {
+				// remove everything before the exchange-document
+				// there must be a space after "exchange-document" since it would also match "exchange-documents"
+				line = line[strings.Index(line, "<exchange-document "):]
+				// parse the exchange-document
+				fileName := extractFileName(line)
+				// process the exchange-document
+				p.ContentHandler(fileName, line)
+			} else if strings.Contains(line, "<exchange-document ") {
+				// remove everything before the exchange-document
+				line = line[strings.Index(line, "<exchange-document "):]
+				tempDoc = line
+			} else if strings.Contains(line, "</exchange-document>") {
+				// remove everything after the exchange-document
+				tempDoc += line
+				// parse the exchange-document
+				fileName := extractFileName(tempDoc)
+				// process the exchange-document
+				p.ContentHandler(fileName, tempDoc)
+				tempDoc = ""
+			} else if tempDoc != "" {
+				// add line to tempDoc
+				tempDoc += line
+			}
+			buffer.Reset() // Clear buffer for the next document
 		}
 	}
 	logger.Debug("successfully done")
