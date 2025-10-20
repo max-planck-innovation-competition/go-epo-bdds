@@ -2,6 +2,8 @@ package epo_docdb
 
 import (
 	"bufio"
+	"bytes"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"log/slog"
 	"os"
@@ -10,10 +12,10 @@ import (
 )
 
 func TestProcessBulkZipFile(t *testing.T) {
-	path := os.Getenv("DOCDB_FRONTFILES_PATH")
-	// skipTest(t)
+	// path := os.Getenv("DOCDB_FRONTFILES_PATH")
 	p := NewProcessor()
-	err := p.ProcessBulkZipFile(path + "/docdb_xml_202402_CreateDelete_001.zip")
+	err := p.ProcessBulkZipFile("./test-data/docdb_xml_202501_CreateDelete_001.zip")
+	// err := p.ProcessBulkZipFile(path + "/docdb_xml_202501_CreateDelete_001.zip")
 	if err != nil {
 		t.Error(err)
 	}
@@ -125,14 +127,15 @@ func TestProcessBackfileExchangeDocuments(t *testing.T) {
 	})
 	// read the test file
 	deTestFile := "./test-data/DE-backfile.xml"
+
 	// create io reader
 	file, err := os.Open(deTestFile)
+
 	if err != nil {
 		t.Error(err)
 	}
-	//
-	reader := bufio.NewReader(file)
-	err = p.ProcessExchangeFileContent(slog.With("test"), reader)
+
+	err = p.ProcessExchangeFileContent(slog.With("test"), file)
 	if err != nil {
 		t.Error(err)
 	}

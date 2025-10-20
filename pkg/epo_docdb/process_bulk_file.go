@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"github.com/krolaw/zipstream"
 	"io"
 	"io/fs"
 	"log/slog"
@@ -16,6 +15,8 @@ import (
 	"sort"
 	"strings"
 	"sync"
+
+	"github.com/krolaw/zipstream"
 )
 
 // StateHandler can be used to track the state of the application
@@ -207,7 +208,16 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		if err != nil {
 			directoryLogger.With("err", err).Error("failed to process bulk zip file")
 			return err
+		} else {
+			// mark zip file as finished
+			if p.StateHandler != nil {
+				errMarkDone := p.StateHandler.MarkAsDone(filePath)
+				if errMarkDone != nil {
+					slog.With("err", errMarkDone).Error("failed to mark zip file as done")
+				}
+			}
 		}
+
 		// log the current progress
 		directoryLogger.
 			With("file", i+1).

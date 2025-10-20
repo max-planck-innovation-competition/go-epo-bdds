@@ -16,7 +16,7 @@ import (
 func TestReadFile(t *testing.T) {
 
 	// process file
-	exchangeObject, err := ParseXmlFileToStruct("./test-data/AP-1206-A_302101161.xml")
+	exchangeObject, err := ParseXmlFileToStruct("./test-data/DE-backfile.xml")
 	if err != nil {
 		t.Error(err)
 	}
