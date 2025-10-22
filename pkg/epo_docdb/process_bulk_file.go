@@ -207,6 +207,15 @@ func (p *Processor) ProcessDirectory(workingDirectoryPath string) (err error) {
 		err = p.ProcessBulkZipFile(filePath)
 		if err != nil {
 			directoryLogger.With("err", err).Error("failed to process bulk zip file")
+
+			// remove the bulk zip file from disk to re-attempt later
+			errRemove := os.Remove(filePath)
+			if errRemove != nil {
+				directoryLogger.With("err", errRemove).Error("failed to remove bulk zip file after processing failure")
+			} else {
+				directoryLogger.Info("removed bulk zip file after processing failure to re-attempt later")
+			}
+
 			return err
 		} else {
 			// mark zip file as finished
